@@ -7,7 +7,7 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     )
 
     if test $status -eq 0
-        commandline --replace $variable_name
+        commandline --insert $variable_name
     end
 
     commandline --function repaint
