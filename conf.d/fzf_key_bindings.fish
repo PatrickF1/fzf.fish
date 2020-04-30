@@ -1,3 +1,3 @@
-# \cr is ctrl+r and \cf is ctrl+f
-bind \cr '__fzf_search_history'
+# \cf is ctrl+f and \cr is ctrl+r
 bind \cf '__fzf_search_current_dir'
+bind \cr '__fzf_search_history'
