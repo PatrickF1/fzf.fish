@@ -1,4 +1,4 @@
 #!/usr/bin/env fish
 bind --erase \cf
 bind --erase \cr
-printf "fzf_fish_integration successfully uninstalled"
+echo -e "fzf_fish_integration key kindings removed\n"
