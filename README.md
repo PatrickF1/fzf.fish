@@ -1,5 +1,6 @@
 # fzf_fish_integration
-fisher plugin to integrate fzf into fish workflow
+`fisher` plugin to integrate fzf into fish workflow. Heavily inspired by Jethro Kuan's similar [fzf plugin](https://github.com/jethrokuan/fzf_.
+
 ## Install
 With [fisher]
 ```
