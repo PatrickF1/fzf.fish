@@ -1,3 +1,4 @@
+# originally implemented and transposed from https://github.com/patrickf3139/dotfiles/pull/11
 function __fzf_search_history --description "Search command history using fzf. Replace the current commandline with the selected command."
     history merge
     set command_selected (

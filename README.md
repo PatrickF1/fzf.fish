@@ -1,8 +1,10 @@
 # fzf_fish_integration
-`fisher` plugin to integrate `fzf` into your `fish` workflow. Adds keybindings to use `fzf` to
-- obtain the relative path to a file under your current directory (`Ctrl+f`)
-- select a command to run from command history (`Ctrl+r`)
-- procure a shell variable name (`Ctrl+v`)
+`fisher` plugin to integrate `fzf` into your `fish` workflow. Comes with the multiple `fish` functions wrapping common `fzf` use cases, each with a mnemonic keybinding:
+| Function name | Functionality | Keybinding | 
+|---------------|---------------|------------|
+| `__fzf_search_current_dir` | Search for files in current directory | `Ctrl+f` (f for files) |
+| `__fzf_search_history` | Search for a command to re-run | `Ctrl+r` (r for reverse-i-search) |
+| `__fzf_search_shell_variables` | Search for a shell variable name | `Ctrl+v` (v for variable) |
 
 ## Background
 I originally included most of this functionality in [my dotfiles as autoloaded functions](https://github.com/patrickf3139/dotfiles/pull/11). Eventually, I decided it made more sense to keep the logic of complex utilities separate from my dotfiles, which should only be focused on the management of my configuration so moved it into its own repo. I also wanted to make this functionality more widely discoverable and available so made it a plugin.
@@ -14,11 +16,14 @@ With [fisher](https://github.com/jorgebucaran/fisher)
 ```
 fisher add patrickf3139/fzf_fish_integration
 ```
+
 With [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
 ```fish
 omf install https://github.com/patrickf3139/fzf_fish_integration
 ```
 
 In addition to this plugin, you will also need to install
-- [fzf](https://github.com/junegunn/fzf), the command-line fuzzy finder that powers this plugin
-- [fd](https://github.com/sharkdp/fd), a much faster alternative to the antiquated `find` command and is used for the find file functionality.
+- [fzf](https://github.com/junegunn/fzf), the command-line fuzzy finder that powers this plugin; and
+- [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command and is used for the find file functionality.
+
+If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
