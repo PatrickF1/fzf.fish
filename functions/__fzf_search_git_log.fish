@@ -1,7 +1,7 @@
 # Fuzzy selector for git commit hash ("sha")
-# Put this file in your path and make it xecutable and git can execute it with `git shalector`
+# Put this file in your path and make it executable and git can execute it with `git shalector`
 # Inspiration: https://github.com/christoomey/dotfiles/issues/105
-# Originally implemented and transposed from https://github.com/patrickf3139/dotfiles/pull/2
+# Originally implemented in and transposed from https://github.com/patrickf3139/dotfiles/pull/2
 # Usage:
 #    git shalector
 function __fzf_search_git_log --description "Search the git log of the current git repository. Insert the selected commits into the commandline at the cursor."
