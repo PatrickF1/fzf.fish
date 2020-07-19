@@ -5,12 +5,13 @@ function __fzf_search_git_log --description "Search the git log of the current g
         exit 1
     end
 
-    set selected_commit (
+    set selected_log_line (
         git log --color=always --format=format:'%C(bold blue)%H%C(reset) - %C(cyan)%aD%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)   %C(dim normal)[%an]%C(reset)' | \
         fzf --ansi --reverse --tiebreak=index
     )
     if test $status -eq 0
-        commandline --insert $selected_commit
+        set commit_hash (echo $selected_log_line | string sub --start 1 --length 40)
+        commandline --insert $commit_hash
     end
 
     commandline --function repaint
