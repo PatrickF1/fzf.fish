@@ -3,6 +3,7 @@
 | Function name | Functionality | Keybinding |
 |---------------|---------------|------------|
 | `__fzf_search_current_dir` | Search for a file in current directory | `Ctrl+f` (f for file) |
+| `__fzf_search_git_log` | Search for a commit in current git repo log | `Ctrl+l` (l for log) |
 | `__fzf_search_history` | Search for a command to re-run | `Ctrl+r` (r for reverse-i-search) |
 | `__fzf_search_shell_variables` | Search for a shell variable name | `Ctrl+v` (v for variable) |
 
