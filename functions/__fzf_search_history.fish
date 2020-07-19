@@ -3,7 +3,7 @@ function __fzf_search_history --description "Search command history using fzf. R
     history merge
     set command_selected (
         history --null |
-        fzf --read0 --tiebreak=index --height 40% --query=(commandline)
+        fzf --read0 --tiebreak=index --height 70% --query=(commandline)
     )
 
     if test $status -eq 0
