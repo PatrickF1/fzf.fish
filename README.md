@@ -8,9 +8,9 @@
 | `__fzf_search_shell_variables` | Search for a shell variable name | `Ctrl+v` (v for variable) |
 
 ## Background
-I originally included most of this functionality in [my dotfiles as autoloaded functions](https://github.com/patrickf3139/dotfiles/pull/11). Eventually, I decided it made more sense to keep the logic of complex utilities separate from my dotfiles, which should only be focused on the management of my configuration so moved it into its own repo. I also wanted to make this functionality more widely discoverable and available so made it a plugin.
+I originally included some of this functionality in [my dotfiles as autoloaded functions](https://github.com/patrickf3139/dotfiles/pull/11). Eventually, I decided it made more sense to keep the logic of complex utilities separate from my dotfiles, which should only be focused on the management of my configuration, so moved it into its own repo. I also wanted to make this functionality more widely discoverable and available so made it a plugin.
 
-I want to give credit to Jethro Kuan for some of the ideas implemented in his [fzf plugin](https://github.com/jethrokuan/fzf). You'll notice that his plugin also covers searching for files and searching through command history. Why not just use that plugin then? Well, I wanted something that is simpler and lighter, something easier to maintain and that leaves a small footprint on my shell environment while maintaining most of the functionality. I think I've achieved that here. But for more advanced use cases, Jethro's plugin may suit you better.
+I want to give credit to Jethro Kuan for some of the ideas implemented in his [fzf plugin](https://github.com/jethrokuan/fzf). You'll notice that his plugin also covers searching for files and searching through command history with fzf. Why reinvent the wheel, then? Well, I wanted something that is simpler and lighter, something easier to maintain and that leaves a small footprint on my shell environment while maintaining most of the functionality. I think I've achieved that here--and more. Since porting over the functionality of Jethro's plugin, I've added two more pieces of fzf functionality: searching git log and searching shell variables. Therefore, I think in most cases, this plugin makes more sense.
 
 ## Install
 With [fisher](https://github.com/jorgebucaran/fisher)
