@@ -1,8 +1,8 @@
 # fzf_fish_integration
 `fisher` plugin to integrate `fzf` into your `fish` workflow. Comes with the multiple `fish` functions wrapping common `fzf` use cases, each with a mnemonic keybinding:
-| Function name | Functionality | Keybinding | 
+| Function name | Functionality | Keybinding |
 |---------------|---------------|------------|
-| `__fzf_search_current_dir` | Search for files in current directory | `Ctrl+f` (f for files) |
+| `__fzf_search_current_dir` | Search for a file in current directory | `Ctrl+f` (f for file) |
 | `__fzf_search_history` | Search for a command to re-run | `Ctrl+r` (r for reverse-i-search) |
 | `__fzf_search_shell_variables` | Search for a shell variable name | `Ctrl+v` (v for variable) |
 
