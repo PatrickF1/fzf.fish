@@ -1,16 +1,16 @@
 # fzf_fish_integration
 A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions-each with its own mnemonic keybinding-to use fzf to
 
-**Search for a file or folder in the current directory** - `Ctrl+f` (f for file)
+Search for a file or folder in the current directory - `Ctrl+f` (f for file)
 <img alt="file search" src="./images/File Search.png">
 
-**Search for a commit in the current git repository's log** - `Ctrl+l` (l for log)
+Search for a commit in the current git repository's log - `Ctrl+l` (l for log)
 <img alt="git log search" src="./images/Git Log Search.png">
 
-**Search for a command from command history** - `Ctrl+r` (r for reverse-i-search)
+Search for a command from command history - `Ctrl+r` (r for reverse-i-search)
 <img alt="command history search" src="./images/Command History Search.png">
 
-**Search for a shell variable name** - `Ctrl+v` (v for variable)
+Search for a shell variable name - `Ctrl+v` (v for variable)
 <img alt="file search" src="./images/Shell Variables Search.png">
 
 ## Background
@@ -29,7 +29,7 @@ With [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
 omf install https://github.com/patrickf3139/fzf_fish_integration
 ```
 
-In addition to this plugin, **you will also need to install**
+In addition to this plugin, you will also need to install
 - [fzf](https://github.com/junegunn/fzf), the command-line fuzzy finder that powers this plugin; and
 - [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command and is used for the find file functionality.
 
