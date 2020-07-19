@@ -4,11 +4,14 @@ function __fzf_search_git_log --description "Search the git log of the current g
         echo '__fzf_search_git_log: Not in a git repository.' >&2
     else
         set selected_log_line (
-            git log --color=always --format=format:'%C(bold blue)%H%C(reset) - %C(cyan)%aD%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)   %C(dim normal)[%an]%C(reset)' | \
+            # see documentation for git format placeholders at https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem
+            # %h gives you the abbreviated commit hash, which is useful for saving screen space, but we will have to expand it later below
+            git log --color=always --format=format:'%C(bold blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)   %C(dim normal)[%an]%C(reset)' | \
             fzf --ansi --reverse --tiebreak=index --height 70%
-    )
+        )
         if test $status -eq 0
-            set commit_hash (echo $selected_log_line | string sub --start 1 --length 40)
+            set abbreviated_commit_hash (string split --max 1 " " $selected_log_line)[1]
+            set commit_hash (git rev-parse $abbreviated_commit_hash)
             commandline --insert $commit_hash
         end
     end
