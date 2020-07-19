@@ -1,11 +1,17 @@
 # fzf_fish_integration
-`fisher` plugin to integrate `fzf` into your `fish` workflow. Comes with handy shortcuts for quickly executing common `fzf` use cases:
-| Functionality | Keybinding | Example |
-|---------------|------------|---------|
-| Search for a file in current directory | `Ctrl+f` (f for file) | <img alt="file search" src="./images/File Search.png"> |
-| Search for a commit in git log | `Ctrl+l` (l for log) | <img alt="git log search" src="./images/Git Log Search.png"> |
-| Search for a command to re-run | `Ctrl+r` (r for reverse-i-search) | <img alt="command history search" src="./images/Command History Search.png"> |
-| Search for a shell variable name | `Ctrl+v` (v for variable) | <img alt="file search" src="./images/Shell Variables Search.png">
+A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions-each with its own mnemonic keybinding-to use fzf to
+
+*Search for a file in current directory* - `Ctrl+f` (f for file)
+<img alt="file search" src="./images/File Search.png">
+
+*Search for a commit in git log* - `Ctrl+l` (l for log)
+<img alt="git log search" src="./images/Git Log Search.png">
+
+*Search for a command to re-run* - `Ctrl+r` (r for reverse-i-search)
+<img alt="command history search" src="./images/Command History Search.png">
+
+*Search for a shell variable name* - `Ctrl+v` (v for variable)
+<img alt="file search" src="./images/Shell Variables Search.png">
 
 ## Background
 I originally included some of this functionality in [my dotfiles as autoloaded functions](https://github.com/patrickf3139/dotfiles/pull/11). Eventually, I decided it made more sense to keep the logic of complex utilities separate from my dotfiles, which should only be focused on the management of my configuration, so moved it into its own repo. I also wanted to make this functionality more widely discoverable and available so made it a plugin.
