@@ -7,6 +7,14 @@
 | `__fzf_search_history` | Search for a command to re-run | `Ctrl+r` (r for reverse-i-search) |
 | `__fzf_search_shell_variables` | Search for a shell variable name | `Ctrl+v` (v for variable) |
 
+<table>
+    <tr>
+        <img alt="command history search" src="./images/Command History Search.png">
+    </tr>
+    <tr>
+        <img alt="file search" src="./images/File Search.png">
+    </tr>
+</table>
 ## Background
 I originally included some of this functionality in [my dotfiles as autoloaded functions](https://github.com/patrickf3139/dotfiles/pull/11). Eventually, I decided it made more sense to keep the logic of complex utilities separate from my dotfiles, which should only be focused on the management of my configuration, so moved it into its own repo. I also wanted to make this functionality more widely discoverable and available so made it a plugin.
 
