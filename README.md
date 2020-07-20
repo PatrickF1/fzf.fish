@@ -14,13 +14,12 @@ A plugin that integrates `fzf` into your `fish` workflow. Creates handy function
 <img alt="shell variables search" src="./images/Shell Variables Search.png">
 
 ## Prior Art
-[Jethro Kuan](https://www.jethro.dev) created another [fzf plugin](https://github.com/jethrokuan/fzf) that provides a similar feature set and is quote popular in the fish community (it currently has 466 stars and received contributions from 30 people, including me). In fact, I borrowed some ideas and snippets of code from it when creating this plugin&mdash;thank you so much, Jethro!
+[Jethro Kuan](https://www.jethro.dev) created another [fzf plugin](https://github.com/jethrokuan/fzf) that provides a similar feature set and is quite popular in the fish community (it currently has 466 stars and has 30 contributors, including me). In fact, I borrowed some ideas and snippets of code from it when first creating this plugin&mdash;thank you so much, Jethro!
 
-However, while attempting to introduce a new feature into Jethro's plugin, I was appalled by the complexity and inefficiency of the code that resulted from feature cruft (e.g., it provides multiple ways to action on files via find, cd, or open rather than relying on the user to execute the desired command via the command line) and poor design decisions (e.g., its built-in Tmux support would have been better supported through an alias). In addition, Jethro seemed to have lost interest his plugin (he later confirmed to me that he stopped using fish). As someone who wants the sharpest tools and give back to the community, I decided to write my own plugin. After much work, `fzf-fish-integration` now implements most of the same functionality but is slightly faster, easier to maintain, and overall more [Unix-y](https://en.wikipedia.org/wiki/Unix_philosophy). Additionally, it contains two pieces of functionality not found in Jethro's: using fzf to search git log and browse shell variables.
+So why did I create an alternative fzf plugin? While attempting to contribute a patch to Jethro's plugin, I was appalled by the complexity and inefficiency of the code that resulted from feature cruft (e.g., it provides multiple ways to action on files via find, cd, or open rather than relying on the user to execute the desired command via the command line) and poor design decisions (e.g., its built-in Tmux support would have been better implemented using an alias). In addition, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin. After much work, `fzf-fish-integration` now implements most of the same functionality but is faster, easier to maintain, and overall more [Unix-y](https://en.wikipedia.org/wiki/Unix_philosophy). Additionally, it has two new pieces of functionality: using fzf to search git log and to browse shell variables.
+However, two features not included are Tmux support and tab completion.
 
-However, two features not currently covered are Tmux integration and tab completion, so advanced users relying on them may want to stick with Jethro's plugin.
-
-tl;dr choose `fzf-fish-integration` over [Jethro's plugin](https://github.com/jethrokuan/fzf) if you want
+**TLDR:** choose `fzf-fish-integration` over [Jethro's plugin](https://github.com/jethrokuan/fzf) if you want
 - more efficient, slightly faster code
 - to run code that is easier to understand and debug if you encounter issues
 - a tool built on [Unix philosphy](https://en.wikipedia.org/wiki/Unix_philosophy)
@@ -30,7 +29,7 @@ tl;dr choose `fzf-fish-integration` over [Jethro's plugin](https://github.com/je
 - fzf integration for browsing shell variables
 
 and you don't mind
-- having to integrate fzf with Tmux yourself (if you use Tmux)
+- having to integrate fzf with Tmux yourself
 - not having fzf integration with tab completion
 
 ## Installation
