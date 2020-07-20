@@ -1,20 +1,16 @@
 # fzf_fish_integration
-A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions&mdash;each with its own mnemonic keybinding&mdash;to use fzf to
+A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions&mdash;each with its own mnemonic keybinding&mdash; that use fzf to
 
-> Search for a file or folder in the current directory - `Ctrl+f` (f for file)
-
+> Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
 <img alt="file search" src="./images/File Search.png">
 
-> Search for a commit in the current git repository's log - `Ctrl+l` (l for log)
-
+> Search for a **commit** in the current git repository's log - `Ctrl+l` (l for log)
 <img alt="git log search" src="./images/Git Log Search.png">
 
-> Search for a command from command history - `Ctrl+r` (r for reverse-i-search)
-
+> Search for a **command** from command history - `Ctrl+r` (r for reverse-i-search)
 <img alt="command history search" src="./images/Command History Search.png">
 
-> Search for a shell variable name - `Ctrl+v` (v for variable)
-
+> Search for a **shell variable** (both local and exported) - `Ctrl+v` (v for variable)
 <img alt="file search" src="./images/Shell Variables Search.png">
 
 ## Background
