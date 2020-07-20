@@ -57,5 +57,6 @@ set --universal FZF_FISH_CUSTOM_KEYBINDINGS
 ```
 or by adding setting it to your `config.fish` like so
 ```fish
-set --export FZF_FISH_CUSTOM_KEYBINDINGS 1
+set --export FZF_FISH_CUSTOM_KEYBINDINGS
 ```
+Then, you can set your own keybindings following [fzf_key_bindings.fish](conf.d/fzf_key_bindings.fish) as a reference.
