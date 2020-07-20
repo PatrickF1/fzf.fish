@@ -1,5 +1,5 @@
 # fzf-fish-integration
-A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions&mdash;each with its own mnemonic keybinding&mdash;that use fzf to
+A plugin that integrates `fzf` into your `fish` workflow. Ships with handy functions&mdash;each with its own mnemonic keybinding&mdash;that use fzf to
 
 > Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
 <img alt="file search" src="./images/File Search.png">
@@ -49,3 +49,13 @@ In addition to this plugin, you will also need to install
 - [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command and is used for the file search feature.
 
 If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
+
+## Use custom keybindings
+The functions that ship with mnemonic keybindings for each function already (see top section). However, if you would like to customize the keybindings, you can prevent the built-in bindings from executing entirely by setting `FZF_FISH_CUSTOM_KEYBINDINGS` as an environment variable. You can do this by executing
+```fish
+set --universal FZF_FISH_CUSTOM_KEYBINDINGS
+```
+or by adding setting it to your `config.fish` like so
+```fish
+set --export FZF_FISH_CUSTOM_KEYBINDINGS 1
+```
