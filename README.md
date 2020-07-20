@@ -1,4 +1,4 @@
-# fzf_fish_integration
+# fzf-fish-integration
 A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions&mdash;each with its own mnemonic keybinding&mdash;that use fzf to
 
 > Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
@@ -21,12 +21,12 @@ I want to give credit to Jethro Kuan for some of the ideas implemented in his [f
 ## Installation
 With [fisher](https://github.com/jorgebucaran/fisher)
 ```
-fisher add patrickf3139/fzf_fish_integration
+fisher add patrickf3139/fzf-fish-integration
 ```
 
 With [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
 ```fish
-omf install https://github.com/patrickf3139/fzf_fish_integration
+omf install https://github.com/patrickf3139/fzf-fish-integration
 ```
 
 In addition to this plugin, you will also need to install
