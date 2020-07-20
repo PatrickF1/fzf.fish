@@ -1,5 +1,5 @@
 # fzf_fish_integration
-A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions&#151;each with its own mnemonic keybinding&#151;to use fzf to
+A plugin that integrates `fzf` into your `fish` workflow. Creates handy functions&mdash;each with its own mnemonic keybinding&mdash;to use fzf to
 
 > Search for a file or folder in the current directory - `Ctrl+f` (f for file)
 
