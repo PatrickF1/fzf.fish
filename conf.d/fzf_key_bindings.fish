@@ -1,4 +1,4 @@
-if not set -q fzf_fish_custom_keybindings
+if not set --query fzf_fish_custom_keybindings
     # \cf is ctrl+f, etc.
     bind \cf '__fzf_search_current_dir'
     bind \cl '__fzf_search_git_log'
