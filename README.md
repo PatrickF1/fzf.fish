@@ -51,7 +51,7 @@ In addition to this plugin, you will also need to install
 If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
 
 ## Using custom keybindings
-Each function already ships with mnemonic keybindings (see screenshots above). However, if you would like to customize the keybindings, you can prevent the built-in keybindings from executing entirely by setting `fzf_fish_custom_keybindings` as [global variable](https://fishshell.com/docs/current/#variable-scope). You can do this executing
+Each function already ships with mnemonic keybindings (see screenshots above). However, if you would like to customize the keybindings, you can prevent the out-of-the-box keybindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this executing
 ```fish
 set --universal fzf_fish_custom_keybindings
 ```
