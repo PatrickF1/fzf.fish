@@ -13,7 +13,7 @@ A plugin that integrates `fzf` into your `fish` workflow. Ships with handy funct
 > Search for a **shell variable** (both local and exported) - `Ctrl+v` (v for variable)
 <img alt="shell variables search" src="./images/Shell Variables Search.png">
 
-## Prior Art
+## Prior art
 [jethrokuan/fzf](https://github.com/jethrokuan/fzf) is another fzf plugin that provides similar features and is prevalent in the fish community (currently, 467 stargazers and 30 contributors, including me). In fact, I borrowed from it some ideas and snippets of code when first creating this plugin&mdash;thank you Jethro!
 
 So why *another* fzf plugin? While attempting to patch `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple ways to action on files (find, cd, and open) rather than relying on the user to action the files themselves using the command line) and poor design decisions (e.g. the Tmux support, implemented using a variable command, would have been better done using an alias). In addition, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
@@ -50,9 +50,22 @@ In addition to this plugin, you will also need to install
 
 If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
 
-## Using custom keybindings
-Each function already ships with mnemonic keybindings (see screenshots above). However, if you would like to customize the keybindings, you can prevent the out-of-the-box keybindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this executing
+## Configuration
+### Using custom keybindings
+Each function already ships with mnemonic keybindings (see screenshots above). They are set up in [conf.d/fzf.fish](conf.d/fzf.fish). However, if you would like to customize them, you can prevent the out-of-the-box keybindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this by running
 ```fish
 set --universal fzf_fish_custom_keybindings
 ```
-Do not try to set it in your `config.fish`, as [fzf_key_bindings.fish](conf.d/fzf_key_bindings.fish) is sourced first and so will not see the variable. Once it is set, you can set up your own keybindings.
+Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own keybindings.
+
+### Fzf default options
+fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
+
+To make fzf's interface friendlier, `fzf-fish-integration` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish](conf.d/fzf.fish) for more details. This has the side effect of affecting fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set your own `FZF_DEFAULT_OPTS` universal variable. For example:
+```fish
+set --universal --export FZF_DEFAULT_OPTS --height 50% --margin 1
+```
+Alternatively, you can override it in your `config.fish` by adding in something like this:
+```fish
+set --export FZF_DEFAULT_OPTS --height 50% --margin 1
+```
