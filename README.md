@@ -50,9 +50,18 @@ In addition to this plugin, you will also need to install
 
 If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
 
-## Using custom keybindings
-Each function already ships with mnemonic keybindings (see screenshots above). However, if you would like to customize the keybindings, you can prevent the out-of-the-box keybindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this executing
+## Configuration
+### Using custom keybindings
+Each function already ships with mnemonic keybindings (see screenshots above). They are set up in [conf.d/fzf.fish](conf.d/fzf.fish). However, if you would like to customize them, you can prevent the out-of-the-box keybindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this by running
 ```fish
 set --universal fzf_fish_custom_keybindings
 ```
-Do not try to set it in your `config.fish`, as [fzf_key_bindings.fish](conf.d/fzf_key_bindings.fish) is sourced first and so will not see the variable. Once it is set, you can set up your own keybindings.
+Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own keybindings.
+
+### Default fzf options
+fzf supports passing in default options into every invocation of fzf, scripted or interactive, via the environment variable [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables). If it is set, fzf will automatically parse its value as options when it is invoked.
+
+This plugin takes the liberty of setting a sane and helpful `FZF_DEFAULT_OPTS` if it does not see one already set. However, this does have the side effect of affecting fzf invocations even outside the functions of this plugin. If you would like to remove this side effect or to customize the options passed into fzf, override `FZF_DEFAULT_OPTS` by setting it as a universal variable yourself. For example, you might run
+```fish
+set --universal FZF_DEFAULT_OPTS --height 50% --margin 1
+```
