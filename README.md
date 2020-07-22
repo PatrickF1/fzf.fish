@@ -63,7 +63,7 @@ fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.c
 
 To make fzf's interface friendlier, `fzf-fish-integration` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish](conf.d/fzf.fish) for more details. This has the side effect of affecting fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set your own `FZF_DEFAULT_OPTS` universal variable. For example:
 ```fish
-set --universal FZF_DEFAULT_OPTS --height 50% --margin 1
+set --universal --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 Alternatively, you can override it in your `config.fish` by adding in something like this:
 ```fish
