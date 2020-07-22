@@ -10,5 +10,9 @@ end
 # If FZF_DEFAULT_OPTS is not set, then set some sane defaults. This also affects fzf outside of this plugin.
 # See https://github.com/junegunn/fzf#environment-variables
 if not set --query FZF_DEFAULT_OPTS
+    # cycle makes scrolling easier
+    # reverse layout is more familiar as it mimicks the layout of git log, history, and env
+    # border makes clear where the fzf window ends
+    # height 75% allows you to view what you were doing and stay in context of your work
     set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 75%'
 end
