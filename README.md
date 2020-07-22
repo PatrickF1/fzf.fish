@@ -61,7 +61,7 @@ Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `f
 ### Default fzf options
 fzf supports passing in default options into every invocation of fzf, scripted or interactive, via the environment variable [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables). If it is set, fzf will treat its value as additional options passed in whenever invoked.
 
-This plugin takes the liberty of setting a sane and helpful `FZF_DEFAULT_OPTS` in [conf.d/fzf.fish](conf.d/fzf.fish) if it does not see one already set. However, this does have the side effect of affecting fzf invocations even outside the functions of this plugin. If you would like to remove this side effect or to customize the options passed into fzf, override `FZF_DEFAULT_OPTS` by setting it as a universal variable yourself. For example, you might run
+This plugin takes the liberty of setting a sane and helpful `FZF_DEFAULT_OPTS` in [conf.d/fzf.fish](conf.d/fzf.fish) if it does not see one already set. However, this does have the side effect of affecting fzf invocations even outside the functions of this plugin. If you would like to remove this side effect or to customize the options passed into fzf, override `FZF_DEFAULT_OPTS` by setting it as yourself. For example, you might run
 ```fish
 set --universal FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
