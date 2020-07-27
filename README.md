@@ -1,5 +1,8 @@
-# fzf-fish-integration
-A plugin that integrates `fzf` into your `fish` workflow. Ships with handy functions&mdash;each with its own mnemonic keybinding&mdash;that use fzf to
+<h1 align="center">
+    fzf-fish-integration
+</h1>
+
+A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish](http://fishshell.com) workflow. Ships with handy functions&mdash;each with its own mnemonic keybinding&mdash;that use fzf to
 
 > Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
 <img alt="file search" src="./images/File Search.png">
@@ -16,7 +19,7 @@ A plugin that integrates `fzf` into your `fish` workflow. Ships with handy funct
 ## Prior art
 [jethrokuan/fzf](https://github.com/jethrokuan/fzf) is another fzf plugin that provides similar features and is prevalent in the fish community (currently, 467 stargazers and 30 contributors, including me). In fact, I borrowed from it some ideas and snippets of code when first creating this plugin&mdash;thank you Jethro!
 
-So why *another* fzf plugin? While attempting to patch `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple ways to action on files (find, cd, and open) rather than relying on the user to action the files themselves using the command line) and poor design decisions (e.g. the Tmux support, implemented using a variable command, would have been better done using an alias). In addition, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
+So why *another* fzf plugin? While attempting to patch `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple ways to action on files (find, cd, and open) rather than relying on the user to action the files themselves using the command line) and poor design decisions (e.g. the Tmux support, implemented using a variable command, would have been better done using an alias). Moreover, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
 
 After much work, `fzf-fish-integration` now implements most of the same features but is faster, easier to maintain, and more [Unix-y](https://en.wikipedia.org/wiki/Unix_philosophy). It also includes two new features: using fzf to search git log and to browse shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy and difficult to maintain as evidenced by the number of [issues reported about it](https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab).
 
