@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 if not set --query fzf_fish_custom_keybindings
-    bind --erase \cf
-    bind --erase \cl
-    bind --erase \cr
-    bind --erase \cv
+    bind --erase --all \cf
+    bind --erase --all \cl
+    bind --erase --all \cr
+    bind --erase --all \cv
 
     set_color --italics cyan
     echo "fzf_fish_integration key kindings removed"
