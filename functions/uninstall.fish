@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 if not set --query fzf_fish_custom_keybindings
     bind --erase --all \cf
-    bind --erase --all \cl
+    bind --erase --all \el
     bind --erase --all \cr
     bind --erase --all \cv
 
