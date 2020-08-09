@@ -6,7 +6,7 @@ if not set --query fzf_fish_custom_keybindings
     bind \cr '__fzf_search_history'
     bind \cv '__fzf_search_shell_variables'
 
-    # also set up the same keybindings for insert mode if the user is using fish_vi_key_bindings
+    # set up the same keybindings for insert mode if using fish_vi_key_bindings
     if [ $fish_key_bindings = 'fish_vi_key_bindings' ]
         bind --mode insert \cf '__fzf_search_current_dir'
         bind --mode insert \cl '__fzf_search_git_log'
