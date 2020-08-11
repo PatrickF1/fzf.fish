@@ -10,15 +10,15 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 > Search for a **commit** in the current git repository's log - `Ctrl+l` (l for log)
 
-![git log search]("/images/Git Log Search.png")
+![git log search](/images/git_log_search.png)
 
 > Search for a **command** from command history - `Ctrl+r` (r for reverse-i-search)
 
-![command history search]("/images/Command History Search.png")
+![command history search](/images/command_history_search.png)
 
 > Search for a **shell variable** (both local and exported) - `Ctrl+v` (v for variable)
 
-![shell variables search]("/images/Shell Variables Search.png")
+![shell variables search](/images/shell_variables_search.png)
 
 ## Installation
 With [fisher](https://github.com/jorgebucaran/fisher)
