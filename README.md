@@ -6,19 +6,19 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 > Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
 
-![file search]("./images/File Search.png")
+![file search]("/images/File Search.png")
 
 > Search for a **commit** in the current git repository's log - `Ctrl+l` (l for log)
 
-![git log search]("./images/Git Log Search.png")
+![git log search]("/images/Git Log Search.png")
 
 > Search for a **command** from command history - `Ctrl+r` (r for reverse-i-search)
 
-![command history search]("./images/Command History Search.png")
+![command history search]("/images/Command History Search.png")
 
 > Search for a **shell variable** (both local and exported) - `Ctrl+v` (v for variable)
 
-![shell variables search]("./images/Shell Variables Search.png")
+![shell variables search]("/images/Shell Variables Search.png")
 
 ## Installation
 With [fisher](https://github.com/jorgebucaran/fisher)
