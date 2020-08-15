@@ -8,7 +8,7 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 ![file search](/images/file_search.png)
 
-> Search for a **commit** in the current git repository's log - `Ctrl+l` (l for log)
+> Search for a **commit** in the current git repository's log - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
 ![git log search](/images/git_log_search.png)
 
