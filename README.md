@@ -2,7 +2,7 @@
     fzf.fish
 </h1>
 
-A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish](http://fishshell.com) workflow. Comes with handy functions&mdash;each with its own mnemonic keybinding&mdash;that use fzf to
+A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish](http://fishshell.com) workflow. Comes with handy functions&mdash;each with its own mnemonic key binding&mdash;that use fzf to
 
 > Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
 
@@ -38,12 +38,12 @@ In addition to this plugin, you will also need to install
 If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
 
 ## Configuration
-### Using custom keybindings
-Each function is assigned mnemonic keybindings by default (see screenshots above) in [conf.d/fzf.fish](conf.d/fzf.fish). However, if you would like to customize them, you can prevent the default keybindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this by running
+### Using custom key bindings
+Each function is assigned mnemonic key bindings by default (see screenshots above) in [conf.d/fzf.fish](conf.d/fzf.fish). However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_key bindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this by running
 ```fish
-set --universal fzf_fish_custom_keybindings
+set --universal fzf_fish_custom_key bindings
 ```
-Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `conf.d/fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own keybindings.
+Do not try to set `fzf_fish_custom_key bindings` in your `config.fish` because `conf.d/fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own key bindings.
 
 ### Fzf default options
 fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
@@ -85,7 +85,7 @@ Fzf optionally comes with its [own fish extension](https://github.com/junegunn/f
 - is easier to read, maintain, and contribute to
 - includes timestamps when searching command history
 - colorizes files when searching for files
-- has configurable keybindings
+- has configurable key bindings
 - [autoloads](https://fishshell.com/docs/current/tutorial.html#autoloading-functions) its functions for faster shell startup
 - will likely be more frequently updated
 
