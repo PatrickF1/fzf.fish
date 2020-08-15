@@ -7,7 +7,7 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 > Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
 <img alt="file search" src="./images/File Search.png">
 
-> Search for a **commit** in the current git repository's log - `Ctrl+Alt+l` (l for log)
+> Search for a **commit** in the current git repository's log - `Ctrl+Alt+l` (l for log, additional modifier key Alt to prevent conflict with clear screen)
 <img alt="git log search" src="./images/Git Log Search.png">
 
 > Search for a **command** from command history - `Ctrl+r` (r for reverse-i-search)
