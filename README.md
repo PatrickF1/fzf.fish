@@ -32,8 +32,9 @@ omf install https://github.com/patrickf3139/fzf.fish
 ```
 
 In addition to this plugin, you will also need to install
-- [fzf](https://github.com/junegunn/fzf), the command-line fuzzy finder that powers this plugin; and
-- [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command and is used for the file search feature.
+- [fzf](https://github.com/junegunn/fzf), the command-line fuzzy finder that powers this plugin;
+- [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command is used for the file search feature; and
+- [bat](https://github.com/sharkdp/bat), a smarter `cat` with syntax highlighting used to preview files.
 
 If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
 
