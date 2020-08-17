@@ -8,9 +8,11 @@ function __fzf_preview_file --description "Prints a preview for the given file b
             command ls -G "$file_path"
         case "socket"
             echo "'$file_path' is a socket.'"
+        case "broken symbolic link*" # example: "broken symbolic link to /path/to/file""
+            echo "'$file_path' is a broken symbolic link."
         case "regular file"
             bat --style=numbers --color=always "$file_path"
         case "*"
-            echo "Unsure how to preview '$file_path', which has file type $file_type. Please open an issue at https://github.com/patrickf3139/fzf.fish."
+            echo "Unsure how to preview '$file_path', which has file type '$file_type'. Please open an issue at https://github.com/patrickf3139/fzf.fish."
     end
 end
