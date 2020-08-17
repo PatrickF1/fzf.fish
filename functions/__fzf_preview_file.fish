@@ -3,9 +3,8 @@ function __fzf_preview_file --description "Prints a preview for the given file b
     set file_type (file --brief -i "$file_path")
     switch $file_type
         case "directory"
-            # Using command in case user has ls aliased to something so we can have standardized previews.
-            # -G enables colorized output
-            command ls -G "$file_path"
+            # Setting CLICOLOR_FORCE forces colors to be enabled even to a non-terminal output
+            CLICOLOR_FORCE=true ls -a "$file_path"
         case "socket"
             __fzf_report_file_type "$file_path" "socket"
         case "broken symbolic link*" # example: "broken symbolic link to /path/to/file""
