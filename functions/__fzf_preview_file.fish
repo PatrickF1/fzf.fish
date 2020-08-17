@@ -7,9 +7,11 @@ function __fzf_preview_file --description "Prints a preview for the given file b
             # -G enables colorized output
             command ls -G "$file_path"
         case "socket"
-            echo "'$file_path' is a socket.'"
+            __fzf_report_file_type "$file_path" "socket"
         case "broken symbolic link*" # example: "broken symbolic link to /path/to/file""
-            echo "'$file_path' is a broken symbolic link."
+            __fzf_report_file_type "$file_path" "broken symbolic link"
+        case "* special *" #example: "character special (23/5)" and "block special (1/7)"
+            __fzf_report_file_type "$file_path" "device file"
         case "regular file"
             bat --style=numbers --color=always "$file_path"
         case "*"
