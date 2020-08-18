@@ -24,6 +24,9 @@ function __fzf_preview_file --description "Prints a preview for the given file b
             set target_path (realpath $file_path)
             set_color yellow; and echo "'$file_path' is a symlink to '$target_path'"
             __fzf_preview_file "$target_path"
+        case "" # occurs when ls failes, e.g. with bad file descriptors
+            set_color red; and echo 'ls filed to get the file type..' >&2
+            exit 1
         case "*"
             echo "Unexpected file symbol $file_symbol. Please open an issue at https://github.com/patrickf3139/fzf.fish."
     end
