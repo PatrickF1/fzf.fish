@@ -18,8 +18,10 @@ function __fzf_preview_file --description "Prints a preview for the given file b
             set target_path (realpath $file_path)
             set_color yellow; and echo "'$file_path' is a symlink to '$target_path'."
             __fzf_preview_file "$target_path"
-        case b c # block and character device file
-            __fzf_report_file_type "$file_path" "device file"
+        case c
+            __fzf_report_file_type "$file_path" "character device file"
+        case b
+            __fzf_report_file_type "$file_path" "block device file"
         case s
             __fzf_report_file_type "$file_path" "socket"
         case p
