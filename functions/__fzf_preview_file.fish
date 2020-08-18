@@ -1,5 +1,5 @@
 # helper function for __fzf_search_current_dir
-function __fzf_preview_file --description "Prints a preview for the given file based on its MIME type." --argument-names file_path
+function __fzf_preview_file --description "Prints a preview for the given file based on its file type." --argument-names file_path
     set file_type (file --brief -i "$file_path")
     switch $file_type
         case "directory"
