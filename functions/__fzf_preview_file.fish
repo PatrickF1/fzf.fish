@@ -25,7 +25,7 @@ function __fzf_preview_file --description "Prints a preview for the given file b
         case p
             __fzf_report_file_type "$file_path" "named pipe"
         case "" # occurs when ls fails, e.g. with bad file descriptors
-            set_color red; and echo 'ls failed to get the file type.' >&2
+            set_color red; and echo 'ls command failed.' >&2
             exit 1
         case "*"
             echo "Unexpected file symbol $file_symbol. Please open an issue at https://github.com/patrickf3139/fzf.fish."
