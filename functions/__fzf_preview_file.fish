@@ -13,14 +13,14 @@ function __fzf_preview_file --description "Prints a preview for the given file b
         case d
             # Setting CLICOLOR_FORCE forces colors to be enabled even to a non-terminal output
             CLICOLOR_FORCE=true ls -a "$file_path"
-        case s # example socket: /tmp/.s.PGSQL.5432
+        case s
             __fzf_report_file_type "$file_path" "socket"
         case p
             __fzf_report_file_type "$file_path" "named pipe"
         case -
             bat --style=numbers --color=always "$file_path"
         case l
-            # handle symlinks by notifying user and recursing on the target of the symlink
+            # handle symlinks by notifying user and recursing on the target of the symlink as it could be any of these file types
             set target_path (realpath $file_path)
             set_color yellow; and echo "'$file_path' is a symlink to '$target_path'"
             __fzf_preview_file "$target_path"
