@@ -24,5 +24,6 @@ if not set --query FZF_DEFAULT_OPTS
     # reverse layout is more familiar as it mimicks the layout of git log, history, and env
     # border makes clear where the fzf window ends
     # height 75% allows you to view what you were doing and stay in context of your work
-    set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 75%'
+    # preview-window wrap wraps long lines in the preview window
+    set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 75% --preview-window=wrap'
 end
