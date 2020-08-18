@@ -1,7 +1,7 @@
 # helper function for __fzf_search_current_dir
 function __fzf_preview_file --description "Prints a preview for the given file based on its file type." --argument-names file_path
-    # -d does not display the contents of named directories, but information about the directories themselves
-    # -o gives long format without group id
+    # -d displays information about the directories themselves instead of the contents of the directories
+    # -o displays long format without group id
     # We want long format because it outputs the file type symbol as the very first character of each row
     set file_symbol (ls -o -d "$file_path" | string sub --length 1)
 
