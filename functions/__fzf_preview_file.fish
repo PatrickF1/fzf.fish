@@ -13,17 +13,17 @@ function __fzf_preview_file --description "Prints a preview for the given file b
         case d # directory
             # Setting CLICOLOR_FORCE forces colors to be enabled even to a non-terminal output
             CLICOLOR_FORCE=true ls -a "$file_path"
+        case l # symlink
+            # notify user and recurse on the target of the symlink, which can be any of these file types
+            set target_path (realpath $file_path)
+            set_color yellow; and echo "'$file_path' is a symlink to '$target_path'"
+            __fzf_preview_file "$target_path"
         case b c # block and character device file
             __fzf_report_file_type "$file_path" "device file"
         case s
             __fzf_report_file_type "$file_path" "socket"
         case p
             __fzf_report_file_type "$file_path" "named pipe"
-        case l # symlink
-            # notify user and recurse on the target of the symlink, which can be any of these file types
-            set target_path (realpath $file_path)
-            set_color yellow; and echo "'$file_path' is a symlink to '$target_path'"
-            __fzf_preview_file "$target_path"
         case "" # occurs when ls failes, e.g. with bad file descriptors
             set_color red; and echo 'ls filed to get the file type..' >&2
             exit 1
