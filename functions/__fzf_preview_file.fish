@@ -16,7 +16,7 @@ function __fzf_preview_file --description "Prints a preview for the given file b
         case l # symlink
             # notify user and recurse on the target of the symlink, which can be any of these file types
             set target_path (realpath $file_path)
-            set_color yellow; and echo "'$file_path' is a symlink to '$target_path'"
+            set_color yellow; and echo "'$file_path' is a symlink to '$target_path'."
             __fzf_preview_file "$target_path"
         case b c # block and character device file
             __fzf_report_file_type "$file_path" "device file"
@@ -24,8 +24,8 @@ function __fzf_preview_file --description "Prints a preview for the given file b
             __fzf_report_file_type "$file_path" "socket"
         case p
             __fzf_report_file_type "$file_path" "named pipe"
-        case "" # occurs when ls failes, e.g. with bad file descriptors
-            set_color red; and echo 'ls filed to get the file type..' >&2
+        case "" # occurs when ls fails, e.g. with bad file descriptors
+            set_color red; and echo 'ls failed to get the file type.' >&2
             exit 1
         case "*"
             echo "Unexpected file symbol $file_symbol. Please open an issue at https://github.com/patrickf3139/fzf.fish."
