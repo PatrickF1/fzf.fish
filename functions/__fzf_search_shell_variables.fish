@@ -10,7 +10,7 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # __echo_value_or_print_message will print an informative message in lieu of the value.
     set variable_name (
         set --names |
-        fzf --preview '__echo_value_or_print_message {}'
+        fzf --preview '__fzf_display_value_or_error {}'
     )
 
     if test $status -eq 0
