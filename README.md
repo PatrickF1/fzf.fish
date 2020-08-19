@@ -4,19 +4,19 @@
 
 A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish](http://fishshell.com) workflow. Comes with handy functions&mdash;each with its own mnemonic key binding&mdash;that use fzf to
 
-> Search for a **file or folder** in the current directory - `Ctrl+f` (f for file)
+> Search and preview files under the **current directory** - `Ctrl+f` (f for file)
 
 ![file search](/images/file_search.png)
 
-> Search for a **commit** in the current git repository's log - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
+> Search the current repository's **git log** - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
 ![git log search](/images/git_log_search.png)
 
-> Search for a **command** from command history - `Ctrl+r` (r for reverse-i-search)
+> Search **command history** - `Ctrl+r` (r for reverse-i-search)
 
 ![command history search](/images/command_history_search.png)
 
-> Search for a **shell variable** (both local and exported) - `Ctrl+v` (v for variable)
+> Search and preview **shell variables** (both local and exported) - `Ctrl+v` (v for variable)
 
 ![shell variables search](/images/shell_variables_search.png)
 
@@ -40,11 +40,11 @@ If you are on Mac, I recommend installing these two CLI tools using [brew](https
 
 ## Configuration
 ### Using custom key bindings
-Each function is assigned mnemonic key bindings by default (see screenshots above) in [conf.d/fzf.fish](conf.d/fzf.fish). However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_key bindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this by running
+Each function is assigned mnemonic key bindings by default (see screenshots above) in [conf.d/fzf.fish](conf.d/fzf.fish). However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable](https://fishshell.com/docs/current/#more-on-universal-variables). You can do this by running
 ```fish
-set --universal fzf_fish_custom_key bindings
+set --universal fzf_fish_custom_keybindings
 ```
-Do not try to set `fzf_fish_custom_key bindings` in your `config.fish` because `conf.d/fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own key bindings.
+Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `conf.d/fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own key bindings.
 
 ### Fzf default options
 fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
@@ -72,8 +72,8 @@ After much work, `fzf.fish` now implements most of the same features but is fast
 - a tool built on [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
 - a plugin that is more likely to attract future contributors because it is more maintainable
 - a plugin that will be more frequently updated by its author (Jethro no longer uses fish)
-- fzf integration for searching git log
-- fzf integration for browsing shell variables
+- functionality for searching git log
+- functionality for searching and previewing shell variables
 
 and you don't mind
 - having to integrate fzf with Tmux yourself, which is easy to do
@@ -82,11 +82,11 @@ and you don't mind
 ### Fzf's out-of-the-box fish extension
 Fzf optionally comes with its [own fish extension](https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish). It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
 - has functionality for searching git log
-- has functionality for browsing shell variables
+- has functionality for searching and previewing shell variables
 - is easier to read, maintain, and contribute to
 - includes timestamps when searching command history
-- colorizes files when searching for files
+- colorizes results when searching for files
+- shows previews when searching for files
 - has configurable key bindings
 - [autoloads](https://fishshell.com/docs/current/tutorial.html#autoloading-functions) its functions for faster shell startup
 - will likely be more frequently updated
-
