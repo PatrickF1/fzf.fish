@@ -1,13 +1,13 @@
 # helper function for __fzf_search_current_dir
 function __fzf_preview_file --description "Prints a preview for the given file based on its file type." --argument-names file_path
     # -d displays information about the directories themselves instead of the contents of the directories
-    # -o displays long format without group id
-    # We want long format because it outputs the file type symbol as the very first character of each row
-    set file_symbol (ls -o -d "$file_path" | string sub --length 1)
+    # -o displays long format without group id. We want long format because it gives the file type as the very first character
+    # Executing ls with command because users may have ls aliased to exa
+    set file_type_char (command ls -o -d "$file_path" | string sub --length 1)
 
     # For more on file symbols outputted by ls long format, see https://linuxconfig.org/identifying-file-types-in-linux
     # For more on file types, see https://en.wikipedia.org/wiki/Unix_file_types
-    switch $file_symbol
+    switch $file_type_char
         case - # regular file
             bat --style=numbers --color=always "$file_path"
         case d # directory
@@ -36,6 +36,6 @@ function __fzf_preview_file --description "Prints a preview for the given file b
             set_color normal
             exit 1
         case "*"
-            echo "Unexpected file symbol $file_symbol. Please open an issue at https://github.com/patrickf3139/fzf.fish." >&2
+            echo "Unexpected file symbol $file_type_char. Please open an issue at https://github.com/patrickf3139/fzf.fish." >&2
     end
 end
