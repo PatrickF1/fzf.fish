@@ -6,7 +6,7 @@ if not set --query fzf_fish_custom_keybindings
     bind --erase --all \c\el
 
     set_color --italics cyan
-    echo "fzf.fish key kindings removed"
+    echo "fzf.fish key bindings removed"
     set_color normal
 end
 
