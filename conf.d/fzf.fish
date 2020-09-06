@@ -4,9 +4,9 @@ if not set --query fzf_fish_custom_keybindings
     bind \cf '__fzf_search_current_dir'
     bind \cr '__fzf_search_history'
     bind \cv '__fzf_search_shell_variables'
-    # __fzf_search_git_log's keybinding has Alt as an additional modifier key to avoid conflict with
-    # clear screen (Ctrl+l) and __fish_list_current_token (Alt+l)
+    # The following two commands key binding use Alt as an additional modifier key to avoid conflicts
     bind \e\cl '__fzf_search_git_log'
+    bind \e\cs '__fzf_search_git_status'
 
     # set up the same key bindings for insert mode if using fish_vi_key_bindings
     if [ $fish_key_bindings = 'fish_vi_key_bindings' ]
