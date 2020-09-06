@@ -17,7 +17,7 @@ function __fzf_search_git_status --description "Search the git status of the cur
                 else
                     set cleaned_path (string sub --start=4 $path) # todo need to string escape for cases like help\ i\'m\ testing
                 end
-                # add a space after the path to keep them separated when inserted
+                # add a space after each path to keep them separated when inserted
                 set cleaned_path_padded "$cleaned_path "
                 commandline --insert $cleaned_path_padded
             end
