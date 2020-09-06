@@ -10,7 +10,7 @@ function __fzf_search_git_status --description "Search the git status of the cur
         if test $status -eq 0
             # don't need to string escape paths because git status automatically handles it for us
             for path in $selected_paths
-                commandline --insert (echo $path | string sub --start=3)
+                commandline --insert (echo $path | string sub --start=3) # todo need to string escape for cases like help\ i\'m\ testing
             end
         end
 
