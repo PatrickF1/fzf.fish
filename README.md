@@ -8,6 +8,10 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 ![file search](/images/file_search.png)
 
+> Search the current repository's **git status** - `Ctrl+Alt+s` (s for status, Alt to prevent overriding filter tab completion), `⇥` to multi-select
+
+![git status select](/images/git_status_select.png)
+
 > Search the current repository's **git log** - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
 ![git log search](/images/git_log_search.png)
@@ -64,7 +68,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 
 So why *another* fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple ways to action on files (find, cd, and open) rather than relying on the user to action the files themselves using the command line) and poor design decisions (e.g. the Tmux support, implemented using a variable command, would have been better done using an alias). Moreover, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
 
-After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y](https://en.wikipedia.org/wiki/Unix_philosophy). It also includes two new features: using fzf to search git log and to browse shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy and difficult to maintain as evidenced by the many [issues reported about it](https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab).
+After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y](https://en.wikipedia.org/wiki/Unix_philosophy). It also includes two new features: using fzf to search git log, select paths from git status, and browse shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy and difficult to maintain as evidenced by the many [issues reported about it](https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab).
 
 **TLDR:** choose `fzf.fish` over [jethrokuan/fzf](https://github.com/jethrokuan/fzf) if you want
 - more efficient, faster code
@@ -72,6 +76,7 @@ After much work, `fzf.fish` now implements most of the same features but is fast
 - a tool built on [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
 - a plugin that is more likely to attract future contributors because it is more maintainable
 - a plugin that will be more frequently updated by its author (Jethro no longer uses fish)
+- functionality for selecting paths from git status
 - functionality for searching git log
 - functionality for searching and previewing shell variables
 
@@ -81,12 +86,13 @@ and you don't mind
 
 ### Fzf's out-of-the-box fish extension
 Fzf optionally comes with its [own fish extension](https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish). It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
+- has functionality for selecting paths from git status
 - has functionality for searching git log
 - has functionality for searching and previewing shell variables
-- is easier to read, maintain, and contribute to
 - includes timestamps when searching command history
 - colorizes results when searching for files
 - shows previews when searching for files
 - has configurable key bindings
 - [autoloads](https://fishshell.com/docs/current/tutorial.html#autoloading-functions) its functions for faster shell startup
+- is easier to read, maintain, and contribute to
 - will likely be more frequently updated
