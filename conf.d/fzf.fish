@@ -14,6 +14,7 @@ if not set --query fzf_fish_custom_keybindings
         bind --mode insert \cr '__fzf_search_history'
         bind --mode insert \cv '__fzf_search_shell_variables'
         bind --mode insert \e\cl '__fzf_search_git_log'
+        bind --mode insert \e\cs '__fzf_search_git_status'
     end
 end
 
