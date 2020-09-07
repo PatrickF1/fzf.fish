@@ -8,7 +8,7 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 ![file search](/images/file_search.png)
 
-> Select multiple paths from the current repository's **git status** - `Ctrl+Alt+s` (s for status, Alt to prevent overriding filter tab completion)
+> Search the current repository's **git status** - `Ctrl+Alt+s` (s for status, Alt to prevent overriding filter tab completion), `⇥` to multi-select
 
 ![git status select](/images/git_status_select.png)
 
