@@ -31,12 +31,12 @@ Or with [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
 omf install https://github.com/patrickf3139/fzf.fish
 ```
 
-In addition to this plugin, you will also need to install
+In addition to this plugin, you will also need to install these CLI tools:
 - [fzf](https://github.com/junegunn/fzf), the command-line fuzzy finder that powers this plugin;
-- [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command is used for the file search feature; and
-- [bat](https://github.com/sharkdp/bat), a smarter `cat` with syntax highlighting used to preview files.
+- [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command (used for the file search feature); and
+- [bat](https://github.com/sharkdp/bat), a smarter `cat` with syntax highlighting (used to preview files).
 
-If you are on Mac, I recommend installing these two CLI tools using [brew](https://brew.sh/).
+If you are on Mac, I recommend installing them using [brew](https://brew.sh/).
 
 ## Configuration
 ### Using custom key bindings
