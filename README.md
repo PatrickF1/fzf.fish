@@ -53,7 +53,7 @@ Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `c
 ### Fzf default options
 fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
 
-To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish](conf.d/fzf.fish) for more details. This has the side effect of affecting fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set your own `FZF_DEFAULT_OPTS` universal variable. For example:
+To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish](conf.d/fzf.fish) for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set your own `FZF_DEFAULT_OPTS` universal variable. For example:
 ```fish
 set --universal --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
@@ -68,7 +68,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 
 So why *another* fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple ways to action on files (find, cd, and open) rather than relying on the user to action the files themselves using the command line) and poor design decisions (e.g. the Tmux support, implemented using a variable command, would have been better done using an alias). Moreover, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
 
-After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y](https://en.wikipedia.org/wiki/Unix_philosophy). It also includes two new features: using fzf to search git log, select paths from git status, and browse shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy and difficult to maintain as evidenced by the many [issues reported about it](https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab).
+After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y](https://en.wikipedia.org/wiki/Unix_philosophy). I also added new features: using fzf to search git status, git log, and shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy and difficult to maintain as evidenced by the many [issues reported about it](https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab).
 
 **TLDR:** choose `fzf.fish` over [jethrokuan/fzf](https://github.com/jethrokuan/fzf) if you want
 - more efficient, faster code
@@ -76,9 +76,7 @@ After much work, `fzf.fish` now implements most of the same features but is fast
 - a tool built on [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
 - a plugin that is more likely to attract future contributors because it is more maintainable
 - a plugin that will be more frequently updated by its author (Jethro no longer uses fish)
-- functionality for selecting paths from git status
-- functionality for searching git log
-- functionality for searching and previewing shell variables
+- functionality for searching git status, git log, and shell variables
 
 and you don't mind
 - having to integrate fzf with Tmux yourself, which is easy to do
@@ -86,9 +84,7 @@ and you don't mind
 
 ### Fzf's out-of-the-box fish extension
 Fzf optionally comes with its [own fish extension](https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish). It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
-- has functionality for selecting paths from git status
-- has functionality for searching git log
-- has functionality for searching and previewing shell variables
+- has features for searching git status, git log, and shell variables
 - includes timestamps when searching command history
 - colorizes results when searching for files
 - shows previews when searching for files
