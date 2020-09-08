@@ -14,7 +14,7 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 > Search and preview the current repository's **git log** - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
-![git log search](/images/git_log_search.png)
+![git log search](/images/git_log.png)
 
 > Search **command history** - `Ctrl+r` (r for reverse-i-search)
 
