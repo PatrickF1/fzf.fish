@@ -6,23 +6,23 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 > Search and preview files under the **current directory** - `Ctrl+f` (f for file)
 
-![file search](/images/file_search.png)
+![file search](/images/current_dir_files.png)
 
 > Search the current repository's **git status** - `Ctrl+Alt+s` (s for status, Alt to prevent overriding filter tab completion), `⇥` to multi-select
 
-![git status select](/images/git_status_select.png)
+![git status select](/images/git_status.png)
 
 > Search and preview the current repository's **git log** - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
-![git log search](/images/git_log.png)
+![git log](/images/git_log.png)
 
 > Search **command history** - `Ctrl+r` (r for reverse-i-search)
 
-![command history search](/images/command_history_search.png)
+![command history search](/images/command_history.png)
 
 > Search and preview **shell variables** (both local and exported) - `Ctrl+v` (v for variable)
 
-![shell variables search](/images/shell_variables_search.png)
+![shell variables search](/images/shell_variables.png)
 
 ## Installation
 With [fisher](https://github.com/jorgebucaran/fisher)
