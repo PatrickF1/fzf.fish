@@ -40,7 +40,8 @@ In addition to this plugin, you will also need to install these CLI tools:
 - [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command (used for the file search feature); and
 - [bat](https://github.com/sharkdp/bat), a smarter `cat` with syntax highlighting (used to preview files).
 
-If you are on Mac, I recommend installing them using [brew](https://brew.sh/).
+If you are on Mac, I recommend installing them using [brew](https://brew.sh/). <br>
+If you are on Ubuntu, you will need to alias `fdfind` to `fd` (see [#23](https://github.com/patrickf3139/fzf.fish/issues/23)).
 
 ## Configuration
 ### Using custom key bindings
