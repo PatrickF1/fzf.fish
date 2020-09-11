@@ -25,17 +25,23 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 ![shell variables search](/images/shell_variables.png)
 
 ## Installation
-With [fisher](https://github.com/jorgebucaran/fisher)
-```
-fisher add patrickf3139/fzf.fish
-```
-
-Or with [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
-```fish
-omf install https://github.com/patrickf3139/fzf.fish
+First, make sure you are running fish `3.1.2`.
+```sh
+> fish --version
+fish, version 3.1.2
 ```
 
-In addition to this plugin, you will also need to install these CLI tools:
+Next, install this plugin with a package manager.
+- With [fisher](https://github.com/jorgebucaran/fisher)
+    ```fish
+    fisher add patrickf3139/fzf.fish
+    ```
+- Or with [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
+    ```fish
+    omf install https://github.com/patrickf3139/fzf.fish
+    ```
+
+Finally, install the following CLI tools:
 - [fzf](https://github.com/junegunn/fzf), the command-line fuzzy finder that powers this plugin;
 - [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command (used for the file search feature); and
 - [bat](https://github.com/sharkdp/bat), a smarter `cat` with syntax highlighting (used to preview files).
