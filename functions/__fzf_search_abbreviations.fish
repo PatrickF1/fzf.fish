@@ -10,7 +10,7 @@ Insert the commands youre interested in into the commandline at the cursor."
     set abbreviations (
            # this pipes the output of any file whose name matches with abbr inside of a dot config
            # folder for fish into bat  
-           bat (fd -F abbr ~/.config/fish/) |
+           cat (fd abbr ~/.config/fish/) |
            fzf --preview '__fzf_display_value_or_error {}'
     )
     if test $status -eq 0
