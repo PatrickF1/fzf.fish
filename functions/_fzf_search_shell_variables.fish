@@ -2,19 +2,19 @@ function _fzf_search_shell_variables --description "Search and inspect shell var
     # Make sure that fzf uses fish to execute __echo_value_or_print_message, which
     # is an autoloaded fish function so doesn't exist in other shells.
     # Using --local so that it does not clobber SHELL outside of this function.
-    set --local --export SHELL (command --search fish)
+    set -lx SHELL (command --search fish)
 
     # Pipe the names of all shell variables to fzf and attempt to display the value
     # of the selected variable in fzf's preview window.
     # Non-exported variables will not be accessible to the fzf process, in which case
     # __echo_value_or_print_message will print an informative message in lieu of the value.
-    set variable_name (
+    set -l variableName (
         set --names |
         fzf --preview '_fzf_display_value_or_error {}'
     )
 
     if test $status -eq 0
-        commandline --insert $variable_name
+        commandline --insert $variableName
     end
 
     commandline --function repaint
