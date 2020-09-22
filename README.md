@@ -4,7 +4,7 @@
 
 </div>
 
-A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish](http://fishshell.com) workflow. Comes with handy functions&mdash;each with its own mnemonic key binding&mdash;that use fzf to
+A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish](http://fishshell.com) workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to
 
 > Search and preview files under the **current directory** - `Ctrl+f` (f for file)
 
@@ -90,7 +90,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 
 ### jethrokuan/fzf
 
-[jethrokuan/fzf](https://github.com/jethrokuan/fzf) is another fzf plugin that provides similar features and is prevalent in the fish community (470+ stargazers and 30 contributors, including me). In fact, I borrowed from it some ideas when creating this plugin&mdash;thank you Jethro!
+[jethrokuan/fzf](https://github.com/jethrokuan/fzf) is another fzf plugin that provides similar features and is prevalent in the fish community (470+ stargazers and 30 contributors, including me). In fact, I borrowed from it some ideas when creating this plugin—thank you Jethro!
 
 So why _another_ fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple ways to action on files (find, cd, and open) rather than relying on the user to action the files themselves using the command line) and poor design decisions (e.g. the Tmux support, implemented using a variable command, would have been better done using an alias). Moreover, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
 
