@@ -1,5 +1,5 @@
 function _fzf_search_shell_variables -d "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
-    # Make sure that fzf uses fish to execute __echo_value_or_print_message, which
+    # Make sure that fzf uses fish to execute _fzf_display_value_or_error, which
     # is an autoloaded fish function so doesn't exist in other shells.
     # Using --local so that it does not clobber SHELL outside of this function.
     set -lx SHELL (command --search fish)

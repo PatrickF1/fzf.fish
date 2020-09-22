@@ -4,7 +4,7 @@ function _fzf_search_history -d "Search command history using fzf. Replace the c
     history merge
 
     # Reference https://devhints.io/strftime to understand strftime format symbols
-    if set -l commandWithTs (history --null --show-time="%m/%e %H:%M:%S | " | fzf --read0 --tiebreak=index --query=(commandline))
+    if set -l commandWithTs (history --show-time="%m/%e %H:%M:%S | " | fzf --tiebreak=index --query=(commandline))
         set -l commandSelected (string split --max 1 " | " $commandWithTs)[2]
         commandline --replace $commandSelected
     end
