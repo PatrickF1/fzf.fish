@@ -1,5 +1,5 @@
 # helper function for _fzf_search_shell_variables
-function _fzf_display_value_or_error --description "Displays either the value of the variable passed in, or an informative message if it is not available." --argument-names variable_name
+function _fzf_display_value_or_error --argument-names variable_name --description "Displays either the value of the variable passed in, or an informative message if it is not available."
     if set --query $variable_name
         echo $$variable_name
     else
