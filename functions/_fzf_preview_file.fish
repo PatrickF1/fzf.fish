@@ -4,7 +4,8 @@ function _fzf_preview_file -a filePath -d "Prints a preview for the given file b
         bat --style=numbers --color=always "$filePath"
     else if test -d "$filePath" # directory
         # Setting CLICOLOR_FORCE forces colors to be enabled even to a non-terminal output
-        CLICOLOR_FORCE=true ls -a "$filePath"
+        set -l CLICOLOR_FORCE true
+        ls -a "$filePath"
     else if test -L "$filePath" # symlink
         # notify user and recurse on the target of the symlink, which can be any of these file types
         set -l targetPath (realpath $filePath)

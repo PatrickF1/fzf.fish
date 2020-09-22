@@ -4,12 +4,10 @@ function _fzf_search_git_log -d "Search the git log of the current git repositor
     # %h gives you the abbreviated commit hash, which is useful for saving screen space, but we will have to expand it later below
     if not set -l gitLog (git log --color=always --format=format:'%C(bold blue)%h%C(reset) - %C(cyan)%as%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)' 2>/dev/null)
         echo '_fzf_search_git_log: Not in a git repository.' >&2
-    else
-        if set -l selectedLogLine (printf '%s\n' $gitLog | fzf --ansi --tiebreak=index --preview='git show --color=always (string split --max 1 " " {})[1]')
-            set -l abbreviatedCommitHash (string split --max 1 " " $selectedLogLine)[1]
-            set -l commitHash (git rev-parse $abbreviatedCommitHash)
-            commandline --insert $commitHash
-        end
+    else if set -l selectedLogLine (printf '%s\n' $gitLog | fzf --ansi --tiebreak=index --preview='git show --color=always (string split --max 1 " " {})[1]')
+        set -l abbreviatedCommitHash (string split --max 1 " " $selectedLogLine)[1]
+        set -l commitHash (git rev-parse $abbreviatedCommitHash)
+        commandline --insert $commitHash
     end
 
     commandline --function repaint
