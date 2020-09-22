@@ -7,7 +7,7 @@ function _fzf_search_shell_variables -d "Search and inspect shell variables usin
     # Pipe the names of all shell variables to fzf and attempt to display the value
     # of the selected variable in fzf's preview window.
     # Non-exported variables will not be accessible to the fzf process, in which case
-    # __echo_value_or_print_message will print an informative message in lieu of the value.
+    # _fzf_display_value_or_error will print an informative message in lieu of the value.
     if set -l variableName (set --names | fzf --preview '_fzf_display_value_or_error {}')
         commandline --insert $variableName
     end
