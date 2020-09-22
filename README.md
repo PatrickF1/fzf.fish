@@ -30,8 +30,8 @@ A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish]
 
 First, make sure you are running fish `3.1.2`.
 
-```sh
---version >fish
+```fish
+> fish --version
 fish, version 3.1.2
 ```
 
@@ -55,7 +55,8 @@ Finally, install the following CLI tools:
 - [fd](https://github.com/sharkdp/fd), a much faster and friendlier alternative to the antiquated `find` command (used for the file search feature); and
 - [bat](https://github.com/sharkdp/bat), a smarter `cat` with syntax highlighting (used to preview files).
 
-If you are on Mac, I recommend installing them using [brew](https://brew.sh/). <br>
+If you are on Mac, I recommend installing them using [brew](https://brew.sh/).
+
 If you are on Ubuntu, you will need to alias `fdfind` to `fd` (see [#23](https://github.com/patrickf3139/fzf.fish/issues/23)).
 
 ## Configuration
@@ -70,7 +71,7 @@ set --universal fzf_fish_custom_keybindings
 
 Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `conf.d/fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own key bindings.
 
-### Fzf default options
+### Fzf default options <br>
 
 fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
 
@@ -110,7 +111,7 @@ and you don't mind
 - having to integrate fzf with Tmux yourself, which is easy to do
 - not having buggy fzf tab completion
 
-### Fzf's out-of-the-box fish extension
+### fzf's out-of-the-box fish extension
 
 Fzf optionally comes with its [own fish extension](https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish). It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
 
