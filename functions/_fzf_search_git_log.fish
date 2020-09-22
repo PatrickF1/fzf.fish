@@ -1,7 +1,7 @@
 # Originally implemented in and transposed from https://github.com/patrickf3139/dotfiles/pull/2
-function __fzf_search_git_log --description "Search the git log of the current git repository. Insert the selected commit hash into the commandline at the cursor."
+function _fzf_search_git_log --description "Search the git log of the current git repository. Insert the selected commit hash into the commandline at the cursor."
     if not git rev-parse --git-dir >/dev/null 2>&1
-        echo '__fzf_search_git_log: Not in a git repository.' >&2
+        echo '_fzf_search_git_log: Not in a git repository.' >&2
     else
         set selected_log_line (
             # see documentation for git format placeholders at https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem

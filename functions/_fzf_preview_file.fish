@@ -1,5 +1,5 @@
-# helper function for __fzf_search_current_dir
-function __fzf_preview_file --description "Prints a preview for the given file based on its file type." --argument-names file_path
+# helper function for _fzf_search_current_dir
+function _fzf_preview_file --description "Prints a preview for the given file based on its file type." --argument-names file_path
     if test -f "$file_path" # regular file
         bat --style=numbers --color=always "$file_path"
         echo hello
@@ -14,15 +14,15 @@ function __fzf_preview_file --description "Prints a preview for the given file b
         echo "'$file_path' is a symlink to '$target_path'."
         set_color normal
 
-        __fzf_preview_file "$target_path"
+        _fzf_preview_file "$target_path"
     else if test -c "$file_path"
-        __fzf_report_file_type "character device file"
+        _fzf_report_file_type "character device file"
     else if test -b "$file_path"
-        __fzf_report_file_type "block device file"
+        _fzf_report_file_type "block device file"
     else if test -S "$file_path"
-        __fzf_report_file_type "socket"
+        _fzf_report_file_type "socket"
     else if test -p "$file_path"
-        __fzf_report_file_type "named pipe"
+        _fzf_report_file_type "named pipe"
     else
         echo "Unexpected file symbol $file_type_char. Please open an issue at https://github.com/patrickf3139/fzf.fish." >&2
     end
