@@ -1,6 +1,8 @@
-<h1 align="center">
-    fzf.fish
-</h1>
+<div align="center">
+
+# fzf.fish
+
+</div>
 
 A plugin that integrates [fzf](https://github.com/junegunn/fzf) into your [fish](http://fishshell.com) workflow. Comes with handy functions&mdash;each with its own mnemonic key binding&mdash;that use fzf to
 
@@ -36,10 +38,13 @@ fish, version 3.1.2
 Next, install this plugin with a package manager.
 
 - With [fisher](https://github.com/jorgebucaran/fisher)
+
   ```fish
   fisher add patrickf3139/fzf.fish
   ```
+
 - Or with [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
+
   ```fish
   omf install https://github.com/patrickf3139/fzf.fish
   ```
