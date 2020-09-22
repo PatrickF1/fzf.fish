@@ -26,5 +26,5 @@ if not set --query FZF_DEFAULT_OPTS
     # border makes clear where the fzf window ends
     # height 75% allows you to view what you were doing and stay in context of your work
     # preview-window wrap wraps long lines in the preview window
-    set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 75% --preview-window=wrap'
+    set -x FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 75% --preview-window=wrap'
 end
