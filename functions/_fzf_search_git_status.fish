@@ -10,13 +10,11 @@ function _fzf_search_git_status --description "Search the git status of the curr
                 if test (string sub --length 1 $path) = 'R'
                     # path has been renamed and looks like "R LICENSE -> LICENSE.md"
                     # extract the path to use from after the arrow
-                    set -l cleanedPath (string split -- "-> " $path)[-1]
+                    set cleanedPath (string split -- "-> " $path)[-1]
                 else
-                    set -l cleanedPath (string sub --start=4 $path)
+                    set cleanedPath (string sub --start=4 $path)
                 end
-                # add a space after each path to keep them separated when inserted
-                set -l cleanedPathPadded "$cleanedPath "
-                commandline --insert $cleanedPathPadded
+                commandline --insert "$cleanedPath " # add a space after each path to keep them separated when inserted
             end
         end
 
