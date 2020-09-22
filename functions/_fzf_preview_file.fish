@@ -1,8 +1,7 @@
 # helper function for _fzf_search_current_dir
-function _fzf_preview_file --argument-names filePath --description "Prints a preview for the given file based on its file type."
+function _fzf_preview_file -a filePath -d "Prints a preview for the given file based on its file type."
     if test -f "$filePath" # regular file
         bat --style=numbers --color=always "$filePath"
-        echo hello
     else if test -d "$filePath" # directory
         # Setting CLICOLOR_FORCE forces colors to be enabled even to a non-terminal output
         CLICOLOR_FORCE=true ls -a "$filePath"

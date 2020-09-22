@@ -1,4 +1,4 @@
-function _fzf_search_git_status --description "Search the git status of the current git repository. Insert the selected file paths into the commandline at the cursor."
+function _fzf_search_git_status -d "Search the git status of the current git repository. Insert the selected file paths into the commandline at the cursor."
     # Pass configuration color.status=always to force status to use colors even though output is sent to a pipe
     if not set -l gitColorStatus (git -c color.status=always status --short 2>/dev/null)
         echo '_fzf_search_git_status: Not in a git repository.' >&2

@@ -1,4 +1,4 @@
-function _fzf_search_shell_variables --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
+function _fzf_search_shell_variables -d "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
     # Make sure that fzf uses fish to execute __echo_value_or_print_message, which
     # is an autoloaded fish function so doesn't exist in other shells.
     # Using --local so that it does not clobber SHELL outside of this function.
@@ -8,12 +8,7 @@ function _fzf_search_shell_variables --description "Search and inspect shell var
     # of the selected variable in fzf's preview window.
     # Non-exported variables will not be accessible to the fzf process, in which case
     # __echo_value_or_print_message will print an informative message in lieu of the value.
-    set -l variableName (
-        set --names |
-        fzf --preview '_fzf_display_value_or_error {}'
-    )
-
-    if test $status -eq 0
+    if set -l variableName (set --names | fzf --preview '_fzf_display_value_or_error {}')
         commandline --insert $variableName
     end
 

@@ -1,5 +1,5 @@
 # originally implemented and transposed from https://github.com/patrickf3139/dotfiles/pull/11
-function _fzf_search_history --description "Search command history using fzf. Replace the commandline with the selected command."
+function _fzf_search_history -d "Search command history using fzf. Replace the commandline with the selected command."
     # history merge incorporates history changes from other fish sessions
     history merge
 
