@@ -1,9 +1,9 @@
 function __fzf_search_git_status --description "Search the git status of the current git repository. Insert the selected file paths into the commandline at the cursor."
     # Pass configuration color.status=always to force status to use colors even though output is sent to a pipe
-    if not set --local git_color_status (git -c color.status=always status --short 2>/dev/null)
+    if not set --local git_status_colored (git -c color.status=always status --short 2>/dev/null)
         echo '__fzf_search_git_status: Not in a git repository.' >&2
     else
-        set selected_paths (printf '%s\n' $gitColorStatus | fzf --ansi --multi)
+        set selected_paths (printf '%s\n' $git_status_colored | fzf --ansi --multi)
         if test $status -eq 0
             # git status --short automatically escapes the paths of most files for us so not going to bother trying to handle
             # the few edges cases of weird file names that should be extremely rare (e.g. "this;needs;escaping")
