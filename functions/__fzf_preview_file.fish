@@ -1,5 +1,5 @@
 # helper function for __fzf_search_current_dir
-function __fzf_preview_file --description "Prints a preview for the given file based on its file type." --argument-names file_path
+function __fzf_preview_file --argument-names file_path --description "Prints a preview for the given file based on its file type."
     if test -f "$file_path" # regular file
         bat --style=numbers --color=always "$file_path"
     else if test -d "$file_path" # directory
