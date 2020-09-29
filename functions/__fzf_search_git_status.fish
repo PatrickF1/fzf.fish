@@ -23,7 +23,7 @@ function __fzf_search_git_status --description "Search the git status of the cur
                 commandline --insert $cleaned_path_padded
             end
         end
-
-        commandline --function repaint
     end
+
+    commandline --function repaint
 end
