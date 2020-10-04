@@ -131,7 +131,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 - Ensure you are running fish version >= 3.1.2.
 
 ### File search feature does not work
-- If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
+If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 
 
 [#23]: https://github.com/patrickf3139/fzf.fish/issues/23
