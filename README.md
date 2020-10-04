@@ -28,7 +28,7 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 
 ## Installation
 
-First, make sure you are running fish `3.1.2`.
+First, ensure your fish version is >= `3.1.2`.
 
 ```fish
 > fish --version
@@ -55,9 +55,9 @@ Finally, install the following CLI tools:
 - [fd][], a much faster and friendlier alternative to the antiquated `find` command (used for the file search feature); and
 - [bat][], a smarter `cat` with syntax highlighting (used to preview files).
 
-If you are on Mac, I recommend installing them using [brew][].
+Mac, I recommend installing them using [brew][].
 
-If you are on Ubuntu, you will need to alias `fdfind` to `fd` (see [#23][]).
+If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 
 ## Configuration
 
@@ -104,7 +104,7 @@ After much work, `fzf.fish` now implements most of the same features but is fast
 - a tool built on [Unix philosophy][]
 - a plugin that is more likely to attract future contributors because it is more maintainable
 - a plugin that will be more frequently updated by its author (Jethro no longer uses fish)
-- functionality for searching git status, git log, and shell variables
+- features for searching git status, git log, and shell variables
 
 and you don't mind
 
@@ -113,7 +113,7 @@ and you don't mind
 
 ### fzf's out-of-the-box fish extension
 
-Fzf optionally comes with its [own fish extension][]. It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
+Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
 
 - has features for searching git status, git log, and shell variables
 - includes timestamps when searching command history
@@ -124,6 +124,16 @@ Fzf optionally comes with its [own fish extension][]. It is substantial but `fzf
 - is easier to read, maintain, and contribute to
 - will likely be more frequently updated
 
+## Troubleshooting
+### Key bindings do not work
+- Execute `bind` and check if there are bindings overriding the bindings starting with `__fzf_`.
+- Ensure [jethrokuan/fzf][] and the [fish extension][] that ships with fzf are uninstalled.
+- Ensure you are running fish version >= 3.1.2.
+
+### File search feature does not work
+- If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
+
+
 [#23]: https://github.com/patrickf3139/fzf.fish/issues/23
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [bat]: https://github.com/sharkdp/bat
@@ -132,6 +142,7 @@ Fzf optionally comes with its [own fish extension][]. It is substantial but `fzf
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/current_dir_files.png
+[fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish]: http://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
@@ -141,7 +152,6 @@ Fzf optionally comes with its [own fish extension][]. It is substantial but `fzf
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
-[own fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [shell variables search]: images/shell_variables.png
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
