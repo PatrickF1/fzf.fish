@@ -55,7 +55,7 @@ Finally, install the following CLI tools:
 - [fd][], a much faster and friendlier alternative to the antiquated `find` command (used for the file search feature); and
 - [bat][], a smarter `cat` with syntax highlighting (used to preview files).
 
-Mac, I recommend installing them using [brew][].
+If you are on Mac, I recommend installing them using [brew][].
 
 If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 
