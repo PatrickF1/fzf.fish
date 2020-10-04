@@ -125,12 +125,15 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 - will likely be more frequently updated
 
 ## Troubleshooting
+
 ### Key bindings do not work
+
 - Execute `bind` and check if there are bindings overriding the bindings starting with `__fzf_`.
 - Ensure [jethrokuan/fzf][] and the [fish extension][] that ships with fzf are uninstalled.
 - Ensure your fish version is >= 3.1.2.
 
 ### File search feature does not work
+
 If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 
 
