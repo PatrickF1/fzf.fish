@@ -4,12 +4,12 @@ function __fzf_search_current_dir --description "Search the current directory us
     # See similar comment in __fzf_search_shell_variables.fish.
     set --local --export SHELL (command --search fish)
     set file_path_selected (
-        fd --hidden --follow --color=always --exclude=.git 2> /dev/null |
+        fd --hidden --follow --color=always --exclude=.git 2>/dev/null |
         fzf --ansi --preview='__fzf_preview_file {}'
     )
 
     if test $status -eq 0
-        commandline --insert (echo $file_path_selected | string escape)
+        commandline --insert (string escape "$file_path_selected")
     end
 
     commandline --function repaint
