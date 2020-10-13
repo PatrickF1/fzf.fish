@@ -134,7 +134,8 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 
 ### File search feature does not work
 
-If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
+- If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
+- `fd`, by default, ignores files matching from your `.gitignore`. Check your local and global `.gitignore` files to see if the files not showing up have been ignored there.
 
 
 [#23]: https://github.com/patrickf3139/fzf.fish/issues/23
