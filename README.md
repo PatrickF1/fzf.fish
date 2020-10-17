@@ -152,7 +152,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
 [git log]: images/git_log.gif
-[git status select]: images/git_status.png
+[git status select]: images/git_status.gif
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
