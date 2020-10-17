@@ -19,7 +19,7 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 
 > Search and preview the current repository's **git log** - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
-![git log][]
+![git log search][]
 
 > Search **command history** - `Ctrl+r` (r for reverse-i-search)
 
@@ -67,7 +67,7 @@ If you are on certain distribution of Linux, you will need to alias `fdfind` to 
 
 ### Using custom key bindings
 
-Each function is assigned mnemonic key bindings by default (see screenshots above) in [conf.d/fzf.fish][]. However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable][]. You can do this by running
+Each function is assigned mnemonic key bindings by default (see screencasts above) in [conf.d/fzf.fish][]. However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable][]. You can do this by running
 
 ```fish
 set --universal fzf_fish_custom_keybindings
@@ -156,7 +156,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
-[git log]: images/git_log.gif
+[git log search]: images/git_log.gif
 [git status select]: images/git_status.gif
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [IlanCosman/tide]: https://github.com/IlanCosman/tide
