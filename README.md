@@ -9,15 +9,21 @@
 
 A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to
 
-> Search and preview files under the **current directory** - `Ctrl+f` (f for file)
+### Browse and select files from the current directory
 
 ![file search][]
 
-> Search the current repository's **git status** - `Ctrl+Alt+s` (s for status, Alt to prevent overriding filter tab completion), `⇥` to multi-select
+Key binding: `Ctrl+f`
+
+Key binding mnemonic: f for file
+
+### Select paths from the current repository's git status
 
 ![git status select][]
 
-> Search and preview the current repository's **git log** - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
+Key binding: `Ctrl+Alt+s`
+
+Key binding mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
 
 ![git log search][]
 
