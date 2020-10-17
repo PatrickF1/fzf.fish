@@ -143,7 +143,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh/
-[command history search]: images/command_history.png
+[command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
