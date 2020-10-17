@@ -26,6 +26,7 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 
 ![shell variables search][]
 
+The prompt used in the above screencasts was created using [IlanCosman/tide][]
 ## Installation
 
 First, ensure your fish version is >= 3.1.2.
@@ -154,6 +155,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [git log]: images/git_log.gif
 [git status select]: images/git_status.gif
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
+[IlanCosman/tide]: https://github.com/IlanCosman/tide
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
 [shell variables search]: images/shell_variables.gif
