@@ -26,6 +26,7 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 
 ![shell variables search][]
 
+The prompt used in the above screencasts was created using [IlanCosman/tide][]
 ## Installation
 
 First, ensure your fish version is >= 3.1.2.
@@ -142,20 +143,21 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh/
-[command history search]: images/command_history.png
+[command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [fd]: https://github.com/sharkdp/fd
-[file search]: images/current_dir_files.png
+[file search]: images/directory.gif
 [fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish]: http://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
-[git log]: images/git_log.png
-[git status select]: images/git_status.png
+[git log]: images/git_log.gif
+[git status select]: images/git_status.gif
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
+[IlanCosman/tide]: https://github.com/IlanCosman/tide
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
-[shell variables search]: images/shell_variables.png
+[shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
