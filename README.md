@@ -156,6 +156,6 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
-[shell variables search]: images/shell_variables.png
+[shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
