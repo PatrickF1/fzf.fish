@@ -145,7 +145,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [command history search]: images/command_history.png
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [fd]: https://github.com/sharkdp/fd
-[file search]: images/current_dir_files.png
+[file search]: images/directory.gif
 [fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish]: http://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
