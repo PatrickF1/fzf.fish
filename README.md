@@ -7,29 +7,54 @@
 
 </div>
 
-A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to
+A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to speed up common tasks.
 
-> Search and preview files under the **current directory** - `Ctrl+f` (f for file)
+## Features
+
+Use `fzf.fish` to interactively find and output:
+
+### A `file`
 
 ![file search][]
 
-> Search the current repository's **git status** - `Ctrl+Alt+s` (s for status, Alt to prevent overriding filter tab completion), `⇥` to multi-select
+- **Search input:** recursive listing of current directory's files
+- **Key binding and mnemonic:** `Ctrl+f`; f for file
+- **Preview window:** file with syntax highlighting, directory contents, or file type
+- **Remarks:** ignores files that are also ignored by git
+
+### Modified `paths`
 
 ![git status select][]
 
-> Search and preview the current repository's **git log** - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
+- **Search input:** the current repository's `git status`
+- **Key binding and mnemonic:** `Ctrl+Alt+s`; s for status, Alt to prevent overriding `pager-toggle-search`
+- **Remarks:** use `Tab` to multi-select
 
-![git log][]
+### A `commit` hash
 
-> Search **command history** - `Ctrl+r` (r for reverse-i-search)
+![git log search][]
+
+- **Search input:** the current repository's formatted `git log`
+- **Key binding and mnemonic:** `Ctrl+Alt+l`; l for log, Alt to prevent overriding clear screen
+- **Preview window:** commit message and diff
+
+### A previously run `command`
 
 ![command history search][]
 
-> Search and preview **shell variables** (both local and exported) - `Ctrl+v` (v for variable)
+- **Search input:** the command history from all interactive sessions of `fish`
+- **Key binding and mnemonic:** `Ctrl+r`; r for reverse-i-search
+
+### A `shell variable`
 
 ![shell variables search][]
 
-The prompt used in the above screencasts was created using [IlanCosman/tide][]
+- **Search input:** all the variable names of the environment, both local and exported
+- **Key binding and mnemonic:** `Ctrl+v`; v for variable
+- **Preview window:** the value of the variable if it was exported
+
+_The prompt used in the screencasts was created using [IlanCosman/tide][]._
+
 ## Installation
 
 First, ensure your fish version is >= 3.1.2.
@@ -67,13 +92,15 @@ If you are on certain distribution of Linux, you will need to alias `fdfind` to 
 
 ### Using custom key bindings
 
-Each function is assigned mnemonic key bindings by default (see screenshots above) in [conf.d/fzf.fish][]. However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable][]. You can do this by running
+If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
 
 ```fish
 set --universal fzf_fish_custom_keybindings
 ```
 
-Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `conf.d/fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own key bindings.
+Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because the key binding configuration is sourced first on shell startup and so will not see it.
+
+Next, set your own key bindings by following [conf.d/fzf.fish][] as an example.
 
 ### Fzf default options
 
@@ -139,7 +166,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 ### File search feature does not work
 
 - If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
-- `fd`, by default, ignores files matching from your `.gitignore`. Check your local and global `.gitignore` files to see if the files not showing up have been ignored there.
+- `fd`, by default, ignores files also ignored by git. Check your local and global `.gitignore` files to see if the files not showing up have been ignored.
 
 
 [#23]: https://github.com/patrickf3139/fzf.fish/issues/23
@@ -156,7 +183,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
-[git log]: images/git_log.gif
+[git log search]: images/git_log.gif
 [git status select]: images/git_status.gif
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [IlanCosman/tide]: https://github.com/IlanCosman/tide
