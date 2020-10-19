@@ -7,9 +7,13 @@
 
 </div>
 
-A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to fuzzy find:
+A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to speed up common tasks.
 
-### A file in the current `directory`
+## Features
+
+Use `fzf.fish` to find
+
+### A `file` in the current `directory`
 
 ![file search][]
 
@@ -17,7 +21,7 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 - Use `Tab` to multi-select
 - Key binding mnemonic: f for file
 
-### Paths from the current repository's `git status`
+### `paths` from the current repository's `git status`
 
 ![git status select][]
 
@@ -25,11 +29,11 @@ Key binding: `Ctrl+Alt+s`
 
 Key binding mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
 
-### A commit from the current repository's `git log`
+### A `commit` from the current repository's `git log`
 ![git log search][]
  - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
-### A command from `command history`
+### A `command` from `command history`
 - `Ctrl+r` (r for reverse-i-search)
 
 ![command history search][]
