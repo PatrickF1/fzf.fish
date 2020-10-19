@@ -26,12 +26,14 @@ Use `fzf.fish` to find:
 
 - Key binding: `Ctrl+Alt+s`
 - Mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
+- Use `Tab` to multi-select
 
 ### A `commit` from the current repository's `git log`
+
 ![git log search][]
 
  - Key binding: `Ctrl+Alt+l`
- - Mnemonic l for log, Alt to prevent overriding clear screen (which is `Ctrl+l`)
+ - Mnemonic: l for log, Alt to prevent overriding clear screen (which is `Ctrl+l`)
 
 ### A `command` from `command history`
 
@@ -45,7 +47,7 @@ Use `fzf.fish` to find:
 ![shell variables search][]
 
 - Key binding: `Ctrl+v`
-- Mnemonic:v for variable)
+- Mnemonic: v for variable
 - Searches both local and exported shell variables
 
 _The prompt used in the above screencasts was created using [IlanCosman/tide][]._
