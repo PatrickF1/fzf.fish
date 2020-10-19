@@ -11,7 +11,7 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 
 ## Features
 
-Use `fzf.fish` to find and output:
+Use `fzf.fish` to interactively find and output:
 
 ### A `file`
 
@@ -28,7 +28,7 @@ Use `fzf.fish` to find and output:
 
 - **Search input:** the current repository's `git status`
 - **Key binding:** `Ctrl+Alt+s`; s for status, Alt to prevent overriding `pager-toggle-search`
-- **Remarks:** Use `Tab` to multi-select
+- **Remarks:** use `Tab` to multi-select
 
 ### A `commit` hash
 
@@ -92,13 +92,13 @@ If you are on certain distribution of Linux, you will need to alias `fdfind` to 
 
 ### Using custom key bindings
 
-Each function is assigned mnemonic key bindings by default (see screencasts above) in [conf.d/fzf.fish][]. However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable][]. You can do this by running
+Each function is assigned mnemonic key bindings by default (see [Features](#Features)). However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable][]. You can do this by running
 
 ```fish
 set --universal fzf_fish_custom_keybindings
 ```
 
-Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because `conf.d/fzf.fish` is sourced first on shell startup and so will not see it. Once it is set, you can set up your own key bindings.
+and then setting your own keybindings. Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because the key binding configuration is sourced first on shell startup and so will not see it.
 
 ### Fzf default options
 
