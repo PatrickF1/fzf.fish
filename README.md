@@ -57,7 +57,7 @@ Use `fzf.fish` to find and output:
 - Mnemonic: v for variable
 - Preview window: the value of the variable if it was exported
 
-_The prompt used in the above screencasts was created using [IlanCosman/tide][]._
+_The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
 ## Installation
 
