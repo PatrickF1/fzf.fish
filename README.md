@@ -1,6 +1,9 @@
 <div align="center">
 
 # fzf.fish
+![latest release badge][]
+![fish version badge][]
+![license badge][]
 
 </div>
 
@@ -149,6 +152,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [file search]: images/directory.gif
 [fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish]: http://fishshell.com
+[fish version badge]: https://img.shields.io/badge/fish-3.1.2%2B-blue
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
@@ -157,6 +161,8 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [IlanCosman/tide]: https://github.com/IlanCosman/tide
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
+[latest release badge]: https://img.shields.io/github/v/release/patrickf3139/fzf.fish
+[license badge]: https://img.shields.io/github/license/patrickf3139/fzf.fish
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
 [shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
