@@ -7,17 +7,17 @@
 
 </div>
 
-A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to
+A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to fuzzy find:
 
-### Fuzzy find a file in the current `directory` with file previews
+### A file in the current `directory`
 
 ![file search][]
 
 - Key binding: `Ctrl+f`
 - Use `Tab` to multi-select
-Key binding mnemonic: f for file
+- Key binding mnemonic: f for file
 
-### Fuzzy find paths from the current repository's `git status`
+### Paths from the current repository's `git status`
 
 ![git status select][]
 
@@ -25,17 +25,18 @@ Key binding: `Ctrl+Alt+s`
 
 Key binding mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
 
-### Fuzzy find the current repository's `git log`
+### A commit from the current repository's `git log`
 ![git log search][]
  - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
-### Fuzzy find a command from `command history`
+### A command from `command history`
 - `Ctrl+r` (r for reverse-i-search)
 
 ![command history search][]
 
-### Fuzzy find `shell variables` (both local and exported)
+### A `shell variable`
 - `Ctrl+v` (v for variable)
+- Searches both local and exported shell variables
 
 ![shell variables search][]
 
