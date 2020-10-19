@@ -25,14 +25,16 @@ Key binding: `Ctrl+Alt+s`
 
 Key binding mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
 
+### Fuzzy find the current repository's `git log`
 ![git log search][]
+ - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
 
-### Fuzzy find a command from command history`
+### Fuzzy find a command from `command history`
 - `Ctrl+r` (r for reverse-i-search)
 
 ![command history search][]
 
-### Search and preview `shell variables` (both local and exported)
+### Fuzzy find `shell variables` (both local and exported)
 - `Ctrl+v` (v for variable)
 
 ![shell variables search][]
