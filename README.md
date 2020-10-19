@@ -11,20 +11,22 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 
 ## Features
 
-Use `fzf.fish` to find:
+Use `fzf.fish` to find and output:
 
-### A `file` in the current `directory`
+### A `file`
 
 ![file search][]
 
+- Search input: the tree of files in the current directory
 - Key binding: `Ctrl+f`
 - Mnemonic: f for file
 - In right window, shows preview of file with syntax highlighting, directory contents, or file type
 
-### `paths` from the current repository's `git status`
+### Modified `paths`
 
 ![git status select][]
 
+- Search input: the current repository's `git status`
 - Key binding: `Ctrl+Alt+s`
 - Mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
 - Use `Tab` to multi-select
@@ -33,14 +35,16 @@ Use `fzf.fish` to find:
 
 ![git log search][]
 
- - Key binding: `Ctrl+Alt+l`
- - Mnemonic: l for log, Alt to prevent overriding clear screen (which is `Ctrl+l`)
- - In right window, shows preview of commit
+- Search input: the current repository's `git log`
+- Key binding: `Ctrl+Alt+l`
+- Mnemonic: l for log, Alt to prevent overriding clear screen (which is `Ctrl+l`)
+- In right window, shows preview of commit
 
-### A `command` from `command history`
+### A previously run `command`
 
 ![command history search][]
 
+- Search input: the command history from all interactive sessions of `fish`
 - Key binding: `Ctrl+r`
 - Mnemonic: r for reverse-i-search
 
@@ -48,9 +52,9 @@ Use `fzf.fish` to find:
 
 ![shell variables search][]
 
+- Search input: all the variable names of the environment, both local and exported
 - Key binding: `Ctrl+v`
 - Mnemonic: v for variable
-- Searches both local and exported shell variables
 - In right window, preview the value of the variable if it was exported
 
 _The prompt used in the above screencasts was created using [IlanCosman/tide][]._
