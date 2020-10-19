@@ -57,7 +57,7 @@ _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
 ## Installation
 
-First, ensure your fish version is >= 3.1.2.
+First, ensure your [fish][] version is >= 3.1.2.
 
 ```fish
 > fish --version
@@ -81,7 +81,7 @@ Next, install this plugin with a package manager.
 Finally, install the following CLI tools:
 
 - [fzf][], the command-line fuzzy finder that powers this plugin;
-- [fd][], a much faster and friendlier alternative to the antiquated `find` command (used for the file search feature); and
+- [fd][], a much faster and friendlier alternative to `find`; and
 - [bat][], a smarter `cat` with syntax highlighting (used to preview files).
 
 If you are on Mac, I recommend installing them using [brew][].
@@ -112,7 +112,7 @@ To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sa
 set --universal --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 
-Alternatively, you can override it in your `config.fish` by adding in something like this:
+Alternatively, you can override it in your `config.fish`:
 
 ```fish
 set --export FZF_DEFAULT_OPTS --height 50% --margin 1
@@ -122,11 +122,11 @@ set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 
 ### jethrokuan/fzf
 
-[jethrokuan/fzf][] is another fzf plugin that provides similar features and is prevalent in the fish community (470+ stargazers and 30 contributors, including me). In fact, I borrowed from it some ideas when creating this plugin—thank you Jethro!
+[jethrokuan/fzf][] is another fzf plugin that provides similar features and is prevalent in the fish community (470+ stargazers and 30 contributors, including me). In fact, I referenced it when creating this plugin—thank you Jethro!
 
-So why _another_ fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple ways to action on files (find, cd, and open) rather than relying on the user to action the files themselves using the command line) and poor design decisions (e.g. the Tmux support, implemented using a variable command, would have been better done using an alias). Moreover, Jethro seemed to have lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
+So why _another_ fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple overlapping ways to action on files: find, cd, and open) and poor design decisions (e.g.  Tmux support was implemented using a variable command). Moreover, Jethro has lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
 
-After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y][unix philosophy]. I also added new features: using fzf to search git status, git log, and shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy and difficult to maintain as evidenced by the many [issues reported about it][].
+After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y][unix philosophy]. I also added new features: using fzf to search git status, git log, and shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy as evidenced by the many [issues reported about it][].
 
 **TLDR:** choose `fzf.fish` over [jethrokuan/fzf][] if you want
 
@@ -172,7 +172,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [#23]: https://github.com/patrickf3139/fzf.fish/issues/23
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [bat]: https://github.com/sharkdp/bat
-[brew]: https://brew.sh/
+[brew]: https://brew.sh
 [command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [fd]: https://github.com/sharkdp/fd
