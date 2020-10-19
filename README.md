@@ -9,15 +9,15 @@
 
 A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to
 
-### Browse and select files from the current directory
+### Fuzzy find a file in the current `directory` with file previews
 
 ![file search][]
 
-Key binding: `Ctrl+f`
-
+- Key binding: `Ctrl+f`
+- Use `Tab` to multi-select
 Key binding mnemonic: f for file
 
-### Select paths from the current repository's git status
+### Fuzzy find paths from the current repository's `git status`
 
 ![git status select][]
 
@@ -27,15 +27,18 @@ Key binding mnemonic: s for status, Alt to prevent overriding filter tab complet
 
 ![git log search][]
 
-> Search **command history** - `Ctrl+r` (r for reverse-i-search)
+### Fuzzy find a command from command history`
+- `Ctrl+r` (r for reverse-i-search)
 
 ![command history search][]
 
-> Search and preview **shell variables** (both local and exported) - `Ctrl+v` (v for variable)
+### Search and preview `shell variables` (both local and exported)
+- `Ctrl+v` (v for variable)
 
 ![shell variables search][]
 
-The prompt used in the above screencasts was created using [IlanCosman/tide][]
+The prompt used in the above screencasts was created using [IlanCosman/tide][].
+
 ## Installation
 
 First, ensure your fish version is >= 3.1.2.
