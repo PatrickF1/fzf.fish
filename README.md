@@ -92,7 +92,7 @@ If you are on certain distribution of Linux, you will need to alias `fdfind` to 
 
 ### Using custom key bindings
 
-Each function is assigned mnemonic key bindings by default (see [Features](#Features)). However, if you would like to customize them, you can prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as a [universal variable][]. You can do this with
+If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
 
 ```fish
 set --universal fzf_fish_custom_keybindings
@@ -100,7 +100,7 @@ set --universal fzf_fish_custom_keybindings
 
 Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because the key binding configuration is sourced first on shell startup and so will not see it.
 
-See [conf.d/fzf.fish][] for examples of setting key bindings.
+Next, set your own key bindings by following [conf.d/fzf.fish][] as an example.
 
 ### Fzf default options
 
