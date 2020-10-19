@@ -11,40 +11,44 @@ A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy f
 
 ## Features
 
-Use `fzf.fish` to find
+Use `fzf.fish` to find:
 
 ### A `file` in the current `directory`
 
 ![file search][]
 
 - Key binding: `Ctrl+f`
-- Use `Tab` to multi-select
-- Key binding mnemonic: f for file
+- Mnemonic: f for file
 
 ### `paths` from the current repository's `git status`
 
 ![git status select][]
 
-Key binding: `Ctrl+Alt+s`
-
-Key binding mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
+- Key binding: `Ctrl+Alt+s`
+- Mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
 
 ### A `commit` from the current repository's `git log`
 ![git log search][]
- - `Ctrl+Alt+l` (l for log, Alt to prevent overriding clear screen)
+
+ - Key binding: `Ctrl+Alt+l`
+ - Mnemonic l for log, Alt to prevent overriding clear screen (which is `Ctrl+l`)
 
 ### A `command` from `command history`
-- `Ctrl+r` (r for reverse-i-search)
 
 ![command history search][]
 
+- Key binding: `Ctrl+r`
+- Mnemonic: r for reverse-i-search
+
 ### A `shell variable`
-- `Ctrl+v` (v for variable)
-- Searches both local and exported shell variables
 
 ![shell variables search][]
 
-The prompt used in the above screencasts was created using [IlanCosman/tide][].
+- Key binding: `Ctrl+v`
+- Mnemonic:v for variable)
+- Searches both local and exported shell variables
+
+_The prompt used in the above screencasts was created using [IlanCosman/tide][]._
 
 ## Installation
 
