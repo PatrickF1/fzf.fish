@@ -18,18 +18,16 @@ Use `fzf.fish` to find and output:
 ![file search][]
 
 - **Search input:** all files in the current directory, recursive
-- **Key binding:** `Ctrl+f`
-- **Mnemonic:** f for file
+- **Key binding:** `Ctrl+f`; f for file
 - **Preview window:** file with syntax highlighting, directory contents, or file type
-- **Remarks:** Automatically ignores files that are also ignored by git
+- **Remarks:** ignores files that are also ignored by git
 
 ### Modified `paths`
 
 ![git status select][]
 
 - **Search input:** the current repository's `git status`
-- **Key binding:** `Ctrl+Alt+s`
-- **Mnemonic:** s for status, Alt to prevent overriding `pager-toggle-search`
+- **Key binding:** `Ctrl+Alt+s`; s for status, Alt to prevent overriding `pager-toggle-search`
 - **Remarks:** Use `Tab` to multi-select
 
 ### A `commit` hash
@@ -37,8 +35,7 @@ Use `fzf.fish` to find and output:
 ![git log search][]
 
 - **Search input:** the current repository's formatted `git log`
-- **Key binding:** `Ctrl+Alt+l`
-- **Mnemonic:** l for log, Alt to prevent overriding clear screen
+- **Key binding:** `Ctrl+Alt+l`; l for log, Alt to prevent overriding clear screen
 - **Preview window:** commit message and diff
 
 ### A previously run `command`
@@ -46,16 +43,14 @@ Use `fzf.fish` to find and output:
 ![command history search][]
 
 - **Search input:** the command history from all interactive sessions of `fish`
-- **Key binding:** `Ctrl+r`
-- **Mnemonic:** r for reverse-i-search
+- **Key binding:** `Ctrl+r`; r for reverse-i-search
 
 ### A `shell variable`
 
 ![shell variables search][]
 
 - **Search input:** all the variable names of the environment, both local and exported
-- **Key binding:** `Ctrl+v`
-- **Mnemonic:** v for variable
+- **Key binding:** `Ctrl+v`; v for variable
 - **Preview window:** the value of the variable if it was exported
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
