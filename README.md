@@ -19,6 +19,7 @@ Use `fzf.fish` to find:
 
 - Key binding: `Ctrl+f`
 - Mnemonic: f for file
+- In right window, shows preview of file with syntax highlighting, directory contents, or file type
 
 ### `paths` from the current repository's `git status`
 
@@ -34,6 +35,7 @@ Use `fzf.fish` to find:
 
  - Key binding: `Ctrl+Alt+l`
  - Mnemonic: l for log, Alt to prevent overriding clear screen (which is `Ctrl+l`)
+ - In right window, shows preview of commit
 
 ### A `command` from `command history`
 
@@ -49,6 +51,7 @@ Use `fzf.fish` to find:
 - Key binding: `Ctrl+v`
 - Mnemonic: v for variable
 - Searches both local and exported shell variables
+- In right window, preview the value of the variable if it was exported
 
 _The prompt used in the above screencasts was created using [IlanCosman/tide][]._
 
