@@ -1,6 +1,6 @@
 <div align="center">
 
-# fzf.fish
+# fzf.fish 🔍🐟
 ![latest release badge][]
 ![fish version badge][]
 ![license badge][]
