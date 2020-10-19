@@ -17,8 +17,8 @@ Use `fzf.fish` to interactively find and output:
 
 ![file search][]
 
-- **Search input:** all files in the current directory, recursive
-- **Key binding and mnemonic:** `Ctrl+f` / f for file
+- **Search input:** recursive listing of current directory's files
+- **Key binding and mnemonic:** `Ctrl+f`; f for file
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks:** ignores files that are also ignored by git
 
@@ -27,7 +27,7 @@ Use `fzf.fish` to interactively find and output:
 ![git status select][]
 
 - **Search input:** the current repository's `git status`
-- **Key binding and mnemonic:** `Ctrl+Alt+s` / s for status, Alt to prevent overriding `pager-toggle-search`
+- **Key binding and mnemonic:** `Ctrl+Alt+s`; s for status, Alt to prevent overriding `pager-toggle-search`
 - **Remarks:** use `Tab` to multi-select
 
 ### A `commit` hash
@@ -35,7 +35,7 @@ Use `fzf.fish` to interactively find and output:
 ![git log search][]
 
 - **Search input:** the current repository's formatted `git log`
-- **Key binding and mnemonic:** `Ctrl+Alt+l` / l for log, Alt to prevent overriding clear screen
+- **Key binding and mnemonic:** `Ctrl+Alt+l`; l for log, Alt to prevent overriding clear screen
 - **Preview window:** commit message and diff
 
 ### A previously run `command`
@@ -43,14 +43,14 @@ Use `fzf.fish` to interactively find and output:
 ![command history search][]
 
 - **Search input:** the command history from all interactive sessions of `fish`
-- **Key binding and mnemonic:** `Ctrl+r` / r for reverse-i-search
+- **Key binding and mnemonic:** `Ctrl+r`; r for reverse-i-search
 
 ### A `shell variable`
 
 ![shell variables search][]
 
 - **Search input:** all the variable names of the environment, both local and exported
-- **Key binding and mnemonic:** `Ctrl+v` / v for variable
+- **Key binding and mnemonic:** `Ctrl+v`; v for variable
 - **Preview window:** the value of the variable if it was exported
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
