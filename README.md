@@ -20,7 +20,7 @@ Use `fzf.fish` to find and output:
 - Search input: the tree of files in the current directory
 - Key binding: `Ctrl+f`
 - Mnemonic: f for file
-- In right window, shows preview of file with syntax highlighting, directory contents, or file type
+- Preview window: file with syntax highlighting, directory contents, or file type
 
 ### Modified `paths`
 
@@ -28,17 +28,17 @@ Use `fzf.fish` to find and output:
 
 - Search input: the current repository's `git status`
 - Key binding: `Ctrl+Alt+s`
-- Mnemonic: s for status, Alt to prevent overriding filter tab completion (which is `Ctrl+s`)
+- Mnemonic: s for status, Alt to prevent overriding `pager-toggle-search`
 - Use `Tab` to multi-select
 
-### A `commit` from the current repository's `git log`
+### A `commit` hash
 
 ![git log search][]
 
-- Search input: the current repository's `git log`
+- Search input: the current repository's formatted `git log`
 - Key binding: `Ctrl+Alt+l`
-- Mnemonic: l for log, Alt to prevent overriding clear screen (which is `Ctrl+l`)
-- In right window, shows preview of commit
+- Mnemonic: l for log, Alt to prevent overriding clear screen
+- Preview window: commit message and diff
 
 ### A previously run `command`
 
@@ -55,7 +55,7 @@ Use `fzf.fish` to find and output:
 - Search input: all the variable names of the environment, both local and exported
 - Key binding: `Ctrl+v`
 - Mnemonic: v for variable
-- In right window, preview the value of the variable if it was exported
+- Preview window: the value of the variable if it was exported
 
 _The prompt used in the above screencasts was created using [IlanCosman/tide][]._
 
