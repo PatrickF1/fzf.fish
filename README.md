@@ -1,9 +1,8 @@
 <div align="center">
 
 # fzf.fish 🔍🐟
-![latest release badge][]
-![fish version badge][]
-![license badge][]
+
+[![latest release badge][]][releases] [![fish version badge][]](#installation) [![license badge][]][license]
 
 </div>
 
@@ -80,9 +79,9 @@ Next, install this plugin with a package manager.
 
 Finally, install the following CLI tools:
 
-- [fzf][], the command-line fuzzy finder that powers this plugin;
-- [fd][], a much faster and friendlier alternative to `find`; and
-- [bat][], a smarter `cat` with syntax highlighting (used to preview files).
+- [fzf][] - command-line fuzzy finder that powers this plugin
+- [fd][] - much faster and friendlier alternative to `find`
+- [bat][] - smarter `cat` with syntax highlighting (used to preview files)
 
 If you are on Mac, I recommend installing them using [brew][].
 
@@ -124,7 +123,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 
 [jethrokuan/fzf][] is another fzf plugin that provides similar features and is prevalent in the fish community (470+ stargazers and 30 contributors, including me). In fact, I referenced it when creating this plugin—thank you Jethro!
 
-So why _another_ fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple overlapping ways to action on files: find, cd, and open) and poor design decisions (e.g.  Tmux support was implemented using a variable command). Moreover, Jethro has lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
+So why _another_ fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple overlapping ways to action on files: find, cd, and open) and poor design decisions (e.g. Tmux support was implemented using a variable command). Moreover, Jethro has lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
 
 After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y][unix philosophy]. I also added new features: using fzf to search git status, git log, and shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy as evidenced by the many [issues reported about it][].
 
@@ -168,7 +167,6 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 - If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 - `fd`, by default, ignores files also ignored by git. Check your local and global `.gitignore` files to see if the files not showing up have been ignored.
 
-
 [#23]: https://github.com/patrickf3139/fzf.fish/issues/23
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [bat]: https://github.com/sharkdp/bat
@@ -178,19 +176,21 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
 [fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
-[fish]: http://fishshell.com
 [fish version badge]: https://img.shields.io/badge/fish-3.1.2%2B-blue
+[fish]: http://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
 [git log search]: images/git_log.gif
 [git status select]: images/git_status.gif
+[ilancosman/tide]: https://github.com/IlanCosman/tide
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
-[IlanCosman/tide]: https://github.com/IlanCosman/tide
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf3139/fzf.fish
 [license badge]: https://img.shields.io/github/license/patrickf3139/fzf.fish
+[license]: LICENSE.md
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
+[releases]: https://github.com/patrickf3139/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
