@@ -23,6 +23,6 @@ function __fzf_preview_file --argument-names file_path --description "Prints a p
     else if test -p "$file_path"
         __fzf_report_file_type "$file_path" "named pipe"
     else
-        echo "Unexpected file symbol $file_type_char. Please open an issue at https://github.com/patrickf3139/fzf.fish." >&2
+        echo "Unknown file type." >&2
     end
 end
