@@ -6,13 +6,13 @@
 
 </div>
 
-A plugin that integrates [fzf][] into your [fish][] workflow. Comes with handy functions—each with its own mnemonic key binding—that use fzf to speed up common tasks.
+A [fish][] plugin. Augment your command line with mnemonic key bindings to efficiently find what you need using [fzf][].
 
 ## Features
 
-Use `fzf.fish` to interactively find and output:
+Use `fzf.fish` to interactively find and insert into the command line:
 
-### A `file`
+### A `file` path
 
 ![file search][]
 
