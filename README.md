@@ -12,14 +12,16 @@ A [fish][] plugin. Augment your command line with mnemonic key bindings to effic
 
 Use `fzf.fish` to interactively find and insert into the command line:
 
-### A `file` path
+### `file` paths
 
 ![file search][]
 
 - **Search input:** recursive listing of current directory's files
 - **Key binding and mnemonic:** `Ctrl+f`; f for file
 - **Preview window:** file with syntax highlighting, directory contents, or file type
-- **Remarks:** ignores files that are also ignored by git
+- **Remarks**
+  - ignores files that are also ignored by git
+  - `Tab` to multi-select
 
 ### Modified `paths`
 
@@ -27,7 +29,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 - **Search input:** the current repository's `git status`
 - **Key binding and mnemonic:** `Ctrl+Alt+s`; s for status, Alt to prevent overriding `pager-toggle-search`
-- **Remarks:** use `Tab` to multi-select
+- **Remarks:** `Tab` to multi-select
 
 ### A `commit` hash
 
