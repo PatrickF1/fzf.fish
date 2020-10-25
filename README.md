@@ -12,7 +12,7 @@ A [fish][] plugin. Augment your command line with mnemonic key bindings to effic
 
 Use `fzf.fish` to interactively find and insert into the command line:
 
-### file paths
+### File paths
 
 ![file search][]
 
