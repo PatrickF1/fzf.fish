@@ -12,7 +12,7 @@ A [fish][] plugin. Augment your command line with mnemonic key bindings to effic
 
 Use `fzf.fish` to interactively find and insert into the command line:
 
-### `file` paths
+### file paths
 
 ![file search][]
 
@@ -23,7 +23,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
   - ignores files that are also ignored by git
   - `Tab` to multi-select
 
-### Modified `paths`
+### Modified paths
 
 ![git status select][]
 
@@ -31,7 +31,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Key binding and mnemonic:** `Ctrl+Alt+s`; s for status, Alt to prevent overriding `pager-toggle-search`
 - **Remarks:** `Tab` to multi-select
 
-### A `commit` hash
+### A commit hash
 
 ![git log search][]
 
@@ -39,14 +39,14 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Key binding and mnemonic:** `Ctrl+Alt+l`; l for log, Alt to prevent overriding clear screen
 - **Preview window:** commit message and diff
 
-### A previously run `command`
+### A previously run command
 
 ![command history search][]
 
 - **Search input:** the command history from all interactive sessions of `fish`
 - **Key binding and mnemonic:** `Ctrl+r`; r for reverse-i-search
 
-### A `shell variable`
+### A shell variable
 
 ![shell variables search][]
 
