@@ -67,10 +67,10 @@ fish, version 3.1.2
 
 Next, install this plugin with a package manager.
 
-- With [fisher][] (requires version >= 3.3.2)
+- With [fisher][] (requires version >= 4.0.0)
 
   ```fish
-  fisher add patrickf3139/fzf.fish
+  fisher install patrickf3139/fzf.fish
   ```
 
 - Or with [Oh My Fish][]
