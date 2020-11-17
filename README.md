@@ -65,19 +65,11 @@ First, ensure your [fish][] version is >= 3.1.2.
 fish, version 3.1.2
 ```
 
-Next, install this plugin with a package manager.
+Next, install this plugin with [Fisher][] v4. `fzf.fish` can be installed manually or with other plugin managers but only Fisher v4 is officially supported.
 
-- With [fisher][] (requires version >= 4.0.0)
-
-  ```fish
-  fisher install patrickf3139/fzf.fish
-  ```
-
-- Or with [Oh My Fish][]
-
-  ```fish
-  omf install https://github.com/patrickf3139/fzf.fish
-  ```
+```fish
+fisher install patrickf3139/fzf.fish
+```
 
 Finally, install the following CLI tools:
 
@@ -85,9 +77,9 @@ Finally, install the following CLI tools:
 - [fd][] - much faster and friendlier alternative to `find`
 - [bat][] - smarter `cat` with syntax highlighting (used to preview files)
 
-If you are on Mac, I recommend installing them using [brew][].
+For macOS, I recommend installing them using [brew][].
 
-If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
+On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 
 ## Configuration
 
@@ -191,7 +183,6 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf3139/fzf.fish
 [license badge]: https://img.shields.io/github/license/patrickf3139/fzf.fish
 [license]: LICENSE.md
-[oh my fish]: https://github.com/oh-my-fish/oh-my-fish
 [releases]: https://github.com/patrickf3139/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
