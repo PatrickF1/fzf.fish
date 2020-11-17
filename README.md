@@ -182,7 +182,6 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf3139/fzf.fish
 [license badge]: https://img.shields.io/github/license/patrickf3139/fzf.fish
 [license]: LICENSE.md
-[oh my fish]: https://github.com/oh-my-fish/oh-my-fish
 [releases]: https://github.com/patrickf3139/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
