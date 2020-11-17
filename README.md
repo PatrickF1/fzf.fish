@@ -65,7 +65,7 @@ First, ensure your [fish][] version is >= 3.1.2.
 fish, version 3.1.2
 ```
 
-Next, install this plugin using [fisher][] version >= 4.0. `fzf.fish` can be installed manually or using other plugin managers but only fisher is officially supported.
+Next, install this plugin using [Fisher][] v4. `fzf.fish` can be installed manually or using other plugin managers but only Fisher v4 is officially supported.
 ```fish
 fisher install patrickf3139/fzf.fish
 ```
