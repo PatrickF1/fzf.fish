@@ -66,6 +66,7 @@ fish, version 3.1.2
 ```
 
 Next, install this plugin using [Fisher][] v4. `fzf.fish` can be installed manually or using other plugin managers but only Fisher v4 is officially supported.
+
 ```fish
 fisher install patrickf3139/fzf.fish
 ```
@@ -76,9 +77,9 @@ Finally, install the following CLI tools:
 - [fd][] - much faster and friendlier alternative to `find`
 - [bat][] - smarter `cat` with syntax highlighting (used to preview files)
 
-If you are on Mac, I recommend installing them using [brew][].
+For macOS, I recommend installing them using [brew][].
 
-If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
+On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 
 ## Configuration
 
