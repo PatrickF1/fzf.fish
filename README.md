@@ -65,19 +65,10 @@ First, ensure your [fish][] version is >= 3.1.2.
 fish, version 3.1.2
 ```
 
-Next, install this plugin with a package manager.
-
-- With [fisher][] (requires version >= 4.0.0)
-
-  ```fish
-  fisher install patrickf3139/fzf.fish
-  ```
-
-- Or with [Oh My Fish][]
-
-  ```fish
-  omf install https://github.com/patrickf3139/fzf.fish
-  ```
+Next, install this plugin using [fisher][] version >= 4.0. `fzf.fish` can be installed manually or using other plugin managers but only fisher is officially supported.
+```fish
+fisher install patrickf3139/fzf.fish
+```
 
 Finally, install the following CLI tools:
 
