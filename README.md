@@ -68,7 +68,7 @@ fish, version 3.1.2
 Next, install this plugin with [Fisher][] v4. `fzf.fish` can be installed manually or with other plugin managers but only Fisher v4 is officially supported.
 
 ```fish
-fisher install patrickf3139/fzf.fish
+fisher install PatrickF1/fzf.fish
 ```
 
 Finally, install the following CLI tools:
@@ -161,7 +161,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 - If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 - `fd`, by default, ignores files also ignored by git. Check your local and global `.gitignore` files to see if the files not showing up have been ignored.
 
-[#23]: https://github.com/patrickf3139/fzf.fish/issues/23
+[#23]: https://github.com/patrickf1/fzf.fish/issues/23
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh
@@ -180,10 +180,10 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [ilancosman/tide]: https://github.com/IlanCosman/tide
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
-[latest release badge]: https://img.shields.io/github/v/release/patrickf3139/fzf.fish
-[license badge]: https://img.shields.io/github/license/patrickf3139/fzf.fish
+[latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
+[license badge]: https://img.shields.io/github/license/patrickf1/fzf.fish
 [license]: LICENSE.md
-[releases]: https://github.com/patrickf3139/fzf.fish/releases
+[releases]: https://github.com/patrickf1/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
