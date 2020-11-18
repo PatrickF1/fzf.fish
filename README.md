@@ -6,7 +6,7 @@
 
 </div>
 
-A [fish][] plugin. Augment your command line with mnemonic key bindings to efficiently find what you need using [fzf][].
+Augment your command line with mnemonic key bindings to efficiently find what you need using [fzf][] in [Fish][].
 
 ## Features
 
@@ -58,14 +58,16 @@ _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
 ## Installation
 
-First, ensure your [fish][] version is >= 3.1.2.
+First, make sure you're using [Fish][] `3.1.2` or newer.
 
-```fish
-> fish --version
+```console
+$ fish --version
 fish, version 3.1.2
 ```
 
-Next, install this plugin with [Fisher][] v4. `fzf.fish` can be installed manually or with other plugin managers but only Fisher v4 is officially supported.
+Next, install with [Fisher][]. 
+
+> `fzf.fish` can be installed manually or with other plugin managers but only Fisher is officially supported.
 
 ```fish
 fisher install patrickf3139/fzf.fish
@@ -171,8 +173,8 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [file search]: images/directory.gif
 [fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish version badge]: https://img.shields.io/badge/fish-3.1.2%2B-blue
-[fish]: http://fishshell.com
-[fisher]: https://github.com/jorgebucaran/fisher
+[Fish]: http://fishshell.com
+[Fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
 [git log search]: images/git_log.gif
