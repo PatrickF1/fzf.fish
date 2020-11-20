@@ -155,6 +155,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 - Execute `bind` and check if there are bindings overriding the bindings starting with `__fzf_`.
 - Ensure [jethrokuan/fzf][] and the [fish extension][] that ships with fzf are uninstalled.
 - Ensure your fish version is >= 3.1.2.
+- In your terminal's settings, map Option to Meta (see [#54]).
 
 ### File search feature does not work
 
@@ -162,6 +163,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 - `fd`, by default, ignores files also ignored by git. Check your local and global `.gitignore` files to see if the files not showing up have been ignored.
 
 [#23]: https://github.com/patrickf1/fzf.fish/issues/23
+[#54]: https://github.com/PatrickF1/fzf.fish/issues/54
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh
