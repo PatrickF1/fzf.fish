@@ -156,7 +156,7 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 
 - Execute `bind` and check if there are bindings overriding the bindings starting with `__fzf_`.
 - Ensure [jethrokuan/fzf][] and the [Fish extension][] that ships with fzf are uninstalled.
-- Ensure your fish version is >= 3.1.2.
+- Ensure you're using Fish 3.1.2 or newer.
 
 ### File search feature does not work
 
