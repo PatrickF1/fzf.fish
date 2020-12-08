@@ -6,7 +6,7 @@
 
 </div>
 
-Augment your command line with mnemonic key bindings to efficiently find what you need using [fzf][] in [Fish][].
+Augment your [Fish][] command line with mnemonic key bindings to efficiently find what you need using [fzf][].
 
 ## Features
 
