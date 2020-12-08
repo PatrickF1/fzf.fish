@@ -115,7 +115,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 
 ## Prior art
 
-### jethrokuan/fzf
+### Jethrokuan/fzf
 
 [jethrokuan/fzf][] is another fzf plugin that provides similar features and is prevalent in the fish community (470+ stargazers and 30 contributors, including me). In fact, I referenced it when creating this plugin—thank you Jethro!
 
@@ -137,7 +137,7 @@ and you don't mind
 - having to integrate fzf with Tmux yourself, which is easy to do
 - not having buggy fzf tab completion
 
-### fzf's out-of-the-box fish extension
+### Fzf's out-of-the-box Fish extension
 
 Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
 
