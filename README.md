@@ -139,7 +139,7 @@ and you don't mind
 
 ### Fzf's out-of-the-box Fish extension
 
-Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
+Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf.fish` has these advantages over it:
 
 - has features for searching git status, git log, and shell variables
 - includes timestamps when searching command history
