@@ -17,41 +17,41 @@ Use `fzf.fish` to interactively find and insert into the command line:
 ![file search][]
 
 - **Search input:** recursive listing of current directory's files
-- **Key binding and mnemonic:** `Ctrl+f`; f for file
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
   - ignores files that are also ignored by git
-  - `Tab` to multi-select
+  - <kbd>Tab</kbd> to multi-select
 
 ### Modified paths
 
 ![git status select][]
 
 - **Search input:** the current repository's `git status`
-- **Key binding and mnemonic:** `Ctrl+Alt+s`; s for status, Alt to prevent overriding `pager-toggle-search`
-- **Remarks:** `Tab` to multi-select
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status, `Alt` to prevent overriding `pager-toggle-search`)
+- **Remarks:** <kbd>Tab</kbd> to multi-select
 
 ### A commit hash
 
 ![git log search][]
 
 - **Search input:** the current repository's formatted `git log`
-- **Key binding and mnemonic:** `Ctrl+Alt+l`; l for log, Alt to prevent overriding clear screen
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log, `Alt` to prevent overriding clear screen)
 - **Preview window:** commit message and diff
 
 ### A previously run command
 
 ![command history search][]
 
-- **Search input:** the command history from all interactive sessions of `fish`
-- **Key binding and mnemonic:** `Ctrl+r`; r for reverse-i-search
+- **Search input:** the command history from all interactive sessions of Fish
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 
 ### A shell variable
 
 ![shell variables search][]
 
 - **Search input:** all the variable names of the environment, both local and exported
-- **Key binding and mnemonic:** `Ctrl+v`; v for variable
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the value of the variable if it was exported
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
@@ -139,7 +139,7 @@ and you don't mind
 
 ### fzf's out-of-the-box fish extension
 
-Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
+Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf.fish` has several advantages over it. `fzf.fish`:
 
 - has features for searching git status, git log, and shell variables
 - includes timestamps when searching command history
@@ -155,7 +155,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 ### Key bindings do not work
 
 - Execute `bind` and check if there are bindings overriding the bindings starting with `__fzf_`.
-- Ensure [jethrokuan/fzf][] and the [fish extension][] that ships with fzf are uninstalled.
+- Ensure [jethrokuan/fzf][] and the [Fish extension][] that ships with fzf are uninstalled.
 - Ensure your fish version is >= 3.1.2.
 
 ### File search feature does not work
@@ -171,7 +171,7 @@ Fzf optionally comes with its own [fish extension][]. It is substantial but `fzf
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
-[fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
+[Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish version badge]: https://img.shields.io/badge/fish-3.1.2%2B-blue
 [Fish]: http://fishshell.com
 [Fisher]: https://github.com/jorgebucaran/fisher
