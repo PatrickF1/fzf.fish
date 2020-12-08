@@ -2,7 +2,7 @@
 
 # fzf.fish 🔍🐟
 
-[![latest release badge][]][releases] [![fish version badge][]](#installation) [![license badge][]][license]
+[![latest release badge][]][releases] [![fish version badge][]](#installation) [![awesome badge][]][awesome fish]
 
 </div>
 
@@ -167,6 +167,8 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 [#23]: https://github.com/patrickf1/fzf.fish/issues/23
 [#54]: https://github.com/PatrickF1/fzf.fish/issues/54
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
+[awesome badge]: https://awesome.re/mentioned-badge.svg
+[awesome fish]: https://git.io/awsm.fish
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh
 [command history search]: images/command_history.gif
@@ -174,7 +176,7 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
 [Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
-[fish version badge]: https://img.shields.io/badge/fish-3.1.2%2B-blue
+[fish version badge]: https://img.shields.io/badge/fish-v3.1.2%2B-green
 [Fish]: http://fishshell.com
 [Fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
@@ -185,8 +187,6 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 [issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
-[license badge]: https://img.shields.io/github/license/patrickf1/fzf.fish
-[license]: LICENSE.md
 [releases]: https://github.com/patrickf1/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
