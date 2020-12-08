@@ -65,7 +65,7 @@ $ fish --version
 fish, version 3.1.2
 ```
 
-Next, install with [Fisher][]. 
+Next, install with [Fisher][].
 
 > `fzf.fish` can be installed manually or with other plugin managers but only Fisher is officially supported.
 
@@ -141,14 +141,14 @@ and you don't mind
 
 Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf.fish` has these advantages over it:
 
-- has features for searching git status, git log, and shell variables
-- includes timestamps when searching command history
-- colorizes results when searching for files
-- shows previews when searching for files
-- has configurable key bindings
-- [autoloads][] its functions for faster shell startup
-- is easier to read, maintain, and contribute to
-- will likely be more frequently updated
+- features for searching git status, git log, and shell variables
+- timestamps when searching command history
+- colorized results when searching for files
+- previews when searching for files
+- configurable key bindings
+- [autoloaded][autoloads] functions for faster shell startup
+- easier to read, maintain, and contribute to
+- better maintained
 
 ## Troubleshooting
 
