@@ -70,7 +70,7 @@ Next, install with [Fisher][].
 > `fzf.fish` can be installed manually or with other plugin managers but only Fisher is officially supported.
 
 ```fish
-fisher install PatrickF1/fzf.fish
+fisher add PatrickF1/fzf.fish
 ```
 
 Finally, install the following CLI tools:
