@@ -4,7 +4,7 @@ function __fzf_preview_file --argument-names file_path --description "Prints a p
         bat --style=numbers --color=always "$file_path"
     else if test -d "$file_path" # directory
         set --local CLICOLOR_FORCE true
-        ls -a "$file_path"
+        ls -A "$file_path" # list hidden files as well, except for . and ..
     else if test -L "$file_path" # symlink
         # notify user and recurse on the target of the symlink, which can be any of these file types
         set -l target_path (realpath $file_path)
