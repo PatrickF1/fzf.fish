@@ -3,7 +3,7 @@ function __fzf_search_current_dir --description "Search the current directory us
     # See similar comment in __fzf_search_shell_variables.fish.
     set --local --export SHELL (command --search fish)
     set file_paths_selected (
-        fd --hidden --follow --color=always --exclude=.git 2>/dev/null |
+        fd --hidden --color=always --exclude=.git 2>/dev/null |
         fzf --multi --ansi --preview='__fzf_preview_file {}'
     )
 
