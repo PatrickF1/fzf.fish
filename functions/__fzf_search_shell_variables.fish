@@ -6,11 +6,13 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
 
     # Pipe the names of all shell variables to fzf and attempt to display the value
     # of the selected variable in fzf's preview window.
-    # Non-exported variables will not be accessible to the fzf process, in which case
-    # __echo_value_or_print_message will print an informative message in lieu of the value.
+    # Using string match to filter variables.
+    # Using string repalace to simplify output.
     set variable_name (
         set --names |
-        fzf --preview '__fzf_display_value_or_error {}'
+        fzf --preview "cat "(set --show | psub)" | \
+                       string match   --regex '^\\\${}(?::|\[).+' | \
+                       string replace --regex '^\\\${}(: )?' ''"
     )
 
     if test $status -eq 0
