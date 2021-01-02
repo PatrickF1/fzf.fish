@@ -12,7 +12,7 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
         set --names |
         fzf --preview "cat "(set --show | psub)" | \
                        string match   --regex '^\\\${}(?::|\[).+' | \
-                       string replace --regex '^\\\${}(: )?' ''"
+                       string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3'"
     )
 
     if test $status -eq 0
