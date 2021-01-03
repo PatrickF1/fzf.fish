@@ -7,8 +7,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
         set --names |
         fzf --preview "cat "(set --show | psub)" |
                        string match   --regex '^\\\${}(?::|\[).+' |
-                       string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3' ||
-                       echo \\\${} was not dumped so its value cannot be displayed."
+                       string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3';
+                       or set_color red && echo \\\${} was not dumped so its value cannot be displayed. >&2 && set_color normal"
     )
 
     if test $status -eq 0
