@@ -8,6 +8,9 @@ function __fzf_search_current_dir --description "Search the current directory us
     )
 
     if test $status -eq 0
+        # If this function was triggered with an empty commandline and the only thing selected is a directory, then
+        # append a slash to the folder. Because fish will attempt to cd implicitly if a directory name is provided with
+        # a / at the end, this allows the user to hit Enter one more time to quickly cd in the selected directory.
         if __fish_is_token_n 1 && test (count $file_paths_selected) = 1 && test -d $file_paths_selected[1]
             set file_paths_selected[1] $file_paths_selected[1]/
         end
