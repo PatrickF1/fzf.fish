@@ -7,7 +7,7 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # is an autoloaded fish function so doesn't exist in other shells.
     set variable_name (
         set --names |
-        env SHELL=(command --search fish) fzf --preview '__fzf_display_value_or_error {} '(set --show | psub)
+        SHELL=$__fish_bin_dir/fish fzf --preview '__fzf_display_value_or_error {} '(set --show | psub)
     )
 
     if test $status -eq 0
