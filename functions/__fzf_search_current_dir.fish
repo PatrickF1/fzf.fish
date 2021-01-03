@@ -8,7 +8,7 @@ function __fzf_search_current_dir --description "Search the current directory us
     )
 
     if test $status -eq 0
-        if test (count (commandline -poc)) = 0 && test (count $file_paths_selected) = 1 && test -d $file_paths_selected[1]
+        if __fish_is_token_n 1 && test (count $file_paths_selected) = 1 && test -d $file_paths_selected[1]
             set file_paths_selected[1] $file_paths_selected[1]/
         end
 
