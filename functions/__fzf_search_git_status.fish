@@ -5,7 +5,7 @@ function __fzf_search_git_status --description "Search the git status of the cur
         set selected_paths (
             # Pass configuration color.status=always to force status to use colors even though output is sent to a pipe
             git -c color.status=always status --short |
-            fzf --ansi --multi
+            fzf --ansi --multi --query=(commandline --current-token)
         )
         if test $status -eq 0
             # git status --short automatically escapes the paths of most files for us so not going to bother trying to handle
@@ -20,7 +20,7 @@ function __fzf_search_git_status --description "Search the git status of the cur
                 end
                 # add a space after each path to keep them separated when inserted
                 set cleaned_path_padded "$cleaned_path "
-                commandline --insert $cleaned_path_padded
+                commandline --current-token --replace $cleaned_path_padded
             end
         end
     end

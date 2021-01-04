@@ -10,11 +10,16 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # __echo_value_or_print_message will print an informative message in lieu of the value.
     set variable_name (
         set --names |
-        fzf --preview '__fzf_display_value_or_error {}'
+        fzf --preview '__fzf_display_value_or_error {}' \
+            --query=(commandline --current-token | read token && string replace '$' '' $token)
     )
 
     if test $status -eq 0
-        commandline --insert $variable_name
+        if string match -q '$*' $token
+            commandline --current-token --replace \$$variable_name
+        else
+            commandline --current-token --replace $variable_name
+        end
     end
 
     commandline --function repaint

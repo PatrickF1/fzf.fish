@@ -4,13 +4,13 @@ function __fzf_search_current_dir --description "Search the current directory us
     set --local --export SHELL (command --search fish)
     set file_paths_selected (
         fd --hidden --color=always --exclude=.git 2>/dev/null |
-        fzf --multi --ansi --preview='__fzf_preview_file {}'
+        fzf --multi --ansi --preview='__fzf_preview_file {}' --query=(commandline --current-token)
     )
 
     if test $status -eq 0
         for path in $file_paths_selected
             set escaped_path (string escape "$path")
-            commandline --insert "$escaped_path "
+            commandline --current-token --replace "$escaped_path "
         end
     end
 
