@@ -9,9 +9,8 @@ function __fzf_search_current_dir --description "Search the current directory us
 
     if test $status -eq 0
         # If this function was triggered with an empty commandline and the only thing selected is a directory, then
-        # prepend a dot and a slash to the folder. Because fish will attempt to cd implicitly if a directory name
-        # is provided with a dot at the beginning, this allows the user to hit Enter one more time to quickly cd
-        # in the selected directory.
+        # prepend ./ to the dir path. Because fish will attempt to cd implicitly if a directory name starting with a dot
+        # is provided, this allows the user to hit Enter one more time to quickly cd into the selected directory.
         if test (count (commandline -o)) = 0 && test (count $file_paths_selected) = 1 && test -d $file_paths_selected
             set file_paths_selected ./$file_paths_selected
         end
