@@ -20,6 +20,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
+  - appends `./` to the selection if the selection is a single directory, allowing for quick cd into that directory (see [cd docs][])
   - ignores files that are also ignored by git
   - <kbd>Tab</kbd> to multi-select
 
@@ -171,6 +172,7 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 [awesome fish]: https://git.io/awsm.fish
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh
+[cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [fd]: https://github.com/sharkdp/fd
