@@ -18,8 +18,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     )
 
     if test $status -eq 0
-        # If the current token begins with a $, make sure to keep it there when overwriting
-        # the current token with the user's selection.
+        # If the current token begins with a $, do not overwrite the $ when 
+        # replacing the current token with the selected variable.
         if string match --quiet '$*' (commandline --current-token)
             commandline --current-token --replace \$$variable_name
         else
