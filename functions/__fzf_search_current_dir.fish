@@ -15,10 +15,7 @@ function __fzf_search_current_dir --description "Search the current directory us
             set file_paths_selected ./$file_paths_selected
         end
 
-        for path in $file_paths_selected
-            set escaped_path (string escape "$path")
-            commandline --current-token --replace "$escaped_path "
-        end
+        commandline --current-token --replace (string escape $file_paths_selected | string join ' ')
     end
 
     commandline --function repaint
