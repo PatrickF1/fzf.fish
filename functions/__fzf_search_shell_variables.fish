@@ -6,7 +6,7 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
 
     # Pipe the names of all shell variables to fzf and attempt to display the value
     # of the selected variable in fzf's preview window.
-    # Non-dumped variables will not be accessible to the fzf process, in which case
+    # Non-exported variables will not be accessible to the fzf process, in which case
     # __fzf_display_value_or_error will print an informative message in lieu of the value.
     set variable_name (
         set --names |
