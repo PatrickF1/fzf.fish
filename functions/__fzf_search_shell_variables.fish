@@ -11,11 +11,11 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     set variable_name (
         set --names |
         fzf --preview '__fzf_display_value_or_error {}' \
-            --query=(commandline --current-token | read token && string replace '$' '' $token)
+            --query=(commandline --current-token | string replace '$' '')
     )
 
     if test $status -eq 0
-        if string match -q '$*' $token
+        if string match -q '$*' (commandline --current-token)
             commandline --current-token --replace \$$variable_name
         else
             commandline --current-token --replace $variable_name
