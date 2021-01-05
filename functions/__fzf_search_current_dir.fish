@@ -8,6 +8,13 @@ function __fzf_search_current_dir --description "Search the current directory us
     )
 
     if test $status -eq 0
+        # If this function was triggered with an empty commandline and the only thing selected is a directory, then
+        # prepend ./ to the dir path. Because fish will attempt to cd implicitly if a directory name starting with a dot
+        # is provided, this allows the user to hit Enter one more time to quickly cd into the selected directory.
+        if test (count (commandline --tokenize)) = 0 && test (count $file_paths_selected) = 1 && test -d $file_paths_selected
+            set file_paths_selected ./$file_paths_selected
+        end
+
         for path in $file_paths_selected
             set escaped_path (string escape "$path")
             commandline --current-token --replace "$escaped_path "
