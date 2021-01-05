@@ -8,6 +8,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # of the selected variable in fzf's preview window.
     # Non-exported variables will not be accessible to the fzf process, in which case
     # __echo_value_or_print_message will print an informative message in lieu of the value.
+    # set --names ouputs a list of variable names without $ prefix, so we remove the first
+    # $ from the initial query in case the user has typed one.
     set variable_name (
         set --names |
         fzf --preview '__fzf_display_value_or_error {}' \
@@ -15,6 +17,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     )
 
     if test $status -eq 0
+        # We may have removed the first $ above if the user has typed one, so we need to
+        # add it back.
         if string match -q '$*' (commandline --current-token)
             commandline --current-token --replace \$$variable_name
         else
