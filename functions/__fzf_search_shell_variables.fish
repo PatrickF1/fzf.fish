@@ -8,8 +8,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # of the selected variable in fzf's preview window.
     # Non-exported variables will not be accessible to the fzf process, in which case
     # __echo_value_or_print_message will print an informative message in lieu of the value.
-    # We use the current token to pre-populate fzf's search input. In case the user has typed
-    # a $, we remove it so that the current token will more likely match the variable names
+    # We use the current token to pre-populate fzf's query. If the current token begins
+    # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
         set --names |
@@ -18,7 +18,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     )
 
     if test $status -eq 0
-        # If the user initially typed a $ before using this function
+        # If the current token begins with a $, make sure to keep it there when overwriting
+        # the current token with the user's selection.
         if string match -q '$*' (commandline --current-token)
             commandline --current-token --replace \$$variable_name
         else
