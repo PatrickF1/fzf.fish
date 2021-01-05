@@ -3,7 +3,7 @@ function __fzf_search_history --description "Search command history using fzf. R
     builtin history merge
     set command_with_ts (
         # Reference https://devhints.io/strftime to understand strftime format symbols
-        builtin history --null --show-time="%m/%e %H:%M:%S | " |
+        builtin history --null --show-time="%m-%d %H:%M:%S | " |
         fzf --read0 --tiebreak=index --query=(commandline)
     )
 
