@@ -2,10 +2,23 @@ function __fzf_search_current_dir --description "Search the current directory us
     # Make sure that fzf uses fish to execute __fzf_preview_file.
     # See similar comment in __fzf_search_shell_variables.fish.
     set --local --export SHELL (command --search fish)
-    set file_paths_selected (
-        fd --hidden --color=always --exclude=.git 2>/dev/null |
-        fzf --multi --ansi --preview='__fzf_preview_file {}' --query=(commandline --current-token)
-    )
+
+    set fd_arguments --hidden --color=always --exclude=.git
+    set fzf_arguments --multi --ansi --preview='__fzf_preview_file {}'
+    set token (commandline --current-token | string unescape)
+
+    # If the token under the cursor is a directory, search in it instead of current directory.
+    if test -d $token
+        # Add a trailing slash if not present
+        string match --quiet "*/" $token || set token $token/
+        set --append fd_arguments --base-directory=$token
+        set --append fzf_arguments --prompt=$token
+        set file_paths_selected $token(fd $fd_arguments 2>/dev/null | fzf $fzf_arguments)
+    else
+        set --append fzf_arguments --query=$token
+        set file_paths_selected (fd $fd_arguments 2>/dev/null | fzf $fzf_arguments)
+    end
+
 
     if test $status -eq 0
         # If this function was triggered with an empty commandline and the only thing selected is a directory, then
