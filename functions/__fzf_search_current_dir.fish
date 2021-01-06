@@ -7,7 +7,7 @@ function __fzf_search_current_dir --description "Search the current directory us
     set fzf_arguments --multi --ansi --preview='__fzf_preview_file {}'
     set token (commandline --current-token | string unescape)
 
-    # If the token under the cursor is a directory, search in it instead of current directory.
+    # If the token under the cursor is a directory, use it as a base directory.
     if test -d $token
         # Add a trailing slash if not present
         string match --quiet "*/" $token || set token $token/
