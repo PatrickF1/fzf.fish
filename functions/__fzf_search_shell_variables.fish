@@ -1,5 +1,5 @@
-function __fzf_search_shell_variables --argument-names variable_file --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
-    if test -z "$variable_file"
+function __fzf_search_shell_variables --argument-names variable_names variable_values --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
+    if test -z "$variable_names"
         set_color red
         printf "\nThe signature of __fzf_search_shell_variables was changed in https://github.com/PatrickF1/fzf.fish/pull/71.\nPlease see the latest conf.d/fzf.fish and update your key bindings.\n\n"
         set_color normal
@@ -20,8 +20,8 @@ function __fzf_search_shell_variables --argument-names variable_file --descripti
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
-        string collect $argv[2..-1] | string match --invert history |
-        fzf --preview "string match   --regex '^\\\${}(?::|\[).+' <$variable_file |
+        string match --invert history <$variable_names |
+        fzf --preview "string match   --regex '^\\\${}(?::|\[).+' <$variable_values |
                        string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3'" \
             --query=(commandline --current-token | string replace '$' '')
     )
