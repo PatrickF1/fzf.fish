@@ -1,7 +1,9 @@
 function __fzf_search_shell_variables --argument-names variable_names variable_values --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
     if test -z "$variable_names"
         set_color red
-        printf "\nThe signature of __fzf_search_shell_variables was changed in https://github.com/PatrickF1/fzf.fish/pull/71.\nPlease see the latest conf.d/fzf.fish and update your key bindings.\n\n"
+        # We prints two lines of message, so we puts two \n at the end.
+        # We also put an extra \n at the beginning and the end.
+        printf "\nThe signature of __fzf_search_shell_variables was changed in https://github.com/PatrickF1/fzf.fish/pull/71.\nPlease see the latest conf.d/fzf.fish and update your key bindings.\n\n\n"
         set_color normal
 
         commandline --function repaint
