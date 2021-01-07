@@ -10,20 +10,21 @@ function __fzf_search_shell_variables --argument-names variable_file --descripti
     # Using --local so that it does not clobber SHELL outside of this function.
     set --local --export SHELL (command --search fish)
 
-    # Pipe the names of all shell variables to fzf and display the value of the selected
-    # variable in fzf's preview window.
+    # Exclude the history variable name from being piped into fzf because it's not included in
+    # $variable_file (the output of set --show). It's also not worth showing anyway as
+    # __fzf_search_history is a much better way to examine history.
     # We use the current token to pre-populate fzf's query. If the current token begins
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
-        string collect $argv[2..-1] |
+        string collect $argv[2..-1] | grep --invert-match history |
         fzf --preview "string match   --regex '^\\\${}(?::|\[).+' <$variable_file |
                        string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3'" \
             --query=(commandline --current-token | string replace '$' '')
     )
 
     if test $status -eq 0
-        # If the current token begins with a $, do not overwrite the $ when 
+        # If the current token begins with a $, do not overwrite the $ when
         # replacing the current token with the selected variable.
         if string match --quiet '$*' (commandline --current-token)
             commandline --current-token --replace \$$variable_name
