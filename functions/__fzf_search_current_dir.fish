@@ -7,7 +7,7 @@ function __fzf_search_current_dir --description "Search the current directory us
     set fzf_arguments --multi --ansi --preview='__fzf_preview_file {}'
     set token (commandline --current-token | string unescape)
 
-    # If the current token a directory with trailing slash,
+    # If the current token a directory with a trailing slash,
     # then use it as fd's base directory.
     if string match --quiet "*/" $token && test -d $token
         set --append fd_arguments --base-directory=$token
