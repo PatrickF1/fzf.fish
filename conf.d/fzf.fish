@@ -1,6 +1,6 @@
 # Set up the default, mnemonic key bindings unless the user has chosen to customize them
 if not set --query fzf_fish_custom_keybindings
-    set -l search_shell_variables '__fzf_search_shell_variables (set --show (set --names) | psub) (set --names)'
+    set -l search_shell_variables '__fzf_search_shell_variables (set --show | psub) (set --names)'
     # \cf is Ctrl+f
     bind \cf '__fzf_search_current_dir'
     bind \cr '__fzf_search_history'
