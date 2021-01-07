@@ -21,8 +21,9 @@ function __fzf_search_shell_variables --argument-names variable_names variable_v
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
         string match --invert history <$variable_names |
-        fzf --preview "string match   --regex '^\\\${}(?::|\[).+' <$variable_values |
-                       string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3'" \
+        fzf --preview "string match --entire --regex '^\\\${}(?:: set|\[)' <$variable_values |
+                       string replace        --regex '^\\\${}: ' '' |
+                       string replace        --regex '^\\\${}(\[.+\]).+\|(.+)\|\$' '\\\$1 \\\$2'" \
             --query=(commandline --current-token | string replace '$' '')
     )
 
