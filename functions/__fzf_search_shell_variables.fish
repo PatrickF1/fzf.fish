@@ -7,14 +7,24 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # Pipe the names of all shell variables to fzf and attempt to display the value
     # of the selected variable in fzf's preview window.
     # Non-exported variables will not be accessible to the fzf process, in which case
-    # __fzf_display_value_or_error will print an informative message in lieu of the value.
+    # __echo_value_or_print_message will print an informative message in lieu of the value.
+    # We use the current token to pre-populate fzf's query. If the current token begins
+    # with a $, we remove it from the query so that it will better match the variable names
+    # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
         set --names |
         fzf --preview '__fzf_display_value_or_error {} '(set --show | psub)
+            --query=(commandline --current-token | string replace '$' '')
     )
 
     if test $status -eq 0
-        commandline --insert $variable_name
+        # If the current token begins with a $, do not overwrite the $ when 
+        # replacing the current token with the selected variable.
+        if string match --quiet '$*' (commandline --current-token)
+            commandline --current-token --replace \$$variable_name
+        else
+            commandline --current-token --replace $variable_name
+        end
     end
 
     commandline --function repaint
