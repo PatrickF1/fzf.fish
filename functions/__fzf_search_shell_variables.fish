@@ -12,8 +12,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
-        set --names |
-        fzf --preview '__fzf_display_value_or_error {} '(set --show | psub) \
+        string collect $argv[2..-1] |
+        fzf --preview '__fzf_display_value_or_error {} '$argv[1] \
             --query=(commandline --current-token | string replace '$' '')
     )
 
