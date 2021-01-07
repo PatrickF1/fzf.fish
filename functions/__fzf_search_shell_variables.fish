@@ -1,6 +1,6 @@
 function __fzf_search_shell_variables --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
-    # Make sure that fzf uses fish to execute __fzf_display_value_or_error, which
-    # is an autoloaded fish function so doesn't exist in other shells.
+    # Make sure that fzf uses fish to execute preview function, which uses Fish's
+    # builtin string function that doesn't exist in other shells.
     # Using --local so that it does not clobber SHELL outside of this function.
     set --local --export SHELL (command --search fish)
 
@@ -13,7 +13,8 @@ function __fzf_search_shell_variables --description "Search and inspect shell va
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
         string collect $argv[2..-1] |
-        fzf --preview '__fzf_display_value_or_error {} '$argv[1] \
+        fzf --preview "string match   --regex '^\\\${}(?::|\[).+' <$argv[1] |
+                       string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3'" \
             --query=(commandline --current-token | string replace '$' '')
     )
 
