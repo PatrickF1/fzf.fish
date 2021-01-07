@@ -8,7 +8,7 @@ function __fzf_search_current_dir --description "Search the current directory us
     set token (commandline --current-token | string unescape)
 
     # If the token under the cursor is a directory, use it as a base directory.
-    if test -d $token
+    if test -d $token && test (count *$token*) = 1
         # Add a trailing slash if not present
         string match --quiet "*/" $token || set token $token/
         set --append fd_arguments --base-directory=$token
