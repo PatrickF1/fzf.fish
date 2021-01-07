@@ -1,4 +1,6 @@
-# This function is only meant to be called with argument 1 being the output of (set --names) and argument 2 being the output of (set --show)
+# This function expects the following two arguments:
+# argument 1 = output of (set --names | psub), i.e. a file with all variable names
+# argument 2 = output of (set --show | psub), i.e. a file with the scope info and values of all variables
 function __fzf_search_shell_variables --argument-names set_names_output set_show_output --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
     if test -z "$set_names_output"
         set_color red
