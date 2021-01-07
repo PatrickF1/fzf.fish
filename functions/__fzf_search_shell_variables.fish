@@ -1,8 +1,7 @@
-function __fzf_search_shell_variables --argument-names variable_names variable_values --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
-    if test -z "$variable_names"
+# This function is only meant to be called with argument 1 being the output of (set --names) and argument 2 being the output of (set --show)
+function __fzf_search_shell_variables --argument-names set_names_output set_show_output --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
+    if test -z "$set_names_output"
         set_color red
-        # We prints two lines of message, so we puts two \n at the end.
-        # We also put an extra \n at the beginning and the end.
         printf "\nThe signature of __fzf_search_shell_variables was changed in https://github.com/PatrickF1/fzf.fish/pull/71.\nPlease see the latest conf.d/fzf.fish and update your key bindings.\n\n\n"
         set_color normal
 
@@ -15,15 +14,17 @@ function __fzf_search_shell_variables --argument-names variable_names variable_v
     # Using --local so that it does not clobber SHELL outside of this function.
     set --local --export SHELL (command --search fish)
 
-    # Exclude the history variable name from being piped into fzf because it's not included in
-    # $variable_names (the output of set --show). It's also not worth showing anyway as
-    # __fzf_search_history is a much better way to examine history.
+    # Exclude the history variable from being piped into fzf because it's not included in
+    # $set_names_output. It's also not worth showing anyway as __fzf_search_history 
+    # is a much better way to examine history.
+    set all_variable_names (string match --invert history <$set_names_output)
+    
     # We use the current token to pre-populate fzf's query. If the current token begins
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
-        string match --invert history <$variable_names |
-        fzf --preview "__fzf_filter_shell_variables {} $variable_values" \
+        echo $all_variable_names |
+        fzf --preview "__fzf_filter_shell_variables {} $set_show_output" \
             --query=(commandline --current-token | string replace '$' '')
     )
 
