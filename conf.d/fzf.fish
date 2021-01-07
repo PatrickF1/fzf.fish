@@ -1,9 +1,10 @@
 # Set up the default, mnemonic key bindings unless the user has chosen to customize them
 if not set --query fzf_fish_custom_keybindings
+    set -l search_shell_variables '__fzf_search_shell_variables (set --show (set --names) | psub) (set --names)'
     # \cf is Ctrl+f
     bind \cf '__fzf_search_current_dir'
     bind \cr '__fzf_search_history'
-    bind \cv '__fzf_search_shell_variables (set --show (set --names) | psub) (set --names)'
+    bind \cv $search_shell_variables
     # The following two key binding use Alt as an additional modifier key to avoid conflicts
     bind \e\cl '__fzf_search_git_log'
     bind \e\cs '__fzf_search_git_status'
@@ -12,7 +13,7 @@ if not set --query fzf_fish_custom_keybindings
     if test "$fish_key_bindings" = 'fish_vi_key_bindings'
         bind --mode insert \cf '__fzf_search_current_dir'
         bind --mode insert \cr '__fzf_search_history'
-        bind --mode insert \cv '__fzf_search_shell_variables (set --show (set --names) | psub) (set --names)'
+        bind --mode insert \cv $search_shell_variables
         bind --mode insert \e\cl '__fzf_search_git_log'
         bind --mode insert \e\cs '__fzf_search_git_status'
     end
