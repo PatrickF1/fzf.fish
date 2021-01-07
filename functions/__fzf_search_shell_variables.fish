@@ -25,7 +25,7 @@ function __fzf_search_shell_variables --argument-names set_names_output set_show
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
-        echo $all_variable_names |
+        printf '%s\n' $all_variable_names |
         fzf --preview "__fzf_filter_shell_variables {} $set_show_output" \
             --query=(commandline --current-token | string replace '$' '')
     )
