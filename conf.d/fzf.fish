@@ -1,6 +1,10 @@
 # Set up the default, mnemonic key bindings unless the user has chosen to customize them
 if not set --query fzf_fish_custom_keybindings
+    # In order to capture the shell environment exactly as is, we must extract the variables information
+    # before even executing __fzf_search_shell_variables. We use psub to store the output in temporary 
+    # files and pass in the filenames as arguments.
     set -l search_shell_variables '__fzf_search_shell_variables (set --names | psub) (set --show | psub)'
+    
     # \cf is Ctrl+f
     bind \cf '__fzf_search_current_dir'
     bind \cr '__fzf_search_history'
