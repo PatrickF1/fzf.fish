@@ -20,7 +20,7 @@ function __fzf_search_shell_variables --argument-names variable_file --descripti
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
-        string collect $argv[2..-1] | grep --invert-match history |
+        string collect $argv[2..-1] | string match --invert history |
         fzf --preview "string match   --regex '^\\\${}(?::|\[).+' <$variable_file |
                        string replace --regex '^\\\${}(?:: (.+)|(\[.+\]): \|(.+)\|)' '\\\$1\\\$2 \\\$3'" \
             --query=(commandline --current-token | string replace '$' '')
