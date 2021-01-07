@@ -10,13 +10,13 @@ function __fzf_search_shell_variables --argument-names variable_names variable_v
         return
     end
 
-    # Make sure that fzf uses fish to execute the preview function, which uses
-    # fish's built-in string function which doesn't exist in other shells.
+    # Make sure that fzf uses fish to execute __fzf_filter_shell_variables, which
+    # is an autoloaded fish function so doesn't exist in other shells.
     # Using --local so that it does not clobber SHELL outside of this function.
     set --local --export SHELL (command --search fish)
 
     # Exclude the history variable name from being piped into fzf because it's not included in
-    # $variable_file (the output of set --show). It's also not worth showing anyway as
+    # $variable_names (the output of set --show). It's also not worth showing anyway as
     # __fzf_search_history is a much better way to examine history.
     # We use the current token to pre-populate fzf's query. If the current token begins
     # with a $, we remove it from the query so that it will better match the variable names
