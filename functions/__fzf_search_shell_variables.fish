@@ -24,19 +24,20 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     # 3.__fzf_search_history is a much better way to examine history anyway
     set all_variable_names (string match --invert history <$set_names_output)
 
+    set current_token (commandline --current-token)
     # We use the current token to pre-populate fzf's query. If the current token begins
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
         printf '%s\n' $all_variable_names |
         fzf --preview "__fzf_extract_var_info {} $set_show_output" \
-            --query=(commandline --current-token | string replace '$' '')
+            --query=(string replace '$' '' $current_token)
     )
 
     if test $status -eq 0
         # If the current token begins with a $, do not overwrite the $ when
         # replacing the current token with the selected variable.
-        if string match --quiet '$*' (commandline --current-token)
+        if string match --quiet '$*' $current_token
             commandline --current-token --replace \$$variable_name
         else
             commandline --current-token --replace $variable_name
