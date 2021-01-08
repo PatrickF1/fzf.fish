@@ -1,10 +1,10 @@
 # Set up the default, mnemonic key bindings unless the user has chosen to customize them
 if not set --query fzf_fish_custom_keybindings
-    # Because of scoping rules, o capture the shell variables exactly as is, we must retreive
-    # them before even executing __fzf_search_shell_variables. We use psub to store the 
+    # Because of scoping rules, to capture the shell variables exactly as they are, we must read
+    # them before even executing __fzf_search_shell_variables. We use psub to store the
     # variables' info in temporary files and pass in the filenames as arguments.
     set --local search_vars_cmd '__fzf_search_shell_variables (set --names | psub) (set --show | psub)'
-    
+
     # \cf is Ctrl+f
     bind \cf '__fzf_search_current_dir'
     bind \cr '__fzf_search_history'
