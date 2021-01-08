@@ -54,7 +54,9 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 - **Search input:** all the variable names of the environment, both local and exported
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
-- **Preview window:** the value of the variable if it was exported
+- **Preview window:** the scope info and values of the variable
+- **Remarks**
+  - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 

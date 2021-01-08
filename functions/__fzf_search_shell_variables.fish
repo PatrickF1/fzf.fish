@@ -1,24 +1,40 @@
-function __fzf_search_shell_variables --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
-    # Make sure that fzf uses fish to execute __echo_value_or_print_message, which
+# This function expects the following two arguments:
+# argument 1 = output of (set --show | psub), i.e. a file with the scope info and values of all variables
+# argument 2 = output of (set --names | psub), i.e. a file with all variable names
+function __fzf_search_shell_variables --argument-names set_show_output set_names_output --description "Search and inspect shell variables using fzf. Replace the current token with the selected variable."
+    # inform users who use custom key bindings of the backwards incompatible change
+    if test -z "$set_names_output"
+        set_color red
+        printf '\n%s\n' '__fzf_search_shell_variables now requires arguments (see github.com/PatrickF1/fzf.fish/pull/71).'
+        printf '%s\n\n' 'Please see the latest conf.d/fzf.fish and update your key bindings.'
+        set_color normal
+
+        commandline --function repaint
+        return
+    end
+
+    # Make sure that fzf uses fish to execute __fzf_extract_var_info, which
     # is an autoloaded fish function so doesn't exist in other shells.
     # Using --local so that it does not clobber SHELL outside of this function.
     set --local --export SHELL (command --search fish)
 
-    # Pipe the names of all shell variables to fzf and attempt to display the value
-    # of the selected variable in fzf's preview window.
-    # Non-exported variables will not be accessible to the fzf process, in which case
-    # __echo_value_or_print_message will print an informative message in lieu of the value.
+    # Exclude the history variable from being piped into fzf because
+    # 1. it's not included in $set_names_output
+    # 2. it tends to be a very large value => increases computation time
+    # 3.__fzf_search_history is a much better way to examine history anyway
+    set all_variable_names (string match --invert history <$set_names_output)
+
     # We use the current token to pre-populate fzf's query. If the current token begins
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
-        set --names |
-        fzf --preview '__fzf_display_value_or_error {}' \
+        printf '%s\n' $all_variable_names |
+        fzf --preview "__fzf_extract_var_info {} $set_show_output" \
             --query=(commandline --current-token | string replace '$' '')
     )
 
     if test $status -eq 0
-        # If the current token begins with a $, do not overwrite the $ when 
+        # If the current token begins with a $, do not overwrite the $ when
         # replacing the current token with the selected variable.
         if string match --quiet '$*' (commandline --current-token)
             commandline --current-token --replace \$$variable_name
