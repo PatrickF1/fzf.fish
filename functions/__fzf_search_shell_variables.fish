@@ -2,6 +2,7 @@
 # argument 1 = output of (set --show | psub), i.e. a file with the scope info and values of all variables
 # argument 2 = output of (set --names | psub), i.e. a file with all variable names
 function __fzf_search_shell_variables --argument-names set_show_output set_names_output --description "Search and inspect shell variables using fzf. Replace the current token with the selected variable."
+    # inform users who use custom key bindings of the backwards incompatible change
     if test -z "$set_names_output"
         set_color red
         printf '\n%s\n' '__fzf_search_shell_variables now requires arguments (see github.com/PatrickF1/fzf.fish/pull/71).'
@@ -17,9 +18,10 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     # Using --local so that it does not clobber SHELL outside of this function.
     set --local --export SHELL (command --search fish)
 
-    # Exclude the history variable from being piped into fzf because it's not included in
-    # $set_names_output. It's also not worth showing anyway as __fzf_search_history
-    # is a much better way to examine history.
+    # Exclude the history variable from being piped into fzf because
+    # 1. it's not included in $set_names_output
+    # 2. it tends to be a very large value => increases computation time
+    # 3.__fzf_search_history is a much better way to examine history anyway
     set all_variable_names (string match --invert history <$set_names_output)
 
     # We use the current token to pre-populate fzf's query. If the current token begins
