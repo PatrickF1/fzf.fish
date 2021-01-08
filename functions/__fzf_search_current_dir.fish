@@ -10,7 +10,7 @@ function __fzf_search_current_dir --description "Search the current directory us
     if test $status -eq 0
         # If this function was triggered when the user is inputing the first token and only one path is selected,
         # then prepend ./ to the selected path.
-        # If the path is an executable, the user can hit Enter one more time to open it.
+        # If the path is an executable, the user can hit Enter one more time to execute it.
         # If the path is a directory, the user can hit Enter one more time to quickly cd into it, because fish will
         # attempt to cd implicitly if a directory name starts with a dot.
         set first_token_length (string length (commandline --tokenize)[1])
