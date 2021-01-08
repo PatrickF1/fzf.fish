@@ -18,7 +18,7 @@ function __fzf_extract_var_info --argument-names variable_name set_show_output -
     # [1] variable_value
     string replace --regex "^\\\$$variable_name(\[.+\]).+\|(.+)\|\$" '\$1 \$2'
 
-    # Final output example:
+    # Final output example for $PATH:
     # set in global scope, unexported, with 5 elements
     # [1] /Users/patrickf/.config/fish/functions
     # [2] /usr/local/Cellar/fish/3.1.2/etc/fish/functions
