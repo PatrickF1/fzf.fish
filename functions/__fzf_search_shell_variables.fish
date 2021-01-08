@@ -17,16 +17,16 @@ function __fzf_search_shell_variables --argument-names set_names_output set_show
     set --local --export SHELL (command --search fish)
 
     # Exclude the history variable from being piped into fzf because it's not included in
-    # $set_names_output. It's also not worth showing anyway as __fzf_search_history 
+    # $set_names_output. It's also not worth showing anyway as __fzf_search_history
     # is a much better way to examine history.
     set all_variable_names (string match --invert history <$set_names_output)
-    
+
     # We use the current token to pre-populate fzf's query. If the current token begins
     # with a $, we remove it from the query so that it will better match the variable names
     # and we put it back later when replacing the current token with the user's selection.
     set variable_name (
         printf '%s\n' $all_variable_names |
-        fzf --preview "__fzf_filter_shell_variables {} $set_show_output" \
+        fzf --preview "__fzf_extract_var_info {} $set_show_output" \
             --query=(commandline --current-token | string replace '$' '')
     )
 
