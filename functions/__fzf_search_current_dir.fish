@@ -4,7 +4,7 @@ function __fzf_search_current_dir --description "Search the current directory us
     set --local --export SHELL (command --search fish)
 
     set fd_arguments --hidden --color=always --exclude=.git
-    set fzf_arguments --multi --ansi --preview='__fzf_preview_file {}'
+    set fzf_arguments --multi --ansi
     set token (commandline --current-token | string unescape)
 
     # If the current token a directory with a trailing slash,
@@ -12,10 +12,10 @@ function __fzf_search_current_dir --description "Search the current directory us
     if string match --quiet "*/" $token && test -d $token
         set --append fd_arguments --base-directory=$token
         # use the directory name as fzf prompt to show the search is limited to that directory
-        set --append fzf_arguments --prompt=$token
+        set --append fzf_arguments --prompt=$token --preview="__fzf_preview_file $token{}"
         set file_paths_selected $token(fd $fd_arguments 2>/dev/null | fzf $fzf_arguments)
     else
-        set --append fzf_arguments --query=$token
+        set --append fzf_arguments --query=$token --preview='__fzf_preview_file {}'
         set file_paths_selected (fd $fd_arguments 2>/dev/null | fzf $fzf_arguments)
     end
 
