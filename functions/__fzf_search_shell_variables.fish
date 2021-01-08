@@ -1,7 +1,7 @@
 # This function expects the following two arguments:
-# argument 1 = output of (set --names | psub), i.e. a file with all variable names
-# argument 2 = output of (set --show | psub), i.e. a file with the scope info and values of all variables
-function __fzf_search_shell_variables --argument-names set_names_output set_show_output --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
+# argument 1 = output of (set --show | psub), i.e. a file with the scope info and values of all variables
+# argument 2 = output of (set --names | psub), i.e. a file with all variable names
+function __fzf_search_shell_variables --argument-names set_show_output set_names_output --description "Search and inspect shell variables using fzf. Insert the selected variable into the commandline at the cursor."
     if test -z "$set_names_output"
         set_color red
         printf "\nThe signature of __fzf_search_shell_variables was changed in https://github.com/PatrickF1/fzf.fish/pull/71.\nPlease see the latest conf.d/fzf.fish and update your key bindings.\n\n\n"

@@ -3,7 +3,7 @@ if not set --query fzf_fish_custom_keybindings
     # Because of scoping rules, to capture the shell variables exactly as they are, we must read
     # them before even executing __fzf_search_shell_variables. We use psub to store the
     # variables' info in temporary files and pass in the filenames as arguments.
-    set --local search_vars_cmd '__fzf_search_shell_variables (set --names | psub) (set --show | psub)'
+    set --local search_vars_cmd '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
 
     # \cf is Ctrl+f
     bind \cf '__fzf_search_current_dir'
