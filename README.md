@@ -55,7 +55,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
 - **Remarks**
-  - `$history` is excluded for technical reasons so use the functionality for searching command history instead to inspect it
+  - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
