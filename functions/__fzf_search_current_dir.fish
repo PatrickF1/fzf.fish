@@ -19,7 +19,7 @@ function __fzf_search_current_dir --description "Search the current directory us
             set first_token_length 0
         end
 
-        if test (string length (commandline)) = $first_token_length && test (count $file_paths_selected) = 1
+        if test (count $file_paths_selected) = 1 && test (string length (commandline)) = $first_token_length
             set file_paths_selected ./$file_paths_selected
         end
 
