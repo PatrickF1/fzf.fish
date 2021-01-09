@@ -15,7 +15,7 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
 
     # Make sure that fzf uses fish to execute __fzf_extract_var_info, which
     # is an autoloaded fish function so doesn't exist in other shells.
-    # Using --local so that it does not clobber SHELL outside of this function.
+    # Use --local so that it does not clobber SHELL outside of this function.
     set --local --export SHELL (command --search fish)
 
     # Exclude the history variable from being piped into fzf because
@@ -25,13 +25,14 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     set all_variable_names (string match --invert history <$set_names_output)
 
     set current_token (commandline --current-token)
-    # We use the current token to pre-populate fzf's query. If the current token begins
-    # with a $, we remove it from the query so that it will better match the variable names
-    # and we put it back later when replacing the current token with the user's selection.
+    # Use the current token to pre-populate fzf's query. If the current token begins
+    # with a $, remove it from the query so that it will better match the variable names
+    set cleaned_curr_token (string replace '$' '' $current_token)
+
     set variable_name (
         printf '%s\n' $all_variable_names |
         fzf --preview "__fzf_extract_var_info {} $set_show_output" \
-            --query=(string replace '$' '' $current_token)
+            --query=$cleaned_curr_token
     )
 
     if test $status -eq 0
