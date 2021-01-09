@@ -1,7 +1,7 @@
 # This function expects the following two arguments:
 # argument 1 = output of (set --show | psub), i.e. a file with the scope info and values of all variables
 # argument 2 = output of (set --names | psub), i.e. a file with all variable names
-function __fzf_search_shell_variables --argument-names set_show_output set_names_output --description "Search and inspect shell variables using fzf. Replace the current token with the selected variable."
+function __fzf_search_shell_variables --argument-names set_show_output set_names_output --description "Search and preview shell variables. Replace the current token with the selected variable."
     # inform users who use custom key bindings of the backwards incompatible change
     if test -z "$set_names_output"
         set_color red
