@@ -11,7 +11,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
     # then use it as fd's base directory.
     if string match --quiet "*/" $token && test -d $token
         set --append fd_arguments --base-directory=$token
-        # use the directory name as fzf prompt to indicate the search is limited to that directory
+        # use the directory name as fzf's prompt to indicate the search is limited to that directory
         set --append fzf_arguments --prompt=$token --preview="__fzf_preview_file $token{}"
         set file_paths_selected $token(fd $fd_arguments 2>/dev/null | fzf $fzf_arguments)
     else
