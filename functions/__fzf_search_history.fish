@@ -1,4 +1,4 @@
-function __fzf_search_history --description "Search command history. Replace the commandline with the selected command."
+function __fzf_search_history --description "Search command history. Replace the command line with the selected command."
     # history merge incorporates history changes from other fish sessions
     builtin history merge
     set command_with_ts (
