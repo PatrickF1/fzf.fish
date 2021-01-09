@@ -2,10 +2,23 @@ function __fzf_search_current_dir --description "Search the current directory. R
     # Make sure that fzf uses fish to execute __fzf_preview_file.
     # See similar comment in __fzf_search_shell_variables.fish.
     set --local --export SHELL (command --search fish)
-    set file_paths_selected (
-        fd --hidden --color=always --exclude=.git 2>/dev/null |
-        fzf --multi --ansi --preview='__fzf_preview_file {}' --query=(commandline --current-token)
-    )
+
+    set fd_arguments --hidden --color=always --exclude=.git
+    set fzf_arguments --multi --ansi
+    set token (commandline --current-token | string unescape)
+
+    # If the current token is a directory and has a trailing slash,
+    # then use it as fd's base directory.
+    if string match --quiet "*/" $token && test -d $token
+        set --append fd_arguments --base-directory=$token
+        # use the directory name as fzf's prompt to indicate the search is limited to that directory
+        set --append fzf_arguments --prompt=$token --preview="__fzf_preview_file $token{}"
+        set file_paths_selected $token(fd $fd_arguments 2>/dev/null | fzf $fzf_arguments)
+    else
+        set --append fzf_arguments --query=$token --preview='__fzf_preview_file {}'
+        set file_paths_selected (fd $fd_arguments 2>/dev/null | fzf $fzf_arguments)
+    end
+
 
     if test $status -eq 0
         # If this function was triggered when the user is inputing the first token and only one path is selected,

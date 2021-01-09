@@ -21,6 +21,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
   - prepends `./` to the selection if only one selection is made, allowing for quickly execute a program or cd into a directory (see [cd docs][])
+  - if the current token is a directory with a trailing slash (e.g. `functions/<CURSOR>`), then search will be scoped to that directory
   - ignores files that are also ignored by git
   - <kbd>Tab</kbd> to multi-select
 
