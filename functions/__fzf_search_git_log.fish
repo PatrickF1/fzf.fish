@@ -1,4 +1,4 @@
-function __fzf_search_git_log --description "Search the git log of the current git repository. Insert the selected commit hash into the commandline at the cursor."
+function __fzf_search_git_log --description "Search the output of git log and preview commits. Replace the current token with the selected commit hash."
     if not git rev-parse --git-dir >/dev/null 2>&1
         echo '__fzf_search_git_log: Not in a git repository.' >&2
     else

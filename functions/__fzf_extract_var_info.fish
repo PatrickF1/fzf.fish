@@ -1,5 +1,5 @@
-# A helper function for __fzf_search_shell_variables
-function __fzf_extract_var_info --argument-names variable_name set_show_output --description "Extract the info for one variable from the output of set --show and simplify it."
+# helper function for __fzf_search_shell_variables
+function __fzf_extract_var_info --argument-names variable_name set_show_output --description "Extract and reformat lines pertaining to \$variable_name from \$set_show_output."
     # Extract only the lines that begin with...
     # $variable_name: set
     # ...or...
