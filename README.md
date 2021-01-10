@@ -167,6 +167,7 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 
 - If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
 - `fd`, by default, ignores files also ignored by git. Check your local and global `.gitignore` files to see if the files not showing up have been ignored.
+- Ensure [fdclone](https://hp.vector.co.jp/authors/VA012337/soft/fd/index.html) is not installed.
 
 [#23]: https://github.com/patrickf1/fzf.fish/issues/23
 [#54]: https://github.com/PatrickF1/fzf.fish/issues/54
