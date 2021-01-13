@@ -23,7 +23,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
     if test $status -eq 0
         # If the user was in the middle of inputting the first token and only one path is selected,
         # then prepend ./ to the selected path so that
-        # - if the path is an executable, the user can hit Enter one more time to execute it.
+        # - if the path is an executable, the user can hit Enter one more time to execute it
         # - if the path is a directory, the user can hit Enter one more time to quickly cd into it (fish will
         #   attempt to cd implicitly if a directory name starts with a dot)
         if test (count $file_paths_selected) = 1
