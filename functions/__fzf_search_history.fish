@@ -4,7 +4,8 @@ function __fzf_search_history --description "Search command history. Replace the
     set command_with_ts (
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S | " |
-        fzf --read0 --tiebreak=index --query=(commandline)
+        fzf --read0 --tiebreak=index --query=(commandline) |
+        string collect
     )
 
     if test $status -eq 0
