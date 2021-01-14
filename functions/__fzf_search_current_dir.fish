@@ -9,7 +9,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
 
     # If the current token is a directory and has a trailing slash,
     # then use it as fd's base directory.
-    if string match --quiet "*/" $token && test -d $token
+    if string match --quiet -- "*/" $token && test -d $token
         set --append fd_arguments --base-directory=$token
         # use the directory name as fzf's prompt to indicate the search is limited to that directory
         set --append fzf_arguments --prompt=$token --preview="__fzf_preview_file $token{}"
@@ -34,7 +34,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
             end
         end
 
-        commandline --current-token --replace (string escape $file_paths_selected | string join ' ')
+        commandline --current-token --replace -- (string escape -- $file_paths_selected | string join ' ')
     end
 
     commandline --function repaint
