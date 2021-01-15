@@ -26,12 +26,13 @@ end
 # If FZF_DEFAULT_OPTS is not set, then set some sane defaults. This also affects fzf outside of this plugin.
 # See https://github.com/junegunn/fzf#environment-variables
 if not set --query FZF_DEFAULT_OPTS
-    # cycle allows jumping between the top and bottom most results, making scrolling easier
-    # reverse layout lists results from top to bottom, which is mimicks the familiar layout of git log, history, and env
-    # border makes clear where the fzf window ends
-    # height 90% leaves space to see the command line and some terminal scrollback, maintaining context of work
-    # preview-window wrap wraps long lines in the preview window, making reading easier
-    set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 90% --preview-window=wrap'
+    # cycle allows jumping between the first and last results, making scrolling faster
+    # layout=reverse lists results top to bottom, mimicking the familiar layouts of git log, history, and env
+    # border makes clear where the fzf window begins and ends
+    # height=90% leaves space to see the current command and some scrollback, maintaining context of work
+    # preview-window=wrap wraps long lines in the preview window, making reading easier
+    # marker=* makes the multi-select marker more distinguishable from the pointer (since both default to >)
+    set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
 end
 
 function _fzf_uninstall --on-event fzf_uninstall
