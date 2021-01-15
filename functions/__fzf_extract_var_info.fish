@@ -10,7 +10,7 @@ function __fzf_extract_var_info --argument-names variable_name set_show_output -
     # $variable_name: set in global scope
     # ...with...
     # set in global scope
-    string replace --regex "^\\\$$variable_name: " "" |
+    string replace --regex "^\\\$$variable_name: " '' |
 
     # From the lines of values, keep only the index and value, replacing...
     # $variable_name[1]: length=14 value=|variable_value|
