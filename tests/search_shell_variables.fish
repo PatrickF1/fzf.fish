@@ -10,4 +10,7 @@ set --local actual (eval $search_vars_cmd)
 @test "searches local variables" $actual = a_local_variable
 set --erase a_local_variable
 set --erase --local FZF_DEFAULT_OPTS
-set --show FZF_DEFAULT_OPTS
+
+mock fzf \* "" # do nothing if we reach fzf so we don't get stuck
+__fzf_search_shell_variables
+@test "fails if no arguments given" $status -eq 1

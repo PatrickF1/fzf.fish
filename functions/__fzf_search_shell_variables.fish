@@ -10,7 +10,7 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
         set_color normal
 
         commandline --function repaint
-        return
+        return 1
     end
 
     # Make sure that fzf uses fish to execute __fzf_extract_var_info, which
