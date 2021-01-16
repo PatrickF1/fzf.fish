@@ -27,7 +27,7 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     set current_token (commandline --current-token)
     # Use the current token to pre-populate fzf's query. If the current token begins
     # with a $, remove it from the query so that it will better match the variable names
-    set cleaned_curr_token (string replace '$' '' $current_token)
+    set cleaned_curr_token (string replace -- '$' '' $current_token)
 
     set variable_name (
         printf '%s\n' $all_variable_names |
@@ -38,7 +38,7 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     if test $status -eq 0
         # If the current token begins with a $, do not overwrite the $ when
         # replacing the current token with the selected variable.
-        if string match --quiet '$*' $current_token
+        if string match --quiet -- '$*' $current_token
             commandline --current-token --replace \$$variable_name
         else
             commandline --current-token --replace $variable_name
