@@ -9,8 +9,10 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
     defaults:
       run:
         shell: fish {0}
@@ -23,7 +25,6 @@ jobs:
         with:
           plugins: jorgebucaran/fishtape ilancosman/clownfish $GITHUB_WORKSPACE
 
-      # fzf package not available on Ubuntu, so have to build and install it the long way
       - name: Install fzf
         run: |
           git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
