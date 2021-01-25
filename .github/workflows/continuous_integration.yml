@@ -14,7 +14,6 @@ jobs:
     defaults:
       run:
         shell: fish {0}
-
     steps:
       - uses: actions/checkout@v2
 
@@ -24,8 +23,11 @@ jobs:
         with:
           plugins: jorgebucaran/fishtape ilancosman/clownfish $GITHUB_WORKSPACE
 
+      # fzf package not available on Ubuntu, so have to build and install it the long way
       - name: Install fzf
-        run: sudo apt-get install fzf
-        
+        run: |
+          git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+          ~/.fzf/install
+
       - name: Run full test suite
         run: fishtape tests/*
