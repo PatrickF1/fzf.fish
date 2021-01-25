@@ -1,0 +1,33 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: fish-actions/install-fish@v1.1.0
+
+      - uses: fish-actions/fisher@v1
+        with:
+          plugins: jorgebucaran/fishtape ilancosman/clownfish $GITHUB_WORKSPACE
+
+      - name: Install fzf
+        run: |
+          git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+          ~/.fzf/install
+
+      - name: Run full test suite
+        run: fishtape tests/*
+        shell: fish {0}
