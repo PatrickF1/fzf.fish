@@ -24,5 +24,8 @@ jobs:
         with:
           plugins: jorgebucaran/fishtape ilancosman/clownfish $GITHUB_WORKSPACE
 
+      - name: Install fzf
+        run: sudo apt-get install libxml2-utils
+        
       - name: Run full test suite
         run: fishtape tests/*
