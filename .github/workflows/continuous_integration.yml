@@ -13,9 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest]
-    defaults:
-      run:
-        shell: fish {0}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -32,3 +30,4 @@ jobs:
 
       - name: Run full test suite
         run: fishtape tests/*
+        shell: fish {0}
