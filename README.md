@@ -117,6 +117,9 @@ Alternatively, you can override it in your `config.fish`:
 set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 
+### Change the key binding or Fzf options for a single command
+See the [FAQ Wiki page][faq].
+
 ## Prior art
 
 ### Jethrokuan/fzf
@@ -154,23 +157,12 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 - easier to read, maintain, and contribute to
 - better maintained
 
-## Troubleshooting
+## Troubleshooting & FAQ
 
-### Key bindings do not work
+These sections have moved to the Wiki
+- [Troubleshooting][troubleshooting]
+- [FAQ][faq]
 
-- Execute `bind` and check if there are bindings overriding the bindings starting with `__fzf_`.
-- Ensure [jethrokuan/fzf][] and the [Fish extension][] that ships with fzf are uninstalled.
-- Ensure you're using Fish 3.1.2 or newer.
-- In your terminal's settings, map Option to Meta (see [#54]).
-
-### File search feature does not work
-
-- If you are on certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
-- `fd`, by default, ignores files also ignored by git. Check your local and global `.gitignore` files to see if the files not showing up have been ignored.
-- Ensure [fdclone](https://hp.vector.co.jp/authors/VA012337/soft/fd/index.html) is not installed.
-
-[#23]: https://github.com/patrickf1/fzf.fish/issues/23
-[#54]: https://github.com/PatrickF1/fzf.fish/issues/54
 [autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [awesome badge]: https://awesome.re/mentioned-badge.svg
 [awesome fish]: https://git.io/awsm.fish
@@ -179,6 +171,7 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
+[faq]: https://github.com/PatrickF1/fzf.fish/wiki/FAQ
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
 [Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
@@ -195,5 +188,6 @@ Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
 [releases]: https://github.com/patrickf1/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
+[troubleshooting]: https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
