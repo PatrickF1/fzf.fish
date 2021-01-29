@@ -85,7 +85,7 @@ Finally, install the following CLI tools:
 
 For macOS, I recommend installing them using [brew][].
 
-On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#23][]).
+On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
 
 ## Configuration
 
@@ -118,52 +118,18 @@ set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 
 ### Change the key binding or Fzf options for a single command
-See the [FAQ Wiki page][faq].
+See the [FAQ][] Wiki page.
 
 ## Prior art
 
-### Jethrokuan/fzf
-
-[jethrokuan/fzf][] is another fzf plugin that provides similar features and is prevalent in the fish community (470+ stargazers and 30 contributors, including me). In fact, I referenced it when creating this plugin—thank you Jethro!
-
-So why _another_ fzf plugin? While contributing to `jethrokuan/fzf`, I was discouraged by the complexity and inefficiency of the code that resulted from feature cruft (e.g. it provides multiple overlapping ways to action on files: find, cd, and open) and poor design decisions (e.g. Tmux support was implemented using a variable command). Moreover, Jethro has lost interest in his plugin (he later confirmed to me that he stopped using fish). Wanting a sharper tool and to give back to the community, I decided to write my own plugin.
-
-After much work, `fzf.fish` now implements most of the same features but is faster, easier to maintain, and more [Unix-y][unix philosophy]. I also added new features: using fzf to search git status, git log, and shell variables. However, I chose not to implement Tmux support, because users can easily add support externally themselves; and tab completion, because even `jethrokuan/fzf`'s implementation of it is buggy as evidenced by the many [issues reported about it][].
-
-**TLDR:** choose `fzf.fish` over [jethrokuan/fzf][] if you want
-
-- faster, more efficient, code
-- code that is easier to debug if you encounter issues
-- a tool built on [Unix philosophy][]
-- a plugin that is more likely to attract future contributors because it is more maintainable
-- a plugin that will be more frequently updated by its author (Jethro no longer uses fish)
-- features for searching git status, git log, and shell variables
-
-and you don't mind
-
-- having to integrate fzf with Tmux yourself, which is easy to do
-- not having buggy fzf tab completion
-
-### Fzf's out-of-the-box Fish extension
-
-Fzf optionally comes with its own [Fish extension][]. It is substantial but `fzf.fish` has these advantages over it:
-
-- features for searching git status, git log, and shell variables
-- timestamps when searching command history
-- colorized results when searching for files
-- previews when searching for files
-- configurable key bindings
-- [autoloaded][autoloads] functions for faster shell startup
-- easier to read, maintain, and contribute to
-- better maintained
+If `fzf.fish` is a useful plugin, it is by standing on the shoulder of giants. There are two other fzf integrations for Fish worth regarding: [jethrokuan/fzf][] and fzf's out-of-the-box [Fish extension][]. The [Prior Art][] Wiki page explains how `fzf.fish` compares to and improves on them.
 
 ## Troubleshooting & FAQ
 
-These sections have moved to the Wiki
+Need help? These Wiki pages can guide you:
 - [Troubleshooting][troubleshooting]
 - [FAQ][faq]
 
-[autoloads]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions
 [awesome badge]: https://awesome.re/mentioned-badge.svg
 [awesome fish]: https://git.io/awsm.fish
 [bat]: https://github.com/sharkdp/bat
@@ -174,18 +140,18 @@ These sections have moved to the Wiki
 [faq]: https://github.com/PatrickF1/fzf.fish/wiki/FAQ
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
-[Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish version badge]: https://img.shields.io/badge/fish-v3.1.2%2B-green
 [Fish]: http://fishshell.com
 [Fisher]: https://github.com/jorgebucaran/fisher
+[Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
 [git log search]: images/git_log.gif
 [git status select]: images/git_status.gif
 [ilancosman/tide]: https://github.com/IlanCosman/tide
-[issues reported about it]: https://github.com/jethrokuan/fzf/issues?q=is%3Aissue+tab
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
+[prior art]: https://github.com/PatrickF1/fzf.fish/wiki/Prior-Art
 [releases]: https://github.com/patrickf1/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
 [troubleshooting]: https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting
