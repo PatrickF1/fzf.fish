@@ -39,9 +39,15 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
         # If the current token begins with a $, do not overwrite the $ when
         # replacing the current token with the selected variable.
         if string match --quiet -- '$*' $current_token
-            commandline --current-token --replace \$$variable_name
+            set output \$$variable_name
         else
-            commandline --current-token --replace $variable_name
+            set output $variable_name
+        end
+
+        if status is-command-substitution
+            printf $output
+        else
+            commandline --current-token --replace $output
         end
     end
 

@@ -15,7 +15,12 @@ function __fzf_search_git_log --description "Search the output of git log and pr
         if test $status -eq 0
             set abbreviated_commit_hash (string split --max 1 " " $selected_log_line)[1]
             set commit_hash (git rev-parse $abbreviated_commit_hash)
-            commandline --current-token --replace $commit_hash
+
+            if status is-command-substitution
+                printf $commit_hash
+            else
+                commandline --current-token --replace $commit_hash
+            end
         end
     end
 

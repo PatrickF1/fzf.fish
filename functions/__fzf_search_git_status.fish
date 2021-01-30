@@ -22,7 +22,12 @@ function __fzf_search_git_status --description "Search the output of git status.
                 end
             end
 
-            commandline --current-token --replace -- (string escape -- $cleaned_paths | string join ' ')
+            set output (string escape -- $cleaned_paths | string join ' ')
+            if status is-command-substitution
+                printf $output
+            else
+                commandline --current-token --replace -- $output
+            end
         end
     end
 
