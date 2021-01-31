@@ -32,5 +32,7 @@ jobs:
         run: fishtape tests/*/*
         shell: fish {0}
       - name: Test
-        run: echo $HOME
+        run: |
+          echo $HOME
+          ls -a -R $HOME
         shell: fish {0}
