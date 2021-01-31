@@ -31,3 +31,6 @@ jobs:
       - name: Run full test suite
         run: fishtape tests/*
         shell: fish {0}
+      - name: Test
+        run: echo $HOME
+        shell: fish {0}
