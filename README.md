@@ -2,7 +2,7 @@
 
 # fzf.fish 🔍🐟
 
-[![latest release badge][]][releases] [![fish version badge][]](#installation) [![awesome badge][]][awesome fish]
+[![latest release badge][]][releases] [![build status badge][]][actions] [![awesome badge][]][awesome fish]
 
 </div>
 
@@ -130,17 +130,18 @@ Need help? These Wiki pages can guide you:
 - [Troubleshooting][troubleshooting]
 - [FAQ][faq]
 
+[actions]: https://github.com/PatrickF1/fzf.fish/actions
 [awesome badge]: https://awesome.re/mentioned-badge.svg
 [awesome fish]: https://git.io/awsm.fish
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh
+[build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [faq]: https://github.com/PatrickF1/fzf.fish/wiki/FAQ
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
-[fish version badge]: https://img.shields.io/badge/fish-v3.1.2%2B-green
 [Fish]: http://fishshell.com
 [Fisher]: https://github.com/jorgebucaran/fisher
 [Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
