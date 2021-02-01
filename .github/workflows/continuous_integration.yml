@@ -16,6 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
           fetch-depth: 0
       - uses: fish-actions/install-fish@v1.1.0
 
