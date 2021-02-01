@@ -29,5 +29,5 @@ jobs:
           ~/.fzf/install
 
       - name: Run full test suite
-        run: fishtape tests/*
+        run: fishtape tests/*/*
         shell: fish {0}
