@@ -1,12 +1,9 @@
-set files "filename with space" "filename with \"\""
+set files "filename_with_*.txt" "filename with space.csv"
 touch $files
-git add --all
 mock commandline \* ""
 mock commandline "--current-token --replace --" "echo \$argv"
-__fzf_search_git_status
-set --export --append FZF_DEFAULT_OPTS "--filter="
+set --export --append FZF_DEFAULT_OPTS "--filter='filename'"
 set actual (__fzf_search_git_status)
+@test "outputs correct paths" (string unescape $actual) = "$files"
 
-@test "outputs correct paths" $actual = $files
-
-git reset --hard
+rm $files
