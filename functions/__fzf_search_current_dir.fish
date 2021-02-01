@@ -6,6 +6,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
     set fd_arguments --hidden --color=always --exclude=.git
     set fzf_arguments --multi --ansi
     set token (commandline --current-token | string unescape)
+    # need to expand ~ in the directory name since fd can't expand it
     set expanded_token (string replace --regex -- "^~/" $HOME/ $token)
 
     # If the current token is a directory and has a trailing slash,
