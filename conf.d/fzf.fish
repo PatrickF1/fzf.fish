@@ -1,14 +1,15 @@
+# Because of scoping rules, to capture the shell variables exactly as they are, we must read
+# them before even executing __fzf_search_shell_variables. We use psub to store the
+# variables' info in temporary files and pass in the filenames as arguments.
+# This variable is intentionally global so that it can be referenced by custom key bindings and tests
+set __fzf_search_vars_cmd '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
+
 # Set up the default, mnemonic key bindings unless the user has chosen to customize them
 if not set --query fzf_fish_custom_keybindings
-    # Because of scoping rules, to capture the shell variables exactly as they are, we must read
-    # them before even executing __fzf_search_shell_variables. We use psub to store the
-    # variables' info in temporary files and pass in the filenames as arguments.
-    set --local search_vars_cmd '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
-
     # \cf is Ctrl+f
     bind \cf '__fzf_search_current_dir'
     bind \cr '__fzf_search_history'
-    bind \cv $search_vars_cmd
+    bind \cv $__fzf_search_vars_cmd
     # The following two key binding use Alt as an additional modifier key to avoid conflicts
     bind \e\cl '__fzf_search_git_log'
     bind \e\cs '__fzf_search_git_status'
@@ -17,7 +18,7 @@ if not set --query fzf_fish_custom_keybindings
     if test "$fish_key_bindings" = 'fish_vi_key_bindings'
         bind --mode insert \cf '__fzf_search_current_dir'
         bind --mode insert \cr '__fzf_search_history'
-        bind --mode insert \cv $search_vars_cmd
+        bind --mode insert \cv $__fzf_search_vars_cmd
         bind --mode insert \e\cl '__fzf_search_git_log'
         bind --mode insert \e\cs '__fzf_search_git_status'
     end
