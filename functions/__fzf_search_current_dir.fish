@@ -29,10 +29,12 @@ function __fzf_search_current_dir --description "Search the current directory. R
         # - if the path is a directory, the user can hit Enter one more time to immediately cd into it (fish will
         #   attempt to cd implicitly if a directory name starts with a dot)
         if test (count $file_paths_selected) = 1
-            set commandline_tokens (commandline --tokenize)
-            set current_token (commandline --current-token)
-            if test "$commandline_tokens" = "$current_token"
-                set file_paths_selected ./$file_paths_selected
+            if string match --invert "^/" $file_path_selected[1]
+                set commandline_tokens (commandline --tokenize)
+                set current_token (commandline --current-token)
+                if test "$commandline_tokens" = "$current_token"
+                    set file_paths_selected ./$file_paths_selected
+                end
             end
         end
 
