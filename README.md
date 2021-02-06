@@ -144,7 +144,7 @@ Need help? These Wiki pages can guide you:
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh
 [build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
-[custom preview command]: functions/__fzf_preview_file.fish
+[custom preview command]: functions/__fzf_preview_file.fish#L7
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
