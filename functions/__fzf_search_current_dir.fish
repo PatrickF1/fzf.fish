@@ -5,7 +5,8 @@ function __fzf_search_current_dir --description "Search the current directory. R
 
     set fd_arguments --hidden --color=always --exclude=.git
     set fzf_arguments --multi --ansi
-    set token (commandline --current-token | string unescape)
+    set current_token (commandline --current-token)
+    set token (string unescape $current_token)
     # need to expand ~ in the directory name since fd can't expand it
     set expanded_token (string replace --regex -- "^~/" $HOME/ $token)
 
@@ -23,14 +24,16 @@ function __fzf_search_current_dir --description "Search the current directory. R
 
 
     if test $status -eq 0
-        # If the user was in the middle of inputting the first token and only one path is selected,
-        # then prepend ./ to the selected path so that
-        # - if the path is an executable, the user can hit Enter one more time to immediately execute it
-        # - if the path is a directory, the user can hit Enter one more time to immediately cd into it (fish will
-        #   attempt to cd implicitly if a directory name starts with a dot)
-        if test (count $file_paths_selected) = 1
+        # Fish will implicitly take action on a path when a path is provided as the first token and it
+        # begins with a dot, slash, or tilde. If the path is a directory, Fish will cd into it.
+        # If the path is an executable, Fish will execute it. To help users harness
+        # this convenient behavior, we automatically prepend ./ to the selected path if
+        # - only one path was selected,
+        # - the user was in the middle of inputting the first token,
+        # - and the path doesn't already begin with a dot, slash, or tilde
+        # Then, the user only needs to hit Enter once more to potentially cd into or execute that path.
+        if test (count $file_paths_selected) = 1 && not string match --regex "^[.|/|~]" $file_paths_selected
             set commandline_tokens (commandline --tokenize)
-            set current_token (commandline --current-token)
             if test "$commandline_tokens" = "$current_token"
                 set file_paths_selected ./$file_paths_selected
             end
