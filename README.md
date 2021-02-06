@@ -117,6 +117,9 @@ Alternatively, you can override it in your `config.fish`:
 set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 
+### Changing the command used to preview folders
+TODO
+
 ### Change the key binding or Fzf options for a single command
 See the [FAQ][] Wiki page.
 
