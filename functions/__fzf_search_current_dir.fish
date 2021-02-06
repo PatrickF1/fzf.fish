@@ -32,7 +32,8 @@ function __fzf_search_current_dir --description "Search the current directory. R
         # - the user was in the middle of inputting the first token,
         # - and the path doesn't already begin with a dot or slash
         # Then, the user only needs to hit Enter once more to potentially cd into or execute that path.
-        if test (count $file_paths_selected) = 1 && not string match --regex "^[.|/]" $file_paths_selected
+        if test (count $file_paths_selected) = 1 \
+                && not string match --quiet --regex "^[.|/]" $file_paths_selected
             set commandline_tokens (commandline --tokenize)
             if test "$commandline_tokens" = "$current_token"
                 set file_paths_selected ./$file_paths_selected
