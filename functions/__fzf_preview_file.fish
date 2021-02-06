@@ -4,7 +4,7 @@ function __fzf_preview_file --argument-names file_path --description "Print a pr
         bat --style=numbers --color=always "$file_path"
     else if test -d "$file_path" # directory
         if set --query fzf_preview_dir_cmd
-            eval $fzf_preview_dir_cmd
+            eval $fzf_preview_dir_cmd "$file_path"
         else
             # -A list hidden files as well, except for . and ..
             # -F helps classify files by appending symbols after the file name
