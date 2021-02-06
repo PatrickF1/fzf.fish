@@ -3,8 +3,13 @@ function __fzf_preview_file --argument-names file_path --description "Print a pr
     if test -f "$file_path" # regular file
         bat --style=numbers --color=always "$file_path"
     else if test -d "$file_path" # directory
-        set --local CLICOLOR_FORCE true
-        command ls -A "$file_path" # list hidden files as well, except for . and ..
+        if set --query fzf_preview_dir_cmd
+            eval $fzf_preview_dir_cmd "$file_path"
+        else
+            # -A list hidden files as well, except for . and ..
+            # -F helps classify files by appending symbols after the file name
+            command ls -A -F "$file_path"
+        end
     else if test -L "$file_path" # symlink
         # notify user and recurse on the target of the symlink, which can be any of these file types
         set -l target_path (realpath $file_path)

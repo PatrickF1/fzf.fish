@@ -117,6 +117,15 @@ Alternatively, you can override it in your `config.fish`:
 set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 
+### Changing the command used to preview folders
+The search files feature, by default, uses `ls -A -F` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
+
+```fish
+set fzf_preview_dir_cmd exa --all --color=always
+```
+
+Do not specify a target path in the command, as `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
+
 ### Change the key binding or Fzf options for a single command
 See the [FAQ][] Wiki page.
 
@@ -136,6 +145,7 @@ Need help? These Wiki pages can guide you:
 [bat]: https://github.com/sharkdp/bat
 [brew]: https://brew.sh
 [build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
+[custom preview command]: functions/__fzf_preview_file.fish#L7
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
