@@ -33,7 +33,7 @@ if not set --query FZF_DEFAULT_OPTS
     # height=90% leaves space to see the current command and some scrollback, maintaining context of work
     # preview-window=wrap wraps long lines in the preview window, making reading easier
     # marker=* makes the multi-select marker more distinguishable from the pointer (since both default to >)
-    set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
+    set --global --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
 end
 
 function _fzf_uninstall --on-event fzf_uninstall
