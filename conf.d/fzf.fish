@@ -2,7 +2,7 @@
 # them before even executing __fzf_search_shell_variables. We use psub to store the
 # variables' info in temporary files and pass in the filenames as arguments.
 # This variable is intentionally global so that it can be referenced by custom key bindings and tests
-set __fzf_search_vars_cmd '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
+set --global __fzf_search_vars_cmd '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
 
 # Set up the default, mnemonic key bindings unless the user has chosen to customize them
 if not set --query fzf_fish_custom_keybindings
@@ -33,7 +33,7 @@ if not set --query FZF_DEFAULT_OPTS
     # height=90% leaves space to see the current command and some scrollback, maintaining context of work
     # preview-window=wrap wraps long lines in the preview window, making reading easier
     # marker=* makes the multi-select marker more distinguishable from the pointer (since both default to >)
-    set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
+    set --global --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
 end
 
 function _fzf_uninstall --on-event fzf_uninstall
@@ -49,5 +49,7 @@ function _fzf_uninstall --on-event fzf_uninstall
         echo "fzf.fish key bindings removed"
         set_color normal
     end
+
+    set --erase __fzf_search_vars_cmd
     functions --erase _fzf_uninstall
 end
