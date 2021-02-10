@@ -49,5 +49,7 @@ function _fzf_uninstall --on-event fzf_uninstall
         echo "fzf.fish key bindings removed"
         set_color normal
     end
+
+    set --erase __fzf_search_vars_cmd
     functions --erase _fzf_uninstall
 end
