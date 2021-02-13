@@ -5,7 +5,9 @@ function __fzf_search_git_status --description "Search the output of git status.
         set selected_paths (
             # Pass configuration color.status=always to force status to use colors even though output is sent to a pipe
             git -c color.status=always status --short |
-            fzf --ansi --multi --query=(commandline --current-token)
+            fzf --ansi --multi \
+                --query=(commandline --current-token) \
+                --preview="__fzf_preview_changed_file {} {2..}"
         )
         if test $status -eq 0
             # git status --short automatically escapes the paths of most files for us so not going to bother trying to handle
