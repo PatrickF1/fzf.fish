@@ -16,7 +16,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 ![file search][]
 
-- **Search input:** recursive listing of current directory's files
+- **Search input:** recursive listing of current directory's non-hidden files
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
@@ -128,12 +128,12 @@ set fzf_preview_dir_cmd exa --all --color=always
 
 Do not specify a target path in the command, as `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
 
-### Change the command used to find files
+### Change the files searched
 
-The search files feature uses the `fd` command to find files. By default, `fzf.fish` passes options to `fd` to include hidden files but not `.git`. The options passed to `fd` can be overridden through the `fzf_fd_opts` variable. For example, to exclude hidden files, you may put
+The search files feature uses `fd` to populate the list of files. To pass custom options to `fd` when it is executed by the search files feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
 
 ```fish
-set fzf_fd_opts # fd skips hidden files by default so no option to pass in
+set fzf_fd_opts --hidden --exclude=.git
 ```
 
 ### Change the key binding or Fzf options for a single command
