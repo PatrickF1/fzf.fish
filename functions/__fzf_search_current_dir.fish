@@ -3,13 +3,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
     # See similar comment in __fzf_search_shell_variables.fish.
     set --local --export SHELL (command --search fish)
 
-    if set --query fzf_fd_opts
-        set fd_opts --hidden --color=always --exclude=.git
-    else
-        set fd_opts fzf_fd_opts
-    end
-
-    set fd_opts --hidden --color=always --exclude=.git
+    set fd_opts --color=always $fzf_fd_opts
     set fzf_arguments --multi --ansi
     set current_token (commandline --current-token)
     set token (string unescape $current_token)
