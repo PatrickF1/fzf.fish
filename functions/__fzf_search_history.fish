@@ -5,8 +5,9 @@ function __fzf_search_history --description "Search command history. Replace the
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S | " |
         fzf --read0 --tiebreak=index --query=(commandline) \
+            # preview the current command in a window at the bottom 3 lines tall
             --preview="echo {4..}" \
-            --preview-window="bottom:20%" |
+            --preview-window="bottom:3" |
         string collect
     )
 
