@@ -90,7 +90,7 @@ On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [
 
 ## Configuration
 
-### Using custom key bindings
+### Custom key bindings
 
 If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
 
@@ -118,14 +118,23 @@ Alternatively, you can override it in your `config.fish`:
 set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 
-### Changing the command used to preview folders
-The search files feature, by default, uses `ls -A -F` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
+### Change the command used to preview folders
+
+The search files feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
 ```
 
 Do not specify a target path in the command, as `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
+
+### Change the command used to find files
+
+The search files feature uses the `fd` command to find files. By default, `fzf.fish` passes options to `fd` to include hidden files but not `.git`. The options passed to `fd` can be overridden through the `fzf_fd_opts` variable. For example, to exclude hidden files, you may put
+
+```fish
+set fzf_fd_opts # fd skips hidden files by default so no option to pass in
+```
 
 ### Change the key binding or Fzf options for a single command
 See the [FAQ][] Wiki page.
