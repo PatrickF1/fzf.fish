@@ -7,7 +7,7 @@ function __fzf_search_history --description "Search command history. Replace the
         fzf --read0 --tiebreak=index --query=(commandline) \
             # preview the current command in a window at the bottom 3 lines tall
             --preview="echo {4..}" \
-            --preview-window="bottom:3" |
+            --preview-window="bottom:3:wrap" |
         string collect
     )
 
