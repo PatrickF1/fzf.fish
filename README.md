@@ -47,7 +47,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 - **Search input:** the command history from all interactive sessions of Fish
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
-- **Preview window:** the untruncated command
+- **Preview window:** the entire command, wrapped
 
 ### A shell variable
 
