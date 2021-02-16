@@ -2,11 +2,6 @@
 
 # fzf.fish 🔍🐟
 
-
-
-
-
-
 [![latest release badge][]][releases] [![build status badge][]][actions] [![awesome badge][]][awesome fish]
 
 </div>
