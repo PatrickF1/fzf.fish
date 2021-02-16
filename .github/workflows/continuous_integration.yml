@@ -1,4 +1,8 @@
 name: CI
+
+
+
+
 on:
   push:
     branches: [main]
@@ -35,7 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - uses: creyD/prettier_action@v3.3
+      - uses: actionsx/prettier@v2
         with:
-          prettier_options: --check **/*.{yml,md}
+          args: --check .
