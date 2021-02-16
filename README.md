@@ -16,7 +16,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 ![file search][]
 
-- **Search input:** recursive listing of current directory's files
+- **Search input:** recursive listing of current directory's non-hidden files
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
@@ -47,6 +47,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 - **Search input:** the command history from all interactive sessions of Fish
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
+- **Preview window:** the entire command, wrapped
 
 ### A shell variable
 
@@ -89,7 +90,7 @@ On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [
 
 ## Configuration
 
-### Using custom key bindings
+### Custom key bindings
 
 If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
 
@@ -117,8 +118,9 @@ Alternatively, you can override it in your `config.fish`:
 set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
 
-### Changing the command used to preview folders
-The search files feature, by default, uses `ls -A -F` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
+### Change the command used to preview folders
+
+The search files feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
@@ -126,7 +128,16 @@ set fzf_preview_dir_cmd exa --all --color=always
 
 Do not specify a target path in the command, as `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
 
+### Change the files searched
+
+To pass custom options to `fd` when it is executed to populate the list of files for the search files feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+
+```fish
+set fzf_fd_opts --hidden --exclude=.git
+```
+
 ### Change the key binding or Fzf options for a single command
+
 See the [FAQ][] Wiki page.
 
 ## Prior art
@@ -136,6 +147,7 @@ If `fzf.fish` is a useful plugin, it is by standing on the shoulder of giants. T
 ## Troubleshooting & FAQ
 
 Need help? These Wiki pages can guide you:
+
 - [Troubleshooting][troubleshooting]
 - [FAQ][faq]
 
@@ -152,9 +164,9 @@ Need help? These Wiki pages can guide you:
 [faq]: https://github.com/PatrickF1/fzf.fish/wiki/FAQ
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
-[Fish]: http://fishshell.com
-[Fisher]: https://github.com/jorgebucaran/fisher
-[Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
+[fish]: http://fishshell.com
+[fisher]: https://github.com/jorgebucaran/fisher
+[fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
 [git log search]: images/git_log.gif
