@@ -36,6 +36,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: creyD/prettier_action@v3
+      - uses: creyD/prettier_action@v3.3
         with:
-          args: --check .
+          dry: True
