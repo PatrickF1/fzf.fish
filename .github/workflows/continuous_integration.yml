@@ -38,4 +38,4 @@ jobs:
 
       - uses: creyD/prettier_action@v3.3
         with:
-          dry: True
+          prettier_options: --check **/*.{yml,md}
