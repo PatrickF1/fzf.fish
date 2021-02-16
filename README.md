@@ -25,6 +25,12 @@ Use `fzf.fish` to interactively find and insert into the command line:
   - ignores files that are also ignored by git
   - <kbd>Tab</kbd> to multi-select
 
+### Files containing a pattern
+
+- **Search input:** all files containing the current query
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>G</kbd> (`G` for grep)
+- **Preview window:** the file with occurrences of the query highlighted
+
 ### Modified paths
 
 ![git status select][]
