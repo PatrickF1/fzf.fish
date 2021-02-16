@@ -1,4 +1,4 @@
-set fd_captured_opts "overwrite me"
+set fd_captured_opts
 function fd
     set fd_captured_opts $argv
 end
