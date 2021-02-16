@@ -130,7 +130,7 @@ Do not specify a target path in the command, as `fzf.fish` will [prepend the dir
 
 ### Change the files searched
 
-The search files feature uses `fd` to populate the list of files. To pass custom options to `fd` when it is executed by the search files feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+To pass custom options to `fd` when it is executed to populate the list of files for the search files feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
