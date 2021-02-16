@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
 
   # Allows you to run this workflow manually from the Actions tab
@@ -30,3 +30,12 @@ jobs:
       - name: Run full test suite
         run: fishtape tests/*/*
         shell: fish {0}
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: creyD/prettier_action@v3
+        with:
+          args: --check .

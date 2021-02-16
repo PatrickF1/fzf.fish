@@ -137,6 +137,7 @@ set fzf_fd_opts --hidden --exclude=.git
 ```
 
 ### Change the key binding or Fzf options for a single command
+
 See the [FAQ][] Wiki page.
 
 ## Prior art
@@ -146,6 +147,7 @@ If `fzf.fish` is a useful plugin, it is by standing on the shoulder of giants. T
 ## Troubleshooting & FAQ
 
 Need help? These Wiki pages can guide you:
+
 - [Troubleshooting][troubleshooting]
 - [FAQ][faq]
 
@@ -162,9 +164,9 @@ Need help? These Wiki pages can guide you:
 [faq]: https://github.com/PatrickF1/fzf.fish/wiki/FAQ
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
-[Fish]: http://fishshell.com
-[Fisher]: https://github.com/jorgebucaran/fisher
-[Fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
+[fish]: http://fishshell.com
+[fisher]: https://github.com/jorgebucaran/fisher
+[fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
 [git log search]: images/git_log.gif
