@@ -4,4 +4,4 @@ mock commandline "--current-token --replace" "echo \$argv" # instead of updating
 mock fzf \* "echo selection"
 
 set actual (eval $fzf_search_vars_cmd)
-@test "doesn't overwrite \$ when replacing current token with selected variable" $actual = "\$selection"
+@test "doesn't overwrite \$ when replacing current token with selected variable" "$actual" = "\$selection"
