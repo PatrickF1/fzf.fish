@@ -6,4 +6,4 @@ mock fzf \* "echo /Users/patrickf"
 
 # since there is already a /, no ./ should be prepended
 set result (__fzf_search_current_dir)
-@test "doesn't prepend ./ if path already starts with /" "$result" = "/Users/patrickf"
+@test "doesn't prepend ./ if path already starts with /" "$result" = /Users/patrickf

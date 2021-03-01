@@ -13,7 +13,7 @@ function __fzf_search_git_status --description "Search the output of git status.
             set cleaned_paths
 
             for path in $selected_paths
-                if test (string sub --length 1 $path) = 'R'
+                if test (string sub --length 1 $path) = R
                     # path has been renamed and looks like "R LICENSE -> LICENSE.md"
                     # extract the path to use from after the arrow
                     set --append cleaned_paths (string split -- "-> " $path)[-1]
