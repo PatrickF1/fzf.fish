@@ -24,7 +24,7 @@ function __fzf_preview_file --argument-names file_path --description "Print a pr
     else if test -b "$file_path"
         __fzf_report_file_type "$file_path" "block device file"
     else if test -S "$file_path"
-        __fzf_report_file_type "$file_path" "socket"
+        __fzf_report_file_type "$file_path" socket
     else if test -p "$file_path"
         __fzf_report_file_type "$file_path" "named pipe"
     else

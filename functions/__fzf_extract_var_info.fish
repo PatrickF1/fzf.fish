@@ -6,17 +6,17 @@ function __fzf_extract_var_info --argument-names variable_name set_show_output -
     # $variable_name[
     string match --entire --regex "^\\\$$variable_name(?:: set|\[)" <$set_show_output |
 
-    # Strip the variable name from the scope info, replacing...
-    # $variable_name: set in global scope
-    # ...with...
-    # set in global scope
-    string replace --regex "^\\\$$variable_name: " '' |
+        # Strip the variable name from the scope info, replacing...
+        # $variable_name: set in global scope
+        # ...with...
+        # set in global scope
+        string replace --regex "^\\\$$variable_name: " '' |
 
-    # From the lines of values, keep only the index and value, replacing...
-    # $variable_name[1]: length=14 value=|variable_value|
-    # ...with...
-    # [1] variable_value
-    string replace --regex "^\\\$$variable_name(\[\d+\]).+?\|(.+)\|\$" '\$1 \$2'
+        # From the lines of values, keep only the index and value, replacing...
+        # $variable_name[1]: length=14 value=|variable_value|
+        # ...with...
+        # [1] variable_value
+        string replace --regex "^\\\$$variable_name(\[\d+\]).+?\|(.+)\|\$" '\$1 \$2'
 
     # Final output example for $PATH:
     # set in global scope, unexported, with 5 elements
