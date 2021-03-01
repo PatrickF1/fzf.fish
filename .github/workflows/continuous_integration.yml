@@ -41,7 +41,8 @@ jobs:
       - uses: fish-actions/install-fish@v1
 
       - uses: fish-actions/syntax-check@v1
-
+  
+  # check Fish format
   format-check:
     runs-on: ubuntu-latest
 
@@ -51,7 +52,8 @@ jobs:
       - uses: fish-actions/install-fish@v1
 
       - uses: fish-actions/format-check@v1
-
+  
+  # check Markdown and Yaml format
   prettier:
     runs-on: ubuntu-latest
     steps:
