@@ -8,7 +8,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
     set current_token (commandline --current-token)
     set token (string unescape -- $current_token)
     # need to expand ~ in the directory name since fd can't expand it
-    set expanded_token (eval "printf $token")
+    set expanded_token (eval "printf -- $token")
 
     # If the current token is a directory and has a trailing slash,
     # then use it as fd's base directory.
