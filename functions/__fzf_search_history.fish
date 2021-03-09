@@ -6,7 +6,7 @@ function __fzf_search_history --description "Search command history. Replace the
         builtin history --null --show-time="%m-%d %H:%M:%S | " |
         fzf --read0 --tiebreak=index --query=(commandline) \
             # preview current command in a window at the bottom 3 lines tall
-            --preview="printf {4..} | bat --plain --color=always --language=fish" \
+            --preview="printf -- {4..} | bat --plain --color=always --language=fish" \
             --preview-window="bottom:3:wrap" |
         string collect
     )
