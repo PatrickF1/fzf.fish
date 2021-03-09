@@ -1,12 +1,17 @@
 function __fzf_search_history --description "Search command history. Replace the command line with the selected command."
     # history merge incorporates history changes from other fish sessions
     builtin history merge
+
+    # Make sure that fzf uses fish to execute __fzf_preview_file.
+    # See similar comment in __fzf_search_shell_variables.fish.
+    set --local --export SHELL (command --search fish)
+
     set command_with_ts (
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S | " |
         fzf --read0 --tiebreak=index --query=(commandline) \
             # preview current command in a window at the bottom 3 lines tall
-            --preview="echo -- {4..} | bat --plain --color=always --language=fish" \
+            --preview="echo -- {4..} | fish_indent --ansi" \
             --preview-window="bottom:3:wrap" |
         string collect
     )
