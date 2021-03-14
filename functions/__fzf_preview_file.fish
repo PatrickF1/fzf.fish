@@ -1,11 +1,10 @@
 # helper function for __fzf_search_current_dir
-function __fzf_preview_file --description "Print a preview for the given file based on its file type."
-    set file_path $argv
+function __fzf_preview_file --argument-names file_path --description "Print a preview for the given file based on its file type."
     if test -f "$file_path" # regular file
         bat --style=numbers --color=always "$file_path"
     else if test -d "$file_path" # directory
         if set --query fzf_preview_dir_cmd
-            command $fzf_preview_dir_cmd "$file_path"
+            eval $fzf_preview_dir_cmd \"$file_path\"
         else
             # -A list hidden files as well, except for . and ..
             # -F helps classify files by appending symbols after the file name
