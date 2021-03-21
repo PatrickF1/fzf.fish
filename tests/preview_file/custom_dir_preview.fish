@@ -1,5 +1,4 @@
 set multi_word_dir = "multi word dir"
-mktemp multi_word_dir
 
 set fzf_preview_dir_cmd exa
 function exa
@@ -8,5 +7,3 @@ function exa
 end
 set actual (__fzf_preview_file "$multi_word_dir")
 @test "correctly uses custom command to preview directories" "$actual" = "multi word path"
-
-rm -rdmulti_word_dir
