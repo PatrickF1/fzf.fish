@@ -8,5 +8,5 @@ mock commandline "--current-token --replace" ""
 mock commandline \* ""
 __fzf_search_current_dir
 
-test -n "$fd_captured_opts" && test -n (string match --entire -- "--base-directory=tests/_resources/multi word dir" $fd_captured_opts)
+contains -- "--base-directory=tests/_resources/multi word dir/" $fd_captured_opts
 @test "uses current token as base directory if it ends in / and is a directory" $status -eq 0
