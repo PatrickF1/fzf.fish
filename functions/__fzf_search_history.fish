@@ -10,7 +10,6 @@ function __fzf_search_history --description "Search command history. Replace the
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S | " |
         fzf --read0 \
-            # keep commands in order of time executed
             --tiebreak=index \
             --query=(commandline) \
             # preview current command using fish_ident in a window at the bottom 3 lines tall
