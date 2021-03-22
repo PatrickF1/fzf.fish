@@ -53,7 +53,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 ![shell variables search][]
 
-- **Search input:** all the variable names of the environment, both local and exported
+- **Search input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
 - **Remarks**
@@ -90,7 +90,7 @@ On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [
 
 ## Configuration
 
-### Custom key bindings
+### Customize the key bindings
 
 If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
 
@@ -102,21 +102,19 @@ Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because th
 
 Next, set your own key bindings by following [conf.d/fzf.fish][] as an example.
 
-### Fzf default options
+### Pass fzf options to all commands
 
 fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
 
-To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set your own `FZF_DEFAULT_OPTS` universal variable. For example:
-
-```fish
-set --universal --export FZF_DEFAULT_OPTS --height 50% --margin 1
-```
-
-Alternatively, you can override it in your `config.fish`:
+To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
 ```fish
 set --export FZF_DEFAULT_OPTS --height 50% --margin 1
 ```
+
+### Pass fzf options to a specific command
+
+`fzf.fish` allows passing custom options to the invocation of fzf by command through variables.
 
 ### Change the command used to preview folders
 
@@ -136,7 +134,7 @@ To pass custom options to `fd` when it is executed to populate the list of files
 set fzf_fd_opts --hidden --exclude=.git
 ```
 
-### Change the key binding or Fzf options for a single command
+### Change the key binding for a single command
 
 See the [FAQ][] Wiki page.
 
@@ -180,3 +178,4 @@ Need help? These Wiki pages can guide you:
 [troubleshooting]: https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
+[var scope]: https://fishshell.com/docs/current/#variable-scope
