@@ -109,12 +109,22 @@ fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment va
 To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
 ```fish
-set --export FZF_DEFAULT_OPTS --height 50% --margin 1
+set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 ```
 
 ### Pass fzf options to a specific command
 
-`fzf.fish` allows passing custom options to the invocation of fzf by command through variables.
+`fzf.fish` allows passing custom options to fzf in each function individually through these variables:
+
+| Feature                | Variable              |
+| ---------------------- | --------------------- |
+| Search directory       | `fzf_dir_opts`        |
+| Search git status      | `fzf_git_status_opts` |
+| Search git log         | `fzf_git_log_opts`    |
+| Search command history | `fzf_history_opts`    |
+| Search shell variables | `fzf_shell_vars_opts` |
+
+This is very useful for setting up key bindings to greatly improve the usefulness of these features. Note that fzf does not allow overriding options; it will always use whichever option appears first.
 
 ### Change the command used to preview folders
 
