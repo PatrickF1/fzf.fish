@@ -16,7 +16,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
         set --append fd_opts --base-directory=$unescaped_token
         # use the directory name as fzf's prompt to indicate the search is limited to that directory
         set --append fzf_arguments --prompt="$unescaped_token" --preview="__fzf_preview_file $expanded_token{}"
-        set file_paths_selected $expanded_token(fd $fd_opts 2>/dev/null | fzf $fzf_arguments)
+        set file_paths_selected $unescaped_token(fd $fd_opts 2>/dev/null | fzf $fzf_arguments)
     else
         set --append fzf_arguments --query="$unescaped_token" --preview='__fzf_preview_file {}'
         set file_paths_selected (fd $fd_opts 2>/dev/null | fzf $fzf_arguments)
