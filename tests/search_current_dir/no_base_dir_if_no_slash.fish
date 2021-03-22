@@ -1,16 +1,18 @@
-set --export fd_captured_opts
-function fd
-    set fd_captured_opts $argv
-end
-mock fzf \* ""
-mock commandline --current-token "echo functions"
-mock commandline "--current-token --replace" ""
+# though the conf.d directory exists, it should not be used as a base directory
+# because there is no / at the end of the token
+mock commandline --current-token "echo conf.d"
 mock commandline \* ""
+
+set --export searched_functions_dir false
+function fzf
+    while read line
+        # use --entire because $line contains ANSI escape codes added by fd
+        if string match --entire -- functions/ "$line"
+            set searched_functions_dir true
+        end
+    end
+end
+
 __fzf_search_current_dir
 
-if test -d functions
-    test -n "$fd_captured_opts" && test -z (string match --entire -- "--base-directory" $fd_captured_opts)
-    @test "doesn't change fd's base directory if no slash on current token" $status -eq 0
-else
-    @test "functions/ doesn't exists for testing purposes"
-end
+@test "doesn't change fd's base directory if no slash on current token" $searched_functions_dir = true
