@@ -4,7 +4,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
     set --local --export SHELL (command --search fish)
 
     set fd_opts --color=always $fzf_fd_opts
-    set fzf_arguments --multi --ansi
+    set fzf_arguments --multi --ansi $fzf_dir_opts
     set token (commandline --current-token)
     # expand ~ in the directory name since fd can't expand it
     set expanded_token (string replace --regex -- "^~/" $HOME/ $token)
