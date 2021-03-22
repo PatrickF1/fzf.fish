@@ -124,7 +124,12 @@ set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 | Search command history | `fzf_history_opts`    |
 | Search shell variables | `fzf_shell_vars_opts` |
 
-This is very useful for setting up key bindings to greatly improve the usefulness of these features. Note that fzf does not allow overriding options; it will always use whichever option appears first.
+These variables are appended last to fzf's argument list. Because fzf will use whichever option appears last when options conflict, your custom options will override any options preset by `fzf.fish`. This empowers you to greatly customize and augment the existing features of `fzf.fish`. Some possibilities:
+
+- override the preview command
+- set up your own key binding to do things like open file in Vim
+- re-populate fzf's input list on change
+- change the search mode
 
 ### Change the command used to preview folders
 
