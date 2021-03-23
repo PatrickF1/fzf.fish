@@ -11,9 +11,11 @@ function __fzf_search_git_log --description "Search the output of git log and pr
             # see documentation for git format placeholders at https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem
             # %h gives you the abbreviated commit hash, which is useful for saving screen space, but we will have to expand it later below
             git log --color=always --format=format:$log_fmt_str | \
-            fzf --ansi --tiebreak=index \
+            fzf --ansi \
+                --tiebreak=index \
                 --preview='git show --color=always {1}' \
-                --query=(commandline --current-token)
+                --query=(commandline --current-token) \
+                $fzf_git_log_opts
         )
         if test $status -eq 0
             set abbreviated_commit_hash (string split --max 1 " " $selected_log_line)[1]

@@ -53,7 +53,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 
 ![shell variables search][]
 
-- **Search input:** all the variable names of the environment, both local and exported
+- **Search input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
 - **Remarks**
@@ -90,7 +90,7 @@ On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [
 
 ## Configuration
 
-### Custom key bindings
+### Customize the key bindings
 
 If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
 
@@ -102,25 +102,43 @@ Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because th
 
 Next, set your own key bindings by following [conf.d/fzf.fish][] as an example.
 
-### Fzf default options
+### Pass fzf options to all commands
 
-fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
+fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf will implicitly prepend it to the options passed in on every execution, scripted or interactive.
 
-To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set your own `FZF_DEFAULT_OPTS` universal variable. For example:
-
-```fish
-set --universal --export FZF_DEFAULT_OPTS --height 50% --margin 1
-```
-
-Alternatively, you can override it in your `config.fish`:
+To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
 ```fish
-set --export FZF_DEFAULT_OPTS --height 50% --margin 1
+set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 ```
+
+### Pass fzf options to a specific command
+
+The following variables can store custom options that will be passed to fzf by their respective feature:
+
+| Feature                | Variable              |
+| ---------------------- | --------------------- |
+| Search directory       | `fzf_dir_opts`        |
+| Search git status      | `fzf_git_status_opts` |
+| Search git log         | `fzf_git_log_opts`    |
+| Search command history | `fzf_history_opts`    |
+| Search shell variables | `fzf_shell_vars_opts` |
+
+They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each feature such as:
+
+- add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
+  - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
+  - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
+  - [copy to clipboard](https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d)
+  - git checkout commit
+  - git reset file
+- adjust the preview command or window
+- [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
+- change the search mode
 
 ### Change the command used to preview folders
 
-The search files feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
+The search directory feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
@@ -130,13 +148,13 @@ Do not specify a target path in the command, as `fzf.fish` will [prepend the dir
 
 ### Change the files searched
 
-To pass custom options to `fd` when it is executed to populate the list of files for the search files feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+To pass custom options to `fd` when it is executed to populate the list of files for the search directory feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
 ```
 
-### Change the key binding or Fzf options for a single command
+### Change the key binding for a single command
 
 See the [FAQ][] Wiki page.
 
@@ -180,3 +198,4 @@ Need help? These Wiki pages can guide you:
 [troubleshooting]: https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
+[var scope]: https://fishshell.com/docs/current/#variable-scope
