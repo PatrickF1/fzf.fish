@@ -104,7 +104,7 @@ Next, set your own key bindings by following [conf.d/fzf.fish][] as an example.
 
 ### Pass fzf options to all commands
 
-fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf will implicitly prepend its value to the options passed in on every execution, scripted or interactive.
+fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf will implicitly prepend it to the options passed in on every execution, scripted or interactive.
 
 To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
@@ -114,7 +114,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 
 ### Pass fzf options to a specific command
 
-`fzf.fish` allows passing custom options to fzf in each function individually through these variables:
+`fzf.fish` allows passing additional options to fzf in each feature individually through these variables:
 
 | Feature                | Variable              |
 | ---------------------- | --------------------- |
@@ -148,7 +148,7 @@ Do not specify a target path in the command, as `fzf.fish` will [prepend the dir
 
 ### Change the files searched
 
-To pass custom options to `fd` when it is executed to populate the list of files for the search files feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+To pass custom options to `fd` when it is executed to populate the list of files for the search directory feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
