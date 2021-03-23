@@ -114,7 +114,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 
 ### Pass fzf options to a specific command
 
-Custom options can be passed to fzf for each feature individually through these variables:
+The following variables can store custom options that will be passed to fzf by their respective feature:
 
 | Feature                | Variable              |
 | ---------------------- | --------------------- |
@@ -124,7 +124,7 @@ Custom options can be passed to fzf for each feature individually through these 
 | Search command history | `fzf_history_opts`    |
 | Search shell variables | `fzf_shell_vars_opts` |
 
-These variables are appended last to fzf's argument list. Because fzf will use the option appearing last when options conflict, your custom options can override preset options. This unlocks a variety of possibilities in customizing and augmenting each feature such as:
+They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each feature such as:
 
 - add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
   - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
