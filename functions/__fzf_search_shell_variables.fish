@@ -32,7 +32,8 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     set variable_name (
         printf '%s\n' $all_variable_names |
         fzf --preview "__fzf_extract_var_info {} $set_show_output" \
-            --query=$cleaned_curr_token
+            --query=$cleaned_curr_token \
+            $fzf_shell_vars_opts
     )
 
     if test $status -eq 0
