@@ -124,11 +124,15 @@ set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 | Search command history | `fzf_history_opts`    |
 | Search shell variables | `fzf_shell_vars_opts` |
 
-These variables are appended last to fzf's argument list. Because fzf will use whichever option appears last when options conflict, your custom options will override any options preset by `fzf.fish`. This empowers you to greatly customize and augment the existing features of `fzf.fish`. Some possibilities:
+These variables are appended last to fzf's argument list. Because fzf will use whichever option appears last when options conflict, your custom options can override any options preset by `fzf.fish`. This empowers you to greatly customize and augment the existing features. Some possibilities:
 
+- set up key binding to do take action on the selected line to do things like
+  - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
+  - [copy selection to clipboard](https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d)
+  - git checkout commit
+  - git reset file
 - override the preview command
-- set up your own key binding to do things like open file in Vim
-- re-populate fzf's input list on change
+- [re-populate fzf's input list on change](https://github.com/junegunn/fzf/issues/1750)
 - change the search mode
 
 ### Change the command used to preview folders
