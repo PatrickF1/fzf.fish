@@ -23,17 +23,8 @@ jobs:
         with:
           plugins: jorgebucaran/fishtape ilancosman/clownfish $GITHUB_WORKSPACE
 
-      - name: Install fzf
-        run: |
-          git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-          ~/.fzf/install
-
-      - name: Install fd
-        run: |
-          git clone https://github.com/sharkdp/fd
-          cd fd
-          cargo build
-          cargo install --path .
+      - name: Install fzf and fd
+        run: brew install fzf fd
 
       - name: Run full test suite
         run: fishtape tests/*/*.fish
