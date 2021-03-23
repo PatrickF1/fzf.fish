@@ -114,7 +114,7 @@ set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 
 ### Pass fzf options to a specific command
 
-`fzf.fish` allows passing additional options to fzf in each feature individually through these variables:
+Custom options can be passed to fzf for each feature individually through these variables:
 
 | Feature                | Variable              |
 | ---------------------- | --------------------- |
@@ -124,15 +124,15 @@ set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 | Search command history | `fzf_history_opts`    |
 | Search shell variables | `fzf_shell_vars_opts` |
 
-These variables are appended last to fzf's argument list. Because fzf will use whichever option appears last when options conflict, your custom options can override any options preset by `fzf.fish`. This empowers you to greatly customize and augment the existing features. Some possibilities:
+These variables are appended last to fzf's argument list. Because fzf will use the option appearing last when options conflict, your custom options can override preset options. This unlocks a variety of possibilities in customizing and augmenting each feature such as:
 
-- set up [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) to take action on the selected line:
+- add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to take action on the selected line:
   - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
   - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
   - [copy to clipboard](https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d)
   - git checkout commit
   - git reset file
-- override the preview command
+- adjust the preview command or window
 - [re-populate fzf's input list on change](https://github.com/junegunn/fzf/issues/1750)
 - change the search mode
 
