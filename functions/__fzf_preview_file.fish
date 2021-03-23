@@ -28,6 +28,6 @@ function __fzf_preview_file --argument-names file_path --description "Print a pr
     else if test -p "$file_path"
         __fzf_report_file_type "$file_path" "named pipe"
     else
-        echo "File doesn't exist or is empty." >&2
+        echo "$file_path doesn't exist." >&2
     end
 end

@@ -15,7 +15,7 @@ if not set --query fzf_fish_custom_keybindings
     bind \e\cs __fzf_search_git_status
 
     # set up the same key bindings for insert mode if using fish_vi_key_bindings
-    if test "$fish_key_bindings" = fish_vi_key_bindings
+    if test "$fish_key_bindings" = fish_vi_key_bindings -o "$fish_key_bindings" = fish_hybrid_key_bindings
         bind --mode insert \cf __fzf_search_current_dir
         bind --mode insert \cr __fzf_search_history
         bind --mode insert \cv $fzf_search_vars_cmd
