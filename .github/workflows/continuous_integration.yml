@@ -29,6 +29,8 @@ jobs:
       - name: Run full test suite
         run: fishtape tests/*/*.fish
         shell: fish {0}
+        # timeout in case tests get stuck on fzf
+        timeout-minutes: 3
 
   syntax-check:
     runs-on: ubuntu-latest
