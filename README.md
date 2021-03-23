@@ -138,7 +138,7 @@ These variables are appended last to fzf's argument list. Because fzf will use t
 
 ### Change the command used to preview folders
 
-The search files feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
+The search directory feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. For example, in your `config.fish`, you may put:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
