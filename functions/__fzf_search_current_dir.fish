@@ -6,7 +6,7 @@ function __fzf_search_current_dir --description "Search the current directory. R
     set fd_opts --color=always $fzf_fd_opts
     set fzf_arguments --multi --ansi $fzf_dir_opts
     set token (commandline --current-token)
-    # expand the token (which may include tilde, variables, etc.) into full path
+    # expand any variables or leading tilde (~) in the token
     set expanded_token (eval echo -- \"$token\")
     # unescape token because it's already quoted so backslashes will mess up the path
     set unescaped_exp_token (string unescape -- $expanded_token)
