@@ -126,14 +126,14 @@ Custom options can be passed to fzf for each feature individually through these 
 
 These variables are appended last to fzf's argument list. Because fzf will use the option appearing last when options conflict, your custom options can override preset options. This unlocks a variety of possibilities in customizing and augmenting each feature such as:
 
-- add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to take action on the selected line:
+- add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
   - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
   - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
   - [copy to clipboard](https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d)
   - git checkout commit
   - git reset file
 - adjust the preview command or window
-- [re-populate fzf's input list on change](https://github.com/junegunn/fzf/issues/1750)
+- [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
 - change the search mode
 
 ### Change the command used to preview folders
