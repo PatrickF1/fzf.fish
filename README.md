@@ -126,10 +126,10 @@ set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
 
 These variables are appended last to fzf's argument list. Because fzf will use whichever option appears last when options conflict, your custom options can override any options preset by `fzf.fish`. This empowers you to greatly customize and augment the existing features. Some possibilities:
 
-- set up key binding to do take action on the selected line to do things like
-  - [toggle preview window](https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d)
+- set up [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) to take action on the selected line:
   - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
   - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
+  - [copy to clipboard](https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d)
   - git checkout commit
   - git reset file
 - override the preview command
