@@ -3,7 +3,8 @@ function fd
     set fd_captured_opts $argv
 end
 mock fzf \* ""
-mock commandline --current-token "echo ~/"
+# escape tilde so it doesn't get expanded when echoed
+mock commandline --current-token "echo \~/"
 mock commandline "--current-token --replace" ""
 mock commandline \* ""
 __fzf_search_current_dir
