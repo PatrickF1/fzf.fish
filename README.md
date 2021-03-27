@@ -63,11 +63,11 @@ _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
 ## Installation
 
-First, make sure you're using [Fish][] `3.1.2` or newer.
+First, make sure you're using [Fish][] `3.2.0` or newer.
 
 ```console
 $ fish --version
-fish, version 3.1.2
+fish, version 3.2.0
 ```
 
 Next, install with [Fisher][].
