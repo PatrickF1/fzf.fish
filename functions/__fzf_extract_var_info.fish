@@ -14,5 +14,5 @@ function __fzf_extract_var_info --argument-names variable_name set_show_output -
         #   $variable_name[1]: |value|
         # ...with...
         #   [1] value
-        string replace --regex "^\\\$$variable_name(\[\d+\]): \|(.+)\|\$" '\$1 \$2'
+        string replace --regex "^\\\$$variable_name(\[\d+\]): \|(.+)\|" '\$1 \$2'
 end
