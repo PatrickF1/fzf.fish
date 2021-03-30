@@ -11,6 +11,12 @@ function __fzf_search_current_dir --description "Search the current directory. R
     # unescape token because it's already quoted so backslashes will mess up the path
     set unescaped_exp_token (string unescape -- $expanded_token)
 
+    # If the current token has a leading dot,
+    # then include hidden files in the search.
+    if string match --quiet -- ".*" $token
+        set --append fd_opts --hidden
+    end
+
     # If the current token is a directory and has a trailing slash,
     # then use it as fd's base directory.
     if string match --quiet -- "*/" $token && test -d "$unescaped_exp_token"
