@@ -63,30 +63,24 @@ _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
 ## Installation
 
-First, make sure you're using [Fish][] `3.2.0` or newer.
+First, install a proper version of these CLIs:
 
-```console
-$ fish --version
-fish, version 3.2.0
-```
+| CLI      | Minimum version required | Description                                       |
+| -------- | ------------------------ | ------------------------------------------------- |
+| [fish][] | 3.2.0                    | a modern shell                                    |
+| [fzf][]  | 0.25                     | command-line fuzzy finder that powers this plugin |
+| [fd][]   | 7.5.0                    | much faster and friendlier alternative to `find`  |
+| [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting            |
 
-Next, install with [Fisher][].
+On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
+
+Next, install this plugin with [Fisher][].
 
 > `fzf.fish` can be installed manually or with other plugin managers but only Fisher is officially supported.
 
 ```fish
 fisher install PatrickF1/fzf.fish
 ```
-
-Finally, install the following CLI tools:
-
-- [fzf][] - command-line fuzzy finder that powers this plugin
-- [fd][] - much faster and friendlier alternative to `find`
-- [bat][] - smarter `cat` with syntax highlighting (used to preview files)
-
-For macOS, I recommend installing them using [brew][].
-
-On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
 
 ## Configuration
 
@@ -173,7 +167,6 @@ Need help? These Wiki pages can guide you:
 [awesome badge]: https://awesome.re/mentioned-badge.svg
 [awesome fish]: https://git.io/awsm.fish
 [bat]: https://github.com/sharkdp/bat
-[brew]: https://brew.sh
 [build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
 [custom preview command]: functions/__fzf_preview_file.fish#L7
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
@@ -182,7 +175,7 @@ Need help? These Wiki pages can guide you:
 [faq]: https://github.com/PatrickF1/fzf.fish/wiki/FAQ
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
-[fish]: http://fishshell.com
+[fish]: https://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
 [fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
