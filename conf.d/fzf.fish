@@ -8,7 +8,6 @@ set --global fzf_search_vars_cmd '__fzf_search_shell_variables (set --show | psu
 if not set --query fzf_fish_custom_keybindings
     # \cf is Ctrl+f
     bind \cf __fzf_search_current_dir
-    bind \cr __fzf_search_history
     bind \cv $fzf_search_vars_cmd
     # The following two key binding use Alt as an additional modifier key to avoid conflicts
     bind \e\cl __fzf_search_git_log
@@ -21,6 +20,8 @@ if not set --query fzf_fish_custom_keybindings
         bind --mode insert \cv $fzf_search_vars_cmd
         bind --mode insert \e\cl __fzf_search_git_log
         bind --mode insert \e\cs __fzf_search_git_status
+    else # only override Ctrl+R when no vi-mode included in keybindings.
+        bind \cr __fzf_search_history
     end
 end
 
