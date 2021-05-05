@@ -5,7 +5,12 @@ function __fzf_preview_file --description "Print a preview for the given file ba
     set file_path $argv
 
     if test -f "$file_path" # regular file
-        bat --style=numbers --color=always "$file_path"
+        if file --mime-encoding "$file_path" | string match -rq ': binary$'
+          file --uncompress "$file_path" | fold -s
+          hexyl --border=none --color=always --length=512 "$file_path"
+        else
+          bat --style=numbers --color=always "$file_path"
+        end
     else if test -d "$file_path" # directory
         if set --query fzf_preview_dir_cmd
             # need to escape quotes to make sure eval receives file_path as a single arg
