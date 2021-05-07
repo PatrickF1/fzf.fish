@@ -132,7 +132,7 @@ They are always appended last to fzf's argument list. Because fzf uses the optio
 
 ### Change the command used to preview files
 
-The search directory feature, by default, uses `bat` to preview the contents of a file. `bat` is a well-adopted `cat` replacement with syntax highlighting, line numbers, and more. If you would like to change the preview tool (to `cat` to avoid the installing a new dependency, or to add custom logic like binary or image preview), you may set the `fzf_preview_file_cmd` variable. For example, in your `config.fish`, you may put:
+The search directory feature, by default, uses `bat` to preview the contents of a file. `bat` is a well-adopted `cat` replacement with syntax highlighting, line numbers, and more. If you would like to change the preview tool (to `cat` to avoid installing a new dependency, or to add custom logic such as binary or image preview), you may set the `fzf_preview_file_cmd` variable. For example, in your `config.fish`, you may put:
 
 ```fish
 set fzf_preview_file_cmd cat
@@ -142,7 +142,7 @@ Do not specify a target path in the command, as `fzf.fish` will [prepend the fil
 
 ### Change the command used to preview folders
 
-The search directory feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available, the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. Set `fzf_preview_dir_cmd` in your `config.fish` similar to the above.
+The search directory feature, by default, uses `ls` to preview the contents of a directory. To integrate with the variety of `ls` replacements available (e.g. exa, lsd, tree), the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. Set `fzf_preview_dir_cmd` in your `config.fish`:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
