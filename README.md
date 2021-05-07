@@ -140,7 +140,7 @@ set fzf_preview_file_cmd cat
 
 Do not specify a target path in the command, as `fzf.fish` will [prepend the file][custom preview command] to preview to the command itself.
 
-### Change the command used to preview folders
+### Change the command used to preview directories
 
 The search directory feature, by default, uses `ls` to preview the contents of directories. To integrate with the variety of `ls` replacements available (e.g. exa, lsd, tree), the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. Set `fzf_preview_dir_cmd` in your `config.fish`:
 
