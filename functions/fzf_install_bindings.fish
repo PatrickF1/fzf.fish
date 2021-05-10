@@ -18,4 +18,8 @@ function fzf_set_up_bindings -a dir git_log git_status command_history shell_var
         bind --mode insert $command_history __fzf_search_history
         bind --mode insert $shell_vars $search_vars_command
     end
+
+    function fzf_uninstall_bindings
+        bind --erase $dir $git_log $git_status $command_history $shell_vars
+    end
 end
