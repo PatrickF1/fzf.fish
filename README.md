@@ -166,9 +166,9 @@ See the [Cookbook][] Wiki page.
 
 Find answers to these questions and more in the [project Wiki][wiki]:
 
-- How does `fzf.fish` [compare][prior art] to other popular fzf-fish plugins?
+- How does `fzf.fish` [compare][prior art] to other popular fzf plugins for fish?
 - Why isn't this [feature working][troubleshooting] for me?
-- How do I [make the most][cookbook] of `fzf.fish` in my workflow?
+- How can I [integrate][cookbook] this plugin into my workflow?
 - How can I [contribute][] to this plugin?
 
 [actions]: https://github.com/PatrickF1/fzf.fish/actions
