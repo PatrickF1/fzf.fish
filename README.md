@@ -164,7 +164,7 @@ See the [Cookbook][] Wiki page.
 
 ## Further reading
 
-Find the answers to these questions and more in the GitHub [Wiki][]:
+Find answers to these questions and more in the [project Wiki][wiki]:
 
 - How does `fzf.fish` [compare][prior art] to other popular fzf-fish plugins?
 - Why isn't this [feature working][troubleshooting] for me?
