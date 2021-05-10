@@ -1,4 +1,4 @@
-function fzf_simple_mnemonic_bindings --description "Set up key bindings for are mnemonic and are unlikely to override other key bindings."
-    # \e = alt, \c = control
-    fzf_install_bindings \e\cf \e\cl \cs \cr \cv
+function fzf_simple_mnemonic_bindings --description "Install key bindings for fzf.fish that are simple and mnemonic but may override existing key bindings."
+    # \c = control
+    fzf_install_bindings \cf \cl \cs \cr \cv
 end
