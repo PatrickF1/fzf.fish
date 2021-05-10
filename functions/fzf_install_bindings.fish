@@ -1,4 +1,4 @@
-function fzf_set_up_bindings -a dir git_log git_status command_history shell_vars -d "Set up key bindings for all of fzf.fish's functions using the specific key sequences."
+function fzf_set_up_bindings -a dir git_log git_status command_history shell_vars -d "Install key bindings for all of fzf.fish's functions using the specific key sequences."
     # Because of scoping rules, to capture the shell variables exactly as they are, we must read
     # them before even executing __fzf_search_shell_variables. We use psub to store the
     # variables' info in temporary files and pass in the filenames as arguments.
