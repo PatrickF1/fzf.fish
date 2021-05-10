@@ -164,13 +164,12 @@ See the [Cookbook][] Wiki page.
 
 ## Further reading
 
-Curious about how `fzf.fish` [compares][prior art] to [jethrokuan/fzf][] or fzf's out-of-the-box [Fish extension][]?
+Find the answers to these questions and more in the GitHub [Wiki][]:
 
-Need help [troubleshooting][] or [integrating][cookbook] fzf.fish into your workflow?
-
-Interested in the design philosophy of fzf.fish?
-
-Find all of that and more in the [Wiki][].
+- How does `fzf.fish` [compare][prior art] to other popular fzf-fish plugins?
+- Why isn't this [feature working][troubleshooting] for me?
+- How do I [make the most][cookbook] of `fzf.fish` in my workflow?
+- How can I [contribute][] to this plugin?
 
 [actions]: https://github.com/PatrickF1/fzf.fish/actions
 [awesome badge]: https://awesome.re/mentioned-badge.svg
@@ -180,6 +179,7 @@ Find all of that and more in the [Wiki][].
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
+[contribute]: https://github.com/PatrickF1/fzf.fish/wiki/Contributing
 [cookbook]: https://github.com/PatrickF1/fzf.fish/wiki/Cookbook
 [custom preview command]: functions/__fzf_preview_file.fish#L7
 [fd]: https://github.com/sharkdp/fd
