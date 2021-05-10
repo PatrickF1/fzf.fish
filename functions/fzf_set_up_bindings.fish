@@ -4,7 +4,7 @@ function fzf_set_up_bindings -a dir git_log git_status command_history shell_var
     # variables' info in temporary files and pass in the filenames as arguments.
     set --local fzf_search_vars_cmd '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
 
-    bind $dir __fzf_search_dir
+    bind $dir __fzf_search_current_dir
     bind $git_log __fzf_search_git_log
     bind $git_status __fzf_search_git_status
     bind $command_history __fzf_search_history
