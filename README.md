@@ -162,16 +162,15 @@ set fzf_fd_opts --hidden --exclude=.git
 
 See the [Cookbook][] Wiki page.
 
-## Prior art
+## Further reading
 
-If `fzf.fish` is a useful plugin, it is by standing on the shoulder of giants. There are two other fzf integrations for Fish worth regarding: [jethrokuan/fzf][] and fzf's out-of-the-box [Fish extension][]. The [Prior Art][] Wiki page explains how `fzf.fish` compares to and improves on them.
+Curious about how `fzf.fish` [compares][prior art] to [jethrokuan/fzf][] or fzf's out-of-the-box [Fish extension][]?
 
-## Troubleshooting & FAQ
+Need help [troubleshooting][] or [integrating][cookbook] fzf.fish into your workflow?
 
-Need help? These Wiki pages can guide you:
+Interested in the design philosophy of fzf.fish?
 
-- [Troubleshooting][troubleshooting]
-- [Cookbook][cookbook]
+Find all of that and more in the [Wiki][].
 
 [actions]: https://github.com/PatrickF1/fzf.fish/actions
 [awesome badge]: https://awesome.re/mentioned-badge.svg
@@ -202,3 +201,4 @@ Need help? These Wiki pages can guide you:
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
 [var scope]: https://fishshell.com/docs/current/#variable-scope
+[wiki]: https://github.com/PatrickF1/fzf.fish/wiki
