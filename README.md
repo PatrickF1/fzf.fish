@@ -94,7 +94,7 @@ set --universal fzf_fish_custom_keybindings
 
 Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because the key binding configuration is sourced first on shell startup and so will not see it.
 
-Next, set your own key bindings by following [conf.d/fzf.fish][] as an example. Your search variables command should reference the `fzf_search_vars_cmd` variable instead of hardcoding the command.
+Next, set your own key bindings by following [conf.d/fzf.fish][] as an example. Your search variables key binding should reference the `fzf_search_vars_cmd` variable instead of hardcoding the command.
 
 ### Pass fzf options to all commands
 
@@ -184,7 +184,6 @@ Find the answers to these questions and more in the GitHub [Wiki][]:
 [custom preview command]: functions/__fzf_preview_file.fish#L7
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
-[fish extension]: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.fish
 [fish]: https://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
@@ -192,13 +191,11 @@ Find the answers to these questions and more in the GitHub [Wiki][]:
 [git log search]: images/git_log.gif
 [git status select]: images/git_status.gif
 [ilancosman/tide]: https://github.com/IlanCosman/tide
-[jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
 [prior art]: https://github.com/PatrickF1/fzf.fish/wiki/Prior-Art
 [releases]: https://github.com/patrickf1/fzf.fish/releases
 [shell variables search]: images/shell_variables.gif
 [troubleshooting]: https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
-[unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
 [var scope]: https://fishshell.com/docs/current/#variable-scope
 [wiki]: https://github.com/PatrickF1/fzf.fish/wiki
