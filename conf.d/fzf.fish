@@ -8,21 +8,20 @@ set --global fzf_search_vars_cmd '__fzf_search_shell_variables (set --show | psu
 if not set --query fzf_fish_custom_keybindings
     function __fzf_fish_key_bindings --on-variable fish_key_bindings
         if test "$fish_key_bindings" = fish_default_key_bindings
-            # \cf is Ctrl+f
-            bind \cf __fzf_search_current_dir
-            bind \cr __fzf_search_history
-            bind \cv $fzf_search_vars_cmd
-            # The following two key binding use Alt as an additional modifier key to avoid conflicts
-            bind \e\cl __fzf_search_git_log
-            bind \e\cs __fzf_search_git_status
+            set modes default insert
         else
-            # set up the same key bindings for insert mode if not using fish_default_key_bindings
-            bind --mode insert \cf __fzf_search_current_dir
-            bind --mode insert \cr __fzf_search_history
-            bind --mode insert \cv $fzf_search_vars_cmd
-            bind --mode insert \e\cl __fzf_search_git_log
-            bind --mode insert \e\cs __fzf_search_git_status
+            set modes insert default
         end
+
+        # \cf is Ctrl+f
+        bind --mode $modes[1] \cf __fzf_search_current_dir
+        bind --mode $modes[1] \cr __fzf_search_history
+        bind --mode $modes[1] \cv $fzf_search_vars_cmd
+        # The following two key bindings use Alt as an additional modifier key to avoid conflicts
+        bind --mode $modes[1] \e\cl __fzf_search_git_log
+        bind --mode $modes[1] \e\cs __fzf_search_git_status
+        # Erase previous bingdings
+        bind --mode $modes[2] --erase \cf \cr \cv \e\cl \e\cs
     end
 
     __fzf_fish_key_bindings
