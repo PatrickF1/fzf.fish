@@ -1,3 +1,9 @@
+# Because of scoping rules, to capture the shell variables exactly as they are, we must read
+# them before even executing __fzf_search_shell_variables. We use psub to store the
+# variables' info in temporary files and pass in the filenames as arguments.
+# # This variable is global so that it can be referenced by fzf_install_bindings and in tests
+set --global __fzf_search_vars_command '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
+
 # Install some safe and memorable key bindings by default
 fzf_conflictless_mnemonic_bindings
 
