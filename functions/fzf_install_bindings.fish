@@ -19,6 +19,8 @@ function fzf_install_bindings --argument-names dir git_log git_status command_hi
         bind --mode insert $shell_vars $__fzf_search_vars_command
     end
 
+    # intentionally omitting __ so that the user can easily find it and use it when they
+    # are debugging their key bindings
     function fzf_uninstall_bindings
         bind --erase $dir $git_log $git_status $command_history $shell_vars
     end
