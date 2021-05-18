@@ -21,7 +21,12 @@ function fzf_install_bindings --argument-names dir git_log git_status command_hi
 
     # intentionally omitting __ so that the user can easily find it and use it when they
     # are debugging their key bindings
-    function fzf_uninstall_bindings
+    function fzf_uninstall_bindings \
+        --inherit-variable dir \
+        --inherit-variable git_log \
+        --inherit-variable git_status \
+        --inherit-variable command_history \
+        --inherit-variable shell_vars
         bind --erase $dir $git_log $git_status $command_history $shell_vars
     end
 end
