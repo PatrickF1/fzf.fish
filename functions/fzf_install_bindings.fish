@@ -24,15 +24,13 @@ function fzf_install_bindings --argument-names dir git_log git_status command_hi
         bind --mode insert $_flag_shell_vars $__fzf_search_vars_command
     end
 
-    # intentionally omitting __ so that the user can easily find it and use it when they
-    # are debugging their key bindings
-    # function fzf_uninstall_bindings \
-    #     --inherit-variable _flag_dir \
-    #     --inherit-variable _flag_git_log \
-    #     --inherit-variable _flag_git_status \
-    #     --inherit-variable _flag_command_history \
-    #     --inherit-variable _flag_shell_vars
+    function fzf_uninstall_bindings \
+        --inherit-variable _flag_dir \
+        --inherit-variable _flag_git_log \
+        --inherit-variable _flag_git_status \
+        --inherit-variable _flag_command_history \
+        --inherit-variable _flag_shell_vars
 
-    #     bind --erase $_flag_dir $_flag_git_log $_flag_git_status $_flag_command_history $_flag_shell_vars
-    # end
+        bind --erase $_flag_dir $_flag_git_log $_flag_git_status $_flag_command_history $_flag_shell_vars
+    end
 end
