@@ -1,7 +1,7 @@
 function fzf_install_bindings --argument-names dir git_log git_status command_history shell_vars --description "Install key bindings for fzf.fish's functions using the specified key sequences."
     set -l options_spec dir= git_log= git_status= command_history= shell_vars=
     argparse --max-args=0 $options_spec -- $argv
-    or return
+    or return 22
 
     # If another set of bindings already exists, uninstall it first for a clean slate
     if functions --query fzf_uninstall_bindings
