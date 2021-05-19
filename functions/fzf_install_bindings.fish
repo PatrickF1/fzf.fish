@@ -1,5 +1,5 @@
 function fzf_install_bindings --argument-names dir git_log git_status command_history shell_vars --description "Install key bindings for fzf.fish's functions using the specified key sequences."
-    set -l options_spec dir= git_log= git_status= command_history= shell_vars=
+    set -l options_spec "dir=" "git_log=" "git_status=" "command_history=" "shell_vars="
     argparse --max-args=0 $options_spec -- $argv
     or return 22
 
@@ -9,7 +9,6 @@ function fzf_install_bindings --argument-names dir git_log git_status command_hi
     end
 
     bind $_flag_dir __fzf_search_current_dir
-
     bind $_flag_git_log __fzf_search_git_log
     bind $_flag_git_status __fzf_search_git_status
     bind $_flag_command_history __fzf_search_history
@@ -31,6 +30,6 @@ function fzf_install_bindings --argument-names dir git_log git_status command_hi
         --inherit-variable _flag_command_history \
         --inherit-variable _flag_shell_vars
 
-        bind --erase $_flag_dir $_flag_git_log $_flag_git_status $_flag_command_history $_flag_shell_vars
+        bind --erase --all $_flag_dir $_flag_git_log $_flag_git_status $_flag_command_history $_flag_shell_vars
     end
 end
