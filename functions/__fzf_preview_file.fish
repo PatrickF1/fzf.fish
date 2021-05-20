@@ -6,7 +6,7 @@ function __fzf_preview_file --description "Print a preview for the given file ba
 
     if test -L "$file_path" # symlink
         # notify user and recurse on the target of the symlink, which can be any of these file types
-        set -l target_path (realpath $file_path)
+        set -l target_path (realpath "$file_path")
 
         set_color yellow
         echo "'$file_path' is a symlink to '$target_path'."
