@@ -23,7 +23,10 @@ function _fzf_uninstall --on-event fzf_uninstall
     # Not going to erase FZF_DEFAULT_OPTS because too hard to tell if it was set by the user or by this plugin
     set --erase __fzf_search_vars_command
     fzf_uninstall_bindings
-    functions --erase fzf_uninstall_bindings
-    functions --erase _fzf_uninstall
-    # Not going to erase autoloaded functions b/c they can only be removed by removing the file
+    functions --erase _fzf_uninstall fzf_uninstall_bindings fzf_install_bindings fzf_conflictless_mnemonic_bindings fzf_simple_mnemonic_bindings
+    functions --erase (functions --all | string match --entire --regex '^__fzf')
+
+    set_color --italics cyan
+    echo "fzf.fish uninstalled"
+    set_color normal
 end
