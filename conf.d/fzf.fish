@@ -19,12 +19,13 @@ if not set --query FZF_DEFAULT_OPTS
     set --global --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
 end
 
+# Doesn't erase FZF_DEFAULT_OPTS because too hard to tell if it was set by the user or by this plugin
+# Doesn't erase autoloaded __fzf_* functions because they will not be easily accessible once key bindings are erased
 function _fzf_uninstall --on-event fzf_uninstall
-    # Not going to erase FZF_DEFAULT_OPTS because too hard to tell if it was set by the user or by this plugin
     set --erase __fzf_search_vars_command
     fzf_uninstall_bindings
-    functions --erase _fzf_uninstall fzf_uninstall_bindings fzf_install_bindings fzf_conflictless_mnemonic_bindings fzf_simple_mnemonic_bindings
-    functions --erase (functions --all | string match --entire --regex '^__fzf')
+    functions --erase _fzf_uninstall _fzf_migration_message
+    functions --erase fzf_uninstall_bindings fzf_install_bindings fzf_conflictless_mnemonic_bindings fzf_simple_mnemonic_bindings
 
     set_color --italics cyan
     echo "fzf.fish uninstalled"
@@ -34,6 +35,6 @@ end
 function _fzf_migration_message --on-event fzf_update
     set_color FF8C00 # dark orange
     printf '\n%s\n' 'If you last updated fzf.fish before June 2021 and use custom key bindings, you may need to migrate them.'
-    printf '%s\n\n' 'Check out https://github.com/PatrickF1/fzf.fish/wiki/Migration-guides#v70.'
+    printf '%s\n\n' 'Check out https://github.com/PatrickF1/fzf.fish/wiki/Migration-guides.'
     set_color normal
 end
