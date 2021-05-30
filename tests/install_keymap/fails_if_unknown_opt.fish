@@ -1,2 +1,2 @@
-fzf_install_bindings --unknown=\cq
+fzf_install_keymap --unknown=\cq
 @test "fails if passed unknown option" $status -ne 0

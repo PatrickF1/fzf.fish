@@ -5,7 +5,7 @@
 set --global __fzf_search_vars_command '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
 
 # Install some safe and memorable key bindings by default
-fzf_conflictless_mnemonic_bindings
+fzf_conflictless_mnemonic_keymap
 
 # If FZF_DEFAULT_OPTS is not set, then set some sane defaults. This also affects fzf outside of this plugin.
 # See https://github.com/junegunn/fzf#environment-variables
@@ -23,9 +23,9 @@ end
 # Doesn't erase autoloaded __fzf_* functions because they will not be easily accessible once key bindings are erased
 function _fzf_uninstall --on-event fzf_uninstall
     set --erase __fzf_search_vars_command
-    fzf_uninstall_bindings
+    fzf_uninstall_keymap
     functions --erase _fzf_uninstall _fzf_migration_message
-    functions --erase fzf_uninstall_bindings fzf_install_bindings fzf_conflictless_mnemonic_bindings fzf_simple_mnemonic_bindings
+    functions --erase fzf_uninstall_keymap fzf_install_keymap fzf_conflictless_mnemonic_keymap fzf_simple_mnemonic_keymap
 
     set_color --italics cyan
     echo "fzf.fish uninstalled"
@@ -34,7 +34,7 @@ end
 
 function _fzf_migration_message --on-event fzf_update
     set_color FF8C00 # dark orange
-    printf '\n%s\n' 'If you last updated fzf.fish before June 2021 and use custom key bindings, you may need to migrate them.'
+    printf '\n%s\n' 'If you last updated fzf.fish before June 2021 and use custom key bindings, you will need to migrate them.'
     printf '%s\n\n' 'Check out https://github.com/PatrickF1/fzf.fish/wiki/Migration-guides.'
     set_color normal
 end
