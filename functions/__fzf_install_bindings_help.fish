@@ -8,10 +8,10 @@ function __fzf_install_bindings_help
     echo '    Fails if positional arguments or unknown options are provided.'
     echo '    Completely overwrites any fzf.fish bindings previously installed by this function. This means users are free to repeatedly invoke this function to experiment with different bindings without having to worry about residual bindings.'
     echo 'Options:'
-    echo '    --dir=key_sequence'
+    echo '    --directory=key_sequence'
     echo '    --git_log=key_sequence'
     echo '    --git_status=key_sequence'
-    echo '    --command_history=key_sequence'
-    echo '    --shell_vars=key_sequence'
+    echo '    --history=key_sequence'
+    echo '    --variables=key_sequence'
     echo '    -h or --help'
 end
