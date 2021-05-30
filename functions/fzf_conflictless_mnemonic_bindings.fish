@@ -1,4 +1,4 @@
-function fzf_conflictless_mnemonic_bindings --description "Set up key bindings that are mnemonic and unlikely to override existing key bindings."
+function fzf_conflictless_mnemonic_bindings --description "Install key bindings that are mnemonic and unlikely to override existing key bindings."
     # \e = alt, \c = control
     fzf_install_bindings \
         --dir=\e\cf \
