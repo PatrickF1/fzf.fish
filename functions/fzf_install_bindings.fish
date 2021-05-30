@@ -2,25 +2,18 @@
 # Supports leaving some fzf search functions unbound
 # Supports overriding bindings set by pre-configured keymaps with appended user-specified binding appended
 function fzf_install_bindings --description "Install key bindings for fzf.fish's functions using the specified key sequences."
-    set help_message "fzf_install_bindings installs key bindings for fzf.fish.
-Key bindings must be specified as long flags using the format --function=key_sequence.
-Valid function values: dir, git_log, git_status, command_history, shell_var. Try fish_key_reader to generate key sequences.
-You do not have to specify key bindings for all functions. However, you must specify at least one key binding.
-Fail if non-flags or unknown flags are provided.
-Use -h or --help to print this help message.
-"
     if test (count $argv) -eq 0
-        echo $help_message
+        __fzf_install_bindings_help
         return
     end
 
     set options_spec h/help dir= git_log= git_status= command_history= shell_vars=
     argparse --max-args=0 --ignore-unknown $options_spec -- $argv 2>/dev/null
     if test $status -ne 0
-        echo $help_message
+        __fzf_install_bindings_help
         return 22
     else if set --query _flag_h
-        echo $help_message
+        __fzf_install_bindings_help
         return
     end
 
