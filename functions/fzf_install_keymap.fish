@@ -20,20 +20,22 @@ function fzf_install_keymap --description "Install a set of key bindings for fzf
         fzf_uninstall_keymap
     end
 
-    bind $_flag_directory __fzf_search_current_dir 2>/dev/null
-    bind $_flag_git_log __fzf_search_git_log 2>/dev/null
-    bind $_flag_git_status __fzf_search_git_status 2>/dev/null
-    bind $_flag_history __fzf_search_history 2>/dev/null
-    bind $_flag_variables $__fzf_search_vars_command 2>/dev/null
+    begin
+        bind $_flag_directory __fzf_search_current_dir
+        bind $_flag_git_log __fzf_search_git_log
+        bind $_flag_git_status __fzf_search_git_status
+        bind $_flag_history __fzf_search_history
+        bind $_flag_variables $__fzf_search_vars_command
 
-    # set up the same bindings for insert mode if using insert mode
-    if contains insert (bind --list-modes)
-        bind --mode insert $_flag_directory __fzf_search_current_dir 2>/dev/null
-        bind --mode insert $_flag_git_log __fzf_search_git_log 2>/dev/null
-        bind --mode insert $_flag_git_status __fzf_search_git_status 2>/dev/null
-        bind --mode insert $_flag_history __fzf_search_history 2>/dev/null
-        bind --mode insert $_flag_variables $__fzf_search_vars_command 2>/dev/null
-    end
+        # set up the same bindings for insert mode if using insert mode
+        if contains insert (bind --list-modes)
+            bind --mode insert $_flag_directory __fzf_search_current_dir
+            bind --mode insert $_flag_git_log __fzf_search_git_log
+            bind --mode insert $_flag_git_status __fzf_search_git_status
+            bind --mode insert $_flag_history __fzf_search_history
+            bind --mode insert $_flag_variables $__fzf_search_vars_command
+        end
+    end 2>/dev/null
 
     function fzf_uninstall_keymap \
         --inherit-variable _flag_directory \
