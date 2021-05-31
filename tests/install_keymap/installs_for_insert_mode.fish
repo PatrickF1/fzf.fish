@@ -3,4 +3,5 @@ bind --mode insert q ""
 fzf_simple_mnemonic_keymap
 
 # now for __fzf_search_history, there should be one binding for default mode and one for insert mode
-@test "installs insert mode bindings if insert mode" (bind | grep __fzf_search_history | wc -l) -eq 2
+bind --mode insert \cr >/dev/null
+@test "installs insert mode bindings if insert mode" $status -eq 0
