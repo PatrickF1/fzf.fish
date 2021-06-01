@@ -1,2 +1,2 @@
-fzf_install_keymap --directory=\co
-@test "allows not installing a key binding for all entities" $status -eq 0 && bind \co
+fzf_install_keymap --directory=\co && test -z (bind | grep __fzf_search_history)
+@test "allows not installing key bindings for all entities" $status -eq 0
