@@ -22,10 +22,11 @@ end
 # Doesn't erase FZF_DEFAULT_OPTS because too hard to tell if it was set by the user or by this plugin
 # Doesn't erase autoloaded __fzf_* functions because they will not be easily accessible once key bindings are erased
 function _fzf_uninstall --on-event fzf_uninstall
-    set --erase _fzf_search_vars_command
     _fzf_uninstall_keymap
+
+    set --erase _fzf_search_vars_command
     functions --erase _fzf_uninstall _fzf_migration_message
-    functions --erase fzf_uninstall_keymap fzf_install_keymap fzf_conflictless_mnemonic_keymap fzf_simple_mnemonic_keymap
+    functions --erase _fzf_uninstall_keymap fzf_install_keymap fzf_conflictless_mnemonic_keymap fzf_simple_mnemonic_keymap
 
     set_color --italics cyan
     echo "fzf.fish uninstalled"
