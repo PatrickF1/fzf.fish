@@ -1,43 +1,40 @@
 # Supports overriding bindings set by pre-configured keymaps with appended user-specified bindings
+# Always installs and uninstalls bindings for insert mode since for simplicity and b/c it has almost no side-effect
+# https://gitter.im/fish-shell/fish-shell?at=60a55915ee77a74d685fa6b1
 function fzf_install_keymap --description "Install a set of key bindings for fzf.fish's functions using the specified key sequences."
     if test (count $argv) -eq 0
-        __fzf_install_keymap_help
+        _fzf_install_keymap_help
         return
     end
 
     set options_spec h/help directory= git_log= git_status= history= variables=
     argparse --max-args=0 --ignore-unknown $options_spec -- $argv 2>/dev/null
     if test $status -ne 0
-        __fzf_install_keymap_help
+        _fzf_install_keymap_help
         return 22
     else if set --query _flag_h
-        __fzf_install_keymap_help
+        _fzf_install_keymap_help
         return
     end
 
     # If another keymap already exists, uninstall it first for a clean slate
-    if functions --query fzf_uninstall_keymap
-        fzf_uninstall_keymap
+    if functions --query _fzf_uninstall_keymap
+        _fzf_uninstall_keymap
     end
 
+    # when no key sequence is provided for an entity, bind gives an error
+    # and so we ignore all the stderr from these bind commands
     begin
-        bind $_flag_directory __fzf_search_current_dir
-        bind $_flag_git_log __fzf_search_git_log
-        bind $_flag_git_status __fzf_search_git_status
-        bind $_flag_history __fzf_search_history
-        bind $_flag_variables $__fzf_search_vars_command
-
-        # set up the same bindings for insert mode if using insert mode
-        if contains insert (bind --list-modes)
-            bind --mode insert $_flag_directory __fzf_search_current_dir
-            bind --mode insert $_flag_git_log __fzf_search_git_log
-            bind --mode insert $_flag_git_status __fzf_search_git_status
-            bind --mode insert $_flag_history __fzf_search_history
-            bind --mode insert $_flag_variables $__fzf_search_vars_command
+        for mode in default insert
+            bind --mode $mode $_flag_directory __fzf_search_current_dir
+            bind --mode $mode $_flag_git_log __fzf_search_git_log
+            bind --mode $mode $_flag_git_status __fzf_search_git_status
+            bind --mode $mode $_flag_history __fzf_search_history
+            bind --mode $mode $_flag_variables $_fzf_search_vars_command
         end
     end 2>/dev/null
 
-    function fzf_uninstall_keymap \
+    function _fzf_uninstall_keymap \
         --inherit-variable _flag_directory \
         --inherit-variable _flag_git_log \
         --inherit-variable _flag_git_status \

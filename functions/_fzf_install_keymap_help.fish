@@ -1,4 +1,4 @@
-function __fzf_install_keymap_help
+function _fzf_install_keymap_help
     echo 'fzf_install_keymap - installs a set of key bindings for fzf.fish.'
     echo 'Usage:'
     echo '    fzf_install_keymap --searchable_entity=key_sequence...'
