@@ -35,7 +35,7 @@ end
 
 function _fzf_migration_message --on-event fzf_update
     set_color FF8C00 # dark orange
-    printf '\n%s\n' 'If you last updated fzf.fish before June 2021 and use custom key bindings, you will need to migrate them.'
+    printf '\n%s\n' 'If you last updated fzf.fish before June 2021, you will need to migrate your key bindings.'
     printf '%s\n\n' 'Check out https://github.com/PatrickF1/fzf.fish/wiki/Migration-guides.'
     set_color normal
 end
