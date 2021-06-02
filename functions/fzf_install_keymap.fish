@@ -22,16 +22,14 @@ function fzf_install_keymap --description "Install a set of key bindings for fzf
         _fzf_uninstall_keymap
     end
 
-    # when no key sequence is provided for an entity, bind gives an error
-    # and so we ignore all the stderr from these bind commands
-    begin
-        for mode in default insert
-            bind --mode $mode $_flag_directory __fzf_search_current_dir
-            bind --mode $mode $_flag_git_log __fzf_search_git_log
-            bind --mode $mode $_flag_git_status __fzf_search_git_status
-            bind --mode $mode $_flag_history __fzf_search_history
-            bind --mode $mode $_flag_variables $_fzf_search_vars_command
-        end
+    # When no key sequence is provided to bind, it gives an error.
+    # Since this is expected for partial keymnaps, we ignore the stderr from these bind commands.
+    for mode in default insert
+        bind --mode $mode $_flag_directory __fzf_search_current_dir
+        bind --mode $mode $_flag_git_log __fzf_search_git_log
+        bind --mode $mode $_flag_git_status __fzf_search_git_status
+        bind --mode $mode $_flag_history __fzf_search_history
+        bind --mode $mode $_flag_variables $_fzf_search_vars_command
     end 2>/dev/null
 
     function _fzf_uninstall_keymap \
