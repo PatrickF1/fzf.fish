@@ -68,7 +68,7 @@ First, install a proper version of these CLIs:
 | CLI      | Minimum version required | Description                                       |
 | -------- | ------------------------ | ------------------------------------------------- |
 | [fish][] | 3.2.0                    | a modern shell                                    |
-| [fzf][]  | 0.25                     | command-line fuzzy finder that powers this plugin |
+| [fzf][]  | 0.27.2                   | command-line fuzzy finder that powers this plugin |
 | [fd][]   | 7.5.0                    | much faster and friendlier alternative to `find`  |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting            |
 
