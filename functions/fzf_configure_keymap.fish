@@ -1,13 +1,13 @@
 # Supports overriding keymaps with appended user-specified bindings
 # Always installs bindings for insert mode since for simplicity and b/c it has almost no side-effect
 # https://gitter.im/fish-shell/fish-shell?at=60a55915ee77a74d685fa6b1
-function fzf_configure_keymap --argument-names keymap --description "Change the key bindings for fzf.fish to the specified key sequences."
+function fzf_configure_keymap --argument-names keymap_or_help --description "Change the key bindings for fzf.fish to the specified key sequences."
     set --local directory
     set --local git_log
     set --local git_status
     set --local history_ # append _ because history is a special variable
     set --local variables
-    switch $keymap
+    switch $keymap_or_help
         case conflictless_mnemonic
             set directory \e\cf
             set git_log \e\cl
@@ -27,18 +27,27 @@ function fzf_configure_keymap --argument-names keymap --description "Change the 
             set history_ \er
             set variables \ex
         case blank
+        case -h --help
+            _fzf_configure_keymap_help
+            return
         case '*'
+            echo "Invalid or missing keymap argument." 1>&2
             _fzf_configure_keymap_help
             return 22
     end
 
-    _fzf_configure_keymap_parse_opts $argv[2..]
-    if test $status -eq 1
+    set options_spec 'directory=?' 'git_log=?' 'git_status=?' 'history=?' 'variables=?'
+    argparse --max-args=0 --ignore-unknown $options_spec -- $argv[2..] 2>/dev/null #argv[1] is the keymap
+    if test $status -ne 0
+        echo "Invalid option or more than one argument provided." 1>&2
         _fzf_configure_keymap_help
         return 22
-    else if test $status -eq 2
-        _fzf_configure_keymap_help
-        return
+    else
+        set --query _flag_directory && set directory $_flag_directory
+        set --query _flag_git_log && set git_log $_flag_git_log
+        set --query _flag_git_status && set git_status $_flag_git_status
+        set --query _flag_history && set history_ $_flag_history
+        set --query _flag_variables && set variables $_flag_variables
     end
 
     # If another keymap already exists, uninstall it first for a clean slate
