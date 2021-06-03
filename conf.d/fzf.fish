@@ -5,7 +5,7 @@
 set --global _fzf_search_vars_command '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
 
 # Install some safe and memorable key bindings by default
-fzf_conflictless_mnemonic_keymap
+fzf_configure_keymap conflictless_mnemonic
 
 # If FZF_DEFAULT_OPTS is not set, then set some sane defaults. This also affects fzf outside of this plugin.
 # See https://github.com/junegunn/fzf#environment-variables
