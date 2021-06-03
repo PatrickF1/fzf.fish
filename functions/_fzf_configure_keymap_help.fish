@@ -1,7 +1,7 @@
-function _fzf_install_keymap_help
-    echo 'fzf_install_keymap - installs a set of key bindings for fzf.fish.'
+function _fzf_configure_keymap_help
+    echo 'fzf_configure_keymap - change the key bindings for fzf.fish.'
     echo 'Usage:'
-    echo '    fzf_install_keymap --searchable_entity=key_sequence...'
+    echo '    fzf_configure_keymap --searchable_entity=key_sequence...'
     echo 'Description:'
     echo '    Key bindings must be specified as long options where the option name is an entity searchable by fzf.fish and the option value is a key sequence. Try fish_key_reader to generate key sequences.'
     echo '    You do not have to specify key bindings for all entities. However, you must specify at least one.'
