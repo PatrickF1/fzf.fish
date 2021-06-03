@@ -58,11 +58,11 @@ function fzf_configure_keymap --argument-names keymap_or_help --description "Cha
     # When no key sequence is provided to bind, it gives an error.
     # Since this is expected for partial keymnaps, we ignore the stderr from these bind commands.
     for mode in default insert
-        bind --mode $mode $directory __fzf_search_current_dir
-        bind --mode $mode $git_log __fzf_search_git_log
-        bind --mode $mode $git_status __fzf_search_git_status
-        bind --mode $mode $history_ __fzf_search_history
-        bind --mode $mode $variables $_fzf_search_vars_command
+        test -n $directory && bind --mode $mode $directory __fzf_search_current_dir
+        test -n $git_log && bind --mode $mode $git_log __fzf_search_git_log
+        test -n $git_status && bind --mode $mode $git_status __fzf_search_git_status
+        test -n $history_ && bind --mode $mode $history_ __fzf_search_history
+        test -n $variables && bind --mode $mode $variables $_fzf_search_vars_command
     end 2>/dev/null
 
     function _fzf_uninstall_keymap \
