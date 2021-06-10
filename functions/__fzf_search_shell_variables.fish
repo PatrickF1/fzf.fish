@@ -4,10 +4,7 @@
 function __fzf_search_shell_variables --argument-names set_show_output set_names_output --description "Search and preview shell variables. Replace the current token with the selected variable."
     # inform users who use custom key bindings of the backwards incompatible change
     if test -z "$set_names_output"
-        set_color red
-        printf '\n%s\n' '__fzf_search_shell_variables now requires arguments so you have to update your key bindings.' >&2
-        printf '%s\n\n' 'Please see github.com/PatrickF1/fzf.fish/releases/tag/v5.0 for the resolution.' >&2
-        set_color normal
+        printf '%s\n' '__fzf_search_shell_variables requires 2 arguments.' >&2
 
         commandline --function repaint
         return 22 # 22 means invalid argument in POSIX

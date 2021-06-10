@@ -10,7 +10,7 @@ Augment your [Fish][] command line with mnemonic key bindings to efficiently fin
 
 ## Features
 
-Use `fzf.fish` to interactively find and insert into the command line:
+Use `fzf.fish` to interactively find and insert different shell entities into the command line:
 
 ### File paths
 
@@ -30,7 +30,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 ![git status select][]
 
 - **Search input:** the current repository's `git status`
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status, `Alt` to prevent overriding `pager-toggle-search`)
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
 - **Remarks:** <kbd>Tab</kbd> to multi-select
 
 ### A commit hash
@@ -38,7 +38,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 ![git log search][]
 
 - **Search input:** the current repository's formatted `git log`
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log, `Alt` to prevent overriding clear screen)
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
 ### A previously run command
@@ -58,7 +58,6 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Preview window:** the scope info and values of the variable
 - **Remarks**
   - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
-  - <kbd>Tab</kbd> to multi-select
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
@@ -87,15 +86,7 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize the key bindings
 
-If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
-
-```fish
-set --universal fzf_fish_custom_keybindings
-```
-
-Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because the key binding configuration is sourced first on shell startup and so will not see it.
-
-Next, set your own key bindings by following [conf.d/fzf.fish][] as an example. Your search variables key binding should reference the `fzf_search_vars_cmd` variable instead of hardcoding the command.
+fzf.fish has its own dedicated function for conveniently installing key bindings.
 
 ### Pass fzf options to all commands
 
