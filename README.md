@@ -17,11 +17,11 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 ![file search][]
 
 - **Search input:** recursive listing of current directory's non-hidden files
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>F</kbd> (`F` for file)
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
   - prepends `./` to the selection if only one selection is made and it becomes the only token on the command line, making it easy to execute if an executable, or cd into if a directory (see [cd docs][])
-  - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory will be searched instead
+  - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - ignores files that are also ignored by git
   - <kbd>Tab</kbd> to multi-select
 
@@ -72,7 +72,7 @@ First, install a proper version of these CLIs:
 | [fd][]   | 7.5.0                    | much faster and friendlier alternative to `find`  |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting            |
 
-On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
+On certain distribution of Linux, you need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
 
 Next, install this plugin with [Fisher][].
 
@@ -86,11 +86,11 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize the key bindings
 
-fzf.fish has its own dedicated function for conveniently installing key bindings.
+fzf.fish includes a convenient wrapper for configuring its key bindings. It is flexible and effortless to use. Run `fzf_configure_bindings --help` to read its docs.
 
 ### Pass fzf options to all commands
 
-fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf will implicitly prepend it to the options passed in on every execution, scripted or interactive.
+fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf implicitly prepends it to the options passed in on every execution, scripted or interactive.
 
 To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
