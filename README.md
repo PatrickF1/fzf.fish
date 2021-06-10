@@ -58,6 +58,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Preview window:** the scope info and values of the variable
 - **Remarks**
   - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
+  - <kbd>Tab</kbd> to multi-select
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
