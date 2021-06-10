@@ -1,15 +1,14 @@
 # Always installs bindings for insert mode since for simplicity and b/c it has almost no side-effect
 # https://gitter.im/fish-shell/fish-shell?at=60a55915ee77a74d685fa6b1
 function fzf_configure_bindings --description "Installs the default key bindings for fzf.fish with user overrides passed as options."
-
-    set options_spec 'h/help directory=?' 'git_log=?' 'git_status=?' 'history=?' 'variables=?'
-    argparse --max-args=0 --ignore-unknown $options_spec -- $argv 2>/dev/null
+    set options_spec h/help 'directory=?' 'git_log=?' 'git_status=?' 'history=?' 'variables=?'
+    argparse --max-args=0 --ignore-unknown $options_spec -- $argv
     if test $status -ne 0
         echo "Invalid option or a positional argument was provided." 1>&2
-        _fzf_configure_keymap_help
+        _fzf_configure_bindings_help
         return 22
     else if set --query _flag_help
-        _fzf_configure_keymap_help
+        _fzf_configure_bindings_help
         return
     else
         # plan: store key sequences used as U var, use U var to erase on uninstall
@@ -20,9 +19,9 @@ function fzf_configure_bindings --description "Installs the default key bindings
         set --query _flag_history && set key_sequences[4] "$_flag_history"
         set --query _flag_variables && set key_sequences[5] "$_flag_variables"
 
-        # If another keymap already exists, uninstall it first for a clean slate
-        if functions --query _fzf_uninstall_keymap
-            _fzf_uninstall_keymap
+        # If fzf bindings already exists, uninstall it first for a clean slate
+        if functions --query _fzf_uninstall_bindings
+            _fzf_uninstall_bindings
         end
 
         for mode in default insert
@@ -33,7 +32,7 @@ function fzf_configure_bindings --description "Installs the default key bindings
             test -n $key_sequences[5] && bind --mode $mode $key_sequences[5] $_fzf_search_vars_command
         end
 
-        function _fzf_uninstall_keymap --inherit-variable key_sequences
+        function _fzf_uninstall_bindings --inherit-variable key_sequences
             bind --erase -- $key_sequences
             bind --erase --mode insert -- $key_sequences
         end
