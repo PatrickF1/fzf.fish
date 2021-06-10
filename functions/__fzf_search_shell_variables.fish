@@ -29,9 +29,10 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     # with a $, remove it from the query so that it will better match the variable names
     set cleaned_curr_token (string replace -- '$' '' $current_token)
 
-    set variable_name (
+    set variable_names_selected (
         printf '%s\n' $all_variable_names |
         fzf --preview "__fzf_extract_var_info {} $set_show_output" \
+            --multi \
             --query=$cleaned_curr_token \
             $fzf_shell_vars_opts
     )
@@ -39,11 +40,14 @@ function __fzf_search_shell_variables --argument-names set_show_output set_names
     if test $status -eq 0
         # If the current token begins with a $, do not overwrite the $ when
         # replacing the current token with the selected variable.
-        if string match --quiet -- '$*' $current_token
-            commandline --current-token --replace \$$variable_name
-        else
-            commandline --current-token --replace $variable_name
-        end
+        # Uses brace expansion to prepend $ to each variable name.
+        commandline --current-token --replace (
+            if string match --quiet -- '$*' $current_token
+                string join " " \${$variable_names_selected}
+            else
+                string join " " $variable_names_selected
+            end
+        )
     end
 
     commandline --function repaint
