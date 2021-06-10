@@ -11,7 +11,8 @@ function fzf_configure_bindings --description "Installs the default key bindings
         _fzf_configure_bindings_help
         return
     else
-        # plan: store key sequences used as U var, use U var to erase on uninstall
+        # Initialize with default key sequences and then override or disable them based on flags
+        # index 1 = directory, 2 = git_log, 3 = git_status, 4 = history, 5 = variables
         set key_sequences \e\cf \e\cl \cs \cr \cv
         set --query _flag_directory && set key_sequences[1] "$_flag_directory"
         set --query _flag_git_log && set key_sequences[2] "$_flag_git_log"
