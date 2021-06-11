@@ -10,7 +10,7 @@ Augment your [Fish][] command line with mnemonic key bindings to efficiently fin
 
 ## Features
 
-Use `fzf.fish` to interactively find and insert into the command line:
+Use `fzf.fish` to interactively find and insert different shell entities into the command line:
 
 ### File paths
 
@@ -21,7 +21,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
   - prepends `./` to the selection if only one selection is made and it becomes the only token on the command line, making it easy to execute if an executable, or cd into if a directory (see [cd docs][])
-  - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory will be searched instead
+  - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - ignores files that are also ignored by git
   - <kbd>Tab</kbd> to multi-select
 
@@ -30,7 +30,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 ![git status select][]
 
 - **Search input:** the current repository's `git status`
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status, `Alt` to prevent overriding `pager-toggle-search`)
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
 - **Remarks:** <kbd>Tab</kbd> to multi-select
 
 ### A commit hash
@@ -38,7 +38,7 @@ Use `fzf.fish` to interactively find and insert into the command line:
 ![git log search][]
 
 - **Search input:** the current repository's formatted `git log`
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log, `Alt` to prevent overriding clear screen)
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
 ### A previously run command
@@ -58,7 +58,6 @@ Use `fzf.fish` to interactively find and insert into the command line:
 - **Preview window:** the scope info and values of the variable
 - **Remarks**
   - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
-  - <kbd>Tab</kbd> to multi-select
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
@@ -73,7 +72,7 @@ First, install a proper version of these CLIs:
 | [fd][]   | 7.5.0                    | much faster and friendlier alternative to `find`  |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting            |
 
-On certain distribution of Linux, you will need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
+On certain distribution of Linux, you need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
 
 Next, install this plugin with [Fisher][].
 
@@ -85,21 +84,17 @@ fisher install PatrickF1/fzf.fish
 
 ## Configuration
 
-### Customize the key bindings
+### Customize key bindings
 
-If you would like to customize the key bindings, first, prevent the default key bindings from executing by setting `fzf_fish_custom_keybindings` as an [universal variable][]. You can do this with
+fzf.fish includes a convenient wrapper for configuring its key bindings. It is flexible, has no learning curve, and is thoroughly documented. See
 
 ```fish
-set --universal fzf_fish_custom_keybindings
+fzf_configure_bindings --help
 ```
-
-Do not try to set `fzf_fish_custom_keybindings` in your `config.fish` because the key binding configuration is sourced first on shell startup and so will not see it.
-
-Next, set your own key bindings by following [conf.d/fzf.fish][] as an example. Your search variables key binding should reference the `fzf_search_vars_cmd` variable instead of hardcoding the command.
 
 ### Pass fzf options to all commands
 
-fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf will implicitly prepend it to the options passed in on every execution, scripted or interactive.
+fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
 
 To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
@@ -149,7 +144,7 @@ The search directory feature, by default, uses `ls` to preview the contents of d
 set fzf_preview_dir_cmd exa --all --color=always
 ```
 
-As above, do not specify a target path in the command, as `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
+As above, do not specify a target path in the command. `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
 
 ### Change the files searched
 
