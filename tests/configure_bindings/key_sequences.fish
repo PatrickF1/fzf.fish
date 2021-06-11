@@ -2,7 +2,7 @@ function binding_contains_func --argument-names sequence function_
     string match --entire $function_ (bind $sequence) >/dev/null
 end
 
-@test "default binding for directory works" (binding_contains_func \cf __fzf_search_current_dir) $status -eq 0
+@test "default binding for directory works" (binding_contains_func \e\cf __fzf_search_current_dir) $status -eq 0
 @test "default binding for git log works" (binding_contains_func \e\cl __fzf_search_git_log) $status -eq 0
 @test "default binding for git status works" (binding_contains_func \e\cs __fzf_search_git_status) $status -eq 0
 @test "default binding for history works" (binding_contains_func \cr __fzf_search_history) $status -eq 0
