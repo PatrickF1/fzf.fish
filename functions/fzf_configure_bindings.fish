@@ -1,4 +1,4 @@
-# Always installs bindings for insert mode since for simplicity and b/c it has almost no side-effect
+# Always installs bindings for insert and default mode for simplicity and b/c it has almost no side-effect
 # https://gitter.im/fish-shell/fish-shell?at=60a55915ee77a74d685fa6b1
 function fzf_configure_bindings --description "Installs the default key bindings for fzf.fish with user overrides passed as options."
     set options_spec h/help 'directory=?' 'git_log=?' 'git_status=?' 'history=?' 'variables=?'
