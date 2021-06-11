@@ -1,7 +1,7 @@
 function _fzf_configure_bindings_help --description "Prints the help message for fzf_configure_bindings."
     echo "\
 USAGE:
-    fzf_configure_bindings [--ENTITY[=KEY_SEQUENCE]...]
+    fzf_configure_bindings [--FEATURE[=KEY_SEQUENCE]...]
 
 DESCRIPTION
     By default, fzf_configure_bindings installs mnemonic key bindings for fzf.fish's features. Each
@@ -13,12 +13,12 @@ DESCRIPTION
         Search history     |  Ctrl+H     (H for history)   |  --history
         Search variables   |  Ctrl+V     (V for variable)  |  --variable
     An option with a key sequence value overrides the binding for its feature, while an option
-    without a value disables the binding. Options and their values must be separated by an equal
-    sign, not a space. Features that are not customized retain their default menomonic bindings
-    specified above. Key bindings are always installed for default and insert modes. Use
-    fish_key_reader to determine key sequences.
+    without a value disables the binding. A feature that is not customized retains its default
+    menomonic binding specified above. Key bindings are always installed for default and insert
+    modes. Use fish_key_reader to determine key sequences.
 
-    fzf_configure_bindings fails and refuses to install bindings if passed unknown options.
+    In terms of validation, fzf_configure_bindings fails and refuses to install bindings if passed
+    unknown options. Furthermore, it expects an equals sign (=) between an option's name and value.
     However, it does not validate key sequences.
 
     fzf_configure_bindings erases any bindings it previously installed before installing new ones.
