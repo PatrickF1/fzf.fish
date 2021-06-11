@@ -1,4 +1,4 @@
-# helper function for _fzf_search_shell_variables
+# helper function for _fzf_search_variables
 function _fzf_extract_var_info --argument-names variable_name set_show_output --description "Extract and reformat lines pertaining to \$variable_name from \$set_show_output."
     # Extract only the lines about the variable, all of which begin with either
     # $variable_name: ...or... $variable_name[

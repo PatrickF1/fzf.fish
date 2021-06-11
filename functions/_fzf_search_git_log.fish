@@ -3,7 +3,7 @@ function _fzf_search_git_log --description "Search the output of git log and pre
         echo '_fzf_search_git_log: Not in a git repository.' >&2
     else
         # Make sure that fzf uses fish to execute git show.
-        # See similar comment in _fzf_search_shell_variables.fish.
+        # See similar comment in _fzf_search_variables.fish.
         set --local --export SHELL (command --search fish)
 
         # see documentation for git format placeholders at https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem

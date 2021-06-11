@@ -3,7 +3,7 @@ function _fzf_search_history --description "Search command history. Replace the 
     builtin history merge
 
     # Make sure that fzf uses fish so we can run fish_indent.
-    # See similar comment in _fzf_search_shell_variables.fish.
+    # See similar comment in _fzf_search_variables.fish.
     set --local --export SHELL (command --search fish)
 
     set command_with_ts (

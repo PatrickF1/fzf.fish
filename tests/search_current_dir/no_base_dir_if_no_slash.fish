@@ -14,6 +14,6 @@ function fzf
     end
 end
 
-_fzf_search_current_dir
+_fzf_search_directory
 
 @test "doesn't change fd's base directory if no slash on current token" $searched_functions_dir = true
