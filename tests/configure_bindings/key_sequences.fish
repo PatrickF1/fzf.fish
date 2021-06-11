@@ -9,11 +9,11 @@ end
 @test "default binding for variables works" (binding_contains_func \cv $_fzf_search_vars_command) $status -eq 0
 
 fzf_configure_bindings --directory=\ca --git_log=\cb --git_status=\cc --history=\cd --variables=\ce
-@test "can override the default bindings for directory" (binding_contains_func \ca __fzf_search_current_dir) $status -eq 0
-@test "can override the default bindings for git log" (binding_contains_func \cb __fzf_search_git_log) $status -eq 0
-@test "can override the default bindings for git status" (binding_contains_func \cc __fzf_search_git_status) $status -eq 0
-@test "can override the default bindings for history" (binding_contains_func \cd __fzf_search_history) $status -eq 0
-@test "can override the default bindings for variables" (binding_contains_func \ce $_fzf_search_vars_command) $status -eq 0
+@test "can override the default binding for directory" (binding_contains_func \ca __fzf_search_current_dir) $status -eq 0
+@test "can override the default binding for git log" (binding_contains_func \cb __fzf_search_git_log) $status -eq 0
+@test "can override the default binding for git status" (binding_contains_func \cc __fzf_search_git_status) $status -eq 0
+@test "can override the default binding for history" (binding_contains_func \cd __fzf_search_history) $status -eq 0
+@test "can override the default binding for variables" (binding_contains_func \ce $_fzf_search_vars_command) $status -eq 0
 
 bind --mode insert \ca >/dev/null && bind --mode insert \ce >/dev/null
 @test "installs bindings for insert mode" $status -eq 0
