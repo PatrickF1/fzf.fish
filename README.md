@@ -177,7 +177,7 @@ Find answers to these questions and more in the [project Wiki][wiki]:
 [conf.d/fzf.fish]: conf.d/fzf.fish
 [contribute]: https://github.com/PatrickF1/fzf.fish/wiki/Contributing
 [cookbook]: https://github.com/PatrickF1/fzf.fish/wiki/Cookbook
-[custom preview command]: functions/__fzf_preview_file.fish#L7
+[custom preview command]: functions/_fzf_preview_file.fish#L7
 [fd]: https://github.com/sharkdp/fd
 [file search]: images/directory.gif
 [fish]: https://fishshell.com

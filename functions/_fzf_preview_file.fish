@@ -1,6 +1,6 @@
-# helper function for __fzf_search_current_dir
-function __fzf_preview_file --description "Print a preview for the given file based on its file type."
-    # because there's no way to guarantee that __fzf_search_current_dir passes the path to __fzf_preview_file
+# helper function for _fzf_search_current_dir
+function _fzf_preview_file --description "Print a preview for the given file based on its file type."
+    # because there's no way to guarantee that _fzf_search_current_dir passes the path to _fzf_preview_file
     # as one argument, we collect all the arguments into one single variable and treat that as the path
     set file_path $argv
 
@@ -12,7 +12,7 @@ function __fzf_preview_file --description "Print a preview for the given file ba
         echo "'$file_path' is a symlink to '$target_path'."
         set_color normal
 
-        __fzf_preview_file "$target_path"
+        _fzf_preview_file "$target_path"
     else if test -f "$file_path" # regular file
         if set --query fzf_preview_file_cmd
             # need to escape quotes to make sure eval receives file_path as a single arg
@@ -30,13 +30,13 @@ function __fzf_preview_file --description "Print a preview for the given file ba
             command ls -A -F "$file_path"
         end
     else if test -c "$file_path"
-        __fzf_report_file_type "$file_path" "character device file"
+        _fzf_report_file_type "$file_path" "character device file"
     else if test -b "$file_path"
-        __fzf_report_file_type "$file_path" "block device file"
+        _fzf_report_file_type "$file_path" "block device file"
     else if test -S "$file_path"
-        __fzf_report_file_type "$file_path" socket
+        _fzf_report_file_type "$file_path" socket
     else if test -p "$file_path"
-        __fzf_report_file_type "$file_path" "named pipe"
+        _fzf_report_file_type "$file_path" "named pipe"
     else
         echo "$file_path doesn't exist." >&2
     end

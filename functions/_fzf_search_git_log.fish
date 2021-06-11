@@ -1,9 +1,9 @@
-function __fzf_search_git_log --description "Search the output of git log and preview commits. Replace the current token with the selected commit hash."
+function _fzf_search_git_log --description "Search the output of git log and preview commits. Replace the current token with the selected commit hash."
     if not git rev-parse --git-dir >/dev/null 2>&1
-        echo '__fzf_search_git_log: Not in a git repository.' >&2
+        echo '_fzf_search_git_log: Not in a git repository.' >&2
     else
         # Make sure that fzf uses fish to execute git show.
-        # See similar comment in __fzf_search_shell_variables.fish.
+        # See similar comment in _fzf_search_shell_variables.fish.
         set --local --export SHELL (command --search fish)
 
         # see documentation for git format placeholders at https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem

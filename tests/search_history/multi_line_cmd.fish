@@ -19,7 +19,7 @@ mock commandline \* ""
 set --export --append FZF_DEFAULT_OPTS "--filter=function"
 # for some reason, \n doesn't appear in what is passed to commandline --replace --
 set expected "function select_me echo I\'m just testing end"
-set actual (__fzf_search_history)
+set actual (_fzf_search_history)
 @test "ouputs right command" "$actual" = "$expected"
 
 rm $history_file_path

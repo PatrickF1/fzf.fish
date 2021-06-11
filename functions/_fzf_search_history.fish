@@ -1,9 +1,9 @@
-function __fzf_search_history --description "Search command history. Replace the command line with the selected command."
+function _fzf_search_history --description "Search command history. Replace the command line with the selected command."
     # history merge incorporates history changes from other fish sessions
     builtin history merge
 
     # Make sure that fzf uses fish so we can run fish_indent.
-    # See similar comment in __fzf_search_shell_variables.fish.
+    # See similar comment in _fzf_search_shell_variables.fish.
     set --local --export SHELL (command --search fish)
 
     set command_with_ts (

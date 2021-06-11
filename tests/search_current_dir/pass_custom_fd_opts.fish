@@ -12,5 +12,5 @@ end
 mock commandline "*" ""
 set fzf_fd_opts --hidden --exclude=.git
 
-__fzf_search_current_dir
+_fzf_search_current_dir
 @test "uses fzf_fd_opts when executing fd" "$searched_hidden" = true

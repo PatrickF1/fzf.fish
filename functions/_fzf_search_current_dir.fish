@@ -1,6 +1,6 @@
-function __fzf_search_current_dir --description "Search the current directory. Replace the current token with the selected file paths."
-    # Make sure that fzf uses fish to execute __fzf_preview_file.
-    # See similar comment in __fzf_search_shell_variables.fish.
+function _fzf_search_current_dir --description "Search the current directory. Replace the current token with the selected file paths."
+    # Make sure that fzf uses fish to execute _fzf_preview_file.
+    # See similar comment in _fzf_search_shell_variables.fish.
     set --local --export SHELL (command --search fish)
 
     set fd_opts --color=always $fzf_fd_opts
@@ -16,10 +16,10 @@ function __fzf_search_current_dir --description "Search the current directory. R
     if string match --quiet -- "*/" $unescaped_exp_token && test -d "$unescaped_exp_token"
         set --append fd_opts --base-directory=$unescaped_exp_token
         # use the directory name as fzf's prompt to indicate the search is limited to that directory
-        set --prepend fzf_arguments --prompt="$unescaped_exp_token" --preview="__fzf_preview_file $expanded_token{}"
+        set --prepend fzf_arguments --prompt="$unescaped_exp_token" --preview="_fzf_preview_file $expanded_token{}"
         set file_paths_selected $unescaped_exp_token(fd $fd_opts 2>/dev/null | fzf $fzf_arguments)
     else
-        set --prepend fzf_arguments --query="$unescaped_exp_token" --preview='__fzf_preview_file {}'
+        set --prepend fzf_arguments --query="$unescaped_exp_token" --preview='_fzf_preview_file {}'
         set file_paths_selected (fd $fd_opts 2>/dev/null | fzf $fzf_arguments)
     end
 

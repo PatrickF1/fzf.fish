@@ -26,10 +26,10 @@ function fzf_configure_bindings --description "Installs the default key bindings
         end
 
         for mode in default insert
-            test -n $key_sequences[1] && bind --mode $mode $key_sequences[1] __fzf_search_current_dir
-            test -n $key_sequences[2] && bind --mode $mode $key_sequences[2] __fzf_search_git_log
-            test -n $key_sequences[3] && bind --mode $mode $key_sequences[3] __fzf_search_git_status
-            test -n $key_sequences[4] && bind --mode $mode $key_sequences[4] __fzf_search_history
+            test -n $key_sequences[1] && bind --mode $mode $key_sequences[1] _fzf_search_current_dir
+            test -n $key_sequences[2] && bind --mode $mode $key_sequences[2] _fzf_search_git_log
+            test -n $key_sequences[3] && bind --mode $mode $key_sequences[3] _fzf_search_git_status
+            test -n $key_sequences[4] && bind --mode $mode $key_sequences[4] _fzf_search_history
             test -n $key_sequences[5] && bind --mode $mode $key_sequences[5] $_fzf_search_vars_command
         end
 
