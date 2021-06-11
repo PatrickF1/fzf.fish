@@ -84,9 +84,13 @@ fisher install PatrickF1/fzf.fish
 
 ## Configuration
 
-### Customize the key bindings
+### Customize key bindings
 
-fzf.fish includes a convenient wrapper for configuring its key bindings. It is flexible and effortless to use. Run `fzf_configure_bindings --help` to read its docs.
+fzf.fish includes a convenient wrapper for configuring its key bindings. It is flexible, has no learning curve, and is thoroughly documented. See
+
+```fish
+fzf_configure_bindings --help
+```
 
 ### Pass fzf options to all commands
 
@@ -140,7 +144,7 @@ The search directory feature, by default, uses `ls` to preview the contents of d
 set fzf_preview_dir_cmd exa --all --color=always
 ```
 
-As above, do not specify a target path in the command, as `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
+As above, do not specify a target path in the command. `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
 
 ### Change the files searched
 
