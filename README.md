@@ -92,6 +92,8 @@ fzf.fish includes a convenient wrapper for configuring its key bindings. It is f
 fzf_configure_bindings --help
 ```
 
+Play around with it--it's safe to repeatedly execute in the same fish session without residual bindings or other side effects. Once you're done, add the `fzf_configure_bindings` command that works for you to your `config.fish` in order to persist the bindings.
+
 ### Pass fzf options to all commands
 
 fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.

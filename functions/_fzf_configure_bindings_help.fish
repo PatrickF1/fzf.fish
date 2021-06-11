@@ -14,16 +14,16 @@ DESCRIPTION
         Search variables   |  Ctrl+V     (V for variable)  |  --variable
     An option with a key sequence value overrides the binding for its feature, while an option
     without a value disables the binding. A feature that is not customized retains its default
-    menomonic binding specified above. Key bindings are always installed for default and insert
-    modes. Use fish_key_reader to determine key sequences.
+    menomonic binding specified above. Key bindings are installed for default and insert modes.
 
-    In terms of validation, fzf_configure_bindings fails and refuses to install bindings if passed
-    unknown options. Furthermore, it expects an equals sign (=) between an option's name and value.
-    However, it does not validate key sequences.
+    In terms of validation, fzf_configure_bindings fails if passed unknown options. Furthermore, it
+    expects an equals sign between an option's name and value. However, it does not validate key
+    sequences. Rather, consider using fish_key_reader to manually validate them.
 
-    fzf_configure_bindings erases any bindings it previously installed before installing new ones.
-    This means users may repeatedly invoke it in the same fish session without concern of residual
-    bindings or other side effects.
+    In terms of experimentation, fzf_configure_bindings erases any bindings it previously installed
+    before installing new ones so it can be repeatedly invoked in the same fish session without
+    problem. Once the desired fzf_configure_bindings command has been found, add it to config.fish
+    in order to persist the bindings.
 
     The -h and --help options print this help message.
 
@@ -36,5 +36,7 @@ EXAMPLES
         \$ fzf_configure_bindings --history
     Alternative style of disabling search history
         \$ fzf_configure_bindings --history=
+    An agglomeration of all the options
+        \$ fzf_configure_bindings --git_status=\cg --history=\ch --variable --directory --git_log
 "
 end
