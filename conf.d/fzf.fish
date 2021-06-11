@@ -4,7 +4,7 @@
 # # This variable is global so that it can be referenced by fzf_configure_bindings and in tests
 set --global _fzf_search_vars_command '__fzf_search_shell_variables (set --show | psub) (set --names | psub)'
 
-# Install the default bindings, which are mnemonic and should not conflict with fish's preset bindings
+# Install the default bindings, which are mnemonic and minimally conflict with fish's preset bindings
 fzf_configure_bindings
 
 # If FZF_DEFAULT_OPTS is not set, then set some sane defaults. This also affects fzf outside of this plugin.

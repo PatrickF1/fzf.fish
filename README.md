@@ -90,7 +90,7 @@ fzf.fish includes a convenient wrapper for configuring its key bindings. It is f
 
 ### Pass fzf options to all commands
 
-fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf implicitly prepends it to the options passed in on every execution, scripted or interactive.
+fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
 
 To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
