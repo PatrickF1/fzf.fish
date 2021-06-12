@@ -86,13 +86,13 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize key bindings
 
-fzf.fish includes a convenient wrapper for configuring its key bindings. It is flexible, has no learning curve, and is thoroughly documented. See
+`fzf.fish` includes a convenient wrapper for configuring its key bindings. It's flexible, has a short learning curve, and is thoroughly documented. See
 
 ```fish
 fzf_configure_bindings --help
 ```
 
-Play around with it--it's safe to repeatedly execute in the same fish session without residual bindings or other side effects. Once you're done, add the `fzf_configure_bindings` command that works for you to your `config.fish` in order to persist the bindings.
+Once you've found the `fzf_configure_bindings` command that produces the desired bindings, add it to your `config.fish` in order to persist the bindings.
 
 ### Pass fzf options to all commands
 
@@ -155,10 +155,6 @@ To pass custom options to `fd` when it is executed to populate the list of files
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
 ```
-
-### Change the key binding for a single command
-
-See the [Cookbook][] Wiki page.
 
 ## Further reading
 
