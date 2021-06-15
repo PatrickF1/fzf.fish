@@ -9,8 +9,8 @@ DESCRIPTION
         FEATURE            |  MNEMONIC KEY SEQUENCE        |  CORRESPONDING OPTION
         Search directory   |  Ctrl+Alt+F (F for file)      |  --directory
         Search git log     |  Ctrl+Alt+L (L for log)       |  --git_log
-        Search git status  |  Ctrl+S     (S for status)    |  --git_status
-        Search history     |  Ctrl+H     (H for history)   |  --history
+        Search git status  |  Ctrl+Alt+S (S for status)    |  --git_status
+        Search history     |  Ctrl+R     (R for reverse)   |  --history
         Search variables   |  Ctrl+V     (V for variable)  |  --variable
     An option with a key sequence value overrides the binding for its feature, while an option
     without a value disables the binding. A feature that is not customized retains its default
