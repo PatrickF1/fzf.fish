@@ -6,25 +6,26 @@ labels: ""
 assignees: ""
 ---
 
-**Describe the bug**
-What the bug is.
+## Describe the bug
 
-**To Reproduce**
-Steps to reproduce the behavior.
+## Steps to Reproduce
 
-**Expected behavior**
-What you expected to happen.
+## Screenshots
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+If applicable, add screenshots to help explain the bug.
 
-**Environment**
+## Environment
 
-- Fish: [e.g. 3.1.2]
-- fzf.fish: [e.g. 5.3]
-- plugin manager: [e.g. fisher 4.2.0]
+- [ ] I have made sure my CLIs meet the [minimum version requirements](https://github.com/PatrickF1/fzf.fish#installation)
+
+Versions installed:
+
+- Fish: [e.g. 3.2.2]
+- fzf.fish: [e.g. 7.0]
+- plugin manager: [e.g. fisher 4.3.0]
 - terminal: [e.g. iTerm]
 - OS: [e.g. macOS 10.15.7]
 
-**Additional context**
+## Additional context
+
 Anything else?
