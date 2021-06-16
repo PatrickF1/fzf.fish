@@ -11,7 +11,7 @@ DESCRIPTION
         Search git log     |  Ctrl+Alt+L (L for log)       |  --git_log
         Search git status  |  Ctrl+Alt+S (S for status)    |  --git_status
         Search history     |  Ctrl+R     (R for reverse)   |  --history
-        Search variables   |  Ctrl+V     (V for variable)  |  --variable
+        Search variables   |  Ctrl+V     (V for variable)  |  --variables
     An option with a key sequence value overrides the binding for its feature, while an option
     without a value disables the binding. A feature that is not customized retains its default
     menomonic binding specified above. Key bindings are installed for default and insert modes.
@@ -37,6 +37,6 @@ EXAMPLES
     Alternative style of disabling search history
         \$ fzf_configure_bindings --history=
     An agglomeration of all the options
-        \$ fzf_configure_bindings --git_status=\cg --history=\ch --variable --directory --git_log
+        \$ fzf_configure_bindings --git_status=\cg --history=\ch --variables --directory --git_log
 "
 end
