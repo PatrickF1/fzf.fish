@@ -26,6 +26,7 @@ function _fzf_uninstall --on-event fzf_uninstall
 
     set --erase _fzf_search_vars_command
     functions --erase _fzf_uninstall _fzf_migration_message _fzf_uninstall_bindings fzf_configure_bindings
+    complete --erase fzf_configure_bindings
 
     set_color --italics cyan
     echo "fzf.fish uninstalled"

@@ -86,7 +86,7 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize key bindings
 
-`fzf.fish` includes a convenient wrapper for configuring its key bindings. It's flexible, has a short learning curve, and is thoroughly documented. See
+`fzf.fish` includes a convenient wrapper for configuring its key bindings. It comes with command completions and is thoroughly documented. See
 
 ```fish
 fzf_configure_bindings --help
