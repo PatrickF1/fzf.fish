@@ -28,7 +28,7 @@ jobs:
 
       - name: Run full test suite
         run: fishtape tests/*/*.fish
-        shell: fish --interactive {0}
+        shell: fish {0}
         # timeout in case tests get stuck on fzf
         timeout-minutes: 3
 
