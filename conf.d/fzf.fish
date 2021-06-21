@@ -6,8 +6,8 @@ set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub)
 
 # Skip rest of the config if not in interactive mode to speed up shell startup
 # Check for $CI environment variable [1] before fishtape issue [2] is resolved
-# [1] https://github.com/jorgebucaran/fishtape/issues/63
-# [2] https://docs.github.com/actions/reference/environment-variables#default-environment-variables
+# [1] https://docs.github.com/actions/reference/environment-variables#default-environment-variables
+# [2] https://github.com/jorgebucaran/fishtape/issues/63
 if not status is-interactive && test "$CI" != true
     exit
 end
