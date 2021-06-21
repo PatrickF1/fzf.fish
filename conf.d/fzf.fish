@@ -4,7 +4,7 @@
 # # This variable is global so that it can be referenced by fzf_configure_bindings and in tests
 set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
 
-# Skip rest of the config if not in interactive mode to speed shell startup a little
+# Skip rest of the config if not in interactive mode to speed up shell startup
 # Check for $CI environment variable [1] before fishtape issue [2] is resolved
 # [1] https://github.com/jorgebucaran/fishtape/issues/63
 # [2] https://docs.github.com/actions/reference/environment-variables#default-environment-variables
