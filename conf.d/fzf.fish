@@ -5,7 +5,12 @@
 set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
 
 # Skip rest of the config if not in interactive mode to speed shell startup a little
-status is-interactive || exit
+# Check for $CI environment variable [1] before fishtape issue [2] is resolved
+# [1] https://github.com/jorgebucaran/fishtape/issues/63
+# [2] https://docs.github.com/actions/reference/environment-variables#default-environment-variables
+if not status is-interactive && test "$CI" != true
+    exit
+end
 
 # Install the default bindings, which are mnemonic and minimally conflict with fish's preset bindings
 fzf_configure_bindings
