@@ -31,7 +31,6 @@ function _fzf_search_directory --description "Search the current directory. Repl
         # automatically prepend ./ to the selected path if
         # - only one path was selected,
         # - the user was in the middle of inputting the first token,
-        # - and the path doesn't already begin with a / or ./
         # Then, the user only needs to hit Enter once more to potentially cd into or execute that path.
         if test (count $file_paths_selected) = 1 \
                 && not string match --quiet --regex "^\.?/" $file_paths_selected
