@@ -33,7 +33,6 @@ function _fzf_search_directory --description "Search the current directory. Repl
         # - the user was in the middle of inputting the first token,
         # Then, the user only needs to hit Enter once more to potentially cd into or execute that path.
         if test (count $file_paths_selected) = 1
-                && not string match --quiet --regex "^\.?/" $file_paths_selected
             set commandline_tokens (commandline --tokenize)
             if test "$commandline_tokens" = "$current_token"
                 set file_paths_selected ./$file_paths_selected
