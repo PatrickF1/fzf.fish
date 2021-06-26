@@ -1,16 +1,14 @@
+# fzf.fish is only meant to be used in interactive mode. If not in interactive mode and not in CI, skip the config to speed up shell startup
+if not status is-interactive && test "$CI" != true
+    exit
+end
+
 # Because of scoping rules, to capture the shell variables exactly as they are, we must read
 # them before even executing _fzf_search_variables. We use psub to store the
 # variables' info in temporary files and pass in the filenames as arguments.
 # # This variable is global so that it can be referenced by fzf_configure_bindings and in tests
 set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
 
-# Skip rest of the config if not in interactive mode to speed up shell startup
-# Check for $CI environment variable [1] before fishtape issue [2] is resolved
-# [1] https://docs.github.com/actions/reference/environment-variables#default-environment-variables
-# [2] https://github.com/jorgebucaran/fishtape/issues/63
-if not status is-interactive && test "$CI" != true
-    exit
-end
 
 # Install the default bindings, which are mnemonic and minimally conflict with fish's preset bindings
 fzf_configure_bindings
