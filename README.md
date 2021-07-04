@@ -20,7 +20,7 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
-  - prepends `./` to the selection if only one selection is made and it becomes the only token on the command line, making it easy to execute if an executable, or cd into if a directory (see [cd docs][])
+  - appends `/` to the selection if it is a directory and the only path selected, making it quick to cd into (see [cd docs][])
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - ignores files that are also ignored by git
   - <kbd>Tab</kbd> to multi-select
