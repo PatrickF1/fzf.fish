@@ -34,7 +34,8 @@ function _fzf_search_directory --description "Search the current directory. Repl
         # Then, the user only needs to hit Enter once more to potentially cd into or execute that path.
         if test (count $file_paths_selected) = 1
             set commandline_tokens (commandline --tokenize)
-            if test "$commandline_tokens" = "$token"
+            set file_selected $file_paths_selected[1]
+            if test "$commandline_tokens" = "$token" -a -d "$file_selected"
                 set file_paths_selected ./$file_paths_selected
             end
         end
