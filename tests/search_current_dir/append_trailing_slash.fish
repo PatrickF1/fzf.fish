@@ -15,4 +15,4 @@ set result (_fzf_search_directory)
 set dir_path conf.d
 mock fzf \* "echo $dir_path"
 set result (_fzf_search_directory)
-@test "appends / if exactly one selection and its a directory" "$result" = $dir_path
+@test "appends / if exactly one selection and it is a directory" "$result" = $dir_path/
