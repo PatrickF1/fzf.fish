@@ -61,6 +61,12 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 
 _The prompt used in the screencasts was created using [IlanCosman/tide][]._
 
+### Most visited directories
+
+- **Search input:** listing of most visited directories, provided by [z][]
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Z</kbd> (`Z` for z)
+- **Preview window:** directory contents
+
 ## Installation
 
 First, install a proper version of these CLIs:
@@ -71,6 +77,7 @@ First, install a proper version of these CLIs:
 | [fzf][]  | 0.27.2                   | command-line fuzzy finder that powers this plugin |
 | [fd][]   | 7.5.0                    | much faster and friendlier alternative to `find`  |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting            |
+| [z][]    | <2.7.0                   | pure-fish z directory jumping                     |
 
 On certain distribution of Linux, you need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
 
@@ -115,6 +122,7 @@ The following variables can store custom options that will be passed to fzf by t
 | Search git log         | `fzf_git_log_opts`    |
 | Search command history | `fzf_history_opts`    |
 | Search shell variables | `fzf_shell_vars_opts` |
+| Search z               | `fzf_z_opts`          |
 
 They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each feature such as:
 
@@ -193,3 +201,4 @@ Find answers to these questions and more in the [project Wiki][wiki]:
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [var scope]: https://fishshell.com/docs/current/#variable-scope
 [wiki]: https://github.com/PatrickF1/fzf.fish/wiki
+[z]: https://github.com/jethrokuan/z
