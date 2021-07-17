@@ -25,19 +25,16 @@ function _fzf_search_directory --description "Search the current directory. Repl
 
 
     if test $status -eq 0
-        # Fish will implicitly take action on a path when a path is provided as the first token and it
-        # begins with a dot or slash. If the path is a directory, Fish will cd into it. If the path is
-        # an executable, Fish will execute it. To help users harness this convenient behavior, we
-        # automatically prepend ./ to the selected path if
+        # Fish will cd implicitly if a directory name ending in a slash is provided.
+        # To help the user leverage this feature, we automatically append / to the selected path if
         # - only one path was selected,
         # - the user was in the middle of inputting the first token,
-        # - and the path doesn't already begin with a dot or slash
-        # Then, the user only needs to hit Enter once more to potentially cd into or execute that path.
-        if test (count $file_paths_selected) = 1 \
-                && not string match --quiet --regex "^[.|/]" $file_paths_selected
+        # - the path is a directory
+        # Then, the user only needs to hit Enter once more to cd into that directory.
+        if test (count $file_paths_selected) = 1
             set commandline_tokens (commandline --tokenize)
-            if test "$commandline_tokens" = "$current_token"
-                set file_paths_selected ./$file_paths_selected
+            if test "$commandline_tokens" = "$token" -a -d "$file_paths_selected"
+                set file_paths_selected $file_paths_selected/
             end
         end
 
