@@ -1,7 +1,10 @@
 # Always installs bindings for insert and default mode for simplicity and b/c it has almost no side-effect
 # https://gitter.im/fish-shell/fish-shell?at=60a55915ee77a74d685fa6b1
 function fzf_configure_bindings --description "Installs the default key bindings for fzf.fish with user overrides passed as options."
-    status is-interactive || return 0
+    # no need to install bindings if not in interactive mode
+    if not status is-interactive && test "$CI" != true
+        return
+    end
     set options_spec h/help 'directory=?' 'git_log=?' 'git_status=?' 'history=?' 'variables=?'
     argparse --max-args=0 --ignore-unknown $options_spec -- $argv 2>/dev/null
     if test $status -ne 0
