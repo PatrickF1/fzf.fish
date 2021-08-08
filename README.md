@@ -2,7 +2,9 @@
 
 # fzf.fish 🔍🐟
 
-[![latest release badge][]][releases] [![build status badge][]][actions] [![awesome badge][]][awesome fish]
+[![latest release badge][]](https://github.com/patrickf1/fzf.fish/releases)
+[![build status badge][]](https://github.com/patrickf1/fzf.fish/actions)
+[![awesome badge][]](https://git.io/awsm.fish)
 
 </div>
 
@@ -14,7 +16,7 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 
 ### File paths
 
-![file search][]
+![gif directory](images/directory.gif)
 
 - **Search input:** recursive listing of current directory's non-hidden files
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
@@ -27,7 +29,7 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 
 ### Modified paths
 
-![git status select][]
+![gif git status](images/git_status.gif)
 
 - **Search input:** the current repository's `git status`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
@@ -35,7 +37,7 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 
 ### A commit hash
 
-![git log search][]
+![gif git log](images/git_log.gif)
 
 - **Search input:** the current repository's formatted `git log`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
@@ -43,15 +45,15 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 
 ### A previously run command
 
-![command history search][]
+![gif command history](images/command_history.gif)
 
-- **Search input:** the command history from all interactive sessions of Fish
+- **Search input:** Fish's command history
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
-- **Preview window:** the entire command with fish syntax highlighting
+- **Preview window:** the entire command with Fish syntax highlighting
 
 ### A shell variable
 
-![shell variables search][]
+![gif shell variables](images/shell_variables.gif)
 
 - **Search input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
@@ -59,20 +61,20 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 - **Remarks**
   - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
 
-_The prompt used in the screencasts was created using [IlanCosman/tide][]._
+_The prompt used in the screencasts was created using [IlanCosman/tide](https://github.com/IlanCosman/tide)._
 
 ## Installation
 
-First, install a proper version of these CLIs:
+First, install a proper version of these CLI dependencies:
 
-| CLI      | Minimum version required | Description                                       |
-| -------- | ------------------------ | ------------------------------------------------- |
-| [fish][] | 3.2.0                    | a modern shell                                    |
-| [fzf][]  | 0.27.2                   | command-line fuzzy finder that powers this plugin |
-| [fd][]   | 7.5.0                    | much faster and friendlier alternative to `find`  |
-| [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting            |
+| CLI      | Minimum version required | Description                                    |
+| -------- | ------------------------ | ---------------------------------------------- |
+| [fish][] | 3.2.0                    | a modern shell                                 |
+| [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin           |
+| [fd][]   | 7.5.0                    | faster and more colorful alternative to `find` |
+| [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
-On certain distribution of Linux, you need to alias `fdfind` to `fd` (see [#93](https://github.com/PatrickF1/fzf.fish/discussions/93)).
+The search directory feature uses [fd][] and [bat][] to list and preview files. If you don't plan on using search directory, then you don't need to install them.
 
 Next, install this plugin with [Fisher][].
 
@@ -94,17 +96,17 @@ fzf_configure_bindings --help
 
 Once you've found the `fzf_configure_bindings` command that produces the desired bindings, add it to your `config.fish` in order to persist the bindings.
 
-### Pass fzf options to all commands
+### Always pass some options to fzf
 
-fzf supports setting default options via the [FZF_DEFAULT_OPTS][] environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
+fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
 
 To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
 
 ```fish
-set --export FZF_DEFAULT_OPTS --height 50% --no-extended +i
+set --export FZF_DEFAULT_OPTS +i --height 50% --no-extended
 ```
 
-### Pass fzf options to a specific command
+### Pass fzf options for a specific feature
 
 The following variables can store custom options that will be passed to fzf by their respective feature:
 
@@ -158,38 +160,23 @@ set fzf_fd_opts --hidden --exclude=.git
 
 ## Further reading
 
-Find answers to these questions and more in the [project Wiki][wiki]:
+Find answers to these questions and more in the [project Wiki](https://github.com/PatrickF1/fzf.fish/wiki):
 
-- How does `fzf.fish` [compare][prior art] to other popular fzf plugins for fish?
-- Why isn't this [feature working][troubleshooting] for me?
-- How can I [integrate][cookbook] this plugin into my workflow?
-- How can I [contribute][] to this plugin?
+- How does `fzf.fish` [compare](https://github.com/PatrickF1/fzf.fish/wiki/Prior-Art) to other popular fzf plugins for Fish?
+- Why isn't this [feature working](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting) for me?
+- How can I [customize](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook) this feature?
+- How can I [contribute](https://github.com/PatrickF1/fzf.fish/wiki/Contributing) to this plugin?
 
-[actions]: https://github.com/PatrickF1/fzf.fish/actions
 [awesome badge]: https://awesome.re/mentioned-badge.svg
-[awesome fish]: https://git.io/awsm.fish
 [bat]: https://github.com/sharkdp/bat
 [build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
-[command history search]: images/command_history.gif
 [conf.d/fzf.fish]: conf.d/fzf.fish
-[contribute]: https://github.com/PatrickF1/fzf.fish/wiki/Contributing
-[cookbook]: https://github.com/PatrickF1/fzf.fish/wiki/Cookbook
 [custom preview command]: functions/_fzf_preview_file.fish#L7
 [fd]: https://github.com/sharkdp/fd
-[file search]: images/directory.gif
 [fish]: https://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
-[fzf_default_opts]: https://github.com/junegunn/fzf#environment-variables
 [fzf]: https://github.com/junegunn/fzf
-[git log search]: images/git_log.gif
-[git status select]: images/git_status.gif
-[ilancosman/tide]: https://github.com/IlanCosman/tide
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
-[prior art]: https://github.com/PatrickF1/fzf.fish/wiki/Prior-Art
-[releases]: https://github.com/patrickf1/fzf.fish/releases
-[shell variables search]: images/shell_variables.gif
-[troubleshooting]: https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [var scope]: https://fishshell.com/docs/current/#variable-scope
-[wiki]: https://github.com/PatrickF1/fzf.fish/wiki

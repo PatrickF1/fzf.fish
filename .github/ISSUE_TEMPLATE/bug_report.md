@@ -6,6 +6,11 @@ labels: ""
 assignees: ""
 ---
 
+## Before proceeding...
+
+- [ ] My CLIs meet the [minimum version requirements](https://github.com/PatrickF1/fzf.fish#installation)
+- [ ] I have read through the [troubleshooting guide](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting)
+
 ## Describe the bug
 
 ## Steps to Reproduce
@@ -16,15 +21,13 @@ If applicable, add screenshots to help explain the bug.
 
 ## Environment
 
-- [ ] I have made sure my CLIs meet the [minimum version requirements](https://github.com/PatrickF1/fzf.fish#installation)
-
 Versions installed:
 
-- Fish: [e.g. 3.2.2]
+- Fish: [e.g. 3.3.1]
 - fzf.fish: [e.g. 7.0]
 - plugin manager: [e.g. fisher 4.3.0]
 - terminal: [e.g. iTerm]
-- OS: [e.g. macOS 10.15.7]
+- OS: [e.g. macOS 11.4]
 
 ## Additional context
 
