@@ -9,11 +9,6 @@ function _fzf_search_variables --argument-names set_show_output set_names_output
         return 22 # 22 means invalid argument in POSIX
     end
 
-    # Make sure that fzf uses fish to execute _fzf_extract_var_info, which
-    # is an autoloaded fish function so doesn't exist in other shells.
-    # Use --local so that it does not clobber SHELL outside of this function.
-    set --local --export SHELL (command --search fish)
-
     # Exclude the history variable from being piped into fzf because
     # 1. it's not included in $set_names_output
     # 2. it tends to be a very large value => increases computation time

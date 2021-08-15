@@ -1,8 +1,4 @@
 function _fzf_search_directory --description "Search the current directory. Replace the current token with the selected file paths."
-    # Make sure that fzf uses fish to execute _fzf_preview_file.
-    # See similar comment in _fzf_search_variables.fish.
-    set --local --export SHELL (command --search fish)
-
     set fd_opts --color=always $fzf_fd_opts
     set fzf_arguments --multi --ansi $fzf_dir_opts
     set token (commandline --current-token)

@@ -2,10 +2,6 @@ function _fzf_search_git_log --description "Search the output of git log and pre
     if not git rev-parse --git-dir >/dev/null 2>&1
         echo '_fzf_search_git_log: Not in a git repository.' >&2
     else
-        # Make sure that fzf uses fish to execute git show.
-        # See similar comment in _fzf_search_variables.fish.
-        set --local --export SHELL (command --search fish)
-
         # see documentation for git format placeholders at https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem
         # %h gives you the abbreviated commit hash, which is useful for saving screen space, but we will have to expand it later below
         set log_fmt_str '%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
