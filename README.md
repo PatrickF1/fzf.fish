@@ -100,8 +100,6 @@ Once you've found the `fzf_configure_bindings` command that produces the desired
 
 fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
 
-To make fzf's interface friendlier, `fzf.fish` takes the liberty of setting a sane `FZF_DEFAULT_OPTS` if it is not already set. See [conf.d/fzf.fish][] for more details. This affects fzf even outside of this plugin. If you would like to remove this side effect or just want to customize fzf's default options, then set export your own `FZF_DEFAULT_OPTS` variable. For example:
-
 ```fish
 set --export FZF_DEFAULT_OPTS +i --height 50% --no-extended
 ```
@@ -171,7 +169,6 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [bat]: https://github.com/sharkdp/bat
 [build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
-[conf.d/fzf.fish]: conf.d/fzf.fish
 [custom preview command]: functions/_fzf_preview_file.fish#L7
 [fd]: https://github.com/sharkdp/fd
 [fish]: https://fishshell.com
