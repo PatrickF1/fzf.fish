@@ -1,8 +1,4 @@
 function _fzf_search_directory --description "Search the current directory. Replace the current token with the selected file paths."
-    # Make sure that fzf uses fish to execute _fzf_preview_file.
-    # See similar comment in _fzf_search_variables.fish.
-    set --local --export SHELL (command --search fish)
-
     set fd_opts --color=always $fzf_fd_opts
     set fzf_arguments --multi --ansi $fzf_dir_opts
     set token (commandline --current-token)
@@ -17,10 +13,10 @@ function _fzf_search_directory --description "Search the current directory. Repl
         set --append fd_opts --base-directory=$unescaped_exp_token
         # use the directory name as fzf's prompt to indicate the search is limited to that directory
         set --prepend fzf_arguments --prompt="$unescaped_exp_token" --preview="_fzf_preview_file $expanded_token{}"
-        set file_paths_selected $unescaped_exp_token(fd $fd_opts 2>/dev/null | fzf $fzf_arguments)
+        set file_paths_selected $unescaped_exp_token(fd $fd_opts 2>/dev/null | _fzf_wrapper $fzf_arguments)
     else
         set --prepend fzf_arguments --query="$unescaped_exp_token" --preview='_fzf_preview_file {}'
-        set file_paths_selected (fd $fd_opts 2>/dev/null | fzf $fzf_arguments)
+        set file_paths_selected (fd $fd_opts 2>/dev/null | _fzf_wrapper $fzf_arguments)
     end
 
 

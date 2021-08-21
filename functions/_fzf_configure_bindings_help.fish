@@ -21,7 +21,7 @@ DESCRIPTION
     sequences. Rather, consider using fish_key_reader to manually validate them.
 
     In terms of experimentation, fzf_configure_bindings erases any bindings it previously installed
-    before installing new ones so it can be repeatedly invoked in the same fish session without
+    before installing new ones so it can be repeatedly executed in the same fish session without
     problem. Once the desired fzf_configure_bindings command has been found, add it to config.fish
     in order to persist the bindings.
 
