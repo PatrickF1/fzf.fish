@@ -100,7 +100,7 @@ Once you've found the `fzf_configure_bindings` command that produces the desired
 
 fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
 
-By default, `fzf.fish` sets a sane `FZF_DEFAULT_OPTS` before it executes Fzf. However, If you export your own `FZF_DEFAULT_OPTS` variable, then `fzf.fish` will forgo setting it and yours will be used instead. See [functions/_fzf_wrapper.fish][] for more details.
+By default, `fzf.fish` sets a sane `FZF_DEFAULT_OPTS` before it executes Fzf. However, If you export your own `FZF_DEFAULT_OPTS` variable, then `fzf.fish` will forgo setting it and yours will be used instead. See [functions/\_fzf_wrapper.fish](functions/_fzf_wrapper.fish) for more details.
 
 ### Pass fzf options for a specific feature
 
