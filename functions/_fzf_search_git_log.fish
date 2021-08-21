@@ -7,7 +7,7 @@ function _fzf_search_git_log --description "Search the output of git log and pre
         set log_fmt_str '%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
         set selected_log_line (
             git log --color=always --format=format:$log_fmt_str --date=short | \
-            fzf --ansi \
+            _fzf_wrapper --ansi \
                 --tiebreak=index \
                 --preview='git show --color=always {1}' \
                 --query=(commandline --current-token) \

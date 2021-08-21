@@ -22,7 +22,7 @@ function _fzf_search_variables --argument-names set_show_output set_names_output
 
     set variable_names_selected (
         printf '%s\n' $all_variable_names |
-        fzf --preview "_fzf_extract_var_info {} $set_show_output" \
+        _fzf_wrapper --preview "_fzf_extract_var_info {} $set_show_output" \
             --multi \
             --query=$cleaned_curr_token \
             $fzf_shell_vars_opts
