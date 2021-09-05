@@ -33,6 +33,9 @@ function fzf_configure_bindings --description "Installs the default key bindings
             test -n $key_sequences[2] && bind --mode $mode $key_sequences[2] _fzf_search_git_log
             test -n $key_sequences[3] && bind --mode $mode $key_sequences[3] _fzf_search_git_status
             test -n $key_sequences[4] && bind --mode $mode $key_sequences[4] _fzf_search_history
+            # Because of scoping rules, to capture the shell variables exactly as they are, we must read
+            # them before even executing _fzf_search_variables. We use psub to store the
+            # variables' info in temporary files and pass in the filenames as arguments.
             test -n $key_sequences[5] && bind --mode $mode $key_sequences[5] '_fzf_search_variables (set --show | psub) (set --names | psub)'
         end
 
