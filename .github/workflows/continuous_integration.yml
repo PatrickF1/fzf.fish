@@ -28,7 +28,7 @@ jobs:
 
       - name: Run full test suite
         run: |
-          set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
+          set --export _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
           fishtape tests/*/*.fish
         shell: fish {0}
         # timeout in case tests get stuck on fzf
