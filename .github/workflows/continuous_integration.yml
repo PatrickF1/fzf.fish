@@ -27,7 +27,9 @@ jobs:
         run: brew install fzf fd
 
       - name: Run full test suite
-        run: fishtape tests/*/*.fish
+        run: |
+          set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
+          fishtape tests/*/*.fish
         shell: fish {0}
         # timeout in case tests get stuck on fzf
         timeout-minutes: 3
