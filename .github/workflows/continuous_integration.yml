@@ -33,7 +33,7 @@ jobs:
           # Let fishtape run fish in interactive mode
           # See https://github.com/jorgebucaran/fishtape/issues/63
           function fish
-              command fish -i $argv
+            command fish -i $argv
           end
           
           fishtape tests/*/*.fish
