@@ -29,8 +29,15 @@ jobs:
       - name: Run full test suite
         run: |
           set --export _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
+
+          # Let fishtape run fish in interactive mode
+          # See https://github.com/jorgebucaran/fishtape/issues/63
+          function fish
+              command fish -i $argv
+          end
+          
           fishtape tests/*/*.fish
-        shell: fish -i {0}
+        shell: fish {0}
         # timeout in case tests get stuck on fzf
         timeout-minutes: 3
 
