@@ -2,7 +2,7 @@
 # https://gitter.im/fish-shell/fish-shell?at=60a55915ee77a74d685fa6b1
 function fzf_configure_bindings --description "Installs the default key bindings for fzf.fish with user overrides passed as options."
     # no need to install bindings if not in interactive mode or running tests
-    status is-interactive || test "$CI" = true; or return
+    status is-interactive; or return
 
     set options_spec h/help 'directory=?' 'git_log=?' 'git_status=?' 'history=?' 'variables=?'
     argparse --max-args=0 --ignore-unknown $options_spec -- $argv 2>/dev/null
@@ -33,7 +33,7 @@ function fzf_configure_bindings --description "Installs the default key bindings
             test -n $key_sequences[2] && bind --mode $mode $key_sequences[2] _fzf_search_git_log
             test -n $key_sequences[3] && bind --mode $mode $key_sequences[3] _fzf_search_git_status
             test -n $key_sequences[4] && bind --mode $mode $key_sequences[4] _fzf_search_history
-            test -n $key_sequences[5] && bind --mode $mode $key_sequences[5] "$_fzf_search_vars_command"
+            test -n $key_sequences[5] && bind --mode $mode $key_sequences[5] '_fzf_search_variables (set --show | psub) (set --names | psub)'
         end
 
         function _fzf_uninstall_bindings --inherit-variable key_sequences
