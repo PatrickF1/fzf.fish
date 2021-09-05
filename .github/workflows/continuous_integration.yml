@@ -35,7 +35,7 @@ jobs:
           function fish
             command fish -i $argv
           end
-          
+
           fishtape tests/*/*.fish
         shell: fish {0}
         # timeout in case tests get stuck on fzf
