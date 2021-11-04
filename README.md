@@ -74,7 +74,7 @@ First, install a proper version of these CLI dependencies:
 | [fd][]   | 7.5.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
-The search directory feature uses [fd][] and [bat][] to list and preview files. If you don't plan on using search directory, then you don't need to install them.
+The search directory feature uses [fd][] and [bat][] to list and preview files. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-feature-does-not-work) respectively, then you can symlink them to those names.
 
 Next, install this plugin with [Fisher][].
 
@@ -88,13 +88,13 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize key bindings
 
-`fzf.fish` includes a convenient wrapper for configuring its key bindings. It comes with command completions and is thoroughly documented. See
+`fzf.fish` includes an ergonomic wrapper for configuring its key bindings. Read its documentation with this command:
 
 ```fish
 fzf_configure_bindings --help
 ```
 
-Once you've found the `fzf_configure_bindings` command that produces the desired bindings, add it to your `config.fish` in order to persist the bindings.
+Once you've determined the desired `fzf_configure_bindings` command, add it to your `config.fish` in order to persist the bindings.
 
 ### Always pass some options to fzf
 
@@ -128,13 +128,11 @@ They are always appended last to fzf's argument list. Because fzf uses the optio
 
 ### Change the command used to preview files
 
-The search directory feature, by default, uses `bat` to preview the contents of files. `bat` is a well-adopted `cat` replacement with syntax highlighting, line numbers, and more. If you would like to change the preview tool (to `cat` to avoid installing a new dependency, or to add custom logic such as binary or image preview), you may set the `fzf_preview_file_cmd` variable. For example, in your `config.fish`, you may put:
+The search directory feature, by default, uses `bat` to preview the contents of files. `bat` is a well-adopted `cat` replacement with syntax highlighting, line numbers, and more. If you would like to change the preview tool (e.g. to `cat` to avoid installing a new dependency, or to add custom logic such as binary or image preview), you may set the `fzf_preview_file_cmd` variable. For example, in your `config.fish`, you may put:
 
 ```fish
 set fzf_preview_file_cmd cat
 ```
-
-Do not specify a target path in the command, as `fzf.fish` will [prepend the file][custom preview command] to preview to the command itself.
 
 ### Change the command used to preview directories
 
@@ -143,8 +141,6 @@ The search directory feature, by default, uses `ls` to preview the contents of d
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
 ```
-
-As above, do not specify a target path in the command. `fzf.fish` will [prepend the directory][custom preview command] to preview to the command itself.
 
 ### Change the files searched
 
@@ -167,7 +163,6 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [bat]: https://github.com/sharkdp/bat
 [build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
-[custom preview command]: functions/_fzf_preview_file.fish#L7
 [fd]: https://github.com/sharkdp/fd
 [fish]: https://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
