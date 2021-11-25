@@ -11,5 +11,5 @@ function _fzf_extract_var_info --argument-names variable_name set_show_output --
         #   [1]: |value|
         # ...with...
         #   [1] value
-        string replace --regex ": \|(.*)\|" ' \$1'
+        string replace --regex ": \|(.*)\|" ' $1'
 end
