@@ -14,8 +14,6 @@ function _fzf_search_directory --description "Search the current directory. Repl
     # unescape token because it's already quoted so backslashes will mess up the path
     set unescaped_exp_token (string unescape -- $expanded_token)
 
-
-
     # If the current token is a directory and has a trailing slash,
     # then use it as fd's base directory.
     if string match --quiet -- "*/" $unescaped_exp_token && test -d "$unescaped_exp_token"
