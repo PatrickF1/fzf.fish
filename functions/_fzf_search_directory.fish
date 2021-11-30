@@ -1,5 +1,12 @@
 function _fzf_search_directory --description "Search the current directory. Replace the current token with the selected file paths."
     set fd_opts --color=always $fzf_fd_opts
+    if test (fd --version | string replace --regex --all '[^\d]' '') -ge 830
+        # fd 8.3 prepends ./ to all paths when output is being piped
+        # we don't need this so we hide it by passing --strip-cwd-prefix
+        # TODO remove in a few months and only if fd docs document --strip-cwd-prefix
+        set --prepend fd_opts --strip-cwd-prefix
+    end
+    
     set fzf_arguments --multi --ansi $fzf_dir_opts
     set token (commandline --current-token)
     # expand any variables or leading tilde (~) in the token
@@ -7,11 +14,7 @@ function _fzf_search_directory --description "Search the current directory. Repl
     # unescape token because it's already quoted so backslashes will mess up the path
     set unescaped_exp_token (string unescape -- $expanded_token)
 
-    # Hide ./ prefix when fd version >= 8.3.0
-    # https://github.com/sharkdp/fd/releases/tag/v8.3.0
-    if test (fd --version | string replace --regex --all '[^\d]' '') -ge 830
-        set --prepend fd_opts --strip-cwd-prefix
-    end
+
 
     # If the current token is a directory and has a trailing slash,
     # then use it as fd's base directory.
