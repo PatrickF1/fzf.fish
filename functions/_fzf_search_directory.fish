@@ -6,7 +6,7 @@ function _fzf_search_directory --description "Search the current directory. Repl
         # Remove this logic March '22 iff fd docs document --strip-cwd-prefix
         set --prepend fd_opts --strip-cwd-prefix
     end
-    
+
     set fzf_arguments --multi --ansi $fzf_dir_opts
     set token (commandline --current-token)
     # expand any variables or leading tilde (~) in the token
