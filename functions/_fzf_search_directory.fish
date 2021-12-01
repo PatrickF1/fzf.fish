@@ -3,7 +3,7 @@ function _fzf_search_directory --description "Search the current directory. Repl
     if test (fd --version | string replace --regex --all '[^\d]' '') -ge 830
         # fd 8.3 prepends ./ to all paths when output is being piped
         # we don't need this so we hide it by passing --strip-cwd-prefix
-        # TODO remove March '22 and only if fd docs document --strip-cwd-prefix
+        # Remove this logic March '22 iff fd docs document --strip-cwd-prefix
         set --prepend fd_opts --strip-cwd-prefix
     end
     
