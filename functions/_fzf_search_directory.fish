@@ -1,7 +1,7 @@
 function _fzf_search_directory --description "Search the current directory. Replace the current token with the selected file paths."
     set fd_opts --color=always $fzf_fd_opts
     if test (fd --version | string replace --regex --all '[^\d]' '') -ge 830
-        # fd 8.3 prepends ./ to all paths when output is being piped
+        # fd >= 8.3.0 prepends ./ to all paths when output is being piped
         # we don't need this so we hide it by passing --strip-cwd-prefix
         # Remove this logic March '22 iff fd docs document --strip-cwd-prefix
         set --prepend fd_opts --strip-cwd-prefix
