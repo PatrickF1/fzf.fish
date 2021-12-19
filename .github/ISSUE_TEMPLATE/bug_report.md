@@ -10,14 +10,13 @@ assignees: ""
 
 - [ ] My CLIs meet the [minimum version requirements](https://github.com/PatrickF1/fzf.fish#installation)
 - [ ] I have read through the [troubleshooting guide](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting)
+- [ ] If I updated fzf.fish for the first time in over 6 months, I read the [migration guides](https://github.com/PatrickF1/fzf.fish/wiki/Migration-Guides) to make sure I'm caught up.
 
 ## Describe the bug
 
-## Steps to Reproduce
+If applicable, include screenshots here.
 
-## Screenshots
-
-If applicable, add screenshots to help explain the bug.
+## Steps to reproduce
 
 ## Environment
 

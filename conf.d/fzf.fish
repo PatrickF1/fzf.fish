@@ -26,10 +26,3 @@ function _fzf_uninstall --on-event fzf_uninstall
     echo "You may need to manually remove fzf_configure_bindings from your config.fish if you were using custom key bindings."
     set_color normal
 end
-
-function _fzf_migration_message --on-event fzf_update
-    set_color FF8C00 # dark orange
-    printf '\n%s\n' 'If you last updated fzf.fish before 2021-06-11, you need to migrate your key bindings.'
-    printf '%s\n\n' 'Check out https://github.com/PatrickF1/fzf.fish/wiki/Migration-Guides#v7.'
-    set_color normal
-end
