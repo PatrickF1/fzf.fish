@@ -126,21 +126,23 @@ They are always appended last to fzf's argument list. Because fzf uses the optio
 - [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
 - change the search mode
 
-### Change the command used to preview files
+### Change the commands used to preview directories and regular files
 
-The search directory feature, by default, uses `bat` to preview the contents of files. `bat` is a well-adopted `cat` replacement with syntax highlighting, line numbers, and more. If you would like to change the preview tool (e.g. to `cat` to avoid installing a new dependency, or to add custom logic such as binary or image preview), you may set the `fzf_preview_file_cmd` variable. For example, in your `config.fish`, you may put:
+The search directory feature, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452/what-is-a-regular-file-on-unix).
+
+To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set the command in the `fzf_preview_dir_cmd` variable:
+
+```fish
+set fzf_preview_dir_cmd exa --all --color=always
+```
+
+And to change the file preview command (e.g. to `cat` to avoid installing a new dependency, or to add custom logic such as image preview), set the command in the `fzf_preview_file_cmd` variable:
 
 ```fish
 set fzf_preview_file_cmd cat
 ```
 
-### Change the command used to preview directories
-
-The search directory feature, by default, uses `ls` to preview the contents of directories. To integrate with the variety of `ls` replacements available (e.g. exa, lsd, tree), the command used to preview directories is configurable through the `fzf_preview_dir_cmd` variable. Set `fzf_preview_dir_cmd` in your `config.fish`:
-
-```fish
-set fzf_preview_dir_cmd exa --all --color=always
-```
+Omit the target path for both variables as `fzf.fish` will itself [specify the target to preview](functions/_fzf_preview_file.fish#L7).
 
 ### Change the files searched
 
