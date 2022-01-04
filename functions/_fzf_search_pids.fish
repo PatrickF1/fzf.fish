@@ -4,7 +4,12 @@ function _fzf_search_pids --description "Search pid for all running commands"
     # expand any variables or leading tilde (~) in the token
     #set expanded_token (eval echo -- $token)
 
-    set pid_selected (ps -A -opid,command | _fzf_wrapper --query $token | awk '{print $1}')
+    set pid_selected (
+        ps -A -opid,command | \
+        _fzf_wrapper --query $token  \
+                     --preview='ps -f -p {1}' | \
+        awk '{print $1}'
+    )
 
     if test $status -eq 0
         commandline --current-token --replace -- (string escape -- $pid_selected)
