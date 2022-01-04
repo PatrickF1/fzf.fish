@@ -1,5 +1,5 @@
-function _fzf_search_pids --description "Search pid for all running commands"
-    set fzf_arguments --multi --ansi $fzf_pids_opts
+function _fzf_search_processes --description "Search pid for all running commands"
+    set fzf_arguments --multi --ansi $fzf_processes_opts
     set token (commandline --current-token)
     # expand any variables or leading tilde (~) in the token
     #set expanded_token (eval echo -- $token)
