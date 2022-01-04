@@ -7,6 +7,7 @@ function _fzf_search_pids --description "Search pid for all running commands"
     set pid_selected (
         ps -A -opid,command | \
         _fzf_wrapper --query $token  \
+                     --header-lines=1 \
                      --preview='ps -f -p {1}' | \
         awk '{print $1}'
     )
