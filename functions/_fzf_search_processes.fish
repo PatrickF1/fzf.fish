@@ -8,7 +8,7 @@ function _fzf_search_processes --description "Search pid for all running command
         ps -A -opid,command | \
         _fzf_wrapper --query $token  \
                      --header-lines=1 \
-                     --preview='ps -o pid,user,%cpu,time,rss,command -p {1} | awk \'NR>1 {if ($5 > 1048576) {$5=sprintf("%.02fG", $5/1024/1024);} else {$5=sprintf("%.02fM",$5/1024);}}{for(i=1;i<=5;i++){printf("%s|", $i); $i=""}; $0=$0; sub(/ */,""); print; }\' | column -s"|" -t' \
+                     --preview='ps -o pid,user,%cpu,time,rss,command -p {1}' \
                      $fzf_arguments | \
         awk '{print $1}'
     )
