@@ -61,6 +61,12 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 - **Remarks**
   - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
 
+### A process id
+
+- **Search input:** the pid and command of all running processes
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>O</kbd> (`O` for prOcess)
+- **Preview window:** TBD
+
 _The prompt used in the screencasts was created using [IlanCosman/tide](https://github.com/IlanCosman/tide)._
 
 ## Installation
@@ -114,7 +120,6 @@ The following variables can store custom options that will be passed to fzf by t
 | Search command history | `fzf_history_opts`    |
 | Search shell variables | `fzf_shell_vars_opts` |
 | Search process pids    | `fzf_processes_opts`  |
-
 
 They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each feature such as:
 
