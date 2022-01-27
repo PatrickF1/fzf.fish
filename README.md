@@ -63,9 +63,9 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 
 ### A process id
 
-- **Search input:** the pid and command of all running processes
+- **Search input:** the pid and command of all running processes, outputted by `ps`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>O</kbd> (`O` for prOcess)
-- **Preview window:** TBD
+- **Preview window:** the CPU usage, memory usage, start time, and other information about the process
 
 _The prompt used in the screencasts was created using [IlanCosman/tide](https://github.com/IlanCosman/tide)._
 
