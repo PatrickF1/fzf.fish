@@ -6,7 +6,7 @@ function _fzf_search_processes --description "Search all running processes. Repl
         ps -A -opid,command | \
         _fzf_wrapper --query $token \
                      --header-lines=1 \
-                     --preview='ps -o pid,user,%cpu,rss,time,start,command -p {1}' \
+                     --preview='ps -o pid,user,%cpu,%mem,time,start,command -p {1}' \
                      $fzf_arguments
     )
 
