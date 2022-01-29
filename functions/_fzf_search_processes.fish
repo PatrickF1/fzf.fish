@@ -4,14 +4,14 @@ function _fzf_search_processes --description "Search all running processes. Repl
 
     set process_selected (
         ps -A -opid,command | \
-        _fzf_wrapper --query $token  \
+        _fzf_wrapper --query $token \
                      --header-lines=1 \
                      --preview='ps -o pid,user,%cpu,rss,time,start,command -p {1}' \
                      $fzf_arguments
     )
 
     if test $status -eq 0
-        set pid_selected (string split -n " " $process_selected)[1]
+        set pid_selected (string split --no-empty " " $process_selected)[1]
         commandline --current-token --replace -- (string escape -- $pid_selected)
     end
 
