@@ -16,9 +16,9 @@ function _fzf_search_git_log --description "Search the output of git log and pre
         )
         if test $status -eq 0
             for line in $selected_log_lines
-                set abbreviated_commit_hash (string split --max 1 " " $line)[1]
-                set commit_hash (git rev-parse $abbreviated_commit_hash)
-                set commit_hashes $commit_hashes $commit_hash
+                set abbreviated_commit_hash (string split --field 1 " " $line)
+                set full_commit_hash (git rev-parse $abbreviated_commit_hash)
+                set --append commit_hashes $full_commit_hash
             end
             commandline --current-token --replace (string join ' ' $commit_hashes)
         end
