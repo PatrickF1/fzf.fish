@@ -1,10 +1,8 @@
 function _fzf_search_processes --description "Search all running processes. Replace the current token with the pid of the selected process."
-    set token (commandline --current-token)
-
     set processes_selected (
         ps -A -opid,command | \
         _fzf_wrapper --multi \
-                     --query "$token" \
+                     --query (commandline --current-token) \
                      --ansi \
                      --header-lines=1 \
                      --preview='ps -o pid,user,ppid,%cpu,rss,time,start,command -p {1}' \
