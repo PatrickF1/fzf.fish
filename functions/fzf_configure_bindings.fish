@@ -7,7 +7,7 @@ function fzf_configure_bindings --description "Installs the default key bindings
     set options_spec h/help 'directory=?' 'git_log=?' 'git_status=?' 'history=?' 'variables=?' 'processes=?'
     argparse --max-args=0 --ignore-unknown $options_spec -- $argv 2>/dev/null
     if test $status -ne 0
-        echo "Invalid option or a positional argument was provided." 1>&2
+        echo "Invalid option or a positional argument was provided." >&2
         _fzf_configure_bindings_help
         return 22
     else if set --query _flag_help

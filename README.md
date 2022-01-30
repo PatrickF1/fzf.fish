@@ -33,9 +33,8 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 
 - **Search input:** the current repository's `git status`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
-- **Remarks:** <kbd>Tab</kbd> to multi-select
 
-### A commit hash
+### Commit hashes
 
 ![gif git log](images/git_log.gif)
 
@@ -51,17 +50,16 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 - **Preview window:** the entire command with Fish syntax highlighting
 
-### A shell variable
+### Shell variables
 
 ![gif shell variables](images/shell_variables.gif)
 
 - **Search input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- **Remarks**
-  - `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
+- `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
 
-### A process id
+### Process ids
 
 - **Search input:** the pid and command of all running processes, outputted by `ps`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> (`P` for process)
