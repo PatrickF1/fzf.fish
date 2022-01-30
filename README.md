@@ -12,7 +12,7 @@ Augment your [Fish][] command line with mnemonic key bindings to efficiently fin
 
 ## Features
 
-Use `fzf.fish` to interactively find and insert different shell entities into the command line:
+Use `fzf.fish` to interactively find and insert the shell entities listed below into your command line. All searches--except for searching for a command--allow <kbd>Tab</kbd>ing to multi-select. And if you trigger a search while your command line cursor is touching a word, that word will be used to seed the fzf query and will be replaced by your selection. Almost all searches include a preview of the entity hovered over so you can seamlessly determine what you need. Or, you can use the previews as an inspection tool.
 
 ### File paths
 
@@ -25,7 +25,6 @@ Use `fzf.fish` to interactively find and insert different shell entities into th
   - appends `/` if the selection is a directory and the only path selected so you can hit <kbd>ENTER</kbd> to [immediately cd into it][cd docs]
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - ignores files that are also ignored by git
-  - <kbd>Tab</kbd> to multi-select
 
 ### Modified paths
 
