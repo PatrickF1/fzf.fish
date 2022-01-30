@@ -4,6 +4,7 @@ function _fzf_search_processes --description "Search all running processes. Repl
         _fzf_wrapper --multi \
                      --query (commandline --current-token) \
                      --ansi \
+                     # first line outputted by ps is "PID COMMAND", so we need to mark that as the header
                      --header-lines=1 \
                      --preview='ps -o pid,user,ppid,%cpu,rss,time,start,command -p {1}' \
                      $fzf_processes_opts
