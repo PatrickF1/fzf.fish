@@ -1,7 +1,7 @@
 function _fzf_search_processes --description "Search all running processes. Replace the current token with the pid of the selected process."
     # use all caps to be consistent with ps default format
     # snake_case because ps doesn't seem to allow spaces in the field names
-    set ps_preview_fmt (string join ',' 'pid' 'ppid=PARENT_PID' 'user' '%cpu' 'rss=RSS_IN_KB' 'start=START_TIME' 'command')
+    set ps_preview_fmt (string join ',' 'pid' 'ppid=PARENT' 'user' '%cpu' 'rss=RSS_IN_KB' 'start=START_TIME' 'command')
     set processes_selected (
         ps -A -opid,command | \
         _fzf_wrapper --multi \

@@ -60,6 +60,8 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 ### Process ids
 
+![gif processes](images/processes.gif)
+
 - **Search input:** the pid and command of all running processes, outputted by `ps`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> (`P` for process)
 - **Preview window:** the CPU usage, memory usage, start time, and other information about the process
