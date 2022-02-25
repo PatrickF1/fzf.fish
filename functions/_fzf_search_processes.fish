@@ -10,6 +10,7 @@ function _fzf_search_processes --description "Search all running processes. Repl
                      # first line outputted by ps is a header, so we need to mark it as so
                      --header-lines=1 \
                      --preview="ps -o '$ps_preview_fmt' -p {1}" \
+                     --preview-window="bottom:4:wrap" \
                      $fzf_processes_opts
     )
 
