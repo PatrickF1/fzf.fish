@@ -56,7 +56,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 - **Search input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
+- `$history` is excluded for technical reasons so use the [search command history](#a-previously-run-command) feature instead to inspect it
 
 ### Process ids
 
@@ -64,7 +64,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 - **Search input:** the pid and command of all running processes, outputted by `ps`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> (`P` for process)
-- **Preview window:** the CPU usage, memory usage, start time, and other information about the process
+- **Preview window:** the CPU usage, memory usage, start time, and other information about the process (shown in red if exited)
 
 _The prompt used in the screencasts was created using [IlanCosman/tide](https://github.com/IlanCosman/tide)._
 
