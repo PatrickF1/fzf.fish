@@ -9,6 +9,7 @@ function _fzf_search_processes --description "Search all running processes. Repl
                      --ansi \
                      # first line outputted by ps is a header, so we need to mark it as so
                      --header-lines=1 \
+                     # 40 is the length from "PID" to "COMMAND" in the header "PID PARENT USER  %CPU RSS_IN_KB START_TIME COMMAND"
                      --preview="ps -o '$ps_preview_fmt' -p {1} || begin; set_color red; echo {1}(string repeat --count 40 ' '){2..}; end" \
                      --preview-window="bottom:4:wrap" \
                      $fzf_processes_opts
