@@ -76,7 +76,7 @@ First, install a proper version of these CLI dependencies:
 | -------- | ------------------------ | ---------------------------------------------- |
 | [fish][] | 3.2.0                    | a modern shell                                 |
 | [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin           |
-| [fd][]   | 7.5.0                    | faster and more colorful alternative to `find` |
+| [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
 The search directory feature uses [fd][] and [bat][] to list and preview files. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-feature-does-not-work) respectively, then you can symlink them to those names.
