@@ -56,7 +56,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 - **Search input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- `$history` is excluded for technical reasons so use the search command history feature instead to inspect it
+- `$history` is excluded for technical reasons so use the [search command history](#a-previously-run-command) feature instead to inspect it
 
 ### Process ids
 

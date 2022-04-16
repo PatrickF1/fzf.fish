@@ -9,7 +9,8 @@ function _fzf_search_processes --description "Search all running processes. Repl
                      --ansi \
                      # first line outputted by ps is a header, so we need to mark it as so
                      --header-lines=1 \
-                     --preview="ps -o '$ps_preview_fmt' -p {1}" \
+                     # ps uses exit code 1 if the process was not found, in which case show an message explaining so
+                     --preview="ps -o '$ps_preview_fmt' -p {1} || echo 'Cannot preview {1} because it exited.'" \
                      --preview-window="bottom:4:wrap" \
                      $fzf_processes_opts
     )
