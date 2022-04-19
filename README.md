@@ -24,7 +24,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 - **Remarks**
   - appends `/` if the selection is a directory and the only path selected so you can hit <kbd>ENTER</kbd> to [immediately cd into it][cd docs]
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
-  - ignores files that are also ignored by git
+  - [ignores files that are also ignored by git](#fd-gi)
 
 ### Modified paths
 
@@ -157,6 +157,8 @@ To pass custom options to `fd` when it is executed to populate the list of files
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
 ```
+
+<a id='fd-gi'></a>By default, `fd` hides files listed in `.gitignore`. You can disable this behavior by adding the `--no-ignore` flag to `fzf_fd_opts`.
 
 ## Further reading
 
