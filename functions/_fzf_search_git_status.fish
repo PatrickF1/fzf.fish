@@ -8,6 +8,7 @@ function _fzf_search_git_status --description "Search the output of git status. 
             _fzf_wrapper --ansi \
                 --multi \
                 --query=(commandline --current-token) \
+                --preview='string match -r "\?\?.*" {} ; or git diff --color=always (string split " " {})[3]' \
                 $fzf_git_status_opts
         )
         if test $status -eq 0
