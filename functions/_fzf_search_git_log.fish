@@ -10,7 +10,7 @@ function _fzf_search_git_log --description "Search the output of git log and pre
             _fzf_wrapper --ansi \
                 --multi \
                 --tiebreak=index \
-                --preview='git show --color=always {1}' \
+                --preview='git show --oneline --color=always --stat {1}; git show --color=always {1}' \
                 --query=(commandline --current-token) \
                 $fzf_git_log_opts
         )
