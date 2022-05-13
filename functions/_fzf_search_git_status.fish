@@ -9,7 +9,7 @@ function _fzf_search_git_status --description "Search the output of git status. 
                 --multi \
                 --query=(commandline --current-token) \
                 --preview='_fzf_preview_status {}' \
-             $fzf_git_status_opts
+                $fzf_git_status_opts
         )
         if test $status -eq 0
             # git status --short automatically escapes the paths of most files for us so not going to bother trying to handle
