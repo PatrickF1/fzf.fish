@@ -8,8 +8,8 @@ function _fzf_search_git_status --description "Search the output of git status. 
             _fzf_wrapper --ansi \
                 --multi \
                 --query=(commandline --current-token) \
-                --preview='set -l path (string split " " {})[-1]; if not string match -r "\?\?.*" {}; if string match -r "^[NMAD]\s\s\S*" {}; git diff --color=always --cached -- $path; else if string match -r "^\s[NMAD]\s\S*" {}; git diff --color=always -- $path; else if string match -r "^[NMAD][NMAD]\s\S*" {}; git diff --color=always -- $path; git diff --color=always --cached -- $path; end; end' \
-                $fzf_git_status_opts
+                --preview='_fzf_preview_status {}' \
+             $fzf_git_status_opts
         )
         if test $status -eq 0
             # git status --short automatically escapes the paths of most files for us so not going to bother trying to handle
