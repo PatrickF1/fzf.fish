@@ -1,4 +1,4 @@
-function _fzf_preview_status
+function _fzf_preview_changed_file
     set -l path (string split ' ' $argv)[-1]
     if string match -r '^\?\?' $argv >/dev/null
         echo Untracked
