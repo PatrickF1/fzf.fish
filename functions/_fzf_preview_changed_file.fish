@@ -4,10 +4,6 @@ function _fzf_preview_changed_file
         echo Untracked
         echo
         _fzf_preview_file $path
-    else if string match -r '^A\s\s\S' $argv --quiet
-        echo -e (set_color green)New file
-        echo
-        git diff --color=always -- /dev/null $path
     else
         if string match -r '\S\s\S' $argv --quiet
             echo -e (set_color red)Unstaged
@@ -15,7 +11,7 @@ function _fzf_preview_changed_file
             git diff --color=always -- $path
             echo
         end
-        if string match -r '\S\s\s\S|\S\S\s\S' $argv --quiet
+        if string match -r '^\S' $argv --quiet
             echo -e (set_color green)Staged
             echo
             git diff --color=always --cached HEAD -- $path
