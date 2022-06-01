@@ -1,7 +1,11 @@
 # set up mocks needed for all the test cases
 mock commandline \* ""
 mock commandline "--current-token --replace --" "echo \$argv"
-mock fd \* ""
+function fd
+    if test "$argv" = --version
+        echo fd 8.3.2
+    end
+end
 
 mock fzf \* "echo -e conf.d\nfunctions"
 set result (_fzf_search_directory)
