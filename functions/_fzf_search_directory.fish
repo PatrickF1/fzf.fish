@@ -32,7 +32,7 @@ function _fzf_search_directory --description "Search the current directory. Repl
         if test (count $file_paths_selected) = 1
             set commandline_tokens (commandline --tokenize)
             if test "$commandline_tokens" = "$token" -a -d "$file_paths_selected" \
-                -a (fd --version | string replace --regex --all '[^\d]' '') -lt 840
+                    -a (fd --version | string replace --regex --all '[^\d]' '') -lt 840
                 set file_paths_selected $file_paths_selected/
             end
         end
