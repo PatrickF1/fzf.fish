@@ -2,7 +2,7 @@
 mock commandline \* ""
 mock commandline "--current-token --replace --" "echo \$argv"
 function fd
-    if test "$argv" = "--version"
+    if test "$argv" = --version
         echo fd 8.3.2
     end
 end
