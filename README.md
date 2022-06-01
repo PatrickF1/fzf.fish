@@ -22,8 +22,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
-  - appends `/` if the selection is a directory and the only path selected so you can hit <kbd>ENTER</kbd> to [immediately cd into it][cd docs]
-    - always appends `/` to directories when fd version >= [8.4.0](https://github.com/sharkdp/fd/releases/tag/v8.4.0)
+  - appends `/` if the selection is a directory and the only path selected so you can hit <kbd>ENTER</kbd> to [immediately cd into it][cd docs] (when fd version >= [8.4.0](https://github.com/sharkdp/fd/releases/tag/v8.4.0))
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - [ignores files that are also ignored by git](#fd-gi)
 
