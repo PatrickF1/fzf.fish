@@ -32,7 +32,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 - **Search input:** the current repository's `git status`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
-- **Preview window:** the unstaged and staged changes of the file
+- **Preview window:** the unstaged and staged changes in the file
 
 ### Commit hashes
 
