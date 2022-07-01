@@ -1,6 +1,9 @@
 function _fzf_search_history --description "Search command history. Replace the command line with the selected command."
     # history merge incorporates history changes from other fish sessions
-    builtin history merge
+    # skip merging in private mode as it clears current session history
+    if test -n "$fish_provate_mode"
+        builtin history merge
+    end
 
     set command_with_ts (
         # Reference https://devhints.io/strftime to understand strftime format symbols
