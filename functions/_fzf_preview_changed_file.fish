@@ -1,6 +1,8 @@
 # helper for _fzf_search_git_status
-# arg should be a line from git status --short, something like...
+# arg should be a line from git status --short, e.g.
 # MM functions/_fzf_preview_changed_file.fish
+#  D README.md
+# R  LICENSE.md -> LICENSE
 function _fzf_preview_changed_file
     set -l path (string split ' ' $argv)[-1]
     # first letter of short format shows index, second letter shows working tree
@@ -14,7 +16,7 @@ function _fzf_preview_changed_file
     else
         if test $index_status != ' '
             echo -e (set_color --underline green)=== Staged ===\n
-            git diff --color=always --staged -- $path
+            git diff --staged --color=always -- $path
         end
 
         if test $working_tree_status != ' '
