@@ -11,16 +11,16 @@ function _fzf_preview_changed_file
     set -l working_tree_status (string sub --start 2 --length 1 $argv)
 
     if test $index_status = '?'
-        echo -e (set_color --underline)=== Untracked ===\n
+        _fzf_report_diff_type Untracked
         _fzf_preview_file $path
     else
         if test $index_status != ' '
-            echo -e (set_color --underline green)=== Staged ===\n
+            _fzf_report_diff_type Staged
             git diff --staged --color=always -- $path
         end
 
         if test $working_tree_status != ' '
-            echo -e (set_color --underline red)=== Unstaged ===\n
+            _fzf_report_diff_type Unstaged
             git diff --color=always -- $path
         end
     end
