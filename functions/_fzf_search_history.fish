@@ -19,8 +19,11 @@ function _fzf_search_history --description "Search command history. Replace the 
     )
 
     if test $status -eq 0
-        set command_selected (string split --max 1 " │ " $command_with_ts)[2]
-        commandline --replace -- $command_selected
+        set -U commands_selected # empty list to loop over selected commands, in case multiple
+        for c in (string split \n $command_with_ts)
+            set --append commands_selected (string split --max 1 " │ " $c)[2]
+        end
+        commandline --replace -- $commands_selected
     end
 
     commandline --function repaint
