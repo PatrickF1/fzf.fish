@@ -14,14 +14,17 @@ function _fzf_preview_changed_file --description "Show the untracked, staged, an
         _fzf_report_diff_type Untracked
         _fzf_preview_file $path
     else
+        # no-prefix because the file is always being compared to itself so is unecessary
+        set diff_opts --color=always --no-prefix
+
         if test $index_status != ' '
             _fzf_report_diff_type Staged
-            git diff --staged --color=always -- $path
+            git diff --staged $diff_opts -- $path
         end
 
         if test $working_tree_status != ' '
             _fzf_report_diff_type Unstaged
-            git diff --color=always -- $path
+            git diff $diff_opts -- $path
         end
     end
 end
