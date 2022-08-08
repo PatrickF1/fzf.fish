@@ -12,7 +12,7 @@ Augment your [Fish][] command line with mnemonic key bindings to efficiently fin
 
 ## Features
 
-Use `fzf.fish` to interactively find and insert the shell entities listed below into your command line. All searches--except for searching for a command--allow <kbd>Tab</kbd>ing to multi-select. And if you trigger a search while your command line cursor is touching a word, that word will be used to seed the fzf query and will be replaced by your selection. Almost all searches include a preview of the entity hovered over so you can seamlessly determine what you need. Or, you can use the previews as an inspection tool.
+Use `fzf.fish` to interactively find and insert the shell entities listed below into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your command line cursor is touching a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly determine if it's what you're looking for. The previews also make fzf.fish a handy browsing tool.
 
 ### File paths
 

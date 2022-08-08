@@ -5,10 +5,11 @@ function _fzf_search_history --description "Search command history. Replace the 
         builtin history merge
     end
 
-    set command_with_ts (
+    set commands_with_ts (
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S │ " |
         _fzf_wrapper --read0 \
+            --multi \
             --tiebreak=index \
             --query=(commandline) \
             # preview current command using fish_ident in a window at the bottom 3 lines tall
@@ -19,8 +20,13 @@ function _fzf_search_history --description "Search command history. Replace the 
     )
 
     if test $status -eq 0
-        set command_selected (string split --max 1 " │ " $command_with_ts)[2]
-        commandline --replace -- $command_selected
+        set commands_selected
+        set ts_capture_regex '^(\d\d-\d\d \d\d:\d\d:\d\d │ )'
+        # remove timestamps from commands before putting them into command line
+        for c in (string split \n $commands_with_ts)
+            set --append commands_selected (string replace --regex $ts_capture_regex '' $c)
+        end
+        commandline --replace -- $commands_selected
     end
 
     commandline --function repaint
