@@ -5,7 +5,9 @@ function _fzf_search_history --description "Search command history. Replace the 
         builtin history merge
     end
 
-    set commands_with_ts (
+    set ts_regex '^\d\d-\d\d \d\d:\d\d:\d\d │ '
+
+    set commands_selected (
         # Delinate commands using null rather than newlines because commands can be multi-line
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S │ " |
@@ -18,15 +20,12 @@ function _fzf_search_history --description "Search command history. Replace the 
             --preview="echo -- {4..} | fish_indent --ansi" \
             --preview-window="bottom:3:wrap" \
             $fzf_history_opts |
-        string split0
+        string split0 |
+        # remove timestamps from commands before putting them into command line
+        string replace --regex $ts_regex ''
     )
 
     if test $status -eq 0
-        set commands_selected
-        # remove timestamps from commands before putting them into command line
-        for c in $commands_with_ts
-            set --append commands_selected (string split --max 1 " │ " $c)[2]
-        end
         commandline --replace -- $commands_selected
     end
 
