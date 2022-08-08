@@ -5,10 +5,8 @@ function _fzf_search_history --description "Search command history. Replace the 
         builtin history merge
     end
 
-    set ts_regex '^\d\d-\d\d \d\d:\d\d:\d\d │ '
-
+    # Delinate commands throughout pipeline using null rather than newlines because commands can be multi-line
     set commands_selected (
-        # Delinate commands using null rather than newlines because commands can be multi-line
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S │ " |
         _fzf_wrapper --read0 \
@@ -16,13 +14,12 @@ function _fzf_search_history --description "Search command history. Replace the 
             --multi \
             --tiebreak=index \
             --query=(commandline) \
-            # preview current command using fish_ident in a window at the bottom 3 lines tall
             --preview="echo -- {4..} | fish_indent --ansi" \
             --preview-window="bottom:3:wrap" \
             $fzf_history_opts |
         string split0 |
-        # remove timestamps from commands before putting them into command line
-        string replace --regex $ts_regex ''
+        # remove timestamps from commands selected
+        string replace --regex '^\d\d-\d\d \d\d:\d\d:\d\d │ ' ''
     )
 
     if test $status -eq 0
