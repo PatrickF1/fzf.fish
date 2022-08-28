@@ -79,8 +79,9 @@ First, install a proper version of these CLI dependencies:
 | [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin           |
 | [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
+| [rg][]   | (optional)               | faster and more powerful alternative to `grep` |
 
-The search directory feature uses [fd][] and [bat][] to list and preview files. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-feature-does-not-work) respectively, then you can symlink them to those names.
+The search directory feature uses [fd][] and [bat][] to list and preview files, and grep directory uses [rg][]. If your package manager [doesn't install them as `fd`, `bat`, or `rg`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-feature-does-not-work) respectively, then you can symlink them to those names.
 
 Next, install this plugin with [Fisher][].
 
@@ -120,6 +121,7 @@ The following variables can store custom options that will be passed to fzf by t
 | Search command history | `fzf_history_opts`    |
 | Search shell variables | `fzf_shell_vars_opts` |
 | Search processes       | `fzf_processes_opts`  |
+| Grep directory         | `fzf_grep_opts`       |
 
 They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each feature such as:
 
@@ -161,6 +163,16 @@ set fzf_fd_opts --hidden --exclude=.git
 
 <a id='fd-gi'></a>By default, `fd` hides files listed in `.gitignore`. You can disable this behavior by adding the `--no-ignore` flag to `fzf_fd_opts`.
 
+### Change grep behavior
+
+Grep directory uses `rg` to find matching files in the current directory. To pass custom options to `rg` when it is executed, set the `fzf_rg_opts` variable. For example, to use literal strings instead of regexp, put this into your `config.fish:`:
+
+```fish
+set fzf_rg_opts --fixed-strings
+```
+
+<a id='rg-gi'></a>By default, `rg` hides files listed in `.gitignore`. You can disable this behavior by adding the `--no-ignore` flag to `fzf_rg_opts`.
+
 ## Further reading
 
 Find answers to these questions and more in the [project Wiki](https://github.com/PatrickF1/fzf.fish/wiki):
@@ -178,6 +190,7 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [fish]: https://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf]: https://github.com/junegunn/fzf
+[rg]: https://github.com/BurntSushi/ripgrep
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
 [universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [var scope]: https://fishshell.com/docs/current/#variable-scope
