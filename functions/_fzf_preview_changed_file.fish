@@ -18,7 +18,9 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
     if test $index_status = '?'
         _fzf_report_diff_type Untracked
         _fzf_preview_file $path
-    else if contains {$index_status}$working_tree_status AU UD UA DU UU AA
+    else if contains {$index_status}$working_tree_status UD DU UU AA
+        # inferred from # https://stackoverflow.com/questions/22792906/how-do-i-produce-every-possible-git-status
+        # the above 4 statuses are the only possible ones for a merge conflict
         _fzf_report_diff_type Unmerged
         git diff $diff_opts -- $path
     else
