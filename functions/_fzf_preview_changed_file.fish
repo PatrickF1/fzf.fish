@@ -2,7 +2,7 @@
 # arg should be a line from git status --short, e.g.
 # MM functions/_fzf_preview_changed_file.fish
 #  D README.md
-# R  LICENSE.md -> LICENSE
+# R  LICENSE -> "New License"
 function _fzf_preview_changed_file --argument-names path_status --description "Show the git diff of the given file."
     # remove quotes because they'll be interpreted literally by git diff
     # no need to requote when referencing $path because fish does not perform word splitting
