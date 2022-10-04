@@ -12,6 +12,7 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
     # https://git-scm.com/docs/git-status/2.35.0#_output
     set -l index_status (string sub --length 1 $path_status)
     set -l working_tree_status (string sub --start 2 --length 1 $path_status)
+
     # no-prefix because the file is always being compared to itself so is unecessary
     set diff_opts --color=always --no-prefix
 
