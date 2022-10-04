@@ -26,12 +26,11 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
         _fzf_report_diff_type Unmerged
         git diff $diff_opts -- $path
     else
-        if test $index_status = R
-            # path currently has the form of "file -> renamed_file" so we need to perform more logic to get the correct path
-            set path (string split -- ' -> ')[-1]
-        end
-
         if test $index_status != ' '
+            if test $index_status = R
+                # path currently has the form of "file -> renamed_file" so we need to correct $path
+                set path (string split -- ' -> ')[-1]
+            end
             _fzf_report_diff_type Staged
             git diff --staged $diff_opts -- $path
         end
