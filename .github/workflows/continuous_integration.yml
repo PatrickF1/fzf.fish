@@ -23,6 +23,11 @@ jobs:
         with:
           plugins: jorgebucaran/fishtape ilancosman/clownfish $GITHUB_WORKSPACE
 
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        # Homebrew is only missing from ubuntu images per https://github.com/actions/runner-images/issues/6283
+        if: matrix.os == 'ubuntu-latest'
+
       - name: Install fzf and fd
         run: brew install fzf fd
 
