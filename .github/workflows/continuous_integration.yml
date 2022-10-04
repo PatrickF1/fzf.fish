@@ -25,6 +25,7 @@ jobs:
 
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
+        if: matrix.os == 'ubuntu-latest'
 
       - name: Install fzf and fd
         run: brew install fzf fd
