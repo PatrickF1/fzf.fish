@@ -29,7 +29,7 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
         if test $index_status != ' '
             if test $index_status = R
                 # path currently has the form of "file -> renamed_file" so we need to correct it
-                set path (string split -- ' -> ')[-1]
+                set path (string split -- ' -> ' $path)[-1]
             end
             _fzf_report_diff_type Staged
             git diff --staged $diff_opts -- $path
