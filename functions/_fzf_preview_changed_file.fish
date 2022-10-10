@@ -25,19 +25,20 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
         _fzf_report_diff_type Unmerged
         git diff $diff_opts -- $path
     else
-        # renames are only detected in the index, never working tree so only need to test for it in one place
-        # https://stackoverflow.com/questions/73954214/is-it-possible-to-rename-a-file-in-work-tree-without-staging
-        if test $index_status = R
-            # diff the post-rename path with the original path, otherwise the diff will show the entire file as being added
-            set orig_and_new_path (string split -- ' -> ' $path)
+        if test $index_status != ' '
             _fzf_report_diff_type Staged
-            git diff --staged $diff_opts -- $orig_and_new_path[1] $orig_and_new_path[2]
 
-            # path currently has the form of "original -> current", so we need to correct it before it's used below
-            set path $orig_and_new_path[2]
-        else if test $index_status != ' '
-            _fzf_report_diff_type Staged
-            git diff --staged $diff_opts -- $path
+            # renames are only detected in the index, never working tree, so only need to test for it here
+            # https://stackoverflow.com/questions/73954214
+            if test $index_status = R
+                # diff the post-rename path with the original path, otherwise the diff will show the entire file as being added
+                set orig_and_new_path (string split -- ' -> ' $path)
+                git diff --staged $diff_opts -- $orig_and_new_path[1] $orig_and_new_path[2]
+                # path currently has the form of "original -> current", so we need to correct it before it's used below
+                set path $orig_and_new_path[2]
+            else
+                git diff --staged $diff_opts -- $path
+            end
         end
 
         if test $working_tree_status != ' '

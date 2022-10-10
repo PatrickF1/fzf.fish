@@ -135,7 +135,7 @@ They are always appended last to fzf's argument list. Because fzf uses the optio
 
 ### Change the commands used to preview directories and regular files
 
-The search directory feature, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452/what-is-a-regular-file-on-unix).
+The search directory feature, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
 To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set the command in the `fzf_preview_dir_cmd` variable:
 
