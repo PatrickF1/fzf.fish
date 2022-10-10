@@ -1,5 +1,5 @@
-set orig_path "tests/_resources/alphabet 26 lines"
-set renamed_path "tests/_resources/alphabet lines"
+set orig_path "tests/_resources/alphabet 26 lines.txt"
+set renamed_path "tests/_resources/alphabet lines.txt"
 set added_line a-very-unique-line
 git mv $orig_path $renamed_path
 echo $added_line >>$renamed_path
