@@ -8,8 +8,8 @@ function _fzf_parse_git_status_paths --argument-names path_status --description 
     end
 
     set raw_paths (string split --max 1 -- ' -> ')
-    for path in $raw_paths
-        # grab the path without
+    # append the paths without any quotes
+    for path in $raw_paths[-1..1]
         set output --append string match --regex --groups-only '^"?(.*?)"?$'
     end
 end
