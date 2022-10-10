@@ -32,7 +32,7 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
             # https://stackoverflow.com/questions/73954214
             if test $index_status = R
                 # diff the post-rename path with the original path, otherwise the diff will show the entire file as being added
-                set orig_and_new_path (string split -- ' -> ' $path)
+                set orig_and_new_path (string split --max 1 -- ' -> ' $path)
                 git diff --staged $diff_opts -- $orig_and_new_path[1] $orig_and_new_path[2]
                 # path currently has the form of "original -> current", so we need to correct it before it's used below
                 set path $orig_and_new_path[2]
