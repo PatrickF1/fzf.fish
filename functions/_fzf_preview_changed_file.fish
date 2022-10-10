@@ -13,8 +13,7 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
     set -l index_status (string sub --length 1 $path_status)
     set -l working_tree_status (string sub --start 2 --length 1 $path_status)
 
-    # no-prefix because the file is always being compared to itself so is unecessary
-    set diff_opts --color=always --no-prefix
+    set diff_opts --color=always
 
     if test $index_status = '?'
         _fzf_report_diff_type Untracked
@@ -26,14 +25,15 @@ function _fzf_preview_changed_file --argument-names path_status --description "S
         _fzf_report_diff_type Unmerged
         git diff $diff_opts -- $path
     else
+        # renames are only detected in the index, never working tree so only need to test for it in one place
+        # https://stackoverflow.com/questions/73954214/is-it-possible-to-rename-a-file-in-work-tree-without-staging
         if test $index_status = R
-            # to show only modifications to the file post-rename, need to diff it with the old path
+            # diff the post-rename path with the original path, otherwise the diff will show the entire file as being added
             set orig_and_new_path (string split -- ' -> ' $path)
             _fzf_report_diff_type Staged
             git diff --staged $diff_opts -- $orig_and_new_path[1] $orig_and_new_path[2]
 
-            # path currently has the form of '"original path" -> renamed path"', so we need to correct it
-            # before it's used for the working tree diff
+            # path currently has the form of "original -> current", so we need to correct it before it's used below
             set path $orig_and_new_path[2]
         else if test $index_status != ' '
             _fzf_report_diff_type Staged
