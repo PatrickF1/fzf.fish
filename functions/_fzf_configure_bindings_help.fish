@@ -15,9 +15,9 @@ DESCRIPTION
         Search processes   |  Ctrl+Alt+P (P for process)   |  --processes
     Override a feature's binding by setting its corresponding option to the desired key sequence.
     Disable a feature's binding by setting its corresponding option to an empty value. A feature
-    that is not configured retains its default menomonic binding specified above.
-    fzf_configure_bindings will erase all bindings it previously installed before installing
-    new ones so is safe to execute repeatedly in the same fish session. It installs bindings for
+    that is not configured retains its default menomonic binding specified above. Before installing
+    bindings, fzf_configure_bindings will erase any bindings it previously installed so it can be
+    cleanly and safely executed multiple times in the same fish session. It installs bindings for
     both default and insert modes.
 
     In terms of validation, fzf_configure_bindings fails if passed unknown options. Furthermore, it
