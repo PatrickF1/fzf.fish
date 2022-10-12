@@ -131,7 +131,9 @@ They are always appended last to fzf's argument list. Because fzf uses the optio
   - git reset file
 - adjust the preview command or window
 - [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
-- change the search mode
+- change the [search mode](https://github.com/junegunn/fzf#search-syntax)
+
+Find more ideas and implementation tips in the [Cookbook](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook).
 
 ### Change the commands used to preview directories and regular files
 
@@ -179,5 +181,4 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf]: https://github.com/junegunn/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
-[universal variable]: https://fishshell.com/docs/current/#more-on-universal-variables
 [var scope]: https://fishshell.com/docs/current/#variable-scope
