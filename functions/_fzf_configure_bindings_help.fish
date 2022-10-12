@@ -31,13 +31,13 @@ DESCRIPTION
 EXAMPLES
     Install the default mnemonic bindings
         \$ fzf_configure_bindings
-    Install the default bindings but override git log's binding to Ctrl+G
-        \$ fzf_configure_bindings --git_log=\cg
-    Install the default bindings but leave search history unbound
+    Default bindings but override search directory to Ctrl+F and search variables to Ctrl+Alt+V
+        \$ fzf_configure_bindings --directory=\cf --variables=\e\cv
+    Default bindings with search history unbound
         \$ fzf_configure_bindings --history
     Alternative style of disabling search history
         \$ fzf_configure_bindings --history=
-    An agglomeration of all the options
-        \$ fzf_configure_bindings --git_status=\cg --history=\ch --variables --directory --git_log
+    An agglomeration of many options
+        \$ fzf_configure_bindings --git_status=\cg --history=\ch --variables --processes
 "
 end
