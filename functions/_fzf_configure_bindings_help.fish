@@ -5,7 +5,8 @@ USAGE:
 
 DESCRIPTION
     fzf_configure_bindings installs key bindings for fzf.fish's features and erases any bindings it
-    previously installed. It installs bindings for both default and insert modes.
+    previously installed. It installs bindings for both default and insert modes. fzf.fish executes
+    it without options on fish startup to install the out-of-the-box key bindings.
 
     By default, feature are bound to a mnemonic key sequence, shown below. Each feature's binding
     can be configured using a namesake corresponding option:
@@ -29,16 +30,14 @@ DESCRIPTION
     The -h and --help options print this help message.
 
 EXAMPLES
-    Install the default mnemonic bindings
-        \$ fzf_configure_bindings
-    Default bindings but override search directory to Ctrl+F and search variables to Ctrl+Alt+V
+    Default bindings but bind search directory to Ctrl+F and search variables to Ctrl+Alt+V
         \$ fzf_configure_bindings --directory=\cf --variables=\e\cv
     Default bindings but disable search history
         \$ fzf_configure_bindings --history=
     An agglomeration of different options
         \$ fzf_configure_bindings --git_status=\cg --history=\ch --variables= --processes=
 
-SEE MORE
-    To learn more about fish key bindings, see bind and fish_key_reader.
+SEE Also
+    To learn more about fish key bindings, see bind(1) and fish_key_reader(1).
 "
 end
