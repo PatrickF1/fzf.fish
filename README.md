@@ -94,7 +94,7 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize key bindings
 
-`fzf.fish` includes an ergonomic wrapper for configuring its key bindings. Read its documentation with this command:
+`fzf.fish` includes an ergonomic wrapper for configuring its key bindings. Read [its documentation](/functions/_fzf_configure_bindings_help.fish) with this command:
 
 ```fish
 fzf_configure_bindings --help
