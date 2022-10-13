@@ -5,3 +5,4 @@ complete fzf_configure_bindings --long git_log --description "Change the key bin
 complete fzf_configure_bindings --long git_status --description "Change the key binding for searching git status"
 complete fzf_configure_bindings --long history --description "Change the key binding for searching history"
 complete fzf_configure_bindings --long variables --description "Change the key binding for searching variables"
+complete fzf_configure_bindings --long processes --description "Change the key binding for searching processes"
