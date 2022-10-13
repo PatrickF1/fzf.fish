@@ -7,9 +7,8 @@ DESCRIPTION
     fzf_configure_bindings installs key bindings for fzf.fish's features and erases any bindings it
     previously installed. It installs bindings for both default and insert modes.
 
-    On execution, fzf_configure_bindings binds each feature to its default mnemonic key sequence
-    shown below. If a feature's default binding is undesirable, it can be configured using its
-    namesake corresponding option:
+    By default, feature are bound to its mnemonic key sequence, shown below. However, each feature's
+    binding can be configured using its namesake corresponding option:
         FEATURE            |  DEFAULT KEY SEQUENCE         |  CORRESPONDING OPTION
         Search directory   |  Ctrl+Alt+F (F for file)      |  --directory
         Search git log     |  Ctrl+Alt+L (L for log)       |  --git_log
