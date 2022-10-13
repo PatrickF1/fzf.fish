@@ -1,7 +1,7 @@
 function _fzf_configure_bindings_help --description "Prints the help message for fzf_configure_bindings."
     echo "\
 USAGE:
-    fzf_configure_bindings [--FEATURE[=KEY_SEQUENCE]...]
+    fzf_configure_bindings [--FEATURE=[KEY_SEQUENCE]...]
 
 DESCRIPTION
     fzf_configure_bindings installs key bindings for fzf.fish's features and erases any bindings it
@@ -27,7 +27,7 @@ DESCRIPTION
     In terms of validation, fzf_configure_bindings fails if passed unknown options. It expects an
     equals sign between an option's name and value. However, it does not validate key sequences.
 
-    The -h and --help options print this help message.
+    Pass -h or --help to print this help message and exit.
 
 EXAMPLES
     Default bindings but bind search directory to Ctrl+F and search variables to Ctrl+Alt+V
