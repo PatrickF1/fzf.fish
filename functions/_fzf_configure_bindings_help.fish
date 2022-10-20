@@ -11,12 +11,12 @@ DESCRIPTION
     By default, commands are bound to a mnemonic key sequence, shown below. Each command's binding
     can be configured using a namesake corresponding option:
         COMMAND            |  DEFAULT KEY SEQUENCE         |  CORRESPONDING OPTION
-        Search directory   |  Ctrl+Alt+F (F for file)      |  --directory
-        Search git log     |  Ctrl+Alt+L (L for log)       |  --git_log
-        Search git status  |  Ctrl+Alt+S (S for status)    |  --git_status
-        Search history     |  Ctrl+R     (R for reverse)   |  --history
-        Search variables   |  Ctrl+V     (V for variable)  |  --variables
-        Search processes   |  Ctrl+Alt+P (P for process)   |  --processes
+        Search Directory   |  Ctrl+Alt+F (F for file)      |  --directory
+        Search Git Log     |  Ctrl+Alt+L (L for log)       |  --git_log
+        Search Git Status  |  Ctrl+Alt+S (S for status)    |  --git_status
+        Search History     |  Ctrl+R     (R for reverse)   |  --history
+        Search Variables   |  Ctrl+V     (V for variable)  |  --variables
+        Search Processes   |  Ctrl+Alt+P (P for process)   |  --processes
     Override a command's binding by specifying its corresponding option with the desired key
     sequence. Disable a command's binding by specifying its corresponding option with no value.
 
@@ -30,9 +30,9 @@ DESCRIPTION
     Pass -h or --help to print this help message and exit.
 
 EXAMPLES
-    Default bindings but bind search directory to Ctrl+F and search variables to Ctrl+Alt+V
+    Default bindings but bind Search Directory to Ctrl+F and Search Variables to Ctrl+Alt+V
         \$ fzf_configure_bindings --directory=\cf --variables=\e\cv
-    Default bindings but disable search history
+    Default bindings but disable Search History
         \$ fzf_configure_bindings --history=
     An agglomeration of different options
         \$ fzf_configure_bindings --git_status=\cg --history=\ch --variables= --processes=

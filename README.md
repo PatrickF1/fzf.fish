@@ -14,7 +14,7 @@ Augment your [Fish][] command line with mnemonic key bindings to efficiently fin
 
 Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is on a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly decide if it's what you're looking for.
 
-### 📁 Search directory
+### 📁 Search Directory
 
 ![gif directory](../assets/directory.gif)
 
@@ -27,7 +27,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - [ignores files that are also ignored by git](#fd-gi)
 
-### 📝 Search git status
+### 📝 Search Git Status
 
 ![gif git status](../assets/git_status.gif)
 
@@ -36,7 +36,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
 - **Preview window:** the git diff of the file
 
-### 🪵 Search git log
+### 🪵 Search Git Log
 
 ![gif git log](../assets/git_log.gif)
 
@@ -45,7 +45,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
-### 📜 Search command history
+### 📜 Search Command History
 
 ![gif command history](../assets/command_history.gif)
 
@@ -54,7 +54,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 - **Preview window:** the entire command with Fish syntax highlighting
 
-### 🐚 Search shell variables
+### 🐚 Search Shell Variables
 
 ![gif shell variables](../assets/shell_variables.gif)
 
@@ -62,9 +62,9 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Output:** selected variables
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- `$history` is excluded for technical reasons so use [search command history](#previously-run-commands) instead to inspect it
+- `$history` is excluded for technical reasons so use [Search Command History](#previously-run-commands) instead to inspect it
 
-### 🖥️ Search processes
+### 🖥️ Search Processes
 
 ![gif processes](../assets/processes.gif)
 
@@ -84,7 +84,7 @@ First, install a proper version of these CLI dependencies:
 | [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
-[fd][] and [bat][] only need to be installed if you plan on using [search directory](#search-directory). If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
+[fd][] and [bat][] only need to be installed if you plan on using [Search Directory](#search-directory). If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
 
 Next, install this plugin with [Fisher][].
 
@@ -118,12 +118,12 @@ The following variables can store custom options that will be passed to fzf by t
 
 | Command                | Variable              |
 | ---------------------- | --------------------- |
-| Search directory       | `fzf_dir_opts`        |
-| Search git status      | `fzf_git_status_opts` |
-| Search git log         | `fzf_git_log_opts`    |
-| Search command history | `fzf_history_opts`    |
-| Search shell variables | `fzf_shell_vars_opts` |
-| Search processes       | `fzf_processes_opts`  |
+| Search Directory       | `fzf_dir_opts`        |
+| Search Git Status      | `fzf_git_status_opts` |
+| Search Git Log         | `fzf_git_log_opts`    |
+| Search Command History | `fzf_history_opts`    |
+| Search Shell Variables | `fzf_shell_vars_opts` |
+| Search Processes       | `fzf_processes_opts`  |
 
 They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each command such as:
 
@@ -141,7 +141,7 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 
 ### Change the commands used to preview directories and regular files
 
-Search directory, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
+Search Directory, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
 To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set the command in the `fzf_preview_dir_cmd` variable:
 
@@ -159,7 +159,7 @@ Omit the target path for both variables as `fzf.fish` will itself [specify the t
 
 ### Change the files searched
 
-To pass custom options to `fd` when it is executed to populate the list of files for search directory, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+To pass custom options to `fd` when it is executed to populate the list of files for Search Directory, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
