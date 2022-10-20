@@ -45,7 +45,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
-### 📜 Search Command History
+### 📜 Search History
 
 ![gif command history](../assets/command_history.gif)
 
@@ -54,15 +54,15 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 - **Preview window:** the entire command with Fish syntax highlighting
 
-### 🐚 Search Shell Variables
+### 🐚 Search Variables
 
 ![gif shell variables](../assets/shell_variables.gif)
 
 - **Fzf input:** all the shell variables currently [in scope][var scope]
-- **Output:** selected variables
+- **Output:** selected shell variables
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the variable's scope info and values
-- `$history` is excluded for technical reasons so use [Search Command History](#-search-command-history) instead to inspect it
+- `$history` is excluded for technical reasons so use [Search History](#-search-history) instead to inspect it
 
 ### 🖥️ Search Processes
 
@@ -116,14 +116,14 @@ fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.co
 
 The following variables can store custom options that will be passed to fzf by their respective command:
 
-| Command                | Variable              |
-| ---------------------- | --------------------- |
-| Search Directory       | `fzf_dir_opts`        |
-| Search Git Status      | `fzf_git_status_opts` |
-| Search Git Log         | `fzf_git_log_opts`    |
-| Search Command History | `fzf_history_opts`    |
-| Search Shell Variables | `fzf_shell_vars_opts` |
-| Search Processes       | `fzf_processes_opts`  |
+| Command           | Variable              |
+| ----------------- | --------------------- |
+| Search Directory  | `fzf_dir_opts`        |
+| Search Git Status | `fzf_git_status_opts` |
+| Search Git Log    | `fzf_git_log_opts`    |
+| Search History    | `fzf_history_opts`    |
+| Search Variables  | `fzf_shell_vars_opts` |
+| Search Processes  | `fzf_processes_opts`  |
 
 They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
 
