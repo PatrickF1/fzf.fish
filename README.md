@@ -150,10 +150,10 @@ set fzf_preview_dir_cmd exa --all --color=always
 And to change the file preview command (e.g. to `cat` to avoid having to install `bat`, or to add logic for previewing images), set `fzf_preview_file_cmd` to the desired command:
 
 ```fish
-set fzf_preview_file_cmd cat
+set fzf_preview_file_cmd cat -n
 ```
 
-Omit the target path for both variables as `fzf.fish` will itself [specify the target to preview](functions/_fzf_preview_file.fish).
+Omit the target path for both variables as `fzf.fish` will itself [specify the argument to preview](functions/_fzf_preview_file.fish).
 
 ### Change what files are listed in Search Directory
 
