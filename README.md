@@ -110,7 +110,7 @@ Once you've determined the desired `fzf_configure_bindings` command, add it to y
 
 fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
 
-By default, `fzf.fish` will set a sane `FZF_DEFAULT_OPTS` every time before it executes fzf. However, if you export your own `FZF_DEFAULT_OPTS` variable, then `fzf.fish` will forgo setting it and yours will be used instead. See [functions/\_fzf_wrapper.fish](functions/_fzf_wrapper.fish) for more details.
+By default, `fzf.fish` uses [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish). However, if you export your own `FZF_DEFAULT_OPTS` variable, then yours will be used instead.
 
 ### Pass fzf options for a specific command
 
@@ -155,7 +155,7 @@ set fzf_preview_file_cmd cat
 
 Omit the target path for both variables as `fzf.fish` will itself [specify the target to preview](functions/_fzf_preview_file.fish#L7).
 
-### Change the files searched
+### Change what files are listed in Search Directory
 
 To pass custom options to `fd` when it is executed to populate the list of files for [Search Directory][], set them in `fzf_fd_opts`. For example, to include hidden files but not `.git`:
 
