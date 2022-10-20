@@ -15,8 +15,8 @@ DESCRIPTION
         Search Git Log     |  Ctrl+Alt+L (L for log)       |  --git_log
         Search Git Status  |  Ctrl+Alt+S (S for status)    |  --git_status
         Search History     |  Ctrl+R     (R for reverse)   |  --history
-        Search Variables   |  Ctrl+V     (V for variable)  |  --variables
         Search Processes   |  Ctrl+Alt+P (P for process)   |  --processes
+        Search Variables   |  Ctrl+V     (V for variable)  |  --variables
     Override a command's binding by specifying its corresponding option with the desired key
     sequence. Disable a command's binding by specifying its corresponding option with no value.
 

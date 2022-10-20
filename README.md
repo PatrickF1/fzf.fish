@@ -27,15 +27,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - [ignores files that are also ignored by git](#fd-gi)
 
-### 📝 Search Git Status
-
-![gif git status](../assets/git_status.gif)
-
-- **Fzf input:** the current repository's `git status`
-- **Output:** relative paths of selected lines
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
-- **Preview window:** the git diff of the file
-
 ### 🪵 Search Git Log
 
 ![gif git log](../assets/git_log.gif)
@@ -44,6 +35,15 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Output:** hashes of selected commits
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
+
+### 📝 Search Git Status
+
+![gif git status](../assets/git_status.gif)
+
+- **Fzf input:** the current repository's `git status`
+- **Output:** relative paths of selected lines
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
+- **Preview window:** the git diff of the file
 
 ### 📜 Search History
 
@@ -54,16 +54,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 - **Preview window:** the entire command with Fish syntax highlighting
 
-### 🐚 Search Variables
-
-![gif shell variables](../assets/shell_variables.gif)
-
-- **Fzf input:** all the shell variables currently [in scope][var scope]
-- **Output:** selected shell variables
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
-- **Preview window:** the variable's scope info and values
-- `$history` is excluded for technical reasons so use [Search History](#-search-history) instead to inspect it
-
 ### 🖥️ Search Processes
 
 ![gif processes](../assets/processes.gif)
@@ -72,6 +62,16 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Output:** pids of selected processes
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> (`P` for process)
 - **Preview window:** the CPU usage, memory usage, start time, and other information about the process
+
+### 💲 Search Variables
+
+![gif shell variables](../assets/shell_variables.gif)
+
+- **Fzf input:** all the shell variables currently [in scope][var scope]
+- **Output:** selected shell variables
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
+- **Preview window:** the variable's scope info and values
+- `$history` is excluded for technical reasons so use [Search History](#-search-history) instead to inspect it
 
 ## Installation
 
@@ -119,11 +119,11 @@ The following variables can store custom options that will be passed to fzf by t
 | Command           | Variable              |
 | ----------------- | --------------------- |
 | Search Directory  | `fzf_dir_opts`        |
-| Search Git Status | `fzf_git_status_opts` |
 | Search Git Log    | `fzf_git_log_opts`    |
+| Search Git Status | `fzf_git_status_opts` |
 | Search History    | `fzf_history_opts`    |
-| Search Variables  | `fzf_shell_vars_opts` |
 | Search Processes  | `fzf_processes_opts`  |
+| Search Variables  | `fzf_shell_vars_opts` |
 
 They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
 
