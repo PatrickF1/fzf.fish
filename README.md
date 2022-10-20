@@ -62,7 +62,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Output:** selected variables
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- `$history` is excluded for technical reasons so use [Search Command History](#previously-run-commands) instead to inspect it
+- `$history` is excluded for technical reasons so use [Search Command History](#search-command-history) instead to inspect it
 
 ### 🖥️ Search Processes
 
