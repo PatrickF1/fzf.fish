@@ -62,7 +62,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Output:** selected variables
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- `$history` is excluded for technical reasons so use [Search Command History](#search-command-history) instead to inspect it
+- `$history` is excluded for technical reasons so use [Search Command History](#-search-command-history) instead to inspect it
 
 ### 🖥️ Search Processes
 
@@ -84,7 +84,7 @@ First, install a proper version of these CLI dependencies:
 | [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
-[fd][] and [bat][] only need to be installed if you plan on using [Search Directory](#search-directory). If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
+[fd][] and [bat][] only need to be installed if you plan on using [Search Directory][]. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
 
 Next, install this plugin with [Fisher][].
 
@@ -141,7 +141,7 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 
 ### Change the commands used to preview directories and regular files
 
-Search Directory, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
+[Search Directory][], by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
 To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set the command in the `fzf_preview_dir_cmd` variable:
 
@@ -159,7 +159,7 @@ Omit the target path for both variables as `fzf.fish` will itself [specify the t
 
 ### Change the files searched
 
-To pass custom options to `fd` when it is executed to populate the list of files for Search Directory, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+To pass custom options to `fd` when it is executed to populate the list of files for [Search Directory][], set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
@@ -185,4 +185,5 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf]: https://github.com/junegunn/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
+[search directory]: #-search-directory
 [var scope]: https://fishshell.com/docs/current/#variable-scope
