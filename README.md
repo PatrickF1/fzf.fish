@@ -84,7 +84,7 @@ First, install a proper version of these CLI dependencies:
 | [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
-[fd][] and [bat][] only need to be installed if you plan on using [Search Directory][]. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
+[fd][] and [bat][] only need to be installed if you will use [Search Directory][]. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
 
 Next, install this plugin with [Fisher][].
 
@@ -153,7 +153,7 @@ And to change the file preview command (e.g. to `cat` to avoid having to install
 set fzf_preview_file_cmd cat
 ```
 
-Omit the target path for both variables as `fzf.fish` will itself [specify the target to preview](functions/_fzf_preview_file.fish#L7).
+Omit the target path for both variables as `fzf.fish` will itself [specify the target to preview](functions/_fzf_preview_file.fish).
 
 ### Change what files are listed in Search Directory
 
