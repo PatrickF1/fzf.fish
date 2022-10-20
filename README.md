@@ -80,7 +80,7 @@ First, install a proper version of these CLI dependencies:
 | [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
-The search directory feature uses [fd][] and [bat][] to list and preview files. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-feature-does-not-work) respectively, then you can symlink them to those names.
+[fd][] and [bat][] only need to be installed if you plan on using the [search file paths feature](#file-paths). If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-feature-does-not-work) respectively, then you can symlink them to those names.
 
 Next, install this plugin with [Fisher][].
 
