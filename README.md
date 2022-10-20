@@ -10,9 +10,9 @@
 
 Augment your [Fish][] command line with mnemonic key bindings to efficiently find what you need using [fzf][].
 
-## Features
+## Search commands
 
-Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is touching a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly decide if it's what you're looking for.
+Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is on a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly decide if it's what you're looking for.
 
 ### 📁 Search directory
 
@@ -62,9 +62,9 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Output:** selected variables
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- `$history` is excluded for technical reasons so use the [search command history](#previously-run-commands) feature instead to inspect it
+- `$history` is excluded for technical reasons so use [search command history](#previously-run-commands) instead to inspect it
 
-### 🖥️ Search running processes
+### 🖥️ Search processes
 
 ![gif processes](../assets/processes.gif)
 
@@ -84,7 +84,7 @@ First, install a proper version of these CLI dependencies:
 | [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
 
-[fd][] and [bat][] only need to be installed if you plan on using the [search file paths feature](#file-paths). If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-feature-does-not-work) respectively, then you can symlink them to those names.
+[fd][] and [bat][] only need to be installed if you plan on using [search directory](#search-directory). If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
 
 Next, install this plugin with [Fisher][].
 
@@ -112,11 +112,11 @@ fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.c
 
 By default, `fzf.fish` will set a sane `FZF_DEFAULT_OPTS` every time before it executes fzf. However, if you export your own `FZF_DEFAULT_OPTS` variable, then `fzf.fish` will forgo setting it and yours will be used instead. See [functions/\_fzf_wrapper.fish](functions/_fzf_wrapper.fish) for more details.
 
-### Pass fzf options for a specific feature
+### Pass fzf options for a specific command
 
-The following variables can store custom options that will be passed to fzf by their respective feature:
+The following variables can store custom options that will be passed to fzf by their respective command:
 
-| Feature                | Variable              |
+| Command                | Variable              |
 | ---------------------- | --------------------- |
 | Search directory       | `fzf_dir_opts`        |
 | Search git status      | `fzf_git_status_opts` |
@@ -125,7 +125,7 @@ The following variables can store custom options that will be passed to fzf by t
 | Search shell variables | `fzf_shell_vars_opts` |
 | Search processes       | `fzf_processes_opts`  |
 
-They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each feature such as:
+They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each command such as:
 
 - add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
   - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
@@ -141,7 +141,7 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 
 ### Change the commands used to preview directories and regular files
 
-The search directory feature, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
+Search directory, by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
 To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set the command in the `fzf_preview_dir_cmd` variable:
 
@@ -159,7 +159,7 @@ Omit the target path for both variables as `fzf.fish` will itself [specify the t
 
 ### Change the files searched
 
-To pass custom options to `fd` when it is executed to populate the list of files for the search directory feature, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+To pass custom options to `fd` when it is executed to populate the list of files for search directory, set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
@@ -172,8 +172,8 @@ set fzf_fd_opts --hidden --exclude=.git
 Find answers to these questions and more in the [project Wiki](https://github.com/PatrickF1/fzf.fish/wiki):
 
 - How does `fzf.fish` [compare](https://github.com/PatrickF1/fzf.fish/wiki/Prior-Art) to other popular fzf plugins for Fish?
-- Why isn't this [feature working](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting) for me?
-- How can I [customize](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook) this feature?
+- Why isn't this [command working](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting)?
+- How can I [customize](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook) this command?
 - How can I [contribute](https://github.com/PatrickF1/fzf.fish/wiki/Contributing) to this plugin?
 
 [awesome badge]: https://awesome.re/mentioned-badge.svg
