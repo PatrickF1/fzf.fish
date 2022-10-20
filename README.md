@@ -16,7 +16,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 📁 Search Directory
 
-![gif directory](../assets/directory.gif)
+![gif directory](../assets/directory.png)
 
 - **Fzf input:** recursive listing of current directory's non-hidden files
 - **Output:** relative paths of selected files
@@ -29,7 +29,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 🪵 Search Git Log
 
-![gif git log](../assets/git_log.gif)
+![gif git log](../assets/git_log.png)
 
 - **Fzf input:** the current repository's formatted `git log`
 - **Output:** hashes of selected commits
@@ -38,7 +38,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 📝 Search Git Status
 
-![gif git status](../assets/git_status.gif)
+![gif git status](../assets/git_status.png)
 
 - **Fzf input:** the current repository's `git status`
 - **Output:** relative paths of selected lines
@@ -47,7 +47,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 📜 Search History
 
-![gif command history](../assets/command_history.gif)
+![gif command history](../assets/history.png)
 
 - **Fzf input:** Fish's command history
 - **Output:** selected commands
@@ -56,7 +56,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 🖥️ Search Processes
 
-![gif processes](../assets/processes.gif)
+![gif processes](../assets/processes.png)
 
 - **Fzf input:** the pid and command of all running processes, outputted by `ps`
 - **Output:** pids of selected processes
@@ -65,7 +65,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 💲 Search Variables
 
-![gif shell variables](../assets/shell_variables.gif)
+![gif shell variables](../assets/variables.png)
 
 - **Fzf input:** all the shell variables currently [in scope][var scope]
 - **Output:** selected shell variables
