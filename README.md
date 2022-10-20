@@ -125,13 +125,11 @@ The following variables can store custom options that will be passed to fzf by t
 | Search Shell Variables | `fzf_shell_vars_opts` |
 | Search Processes       | `fzf_processes_opts`  |
 
-They are always appended last to fzf's argument list. Because fzf uses the option appearing last when options conflict, your custom options can override hardcoded options. Custom fzf options unlocks a variety of possibilities in customizing and augmenting each command such as:
+They are appended last to fzf's argument list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
 
 - add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
   - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
   - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
-  - [copy to clipboard](https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d)
-  - git checkout commit
   - git reset file
 - adjust the preview command or window
 - [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
@@ -139,7 +137,7 @@ They are always appended last to fzf's argument list. Because fzf uses the optio
 
 Find more ideas and implementation tips in the [Cookbook](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook).
 
-### Change the commands used to preview directories and regular files
+### Change how Search Directory previews directories and regular files
 
 [Search Directory][], by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
