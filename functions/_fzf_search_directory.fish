@@ -24,7 +24,7 @@ function _fzf_search_directory --description "Search the current directory. Repl
 
     if test $status -eq 0
         # Fish will cd implicitly if a directory name ending in a slash is provided.
-        # To help the user leverage this command, we automatically append / to the selected path if
+        # To help the user leverage this feature, we automatically append / to the selected path if
         # - only one path was selected,
         # - the user was in the middle of inputting the first token,
         # - the path is a directory
