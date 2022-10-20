@@ -12,13 +12,13 @@ Augment your [Fish][] command line with mnemonic key bindings to efficiently fin
 
 ## Features
 
-Use `fzf.fish` to interactively find and insert the shell entities listed below into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your command line cursor is touching a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly determine if it's what you're looking for. The previews also make fzf.fish a handy browsing tool.
+Use `fzf.fish` to interactively find and insert the entities listed below into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your command line cursor is touching a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly inspect it. The previews also make `fzf.fish` a handy browsing tool.
 
 ### File paths
 
 ![gif directory](../assets/directory.gif)
 
-- **Search input:** recursive listing of current directory's non-hidden files
+- **Fzf input:** recursive listing of current directory's non-hidden files
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
@@ -30,7 +30,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 ![gif git status](../assets/git_status.gif)
 
-- **Search input:** the current repository's `git status`
+- **Fzf input:** the current repository's `git status`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
 - **Preview window:** the git diff of the file
 
@@ -38,7 +38,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 ![gif git log](../assets/git_log.gif)
 
-- **Search input:** the current repository's formatted `git log`
+- **Fzf input:** the current repository's formatted `git log`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
@@ -46,7 +46,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 ![gif command history](../assets/command_history.gif)
 
-- **Search input:** Fish's command history
+- **Fzf input:** Fish's command history
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 - **Preview window:** the entire command with Fish syntax highlighting
 
@@ -54,7 +54,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 ![gif shell variables](../assets/shell_variables.gif)
 
-- **Search input:** all the variable names of the environment currently [in scope][var scope]
+- **Fzf input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
 - `$history` is excluded for technical reasons so use the [search command history](#previously-run-commands) feature instead to inspect it
@@ -63,11 +63,9 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 
 ![gif processes](../assets/processes.gif)
 
-- **Search input:** the pid and command of all running processes, outputted by `ps`
+- **Fzf input:** the pid and command of all running processes, outputted by `ps`
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> (`P` for process)
 - **Preview window:** the CPU usage, memory usage, start time, and other information about the process
-
-_The prompt used in the screencasts was created using [IlanCosman/tide](https://github.com/IlanCosman/tide)._
 
 ## Installation
 
