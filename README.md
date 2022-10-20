@@ -42,7 +42,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
-### A previously run command
+### Previously run commands
 
 ![gif command history](../assets/command_history.gif)
 
@@ -57,7 +57,7 @@ Use `fzf.fish` to interactively find and insert the shell entities listed below 
 - **Search input:** all the variable names of the environment currently [in scope][var scope]
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
 - **Preview window:** the scope info and values of the variable
-- `$history` is excluded for technical reasons so use the [search command history](#a-previously-run-command) feature instead to inspect it
+- `$history` is excluded for technical reasons so use the [search command history](#previously-run-commands) feature instead to inspect it
 
 ### Process ids
 
