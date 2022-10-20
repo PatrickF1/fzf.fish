@@ -108,9 +108,9 @@ Once you've determined the desired `fzf_configure_bindings` command, add it to y
 
 ### Always pass some options to fzf
 
-fzf supports setting default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If it is set, fzf implicitly prepends it to the options passed to it on every execution, scripted and interactive.
+fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If set, fzf implicitly prepends its value to the options it receives on every execution, scripted and interactive.
 
-By default, `fzf.fish` uses [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish). However, if you export your own `FZF_DEFAULT_OPTS` variable, then yours will be used instead.
+`fzf.fish` locally sets [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish). If you export your own `FZF_DEFAULT_OPTS`, then yours will be used instead.
 
 ### Pass fzf options for a specific command
 
@@ -125,7 +125,7 @@ The following variables can store custom options that will be passed to fzf by t
 | Search Shell Variables | `fzf_shell_vars_opts` |
 | Search Processes       | `fzf_processes_opts`  |
 
-They are appended last to fzf's argument list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
+They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
 
 - add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
   - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
