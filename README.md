@@ -41,7 +41,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 ![gif git log](../assets/git_log.gif)
 
 - **Fzf input:** the current repository's formatted `git log`
-- **Output:** selected commit hashes
+- **Output:** hashes of selected commits
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
@@ -61,7 +61,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Fzf input:** all the shell variables currently [in scope][var scope]
 - **Output:** selected variables
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
-- **Preview window:** the scope info and values of the variable
+- **Preview window:** the variable's scope info and values
 - `$history` is excluded for technical reasons so use [Search Command History](#-search-command-history) instead to inspect it
 
 ### 🖥️ Search Processes
@@ -69,7 +69,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 ![gif processes](../assets/processes.gif)
 
 - **Fzf input:** the pid and command of all running processes, outputted by `ps`
-- **Output:** selected process ids
+- **Output:** pids of selected processes
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> (`P` for process)
 - **Preview window:** the CPU usage, memory usage, start time, and other information about the process
 
@@ -141,13 +141,13 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 
 [Search Directory][], by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
-To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set the command in the `fzf_preview_dir_cmd` variable:
+To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set `fzf_preview_dir_cmd` to the desired command:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
 ```
 
-And to change the file preview command (e.g. to `cat` to avoid installing a new dependency, or to add custom logic such as image preview), set the command in the `fzf_preview_file_cmd` variable:
+And to change the file preview command (e.g. to `cat` to avoid having to install `bat`, or to add logic for previewing images), set `fzf_preview_file_cmd` to the desired command:
 
 ```fish
 set fzf_preview_file_cmd cat
@@ -157,7 +157,7 @@ Omit the target path for both variables as `fzf.fish` will itself [specify the t
 
 ### Change the files searched
 
-To pass custom options to `fd` when it is executed to populate the list of files for [Search Directory][], set the `fzf_fd_opts` variable. For example, to include hidden files but not `.git`, put this in your `config.fish`:
+To pass custom options to `fd` when it is executed to populate the list of files for [Search Directory][], set them in `fzf_fd_opts`. For example, to include hidden files but not `.git`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
