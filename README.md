@@ -10,7 +10,11 @@
 
 Augment your [Fish][] command line with mnemonic key bindings to efficiently find what you need using [fzf][].
 
-![demo.gif](../assets/demo.mp4)
+
+
+https://user-images.githubusercontent.com/1967248/197269229-6bfa8d1a-7acf-44e0-93e8-5245c71da1f1.mp4
+
+
 
 ## Search commands
 
