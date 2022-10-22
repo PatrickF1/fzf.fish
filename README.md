@@ -130,7 +130,7 @@ The following variables can store custom options that will be passed to fzf by t
 They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
 
 - add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
-  - [open file in Vim](https://github.com/junegunn/fzf/issues/1360)
+  - [open file in Vim](https://github.com/PatrickF1/fzf.fish/pull/273)
   - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
   - git reset file
 - adjust the preview command or window
