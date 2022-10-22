@@ -133,10 +133,9 @@ They are appended last to fzf's options list. Because fzf uses the last instance
   - [open file in in your `$EDITOR`](https://github.com/junegunn/fzf/issues/1360):
     ```fish
       # set -gx $EDITOR "nvim" # or "vim", or "code", etc.
-      
+
       # Ctrl-o will open the selected file/directory in your editor of choice.
       set fzf_dir_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
-
     ```
   - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
   - git reset file
