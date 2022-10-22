@@ -10,13 +10,15 @@
 
 Augment your [Fish][] command line with mnemonic key bindings to efficiently find what you need using [fzf][].
 
+https://user-images.githubusercontent.com/1967248/197308919-51d04602-2d5f-46aa-a96e-6cf1617e3067.mov
+
 ## Search commands
 
 Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is on a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly decide if it's what you're looking for.
 
 ### 📁 Search Directory
 
-![gif directory](../assets/directory.gif)
+![Search Directory example](../assets/directory.png)
 
 - **Fzf input:** recursive listing of current directory's non-hidden files
 - **Output:** relative paths of selected files
@@ -29,7 +31,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 🪵 Search Git Log
 
-![gif git log](../assets/git_log.gif)
+![Search Git Log example](../assets/git_log.png)
 
 - **Fzf input:** the current repository's formatted `git log`
 - **Output:** hashes of selected commits
@@ -38,7 +40,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 📝 Search Git Status
 
-![gif git status](../assets/git_status.gif)
+![Search Git Status example](../assets/git_status.png)
 
 - **Fzf input:** the current repository's `git status`
 - **Output:** relative paths of selected lines
@@ -47,7 +49,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 📜 Search History
 
-![gif command history](../assets/command_history.gif)
+![Search History example](../assets/history.png)
 
 - **Fzf input:** Fish's command history
 - **Output:** selected commands
@@ -56,7 +58,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 🖥️ Search Processes
 
-![gif processes](../assets/processes.gif)
+![Search Processes example](../assets/processes.png)
 
 - **Fzf input:** the pid and command of all running processes, outputted by `ps`
 - **Output:** pids of selected processes
@@ -65,7 +67,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 ### 💲 Search Variables
 
-![gif shell variables](../assets/shell_variables.gif)
+![Search Variables example](../assets/variables.png)
 
 - **Fzf input:** all the shell variables currently [in scope][var scope]
 - **Output:** selected shell variables
