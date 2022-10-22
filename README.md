@@ -12,7 +12,10 @@ Augment your [Fish][] command line with mnemonic key bindings to efficiently fin
 
 
 
-https://user-images.githubusercontent.com/1967248/197269229-6bfa8d1a-7acf-44e0-93e8-5245c71da1f1.mp4
+
+
+https://user-images.githubusercontent.com/1967248/197308696-2feddbc9-79a4-492c-a12e-99236dba0194.mov
+
 
 
 
