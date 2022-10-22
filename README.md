@@ -11,11 +11,7 @@
 Augment your [Fish][] command line with mnemonic key bindings to efficiently find what you need using [fzf][].
 
 
-
-
-
-https://user-images.githubusercontent.com/1967248/197308696-2feddbc9-79a4-492c-a12e-99236dba0194.mov
-
+https://user-images.githubusercontent.com/1967248/197308919-51d04602-2d5f-46aa-a96e-6cf1617e3067.mov
 
 
 
