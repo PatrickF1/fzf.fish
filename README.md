@@ -120,12 +120,12 @@ The following variables can store custom options that will be passed to fzf by t
 
 | Command           | Variable              |
 | ----------------- | --------------------- |
-| Search Directory  | `fzf_dir_opts`        |
+| Search Directory  | `fzf_directory_opts`  |
 | Search Git Log    | `fzf_git_log_opts`    |
 | Search Git Status | `fzf_git_status_opts` |
 | Search History    | `fzf_history_opts`    |
 | Search Processes  | `fzf_processes_opts`  |
-| Search Variables  | `fzf_shell_vars_opts` |
+| Search Variables  | `fzf_variables_opts`  |
 
 They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
 
