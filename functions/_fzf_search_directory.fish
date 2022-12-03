@@ -15,10 +15,10 @@ function _fzf_search_directory --description "Search the current directory. Repl
     if string match --quiet -- "*/" $unescaped_exp_token && test -d "$unescaped_exp_token"
         set --append fd_opts --base-directory=$unescaped_exp_token
         # use the directory name as fzf's prompt to indicate the search is limited to that directory
-        set --prepend fzf_arguments --prompt="$unescaped_exp_token" --preview="_fzf_preview_file $expanded_token{}"
+        set --prepend fzf_arguments --prompt="Search Directory $unescaped_exp_token> " --preview="_fzf_preview_file $expanded_token{}"
         set file_paths_selected $unescaped_exp_token(fd $fd_opts 2>/dev/null | _fzf_wrapper $fzf_arguments)
     else
-        set --prepend fzf_arguments --query="$unescaped_exp_token" --preview='_fzf_preview_file {}'
+        set --prepend fzf_arguments --prompt="Search Directory> " --query="$unescaped_exp_token" --preview='_fzf_preview_file {}'
         set file_paths_selected (fd $fd_opts 2>/dev/null | _fzf_wrapper $fzf_arguments)
     end
 
