@@ -178,7 +178,7 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 
 [awesome badge]: https://awesome.re/mentioned-badge.svg
 [bat]: https://github.com/sharkdp/bat
-[build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
+[build status badge]: https://img.shields.io/github/actions/workflow/status/PatrickF1/fzf.fish/continuous_integration.yml?branch=main
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [fd]: https://github.com/sharkdp/fd
 [fish]: https://fishshell.com
