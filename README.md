@@ -114,6 +114,12 @@ fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.co
 
 `fzf.fish` locally sets [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish). If you export your own `FZF_DEFAULT_OPTS`, then yours will be used instead.
 
+### Customize FZF colors
+
+To customize FZF colors, use `fzf_fish_colors` environment variable. If you do not set your own `FZF_DEFAULT_OPTS`, `fzf.fish` will set `$fzf_fish_colors` colors as FZF's colors. For example, `set -x fzf_fish_colors 'fg+:#665c54,bg+:#f2e5bc'`.
+
+[Fzf-color-picker](https://minsw.github.io/fzf-color-picker/) can help you pick color overrides you want.
+
 ### Pass fzf options for a specific command
 
 The following variables can store custom options that will be passed to fzf by their respective command:

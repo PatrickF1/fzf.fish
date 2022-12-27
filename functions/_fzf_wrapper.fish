@@ -14,6 +14,9 @@ function _fzf_wrapper --description "Prepares some environment variables before 
         # preview-window=wrap wraps long lines in the preview window, making reading easier
         # marker=* makes the multi-select marker more distinguishable from the pointer (since both default to >)
         set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
+        if set --query fzf_fish_colors
+            set --export FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS" --color=$fzf_fish_colors"
+        end
     end
 
     fzf $argv
