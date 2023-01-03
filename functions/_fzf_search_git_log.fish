@@ -4,9 +4,9 @@ function _fzf_search_git_log --description "Search the output of git log and pre
     else
         # see documentation for git format placeholders at https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem
         # %h gives you the abbreviated commit hash, which is useful for saving screen space, but we will have to expand it later below
-        set log_fmt_str '%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
+        set log_fmt_str '%C(bold blue)%h%C(reset) - [%G?] - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
         set selected_log_lines (
-            git log --color=always --format=format:$log_fmt_str --date=short | \
+            git log --no-show-signature --color=always --format=format:$log_fmt_str --date=short | \
             _fzf_wrapper --ansi \
                 --multi \
                 --tiebreak=index \
