@@ -88,7 +88,9 @@ First, install a proper version of these CLI dependencies:
 
 [fd][] and [bat][] only need to be installed if you will use [Search Directory][]. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
 
-Next, install this plugin with [Fisher][].
+Next, because `fzf.fish` is incompatible with other fzf plugins, [check for and remove these two common alternatives](https://github.com/PatrickF1/fzf.fish/wiki/Uninstalling-other-fzf-plugins).
+
+Finally, install this plugin with [Fisher][].
 
 > `fzf.fish` can be installed manually or with other plugin managers but only Fisher is officially supported.
 
