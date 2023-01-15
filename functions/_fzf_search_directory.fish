@@ -1,5 +1,6 @@
 function _fzf_search_directory --description "Search the current directory. Replace the current token with the selected file paths."
-    # On Ubuntu and other Debian-based Linux distributions, fd binary is installed as fdfind.
+    # Directly use fd binary to avoid output buffering delay caused by a fd alias, if any.
+    # Debian-based distros install fd as fdfind so also check for that. Fall back to "fd" for a clear error message.
     set fd_cmd (command -v fd || command -v fdfind || echo "fd")
     set --append fd_cmd --color=always $fzf_fd_opts
 
