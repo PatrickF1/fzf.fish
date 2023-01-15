@@ -14,7 +14,7 @@ https://user-images.githubusercontent.com/1967248/197308919-51d04602-2d5f-46aa-a
 
 ## Search commands
 
-Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is on a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over so you can seamlessly decide if it's what you're looking for.
+Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is on a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over to help you find what you're looking for.
 
 ### 📁 Search Directory
 
@@ -25,7 +25,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
-  - appends `/` to directories selected so you can hit <kbd>ENTER</kbd> to [immediately cd into it][cd docs] if it is the only token on the command line
+  - directories are inserted with a trailing `/`, so if you select exactly one directory, you can immediately hit <kbd>ENTER</kbd> to [cd into it][cd docs]
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - [ignores files that are also ignored by git](#fd-gi)
 
@@ -79,16 +79,18 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 First, install a proper version of these CLI dependencies:
 
-| CLI      | Minimum version required | Description                                    |
-| -------- | ------------------------ | ---------------------------------------------- |
-| [fish][] | 3.2.0                    | a modern shell                                 |
-| [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin           |
-| [fd][]   | 8.3.0                    | faster and more colorful alternative to `find` |
-| [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
+| CLI      | Minimum version required | Description                             |
+| -------- | ------------------------ | --------------------------------------- |
+| [fish][] | 3.2.0                    | a modern shell                          |
+| [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin    |
+| [fd][]   | 8.5.0                    | faster, colorized alternative to `find` |
+| [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting  |
 
 [fd][] and [bat][] only need to be installed if you will use [Search Directory][]. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
 
-Next, install this plugin with [Fisher][].
+Next, because `fzf.fish` is incompatible with other fzf plugins, [check for and remove these two common alternatives](https://github.com/PatrickF1/fzf.fish/wiki/Uninstalling-other-fzf-plugins).
+
+Finally, install this plugin with [Fisher][].
 
 > `fzf.fish` can be installed manually or with other plugin managers but only Fisher is officially supported.
 
@@ -178,7 +180,7 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 
 [awesome badge]: https://awesome.re/mentioned-badge.svg
 [bat]: https://github.com/sharkdp/bat
-[build status badge]: https://img.shields.io/github/workflow/status/patrickf1/fzf.fish/CI
+[build status badge]: https://img.shields.io/github/actions/workflow/status/PatrickF1/fzf.fish/continuous_integration.yml?branch=main
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [fd]: https://github.com/sharkdp/fd
 [fish]: https://fishshell.com
