@@ -1,6 +1,6 @@
 function _fzf_search_directory --description "Search the current directory. Replace the current token with the selected file paths."
     # On Ubuntu and other Debian-based Linux distributions, fd binary is installed as fdfind.
-    set fd_cmd (command -v fd || command -v fdfind)
+    set fd_cmd (command -v fd || command -v fdfind || echo "fd")
     set --append fd_cmd --color=always $fzf_fd_opts
 
     # $fzf_dir_opts is the deprecated version of $fzf_directory_opts
