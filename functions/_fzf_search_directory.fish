@@ -1,6 +1,5 @@
 function _fzf_search_directory --description "Search the current directory. Replace the current token with the selected file paths."
-    # --string-cwd-prefix prevents fd >= 8.3.0 from prepending ./ to relative paths
-    set fd_opts --color=always --strip-cwd-prefix $fzf_fd_opts
+    set fd_opts --color=always $fzf_fd_opts
 
     # $fzf_dir_opts is the deprecated version of $fzf_directory_opts
     set fzf_arguments --multi --ansi $fzf_dir_opts $fzf_directory_opts
