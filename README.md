@@ -25,7 +25,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
-  - directories are inserted with a trailing `/`, so if you selected exactly one directory, you can immediately hit <kbd>ENTER</kbd> to [cd into it][cd docs]
+  - directories are inserted with a trailing `/`, so if you select exactly one directory, you can immediately hit <kbd>ENTER</kbd> to [cd into it][cd docs]
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - [ignores files that are also ignored by git](#fd-gi)
 
@@ -79,12 +79,12 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 
 First, install a proper version of these CLI dependencies:
 
-| CLI      | Minimum version required | Description                                    |
-| -------- | ------------------------ | ---------------------------------------------- |
-| [fish][] | 3.2.0                    | a modern shell                                 |
-| [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin           |
-| [fd][]   | 8.5.0                    | faster and more colorful alternative to `find` |
-| [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting         |
+| CLI      | Minimum version required | Description                             |
+| -------- | ------------------------ | --------------------------------------- |
+| [fish][] | 3.2.0                    | a modern shell                          |
+| [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin    |
+| [fd][]   | 8.5.0                    | faster, colorized alternative to `find` |
+| [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting  |
 
 [fd][] and [bat][] only need to be installed if you will use [Search Directory][]. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
 
