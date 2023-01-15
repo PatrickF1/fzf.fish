@@ -25,7 +25,7 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
 - **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
-  - directories are inserted with a trailing `/` so you can hit <kbd>ENTER</kbd> to [immediately cd into it][cd docs] if it is the only token on the command line
+  - directories are inserted with a trailing `/`, so if you selected exactly one directory, you can immediately hit <kbd>ENTER</kbd> to [cd into it][cd docs]
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
   - [ignores files that are also ignored by git](#fd-gi)
 
