@@ -14,7 +14,7 @@ function _fzf_search_directory --description "Search the current directory. Repl
     # If the current token is a directory and has a trailing slash,
     # then use it as fd's base directory.
     if string match --quiet -- "*/" $unescaped_exp_token && test -d "$unescaped_exp_token"
-        set --append fd_opts --base-directory=$unescaped_exp_token
+        set --append fd_cmd --base-directory=$unescaped_exp_token
         # use the directory name as fzf's prompt to indicate the search is limited to that directory
         set --prepend fzf_arguments --prompt="Search Directory $unescaped_exp_token> " --preview="_fzf_preview_file $expanded_token{}"
         set file_paths_selected $unescaped_exp_token($fd_cmd 2>/dev/null | _fzf_wrapper $fzf_arguments)
