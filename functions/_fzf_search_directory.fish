@@ -23,20 +23,6 @@ function _fzf_search_directory --description "Search the current directory. Repl
 
 
     if test $status -eq 0
-        # Fish will cd implicitly if a directory name ending in a slash is provided.
-        # To help the user leverage this feature, we automatically append / to the selected path if
-        # - only one path was selected,
-        # - the user was in the middle of inputting the first token,
-        # - the path is a directory
-        # Then, the user only needs to hit Enter once more to cd into that directory.
-        if test (count $file_paths_selected) = 1
-            set commandline_tokens (commandline --tokenize)
-            if test "$commandline_tokens" = "$token" -a -d "$file_paths_selected" \
-                    -a (fd --version | string replace --regex --all '[^\d]' '') -lt 840
-                set file_paths_selected $file_paths_selected/
-            end
-        end
-
         commandline --current-token --replace -- (string escape -- $file_paths_selected | string join ' ')
     end
 
