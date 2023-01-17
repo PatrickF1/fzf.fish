@@ -10,6 +10,7 @@ function _fzf_search_git_status --description "Search the output of git status. 
                 --prompt="Search Git Status> " \
                 --query=(commandline --current-token) \
                 --preview='_fzf_preview_changed_file {}' \
+                --nth="2.." \
                 $fzf_git_status_opts
         )
         if test $status -eq 0
