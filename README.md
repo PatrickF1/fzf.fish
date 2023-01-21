@@ -86,7 +86,7 @@ First, install a proper version of these CLI dependencies:
 | [fd][]   | 8.5.0                    | faster, colorized alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting  |
 
-[fd][] and [bat][] only need to be installed if you will use [Search Directory][]. If your package manager [doesn't install them as `fd` and `bat`](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting#search-directory-does-not-work) respectively, then you can symlink them to those names.
+[fd][] and [bat][] only need to be installed if you will use [Search Directory][].
 
 Next, because `fzf.fish` is incompatible with other fzf plugins, [check for and remove these two common alternatives](https://github.com/PatrickF1/fzf.fish/wiki/Uninstalling-other-fzf-plugins).
 
