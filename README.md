@@ -145,13 +145,13 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 
 [Search Directory][], by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
-To change the directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set `fzf_preview_dir_cmd` to the desired command:
+To use your own directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set it in `fzf_preview_dir_cmd`:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
 ```
 
-And to change the file preview command (e.g. to `cat` to avoid having to install `bat`, or to add logic for previewing images), set `fzf_preview_file_cmd` to the desired command:
+And to use your own file preview command (e.g. to `cat` to avoid having to install `bat`, or to add logic for previewing images), set it in `fzf_preview_file_cmd`:
 
 ```fish
 set fzf_preview_file_cmd cat -n
@@ -161,13 +161,23 @@ Omit the target path for both variables as `fzf.fish` will itself [specify the a
 
 ### Change what files are listed in Search Directory
 
-To pass custom options to `fd` when it is executed to populate the list of files for [Search Directory][], set them in `fzf_fd_opts`. For example, to include hidden files but not `.git`:
+To pass custom options to `fd` when it is executed to populate the list of files for [Search Directory][], set them in `fzf_fd_opts`. For example, this includes hidden files but not `.git`:
 
 ```fish
 set fzf_fd_opts --hidden --exclude=.git
 ```
 
 <a id='fd-gi'></a>By default, `fd` hides files listed in `.gitignore`. You can disable this behavior by adding the `--no-ignore` flag to `fzf_fd_opts`.
+
+### Change the commit formatting used by Search Git Log
+
+[Search Git Log][] calls `git log --format` to format the list of commits. To use your own [commit log format](https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem), set it in `fzf_git_log_format`. For example, this shows the hash and subject for each commit:
+
+```fish
+set fzf_git_log_format "%H %s"
+```
+
+The format must be one line per commit and the hash must be the first field, or else Search Git Log will fail to determine which commits you selected.
 
 ## Further reading
 
@@ -188,4 +198,5 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [fzf]: https://github.com/junegunn/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
 [search directory]: #-search-directory
+[search git log]: #-search-git-log
 [var scope]: https://fishshell.com/docs/current/#variable-scope
