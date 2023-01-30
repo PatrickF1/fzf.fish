@@ -17,6 +17,7 @@ DESCRIPTION
         Search History     |  Ctrl+R     (R for reverse)   |  --history
         Search Processes   |  Ctrl+Alt+P (P for process)   |  --processes
         Search Variables   |  Ctrl+V     (V for variable)  |  --variables
+        Search Units       |  Ctrl+Alt+U (U for units)     |  --units
     Override a command's binding by specifying its corresponding option with the desired key
     sequence. Disable a command's binding by specifying its corresponding option with no value.
 
