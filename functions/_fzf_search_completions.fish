@@ -4,7 +4,7 @@
 # - fish cannot give reliable context information on completions. Knowing whether a completion
 #   is a file or argument can only be determined via a heuristic.
 set --global _fzf_complete_min_description_offset 14
-function _fzf_complete --description "Shell completion using fzf"
+function _fzf_search_completions --description "Shell completion using fzf"
 	# Produce a list of completions from which to choose
 	# and do nothing if there is nothing to select from
 	set -l cmd (commandline -co) (commandline -t)
