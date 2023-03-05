@@ -3,7 +3,10 @@
 #   (It thinks that it has to complete from / because `a_folder=/` looks like an argument to fish.
 # - fish cannot give reliable context information on completions. Knowing whether a completion
 #   is a file or argument can only be determined via a heuristic.
-set --global _fzf_complete_min_description_offset 14
+# - Completion is slow. Not because this script is slow but because fish's `complete` command
+#   can take several seconds even for just 100 entries. Just run `time complete --escape --do-complete l`
+#   to see for yourself.
+set --global _fzf_search_completions_min_description_offset 14
 function _fzf_search_completions --description "Shell completion using fzf"
 	# Produce a list of completions from which to choose
 	# and do nothing if there is nothing to select from
@@ -12,7 +15,7 @@ function _fzf_search_completions --description "Shell completion using fzf"
 	test (count $completions) -eq 0; and return
 
 	set -l results
-	set -l first_completion (printf "%s" $completions[1] | cut -f1 --zero-terminated | string split0)
+	set -l first_completion (string split --fields 1 --max 1 --right \t -- $completions[1])
 
 	# A prefix that will be prepended before each selected completion
 	set -l each_prefix ""
@@ -22,15 +25,20 @@ function _fzf_search_completions --description "Shell completion using fzf"
 	# want to review first (e.g. man ima<TAB> might match `feh`, an image viewer)
 	if test (count $completions) -eq 1; and test (string sub -l (string length -- (commandline -ct)) -- $first_completion) = (commandline -ct)
 		# If there is only one option then we don't need fzf
-		# Everytime we need to cut, we need zero termination to
-		# avoid newlines from being interpreted later.
 		set results $first_completion
 	else
-		# We preprocess the whole list to prevent spawning a slow cut process for each completion.
-		# From here on, make sure to use -- and zero termination everywhere to prevent introducing
+		# Preprocess the whole list and extract the actual completion any the corresponding description (if any)
+		# From here on, make sure to use -- (argument list end) and zero termination everywhere to prevent introducing
 		# new edge-cases where characters are interpreted wrongly
-		set -l actual_completions (string join0 -- $completions | cut -f1 --zero-terminated | string split0)
-		set -l descriptions (string join0 -- $completions | cut -f2- --zero-terminated | string split0)
+		set -l actual_completions
+		set -l descriptions
+		for i in (seq (count $completions))
+			# split on \t from the right, at most one time and use the first (left) field.
+			# This is the actual completion
+			set actual_completions[$i] (string split --fields 1 --max 1 --right \t -- $completions[$i])
+			# The other field is the description, if it exists (otherwise set empty).
+			set descriptions[$i] (string split --fields 2 --max 1 --right \t -- $completions[$i] ; or echo "")
+		end
 
 		# Find the common prefix of all completions. Yes this seems to be a hard
 		# thing to do in fish if it should be fast. No external process may be
@@ -77,7 +85,7 @@ function _fzf_search_completions --description "Shell completion using fzf"
 
 		# Detect whether descriptions are present and the length of each completion.
 		set -l has_descriptions false
-		set -l longest_completion $_fzf_complete_min_description_offset
+		set -l longest_completion $_fzf_search_completions_min_description_offset
 		for i in (seq (count $completions))
 			if string match --quiet -- "*"\t"*" $completions[$i]
 				set has_descriptions true
@@ -112,7 +120,6 @@ function _fzf_search_completions --description "Shell completion using fzf"
 				--print-query \
 				$fzf_complete_description_opts \
 				$fzf_complete_opts \
-			| cut -f1 --zero-terminated \
 			| string split0)
 
 		switch $pipestatus[2]
@@ -127,6 +134,11 @@ function _fzf_search_completions --description "Shell completion using fzf"
 				# Fzf failed, do nothing.
 				commandline -f repaint
 				return
+		end
+
+		# Strip anything after last \t (the descriptions)
+		for i in (seq (count $results))
+			set results[$i] (string split --fields 1 --max 1 --right \t -- $results[$i])
 		end
 	end
 
@@ -164,7 +176,6 @@ function _fzf_search_completions --description "Shell completion using fzf"
 	# If each_prefix is set, we need to apply it to each result
 	# before replacing the token
 	if test -n $each_prefix
-		echo $each_prefix
 		set -l new_tokens
 		for r in $results
 			set -a new_tokens $each_prefix$r
