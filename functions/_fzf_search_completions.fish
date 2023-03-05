@@ -35,9 +35,9 @@ function _fzf_search_completions --description "Shell completion using fzf"
 		for i in (seq (count $completions))
 			# split on \t from the right, at most one time and use the first (left) field.
 			# This is the actual completion
-			set actual_completions[$i] (string split --fields 1 --max 1 --right \t -- $completions[$i])
+			set --append actual_completions (string split --fields 1 --max 1 --right \t -- $completions[$i])
 			# The other field is the description, if it exists (otherwise set empty).
-			set descriptions[$i] (string split --fields 2 --max 1 --right \t -- $completions[$i] ; or echo "")
+			set --append descriptions (string split --fields 2 --max 1 --right \t -- $completions[$i] ; or echo "")
 		end
 
 		# Find the common prefix of all completions. Yes this seems to be a hard
