@@ -10,7 +10,7 @@ set --global _fzf_search_completions_min_description_offset 14
 function _fzf_search_completions --description "Shell completion using fzf"
 	# Produce a list of completions from which to choose
 	# and do nothing if there is nothing to select from
-	set -l cmd (commandline -co) (commandline -t)
+	set -l cmd (commandline --cut-at-cursor --tokenize) (commandline --current-token)
 	set -l completions (complete --escape --do-complete "$cmd")
 	test (count $completions) -eq 0; and return
 
