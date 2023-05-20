@@ -6,7 +6,7 @@ function _fzf_search_history --description "Search command history. Replace the 
     end
 
     # Delinate commands throughout pipeline using null rather than newlines because commands can be multi-line
-    set commands_selected (
+    set -f commands_selected (
         # Reference https://devhints.io/strftime to understand strftime format symbols
         builtin history --null --show-time="%m-%d %H:%M:%S │ " |
         _fzf_wrapper --read0 \

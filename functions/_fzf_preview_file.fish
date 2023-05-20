@@ -2,7 +2,7 @@
 function _fzf_preview_file --description "Print a preview for the given file based on its file type."
     # because there's no way to guarantee that _fzf_search_directory passes the path to _fzf_preview_file
     # as one argument, we collect all the arguments into one single variable and treat that as the path
-    set file_path $argv
+    set -f file_path $argv
 
     if test -L "$file_path" # symlink
         # notify user and recurse on the target of the symlink, which can be any of these file types

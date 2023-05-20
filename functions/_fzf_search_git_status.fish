@@ -2,7 +2,7 @@ function _fzf_search_git_status --description "Search the output of git status. 
     if not git rev-parse --git-dir >/dev/null 2>&1
         echo '_fzf_search_git_status: Not in a git repository.' >&2
     else
-        set selected_paths (
+        set -f selected_paths (
             # Pass configuration color.status=always to force status to use colors even though output is sent to a pipe
             git -c color.status=always status --short |
             _fzf_wrapper --ansi \
@@ -16,7 +16,7 @@ function _fzf_search_git_status --description "Search the output of git status. 
         if test $status -eq 0
             # git status --short automatically escapes the paths of most files for us so not going to bother trying to handle
             # the few edges cases of weird file names that should be extremely rare (e.g. "this;needs;escaping")
-            set cleaned_paths
+            set -f cleaned_paths
 
             for path in $selected_paths
                 if test (string sub --length 1 $path) = R

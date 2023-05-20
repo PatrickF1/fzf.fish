@@ -4,9 +4,9 @@ function _fzf_search_git_log --description "Search the output of git log and pre
     else
         if not set --query fzf_git_log_format
             # %h gives you the abbreviated commit hash, which is useful for saving screen space, but we will have to expand it later below
-            set fzf_git_log_format '%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
+            set -f fzf_git_log_format '%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
         end
-        set selected_log_lines (
+        set -f selected_log_lines (
             git log --no-show-signature --color=always --format=format:$fzf_git_log_format --date=short | \
             _fzf_wrapper --ansi \
                 --multi \
@@ -18,9 +18,9 @@ function _fzf_search_git_log --description "Search the output of git log and pre
         )
         if test $status -eq 0
             for line in $selected_log_lines
-                set abbreviated_commit_hash (string split --field 1 " " $line)
-                set full_commit_hash (git rev-parse $abbreviated_commit_hash)
-                set --append commit_hashes $full_commit_hash
+                set -f abbreviated_commit_hash (string split --field 1 " " $line)
+                set -f full_commit_hash (git rev-parse $abbreviated_commit_hash)
+                set -f --append commit_hashes $full_commit_hash
             end
             commandline --current-token --replace (string join ' ' $commit_hashes)
         end
