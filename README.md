@@ -179,6 +179,16 @@ set fzf_git_log_format "%H %s"
 
 The format must be one line per commit and the hash must be the first field, or else Search Git Log will fail to determine which commits you selected.
 
+### Change the time format used by Search History
+
+Search History prints the time each command was executed. To use your own [time format](https://devhints.io/strftime), set it in `fzf_history_time_format`. For example, this shows on what day of the week the command was executed:
+
+```fish
+set fzf_history_time_format "%A"
+```
+
+Note that the time format cannot include the unicode character `│` (not to be confused with the very similar `|`, the pipe symbol, which is allowed).
+
 ## Further reading
 
 Find answers to these questions and more in the [project Wiki](https://github.com/PatrickF1/fzf.fish/wiki):
