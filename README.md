@@ -181,8 +181,8 @@ The format must be one line per commit and the hash must be the first field, or 
 
 ### Change the date time format used by Search History
 
-[Search History][] shows the date and time each command was executed. To change how the date and time are formatted, set your [strftime format string](https://devhints.io/strftime) in `fzf_history_time_format`.
-Do not to use the vertical box-drawing character `│`, as it is used to delineate the date and time from the command.
+[Search History][] shows the date time each command was executed. To change how its formatted, set your [strftime format string](https://devhints.io/strftime) in `fzf_history_time_format`.
+Do not to include the vertical box-drawing character `│` (not to be confused with the pipe character `|`) as it is relied on to delineate the date time from the command.
 
 ## Further reading
 
