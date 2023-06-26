@@ -209,4 +209,5 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
 [search directory]: #-search-directory
 [search git log]: #-search-git-log
+[search history]: #-search-history
 [var scope]: https://fishshell.com/docs/current/#variable-scope
