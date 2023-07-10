@@ -9,8 +9,9 @@ assignees: ""
 ## Before proceeding...
 
 - [ ] My CLIs meet the [minimum version requirements](https://github.com/PatrickF1/fzf.fish#installation)
-- [ ] I have read through the [troubleshooting guide](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting)
+- [ ] I read through the [troubleshooting guide](https://github.com/PatrickF1/fzf.fish/wiki/Troubleshooting)
 - [ ] If I updated fzf.fish for the first time in over 6 months, I read the [migration guides](https://github.com/PatrickF1/fzf.fish/wiki/Migration-Guides) to make sure I'm caught up
+- [ ] I read through the recent [releases](https://github.com/PatrickF1/fzf.fish/releases) to make sure this is not simply a new feature
 
 ## Describe the bug
 
