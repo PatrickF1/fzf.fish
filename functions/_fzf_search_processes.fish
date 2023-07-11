@@ -1,5 +1,6 @@
 function _fzf_search_processes --description "Search all running processes. Replace the current token with the pid of the selected process."
-    # Prefer ps binary over ps alias
+    # Directly use ps command because it is often aliased to a different command entirely
+    # or with options that dirty the search results and preview output
     set -f ps_cmd (command -v ps || echo "ps")
     # use all caps to be consistent with ps default format
     # snake_case because ps doesn't seem to allow spaces in the field names
