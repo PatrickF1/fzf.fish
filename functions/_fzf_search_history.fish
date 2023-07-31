@@ -16,7 +16,7 @@ function _fzf_search_history --description "Search command history. Replace the 
         _fzf_wrapper --read0 \
             --print0 \
             --multi \
-            --tiebreak=index \
+            --scheme=history \
             --prompt="Search History> " \
             --query=(commandline) \
             --preview="echo -- {} | string replace --regex '^.*? │ ' '' | fish_indent --ansi" \
