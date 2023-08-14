@@ -10,7 +10,7 @@ function _fzf_search_git_log --description "Search the output of git log and pre
             git log --no-show-signature --color=always --format=format:$fzf_git_log_format --date=short | \
             _fzf_wrapper --ansi \
                 --multi \
-                --tiebreak=index \
+                --scheme=history \
                 --prompt="Search Git Log> " \
                 --preview='git show --color=always --stat --patch {1}' \
                 --query=(commandline --current-token) \
