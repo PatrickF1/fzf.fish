@@ -184,7 +184,8 @@ The format must be one line per commit and the hash must be the first field, or 
 To pipe the git diff previews from [Search Git Log][] and [Search Git Status][] through a highlighter tool (e.g. [delta](https://github.com/dandavison/delta) or [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)), set a command invoking the highlighter in `fzf_diff_highlighter`. It should not pipe its output to a pager:
 
 ```fish
-set fzf_diff_highlighter delta --paging=never --line-numbers
+# width=20 so delta decorations don't wrap around small fzf preview pane
+set fzf_diff_highlighter delta --paging=never --width=20
 # Or, if using DFS
 set fzf_diff_highlighter diff-so-fancy
 ```
