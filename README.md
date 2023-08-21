@@ -82,7 +82,7 @@ First, install a proper version of these CLI dependencies:
 | CLI      | Minimum version required | Description                             |
 | -------- | ------------------------ | --------------------------------------- |
 | [fish][] | 3.4.0                    | a modern shell                          |
-| [fzf][]  | 0.27.2                   | fuzzy finder that powers this plugin    |
+| [fzf][]  | 0.33.0                   | fuzzy finder that powers this plugin    |
 | [fd][]   | 8.5.0                    | faster, colorized alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting  |
 
@@ -102,7 +102,7 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize key bindings
 
-`fzf.fish` includes an ergonomic wrapper for configuring its key bindings. Read [its documentation](/functions/_fzf_configure_bindings_help.fish) with this command:
+`fzf.fish` includes an ergonomic wrapper for configuring its key bindings. Read [its documentation](/functions/_fzf_configure_bindings_help.fish):
 
 ```fish
 fzf_configure_bindings --help
@@ -129,12 +129,9 @@ The following variables can store custom options that will be passed to fzf by t
 | Search Processes  | `fzf_processes_opts`  |
 | Search Variables  | `fzf_variables_opts`  |
 
-They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of customizations and augmentations such as:
+They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of augmentations:
 
-- add [key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) within fzf to operate on the selected line:
-  - [open file in Vim](https://github.com/PatrickF1/fzf.fish/pull/273)
-  - [preview image files](https://gitter.im/junegunn/fzf?at=5947962ef6a78eab48620792)
-  - git reset file
+- add [fzf key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) to [open files in Vim](https://github.com/PatrickF1/fzf.fish/pull/273)
 - adjust the preview command or window
 - [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
 - change the [search mode](https://github.com/junegunn/fzf#search-syntax)
@@ -145,13 +142,13 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 
 [Search Directory][], by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
-To use your own directory preview command (e.g. to use one of the many `ls` replacements such as `exa`), set it in `fzf_preview_dir_cmd`:
+To use your own directory preview command, set it in `fzf_preview_dir_cmd`:
 
 ```fish
 set fzf_preview_dir_cmd exa --all --color=always
 ```
 
-And to use your own file preview command (e.g. to `cat` to avoid having to install `bat`, or to add logic for previewing images), set it in `fzf_preview_file_cmd`:
+And to use your own file preview command, set it in `fzf_preview_file_cmd`:
 
 ```fish
 set fzf_preview_file_cmd cat -n
