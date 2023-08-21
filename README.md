@@ -179,6 +179,16 @@ set fzf_git_log_format "%H %s"
 
 The format must be one line per commit and the hash must be the first field, or else Search Git Log will fail to determine which commits you selected.
 
+### Integrate with a diff highlighter
+
+To pipe the git diff previews from [Search Git Log][] and [Search Git Status][] through a highlighter tool (e.g. [delta](https://github.com/dandavison/delta) or [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)), set a command invoking the highlighter in `fzf_diff_highlighter`. It should not pipe its output to a pager:
+
+```fish
+set fzf_diff_highlighter delta --paging=never --line-numbers
+# Or, if using DFS
+set fzf_diff_highlighter diff-so-fancy
+```
+
 ### Change the date time format used by Search History
 
 [Search History][] shows the date time each command was executed. To change how its formatted, set your [strftime format string](https://devhints.io/strftime) in `fzf_history_time_format`. For example, this shows the date time as DD-MM-YY:
@@ -209,5 +219,6 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
 [search directory]: #-search-directory
 [search git log]: #-search-git-log
+[search git status]: #-search-git-status
 [search history]: #-search-history
 [var scope]: https://fishshell.com/docs/current/#variable-scope
