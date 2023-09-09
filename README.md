@@ -145,7 +145,7 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 To use your own directory preview command, set it in `fzf_preview_dir_cmd`:
 
 ```fish
-set fzf_preview_dir_cmd exa --all --color=always
+set fzf_preview_dir_cmd eza --all --color=always
 ```
 
 And to use your own file preview command, set it in `fzf_preview_file_cmd`:
