@@ -7,7 +7,7 @@ function _fzf_search_git_stash --description "Search the output of git stash sho
             set fzf_git_log_format '%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
         end
         set selected_stash_line (
-            git stash list --no-show-signature --color=always --format=format:$fzf_git_log_format --date=short | nl -v 0 | \
+            git stash list --no-show-signature --color=always --format=format:$fzf_git_log_format --date=short | nl -v 0 -w 3 -s ' ' | \
             _fzf_wrapper --ansi \
                 --tiebreak=index \
                 --prompt="Search Git Stash> " \
@@ -16,7 +16,7 @@ function _fzf_search_git_stash --description "Search the output of git stash sho
                 $fzf_git_log_opts
         )
         if test $status -eq 0
-            set stash_index (string split --field 1 \t $selected_stash_line | string trim)
+            set stash_index (string trim $selected_stash_line | string split --field 1 ' ')
             commandline --current-token --replace stash@\{$stash_index\}
         end
     end
