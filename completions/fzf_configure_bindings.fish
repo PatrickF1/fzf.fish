@@ -6,3 +6,4 @@ complete fzf_configure_bindings --long git_status --description "Change the key 
 complete fzf_configure_bindings --long history --description "Change the key binding for Search History" --condition "not __fish_seen_argument --history"
 complete fzf_configure_bindings --long processes --description "Change the key binding for Search Processes" --condition "not __fish_seen_argument --processes"
 complete fzf_configure_bindings --long variables --description "Change the key binding for Search Variables" --condition "not __fish_seen_argument --variables"
+complete fzf_configure_bindings --long git_stash --description "Change the key binding for Search Git Stash" --condition "not __fish_seen_argument --git_stash"
