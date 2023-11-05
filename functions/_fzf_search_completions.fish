@@ -11,9 +11,6 @@ function _fzf_search_completions --description "Search the completions for the c
             --print0 \
             --ansi \
             --multi \
-            --tiebreak=begin \
-            --query=$common_prefix \
-            --print-query \
             $fzf_completions_opts \
         | string split0
     )
