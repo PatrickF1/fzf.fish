@@ -5,7 +5,8 @@
 #   is a file or argument can only be determined via a heuristic.
 function _fzf_search_completions --description "Search the completions for the current command line. Replace the current token with the selected completions."
     set -l selected_completions (
-        complete --do-complete | string join0 |
+        complete --do-complete (commandline --cut-at-cursor) |
+        string join0 |
         _fzf_wrapper \
             --read0 \
             --print0 \
