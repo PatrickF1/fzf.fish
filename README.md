@@ -118,7 +118,7 @@ fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.co
 
 ### Pass fzf options for a specific command
 
-The following variables can store custom options that will be passed to fzf by their respective command:
+The following variables configure the fzf options for their respective command:
 
 | Command           | Variable              |
 | ----------------- | --------------------- |

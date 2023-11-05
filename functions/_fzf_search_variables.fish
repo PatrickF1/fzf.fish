@@ -27,8 +27,7 @@ function _fzf_search_variables --argument-names set_show_output set_names_output
             --preview-window="wrap" \
             --multi \
             --query=$cleaned_curr_token \
-            # $fzf_shell_vars_opts is the deprecated version of $fzf_variables_opts
-            $fzf_shell_vars_opts $fzf_variables_opts
+            $fzf_variables_opts
     )
 
     if test $status -eq 0

@@ -1,6 +1,6 @@
 set target "file 1.txt"
 
-set --global fzf_dir_opts --select-1
+set --global fzf_directory_opts --select-1
 mock commandline --current-token "echo \$target"
 mock commandline "--current-token --replace --" "echo \$argv"
 mock commandline \* ""
