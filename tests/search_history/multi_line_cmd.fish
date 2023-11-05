@@ -1,4 +1,5 @@
 # force history to read from a file with pre-populated history
+# https://fishshell.com/docs/current/cmds/history.html#customizing-the-name-of-the-history-file
 set fish_history test
 set history_file_path ~/.local/share/fish/test_history
 printf "%s" "- cmd: z fzf
