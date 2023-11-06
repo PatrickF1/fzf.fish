@@ -23,7 +23,7 @@ function _fzf_search_history --description "Search command history. Replace the 
             --scheme=history \
             --prompt="Search History> " \
             --query=(commandline) \
-            --preview="string replace --regex $time_prefix_regex '' {} | fish_indent --ansi" \
+            --preview="string replace --regex '$time_prefix_regex' '' -- {} | fish_indent --ansi" \
             --preview-window="bottom:3:wrap" \
             $fzf_history_opts |
         string split0 |
