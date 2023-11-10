@@ -17,7 +17,7 @@ function _fzf_search_git_log --description "Search the output of git log and pre
             _fzf_wrapper --ansi \
                 --multi \
                 --scheme=history \
-                --prompt="Search Git Log> " \
+                --prompt="Git Log> " \
                 --preview=$preview_cmd \
                 --query=(commandline --current-token) \
                 $fzf_git_log_opts
