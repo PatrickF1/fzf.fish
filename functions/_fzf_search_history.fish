@@ -21,7 +21,7 @@ function _fzf_search_history --description "Search command history. Replace the 
             --print0 \
             --multi \
             --scheme=history \
-            --prompt="Search History> " \
+            --prompt="History> " \
             --query=(commandline) \
             --preview="string replace --regex '$time_prefix_regex' '' -- {} | fish_indent --ansi" \
             --preview-window="bottom:3:wrap" \

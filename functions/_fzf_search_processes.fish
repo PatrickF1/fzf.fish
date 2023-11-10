@@ -8,7 +8,7 @@ function _fzf_search_processes --description "Search all running processes. Repl
     set -f processes_selected (
         $ps_cmd -A -opid,command | \
         _fzf_wrapper --multi \
-                    --prompt="Search Processes> " \
+                    --prompt="Processes> " \
                     --query (commandline --current-token) \
                     --ansi \
                     # first line outputted by ps is a header, so we need to mark it as so
