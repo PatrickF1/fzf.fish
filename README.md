@@ -140,7 +140,7 @@ Find more ideas and implementation tips in the [Cookbook](https://github.com/Pat
 
 ### Change how Search Directory previews directories and regular files
 
-[Search Directory][], by default, calls `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
+[Search Directory][], by default, executes `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
 
 To use your own directory preview command, set it in `fzf_preview_dir_cmd`:
 
@@ -158,17 +158,17 @@ Omit the target path for both variables as `fzf.fish` will itself [specify the a
 
 ### Change what files are listed in Search Directory
 
-To pass custom options to `fd` when it is executed to populate the list of files for [Search Directory][], set them in `fzf_fd_opts`. For example, this includes hidden files but not `.git`:
+To pass custom options to `fd` when [Search Directory][] executes it to populate the list of files, set them in `fzf_fd_opts`:
 
 ```fish
-set fzf_fd_opts --hidden --exclude=.git
+set fzf_fd_opts --hidden --max-depth 5
 ```
 
 <a id='fd-gi'></a>By default, `fd` hides files listed in `.gitignore`. You can disable this behavior by adding the `--no-ignore` flag to `fzf_fd_opts`.
 
 ### Change the commit formatting used by Search Git Log
 
-[Search Git Log][] calls `git log --format` to format the list of commits. To use your own [commit log format](https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem), set it in `fzf_git_log_format`. For example, this shows the hash and subject for each commit:
+[Search Git Log][] executes `git log --format` to format the list of commits. To use your own [commit log format](https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem), set it in `fzf_git_log_format`. For example, this shows the hash and subject for each commit:
 
 ```fish
 set fzf_git_log_format "%H %s"
