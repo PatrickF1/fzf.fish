@@ -102,23 +102,23 @@ fisher install PatrickF1/fzf.fish
 
 ### Customize key bindings
 
-`fzf.fish` includes an ergonomic wrapper for configuring its key bindings. Read [its documentation](/functions/_fzf_configure_bindings_help.fish):
+`fzf.fish` includes an ergonomic function for configuring its key bindings. Read [its documentation](/functions/_fzf_configure_bindings_help.fish):
 
 ```fish
 fzf_configure_bindings --help
 ```
 
-Once you've determined the desired `fzf_configure_bindings` command, add it to your `config.fish` in order to persist the bindings.
+Call `fzf_configure_bindings` in your `config.fish` in order to persist your custom bindings.
 
-### Always pass some options to fzf
+### Change fzf options for all commands
 
-fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable. If set, fzf implicitly prepends its value to the options it receives on every execution, scripted and interactive.
+fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable.
 
-`fzf.fish` locally sets [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish). If you export your own `FZF_DEFAULT_OPTS`, then yours will be used instead.
+`fzf.fish` sets [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish). If you export your own `FZF_DEFAULT_OPTS`, then yours will be used instead.
 
-### Pass fzf options for a specific command
+### Change fzf options for a specific command
 
-The following variables configure the fzf options for their respective command:
+Each command's fzf options can be configured via a variable:
 
 | Command           | Variable              |
 | ----------------- | --------------------- |
@@ -129,14 +129,14 @@ The following variables configure the fzf options for their respective command:
 | Search Processes  | `fzf_processes_opts`  |
 | Search Variables  | `fzf_variables_opts`  |
 
-They are appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options will always take precedence. Custom fzf options unlock a variety of augmentations:
+The value of each variable is appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options take precedence. Custom fzf options unlock a variety of augmentations:
 
 - add [fzf key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) to [open files in Vim](https://github.com/PatrickF1/fzf.fish/pull/273)
 - adjust the preview command or window
 - [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
 - change the [search mode](https://github.com/junegunn/fzf#search-syntax)
 
-Find more ideas and implementation tips in the [Cookbook](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook).
+Find more ideas and tips in the [Cookbook](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook).
 
 ### Change how Search Directory previews directories and regular files
 
@@ -156,7 +156,7 @@ set fzf_preview_file_cmd cat -n
 
 Omit the target path for both variables as `fzf.fish` will itself [specify the argument to preview](functions/_fzf_preview_file.fish).
 
-### Change what files are listed in Search Directory
+### Change what files are listed by Search Directory
 
 To pass custom options to `fd` when [Search Directory][] executes it to populate the list of files, set them in `fzf_fd_opts`:
 
@@ -166,7 +166,7 @@ set fzf_fd_opts --hidden --max-depth 5
 
 <a id='fd-gi'></a>By default, `fd` hides files listed in `.gitignore`. You can disable this behavior by adding the `--no-ignore` flag to `fzf_fd_opts`.
 
-### Change the commit formatting used by Search Git Log
+### Change Search Git Log's commit formatting
 
 [Search Git Log][] executes `git log --format` to format the list of commits. To use your own [commit log format](https://git-scm.com/docs/git-log#Documentation/git-log.txt-emnem), set it in `fzf_git_log_format`. For example, this shows the hash and subject for each commit:
 
@@ -187,7 +187,7 @@ set fzf_diff_highlighter delta --paging=never --width=20
 set fzf_diff_highlighter diff-so-fancy
 ```
 
-### Change the date time format used by Search History
+### Change Search History's date time format
 
 [Search History][] shows the date time each command was executed. To change how its formatted, set your [strftime format string](https://devhints.io/strftime) in `fzf_history_time_format`. For example, this shows the date time as DD-MM-YY:
 
