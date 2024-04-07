@@ -112,9 +112,7 @@ Call `fzf_configure_bindings` in your `config.fish` in order to persist your cus
 
 ### Change fzf options for all commands
 
-fzf supports global default options via the [FZF_DEFAULT_OPTS or FZF_DEFAULT_OPTS_FILE](https://github.com/junegunn/fzf#environment-variables) environment variables.
-
-`fzf.fish` sets [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish) unless you export your own `FZF_DEFAULT_OPTS` or `FZF_DEFAULT_OPTS_FILE`.
+fzf supports global default options via the [FZF_DEFAULT_OPTS and FZF_DEFAULT_OPTS_FILE](https://github.com/junegunn/fzf#environment-variables) environment variables. If neither are set, `fzf.fish` sets its own [default opts whenever it executes fzf](functions/_fzf_wrapper.fish).
 
 ### Change fzf options for a specific command
 
