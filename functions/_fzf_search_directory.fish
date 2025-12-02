@@ -18,12 +18,13 @@ function _fzf_search_directory --description "Search the current directory. Repl
         set --append fd_cmd --base-directory=$unescaped_exp_token
         # use the directory name as fzf's prompt to indicate the search is limited to that directory
         set --prepend fzf_arguments --prompt="Directory $unescaped_exp_token> " --preview="_fzf_preview_file $expanded_token{}"
+        set --prepend fzf_arguments --bind="ctrl-o:execute(\$EDITOR $expanded_token{})"
         set -f file_paths_selected $unescaped_exp_token($fd_cmd 2>/dev/null | _fzf_wrapper $fzf_arguments)
     else
         set --prepend fzf_arguments --prompt="Directory> " --query="$unescaped_exp_token" --preview='_fzf_preview_file {}'
+        set --prepend fzf_arguments --bind='ctrl-o:execute($EDITOR {})'
         set -f file_paths_selected ($fd_cmd 2>/dev/null | _fzf_wrapper $fzf_arguments)
     end
-
 
     if test $status -eq 0
         commandline --current-token --replace -- (string escape -- $file_paths_selected | string join ' ')

@@ -16,6 +16,7 @@ function _fzf_search_git_status --description "Search the output of git status. 
                 --query=(commandline --current-token) \
                 --preview=$preview_cmd \
                 --nth="2.." \
+                --bind='ctrl-o:execute($EDITOR {2..})' \
                 $fzf_git_status_opts
         )
         if test $status -eq 0

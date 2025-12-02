@@ -14,6 +14,7 @@ DESCRIPTION
         Search Directory   |  Ctrl+Alt+F (F for file)      |  --directory
         Search Git Log     |  Ctrl+Alt+L (L for log)       |  --git_log
         Search Git Status  |  Ctrl+Alt+S (S for status)    |  --git_status
+        Search Grep        |  Ctrl+Alt+G (G for grep)      |  --grep
         Search History     |  Ctrl+R     (R for reverse)   |  --history
         Search Processes   |  Ctrl+Alt+P (P for process)   |  --processes
         Search Variables   |  Ctrl+V     (V for variable)  |  --variables

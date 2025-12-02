@@ -47,6 +47,16 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
 - **Preview window:** the git diff of the file
 
+### 🔎 Search Grep
+
+- **Fzf input:** live grep search results from ripgrep
+- **Output:** file paths with line numbers of selected matches (e.g., `src/main.fish:42`)
+- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>G</kbd> (`G` for grep)
+- **Preview window:** file with the matched line highlighted
+- **Remarks**
+  - search updates live as you type
+  - press <kbd>Ctrl</kbd>+<kbd>O</kbd> to open the file at the matched line in `$EDITOR`
+
 ### 📜 Search History
 
 ![Search History example](../assets/history.png)
@@ -85,8 +95,9 @@ First, install a proper version of these CLI dependencies:
 | [fzf][]  | 0.33.0                   | fuzzy finder that powers this plugin    |
 | [fd][]   | 8.5.0                    | faster, colorized alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting  |
+| [rg][]   | 11.0.0                   | fast grep alternative for live search   |
 
-[fd][] and [bat][] only need to be installed if you will use [Search Directory][].
+[fd][], [bat][], and [rg][] only need to be installed if you will use [Search Directory][], or [Search Grep][].
 
 Next, because `fzf.fish` is incompatible with other fzf plugins, [check for and remove these two common alternatives](https://github.com/PatrickF1/fzf.fish/wiki/Uninstalling-other-fzf-plugins).
 
@@ -123,6 +134,7 @@ Each command's fzf options can be configured via a variable:
 | Search Directory  | `fzf_directory_opts`  |
 | Search Git Log    | `fzf_git_log_opts`    |
 | Search Git Status | `fzf_git_status_opts` |
+| Search Grep       | `fzf_grep_opts`       |
 | Search History    | `fzf_history_opts`    |
 | Search Processes  | `fzf_processes_opts`  |
 | Search Variables  | `fzf_variables_opts`  |
@@ -213,8 +225,10 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [fisher]: https://github.com/jorgebucaran/fisher
 [fzf]: https://github.com/junegunn/fzf
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
+[rg]: https://github.com/BurntSushi/ripgrep
 [search directory]: #-search-directory
 [search git log]: #-search-git-log
 [search git status]: #-search-git-status
+[search grep]: #-search-grep
 [search history]: #-search-history
 [var scope]: https://fishshell.com/docs/current/#variable-scope
