@@ -24,7 +24,6 @@ function _fzf_search_directory --description "Search the current directory. Repl
         set -f file_paths_selected ($fd_cmd 2>/dev/null | _fzf_wrapper $fzf_arguments)
     end
 
-
     if test $status -eq 0
         commandline --current-token --replace -- (string escape -- $file_paths_selected | string join ' ')
     end
