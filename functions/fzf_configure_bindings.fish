@@ -16,7 +16,7 @@ function fzf_configure_bindings --description "Installs the default key bindings
     else
         # Initialize with default key sequences and then override or disable them based on flags
         # index 1 = directory, 2 = git_log, 3 = git_status, 4 = history, 5 = processes, 6 = variables
-        set -f key_sequences \e\cf \e\cl \e\cs \cr \e\cp \cv # \c = control, \e = escape
+        set -f key_sequences ctrl-alt-f ctrl-alt-l ctrl-alt-s ctrl-r ctrl-alt-p ctrl-v
         set --query _flag_directory && set key_sequences[1] "$_flag_directory"
         set --query _flag_git_log && set key_sequences[2] "$_flag_git_log"
         set --query _flag_git_status && set key_sequences[3] "$_flag_git_status"

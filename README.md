@@ -81,7 +81,7 @@ First, install a proper version of these CLI dependencies:
 
 | CLI      | Minimum version required | Description                             |
 | -------- | ------------------------ | --------------------------------------- |
-| [fish][] | 3.4.0                    | a modern shell                          |
+| [fish][] | 4.0.0                    | a modern shell                          |
 | [fzf][]  | 0.33.0                   | fuzzy finder that powers this plugin    |
 | [fd][]   | 8.5.0                    | faster, colorized alternative to `find` |
 | [bat][]  | 0.16.0                   | smarter `cat` with syntax highlighting  |

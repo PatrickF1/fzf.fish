@@ -18,7 +18,8 @@ DESCRIPTION
         Search Processes   |  Ctrl+Alt+P (P for process)   |  --processes
         Search Variables   |  Ctrl+V     (V for variable)  |  --variables
     Override a command's binding by specifying its corresponding option with the desired key
-    sequence. Disable a command's binding by specifying its corresponding option with no value.
+    sequence using fish's key name syntax (e.g. ctrl-f, ctrl-alt-v). Disable a command's binding
+    by specifying its corresponding option with no value.
 
     Because fzf_configure_bindings erases bindings it previously installed, it can be cleanly
     executed multiple times. Once the desired fzf_configure_bindings command has been found, add it
@@ -31,11 +32,11 @@ DESCRIPTION
 
 EXAMPLES
     Default bindings but bind Search Directory to Ctrl+F and Search Variables to Ctrl+Alt+V
-        \$ fzf_configure_bindings --directory=\cf --variables=\e\cv
+        \$ fzf_configure_bindings --directory=ctrl-f --variables=ctrl-alt-v
     Default bindings but disable Search History
         \$ fzf_configure_bindings --history=
     An agglomeration of different options
-        \$ fzf_configure_bindings --git_status=\cg --history=\ch --variables= --processes=
+        \$ fzf_configure_bindings --git_status=ctrl-g --history=ctrl-h --variables= --processes=
 
 SEE Also
     To learn more about fish key bindings, see bind(1) and fish_key_reader(1).
